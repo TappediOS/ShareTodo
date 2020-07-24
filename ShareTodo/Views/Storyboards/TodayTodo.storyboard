@@ -26,7 +26,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TodayTodoCollectionViewCell" id="Y4d-9a-7Jk">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TodayTodoCollectionViewCell" id="Y4d-9a-7Jk" customClass="TodayTodoCollectionViewCell" customModule="ShareTodo" customModuleProvider="target">
                                         <rect key="frame" x="8" y="0.0" width="398" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="mgw-D7-RYP">
@@ -73,6 +73,11 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="398" height="70"/>
+                                        <connections>
+                                            <outlet property="groupImageView" destination="p4k-YR-jRL" id="kAv-OA-ZfZ"/>
+                                            <outlet property="radioButton" destination="uBo-mg-J4c" id="rab-l4-q5f"/>
+                                            <outlet property="taskLabel" destination="7By-Nk-JDs" id="P6h-jb-cN7"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>

@@ -12,7 +12,7 @@ final class MainTabBarViewController: UITabBarController {
     private var presenter: MainTabBarViewPresenterProtocol!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad()
         
         self.selectedIndex = 0
     }

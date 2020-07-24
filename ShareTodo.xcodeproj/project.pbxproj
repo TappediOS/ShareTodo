@@ -20,6 +20,10 @@
 		BF88D4DA24CAAB3F00607D6A /* ExUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D4D924CAAB3F00607D6A /* ExUIViewController.swift */; };
 		BF88D4DC24CAAB5100607D6A /* ExUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D4DB24CAAB5100607D6A /* ExUIView.swift */; };
 		BF88D4DE24CAAB6600607D6A /* ExString.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D4DD24CAAB6600607D6A /* ExString.swift */; };
+		BF88D4E224CAB67C00607D6A /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D4E124CAB67C00607D6A /* MainTabBarViewController.swift */; };
+		BF88D4E424CAB69C00607D6A /* MainTabBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D4E324CAB69C00607D6A /* MainTabBarModel.swift */; };
+		BF88D4E624CAB6A200607D6A /* MainTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D4E524CAB6A200607D6A /* MainTabBarPresenter.swift */; };
+		BF88D4E824CAB6AA00607D6A /* MainTabBarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D4E724CAB6AA00607D6A /* MainTabBarBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +63,10 @@
 		BF88D4D924CAAB3F00607D6A /* ExUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIViewController.swift; sourceTree = "<group>"; };
 		BF88D4DB24CAAB5100607D6A /* ExUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIView.swift; sourceTree = "<group>"; };
 		BF88D4DD24CAAB6600607D6A /* ExString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExString.swift; sourceTree = "<group>"; };
+		BF88D4E124CAB67C00607D6A /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		BF88D4E324CAB69C00607D6A /* MainTabBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarModel.swift; sourceTree = "<group>"; };
+		BF88D4E524CAB6A200607D6A /* MainTabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarPresenter.swift; sourceTree = "<group>"; };
+		BF88D4E724CAB6AA00607D6A /* MainTabBarBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +191,7 @@
 		BF88D4C624CAA93500607D6A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BF88D4E024CAB65D00607D6A /* MainTabBarController */,
 				BF88D4C724CAA97A00607D6A /* Sample */,
 				BF88D4CA24CAA9C000607D6A /* Storyboards */,
 			);
@@ -221,6 +230,17 @@
 				BF88D4D724CAAB1100607D6A /* Sample.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		BF88D4E024CAB65D00607D6A /* MainTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				BF88D4E724CAB6AA00607D6A /* MainTabBarBuilder.swift */,
+				BF88D4E124CAB67C00607D6A /* MainTabBarViewController.swift */,
+				BF88D4E524CAB6A200607D6A /* MainTabBarPresenter.swift */,
+				BF88D4E324CAB69C00607D6A /* MainTabBarModel.swift */,
+			);
+			path = MainTabBarController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,11 +393,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF88D4E824CAB6AA00607D6A /* MainTabBarBuilder.swift in Sources */,
 				BF88D4D224CAAA9300607D6A /* SampleViewBuilder.swift in Sources */,
 				BF88D49224CAA83300607D6A /* AppDelegate.swift in Sources */,
+				BF88D4E224CAB67C00607D6A /* MainTabBarViewController.swift in Sources */,
 				BF88D4CE24CAAA0B00607D6A /* Routes.swift in Sources */,
 				BF88D4D624CAAAB200607D6A /* SampleViewModel.swift in Sources */,
 				BF88D4D024CAAA8D00607D6A /* SampleViewController.swift in Sources */,
+				BF88D4E624CAB6A200607D6A /* MainTabBarPresenter.swift in Sources */,
+				BF88D4E424CAB69C00607D6A /* MainTabBarModel.swift in Sources */,
 				BF88D4DA24CAAB3F00607D6A /* ExUIViewController.swift in Sources */,
 				BF88D4DC24CAAB5100607D6A /* ExUIView.swift in Sources */,
 				BF88D49424CAA83300607D6A /* SceneDelegate.swift in Sources */,

@@ -14,12 +14,27 @@ final class TodayTodoViewController: UIViewController {
     
     private let todayTodoCollectionViewCellId = "TodayTodoCollectionViewCell"
     
-    var todo = ["test", "lost", "cooked"]
+    var todo = ["test", "lost", "cooked", "lost", "cat", "lock", "la", "ja", "en", "ko", "fr"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setupView()
+        self.setupNavigationBar()
         self.setupTodayTodoCollectionView()
+    }
+    
+    func setupView() {
+        self.view.backgroundColor = .secondarySystemBackground
+    }
+    
+    func setupNavigationBar() {
+        self.navigationItem.title = "Today"
+        self.navigationItem.largeTitleDisplayMode = .always
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.backgroundColor = .secondarySystemBackground
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     func setupTodayTodoCollectionView() {
@@ -68,6 +83,6 @@ extension TodayTodoViewController: UICollectionViewDelegate, UICollectionViewDat
 
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 32, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 32, left: 0, bottom: 40, right: 0)
     }
 }

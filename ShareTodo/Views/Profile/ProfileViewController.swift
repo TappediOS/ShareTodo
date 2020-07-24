@@ -10,6 +10,8 @@ import UIKit
 
 final class ProfileViewController: UIViewController {
     private var presenter: ProfileViewPresenterProtocol!
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

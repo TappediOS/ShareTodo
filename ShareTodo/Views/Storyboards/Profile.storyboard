@@ -14,13 +14,42 @@
                     <view key="view" contentMode="scaleToFill" id="EhN-Eg-uG4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2bA-Cr-WVd">
+                                <rect key="frame" x="20" y="52" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="69C-re-fQx"/>
+                                    <constraint firstAttribute="height" constant="100" id="dtD-PX-9VD"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cuw-u2-uyb">
+                                <rect key="frame" x="140" y="83" width="254" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="geQ-2p-eyV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="cuw-u2-uyb" firstAttribute="top" secondItem="88K-bF-CQ8" secondAttribute="top" constant="39" id="Ldh-sj-g7B"/>
+                            <constraint firstItem="2bA-Cr-WVd" firstAttribute="top" secondItem="88K-bF-CQ8" secondAttribute="top" constant="8" id="M2i-Pr-mBb"/>
+                            <constraint firstItem="cuw-u2-uyb" firstAttribute="leading" secondItem="2bA-Cr-WVd" secondAttribute="trailing" constant="20" id="YJI-fu-NBV"/>
+                            <constraint firstItem="88K-bF-CQ8" firstAttribute="trailing" secondItem="cuw-u2-uyb" secondAttribute="trailing" constant="20" id="edt-kc-9MC"/>
+                            <constraint firstItem="2bA-Cr-WVd" firstAttribute="leading" secondItem="88K-bF-CQ8" secondAttribute="leading" constant="20" id="oZ1-7f-Z8P"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="88K-bF-CQ8"/>
                     </view>
+                    <connections>
+                        <outlet property="nameLabel" destination="cuw-u2-uyb" id="kD0-Lo-rQ2"/>
+                        <outlet property="profileImageView" destination="2bA-Cr-WVd" id="UJ4-5B-TtJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lej-3Z-UjY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="138"/>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
     </scenes>
 </document>

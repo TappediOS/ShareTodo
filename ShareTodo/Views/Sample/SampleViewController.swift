@@ -24,4 +24,3 @@ final class SampleViewController: UIViewController {
 extension SampleViewController: SampleViewPresenterOutput {
     
 }
-

@@ -16,15 +16,10 @@ final class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setupNavigationBar()
         self.setupProfileImageView()
         self.setupNameLabel()
-    }
-    
-    func setupNavigationBar() {
-        self.navigationItem.title = "Me"
-        self.navigationItem.largeTitleDisplayMode = .always
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.setupNavigationBar()
+        self.setupUIBarButtonItem()
     }
     
     func setupProfileImageView() {
@@ -35,6 +30,22 @@ final class ProfileViewController: UIViewController {
     func setupNameLabel() {
         self.nameLabel.adjustsFontSizeToFitWidth = true
         self.nameLabel.minimumScaleFactor = 0.4
+    }
+    
+    func setupNavigationBar() {
+        self.navigationItem.title = "Me"
+        self.navigationItem.largeTitleDisplayMode = .always
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    func setupUIBarButtonItem() {
+        let editProfileButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editProfile(_:)))
+        editProfileButtonItem.tintColor = .systemBlue
+        self.navigationItem.rightBarButtonItem = editProfileButtonItem
+    }
+
+    @objc func editProfile(_ sender: UIButton) {
+        print("editProfile")
     }
     
     func inject(with presenter: ProfileViewPresenterProtocol) {

@@ -17,4 +17,3 @@ protocol MainTabBarModelOutput: class {
 final class MainTabBarModel: MainTabBarModelProtocol {
     weak var presenter: MainTabBarModelOutput!
 }
-

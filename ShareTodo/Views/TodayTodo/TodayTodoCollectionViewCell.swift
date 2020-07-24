@@ -15,6 +15,8 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.layer.cornerRadius = 10
+        self.backgroundColor = .systemBackground
         
         self.setupGroupImageView()
         self.setupTaskLabel()

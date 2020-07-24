@@ -23,7 +23,15 @@ final class TodayTodoViewController: UIViewController {
     }
     
     func setupTodayTodoCollectionView() {
-        self.todayTodoCollectionView.collectionViewLayout.invalidateLayout()
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width * 0.9, height: 95)
+        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.minimumLineSpacing = 16
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        
+        self.todayTodoCollectionView.setCollectionViewLayout(flowLayout, animated: true)
+        self.todayTodoCollectionView.backgroundColor = .secondarySystemBackground
+        
         self.todayTodoCollectionView.delegate = self
         self.todayTodoCollectionView.dataSource = self
     }
@@ -38,7 +46,7 @@ extension TodayTodoViewController: TodayTodoViewPresenterOutput {
     
 }
 
-extension TodayTodoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension TodayTodoViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.todo.count
     }
@@ -47,7 +55,7 @@ extension TodayTodoViewController: UICollectionViewDelegate, UICollectionViewDat
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: todayTodoCollectionViewCellId, for: indexPath) as! TodayTodoCollectionViewCell
 
         //TODO:- 実際の文字列を表示すること
-        cell.taskLabel.text = "朝起きをすること"
+        cell.taskLabel.text = "朝起き"
         cell.groupImageView.image = UIImage(systemName: "cloud.sun.rain.fill")
         cell.groupImageView.tintColor = .systemTeal
    
@@ -58,12 +66,8 @@ extension TodayTodoViewController: UICollectionViewDelegate, UICollectionViewDat
         return 1
     }
 
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let width = UIScreen.main.bounds.width
-        return CGSize(width: width, height: 70)
-    }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 32, left: 0, bottom: 0, right: 0)
     }
 }

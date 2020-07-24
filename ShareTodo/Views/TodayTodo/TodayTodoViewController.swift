@@ -70,7 +70,7 @@ extension TodayTodoViewController: UICollectionViewDelegate, UICollectionViewDat
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: todayTodoCollectionViewCellId, for: indexPath) as! TodayTodoCollectionViewCell
 
         //TODO:- 実際の文字列を表示すること
-        cell.taskLabel.text = "朝起き"
+        cell.taskLabel.text = todo[indexPath.item]
         cell.groupImageView.image = UIImage(systemName: "cloud.sun.rain.fill")
         cell.groupImageView.tintColor = .systemTeal
    
@@ -80,7 +80,6 @@ extension TodayTodoViewController: UICollectionViewDelegate, UICollectionViewDat
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 32, left: 0, bottom: 40, right: 0)

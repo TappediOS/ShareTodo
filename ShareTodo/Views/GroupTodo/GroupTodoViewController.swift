@@ -19,7 +19,14 @@ final class GroupTodoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setupNavigationBar()
         self.setupGroupTableView()
+    }
+    
+    func setupNavigationBar() {
+        self.navigationItem.title = "Group"
+        self.navigationItem.largeTitleDisplayMode = .always
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     func setupGroupTableView() {
@@ -40,6 +47,12 @@ extension GroupTodoViewController: GroupTodoViewPresenterOutput {
 }
 
 extension GroupTodoViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = .none
+        return view
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.todo.count
     }

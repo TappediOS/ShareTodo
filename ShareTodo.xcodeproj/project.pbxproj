@@ -12,6 +12,14 @@
 		BF88D4A924CAA83600607D6A /* ShareTodoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D4A824CAA83600607D6A /* ShareTodoTests.swift */; };
 		BF88D4B424CAA83600607D6A /* ShareTodoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D4B324CAA83600607D6A /* ShareTodoUITests.swift */; };
 		BF88D4CE24CAAA0B00607D6A /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D4CD24CAAA0B00607D6A /* Routes.swift */; };
+		BF88D4D024CAAA8D00607D6A /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D4CF24CAAA8D00607D6A /* SampleViewController.swift */; };
+		BF88D4D224CAAA9300607D6A /* SampleViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D4D124CAAA9300607D6A /* SampleViewBuilder.swift */; };
+		BF88D4D424CAAAA000607D6A /* SampleViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D4D324CAAAA000607D6A /* SampleViewPresenter.swift */; };
+		BF88D4D624CAAAB200607D6A /* SampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D4D524CAAAB200607D6A /* SampleViewModel.swift */; };
+		BF88D4D824CAAB1100607D6A /* Sample.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF88D4D724CAAB1100607D6A /* Sample.storyboard */; };
+		BF88D4DA24CAAB3F00607D6A /* ExUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D4D924CAAB3F00607D6A /* ExUIViewController.swift */; };
+		BF88D4DC24CAAB5100607D6A /* ExUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D4DB24CAAB5100607D6A /* ExUIView.swift */; };
+		BF88D4DE24CAAB6600607D6A /* ExString.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D4DD24CAAB6600607D6A /* ExString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +51,14 @@
 		BF88D4B324CAA83600607D6A /* ShareTodoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareTodoUITests.swift; sourceTree = "<group>"; };
 		BF88D4B524CAA83600607D6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF88D4CD24CAAA0B00607D6A /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
+		BF88D4CF24CAAA8D00607D6A /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
+		BF88D4D124CAAA9300607D6A /* SampleViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewBuilder.swift; sourceTree = "<group>"; };
+		BF88D4D324CAAAA000607D6A /* SampleViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewPresenter.swift; sourceTree = "<group>"; };
+		BF88D4D524CAAAB200607D6A /* SampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewModel.swift; sourceTree = "<group>"; };
+		BF88D4D724CAAB1100607D6A /* Sample.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sample.storyboard; sourceTree = "<group>"; };
+		BF88D4D924CAAB3F00607D6A /* ExUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIViewController.swift; sourceTree = "<group>"; };
+		BF88D4DB24CAAB5100607D6A /* ExUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIView.swift; sourceTree = "<group>"; };
+		BF88D4DD24CAAB6600607D6A /* ExString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +166,7 @@
 		BF88D4C424CAA90900607D6A /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				BF88D4DD24CAAB6600607D6A /* ExString.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -157,6 +174,8 @@
 		BF88D4C524CAA90E00607D6A /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				BF88D4D924CAAB3F00607D6A /* ExUIViewController.swift */,
+				BF88D4DB24CAAB5100607D6A /* ExUIView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -173,6 +192,10 @@
 		BF88D4C724CAA97A00607D6A /* Sample */ = {
 			isa = PBXGroup;
 			children = (
+				BF88D4D124CAAA9300607D6A /* SampleViewBuilder.swift */,
+				BF88D4CF24CAAA8D00607D6A /* SampleViewController.swift */,
+				BF88D4D324CAAAA000607D6A /* SampleViewPresenter.swift */,
+				BF88D4D524CAAAB200607D6A /* SampleViewModel.swift */,
 			);
 			path = Sample;
 			sourceTree = "<group>";
@@ -195,6 +218,7 @@
 		BF88D4CA24CAA9C000607D6A /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				BF88D4D724CAAB1100607D6A /* Sample.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -303,6 +327,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF88D4D824CAAB1100607D6A /* Sample.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,9 +352,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF88D4D224CAAA9300607D6A /* SampleViewBuilder.swift in Sources */,
 				BF88D49224CAA83300607D6A /* AppDelegate.swift in Sources */,
 				BF88D4CE24CAAA0B00607D6A /* Routes.swift in Sources */,
+				BF88D4D624CAAAB200607D6A /* SampleViewModel.swift in Sources */,
+				BF88D4D024CAAA8D00607D6A /* SampleViewController.swift in Sources */,
+				BF88D4DA24CAAB3F00607D6A /* ExUIViewController.swift in Sources */,
+				BF88D4DC24CAAB5100607D6A /* ExUIView.swift in Sources */,
 				BF88D49424CAA83300607D6A /* SceneDelegate.swift in Sources */,
+				BF88D4D424CAAAA000607D6A /* SampleViewPresenter.swift in Sources */,
+				BF88D4DE24CAAB6600607D6A /* ExString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,7 +517,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9R4W53MKG7;
-				INFOPLIST_FILE = ShareTodo/Info.plist;
+				INFOPLIST_FILE = ShareTodo/Resources/Info/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -503,7 +535,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9R4W53MKG7;
-				INFOPLIST_FILE = ShareTodo/Info.plist;
+				INFOPLIST_FILE = ShareTodo/Resources/Info/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

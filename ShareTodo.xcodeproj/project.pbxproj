@@ -41,6 +41,7 @@
 		BF88D51524CABCC800607D6A /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D51424CABCC800607D6A /* ProfileViewModel.swift */; };
 		BF88D51724CABD1000607D6A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF88D51624CABD1000607D6A /* Profile.storyboard */; };
 		BF88D51924CAC4D600607D6A /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D51824CAC4D600607D6A /* GroupTableViewCell.swift */; };
+		BF88D51B24CACEEC00607D6A /* TodayTodoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D51A24CACEEC00607D6A /* TodayTodoCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		BF88D51424CABCC800607D6A /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		BF88D51624CABD1000607D6A /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		BF88D51824CAC4D600607D6A /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
+		BF88D51A24CACEEC00607D6A /* TodayTodoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,6 +305,7 @@
 				BF88D4F924CAB99C00607D6A /* TodayTodoViewController.swift */,
 				BF88D4FB24CAB9A100607D6A /* TodayTodoViewPresenter.swift */,
 				BF88D4FD24CAB9A600607D6A /* TodayTodoViewModel.swift */,
+				BF88D51A24CACEEC00607D6A /* TodayTodoCollectionViewCell.swift */,
 			);
 			path = TodayTodo;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				BF88D4EF24CAB88A00607D6A /* GroupTodoViewController.swift in Sources */,
 				BF88D4DA24CAAB3F00607D6A /* ExUIViewController.swift in Sources */,
 				BF88D4FA24CAB99C00607D6A /* TodayTodoViewController.swift in Sources */,
+				BF88D51B24CACEEC00607D6A /* TodayTodoCollectionViewCell.swift in Sources */,
 				BF88D4DC24CAAB5100607D6A /* ExUIView.swift in Sources */,
 				BF88D4F124CAB89000607D6A /* GroupTodoViewPresenter.swift in Sources */,
 				BF88D49424CAA83300607D6A /* SceneDelegate.swift in Sources */,
@@ -655,6 +659,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9R4W53MKG7;
 				INFOPLIST_FILE = ShareTodo/Resources/Info/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -673,6 +678,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9R4W53MKG7;
 				INFOPLIST_FILE = ShareTodo/Resources/Info/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

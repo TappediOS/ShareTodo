@@ -11,6 +11,9 @@ import UIKit
 final class GroupTodoViewController: UIViewController {
     private var presenter: GroupTodoViewPresenterProtocol!
     
+    @IBOutlet weak var groupTableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

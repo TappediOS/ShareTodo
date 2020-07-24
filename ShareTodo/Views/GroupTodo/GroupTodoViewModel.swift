@@ -17,4 +17,3 @@ protocol GroupTodoModelOutput: class {
 final class GroupTodoModel: GroupTodoModelProtocol {
     weak var presenter: GroupTodoModelOutput!
 }
-

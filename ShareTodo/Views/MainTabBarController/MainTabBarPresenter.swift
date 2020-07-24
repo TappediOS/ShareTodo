@@ -23,4 +23,3 @@ final class MainTabBarViewPresenter: MainTabBarViewPresenterProtocol, MainTabBar
         self.model.presenter = self
     }
 }
-

@@ -36,10 +36,8 @@ class GroupTableViewCell: UITableViewCell {
         self.groupMembersNameLabel.minimumScaleFactor = 0.4
     }
     
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
     }
 }
-

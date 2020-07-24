@@ -23,4 +23,3 @@ final class ProfileViewPresenter: ProfileViewPresenterProtocol, ProfileModelOutp
         self.model.presenter = self
     }
 }
-

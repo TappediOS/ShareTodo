@@ -40,6 +40,7 @@
 		BF88D51324CABCC300607D6A /* ProfileViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D51224CABCC300607D6A /* ProfileViewPresenter.swift */; };
 		BF88D51524CABCC800607D6A /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D51424CABCC800607D6A /* ProfileViewModel.swift */; };
 		BF88D51724CABD1000607D6A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF88D51624CABD1000607D6A /* Profile.storyboard */; };
+		BF88D51924CAC4D600607D6A /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D51824CAC4D600607D6A /* GroupTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		BF88D51224CABCC300607D6A /* ProfileViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewPresenter.swift; sourceTree = "<group>"; };
 		BF88D51424CABCC800607D6A /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		BF88D51624CABD1000607D6A /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		BF88D51824CAC4D600607D6A /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +291,7 @@
 				BF88D4EE24CAB88A00607D6A /* GroupTodoViewController.swift */,
 				BF88D4F024CAB89000607D6A /* GroupTodoViewPresenter.swift */,
 				BF88D4F224CAB89500607D6A /* GroupTodoViewModel.swift */,
+				BF88D51824CAC4D600607D6A /* GroupTableViewCell.swift */,
 			);
 			path = GroupTodo;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				BF88D4F324CAB89500607D6A /* GroupTodoViewModel.swift in Sources */,
 				BF88D4E424CAB69C00607D6A /* MainTabBarModel.swift in Sources */,
 				BF88D4ED24CAB88500607D6A /* GroupTodoViewBuilder.swift in Sources */,
+				BF88D51924CAC4D600607D6A /* GroupTableViewCell.swift in Sources */,
 				BF88D4EF24CAB88A00607D6A /* GroupTodoViewController.swift in Sources */,
 				BF88D4DA24CAAB3F00607D6A /* ExUIViewController.swift in Sources */,
 				BF88D4FA24CAB99C00607D6A /* TodayTodoViewController.swift in Sources */,

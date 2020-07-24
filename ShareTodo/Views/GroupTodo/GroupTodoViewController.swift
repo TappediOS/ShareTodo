@@ -45,6 +45,8 @@ final class GroupTodoViewController: UIViewController {
         self.groupTableView.tableFooterView = UIView()
     }
     
+    /// plusボタン押されたときの処理gropuを作成する
+    /// - Parameter sender: button
     @objc func makeGroup(_ sender: UIButton) {
         print("Make Group")
     }
@@ -74,6 +76,7 @@ extension GroupTodoViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = self.groupTableView.dequeueReusableCell(withIdentifier: self.groupTodoCellID, for: indexPath)
                          as? GroupTableViewCell else { return UITableViewCell() }
         
+        //TODO:- 実際の文字列を表示すること
         cell.groupNameLabel.text = "Test"
         cell.groupMembersNameLabel.text = "list, bent, run, aws"
         cell.groupImageView.image = UIImage(systemName: "paperclip.circle.fill")

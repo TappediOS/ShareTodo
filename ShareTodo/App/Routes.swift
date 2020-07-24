@@ -10,6 +10,6 @@ import UIKit
 
 struct Routes {
     static func decideRootViewController() -> UIViewController {
-        return SampleViewBuilder.create()
+        return MainTabBarViewBuilder.create()
     }
 }

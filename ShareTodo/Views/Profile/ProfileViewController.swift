@@ -16,8 +16,15 @@ final class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setupNavigationBar()
         self.setupProfileImageView()
         self.setupNameLabel()
+    }
+    
+    func setupNavigationBar() {
+        self.navigationItem.title = "Me"
+        self.navigationItem.largeTitleDisplayMode = .always
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     func setupProfileImageView() {

@@ -25,6 +25,11 @@
 		BF88D4E624CAB6A200607D6A /* MainTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D4E524CAB6A200607D6A /* MainTabBarPresenter.swift */; };
 		BF88D4E824CAB6AA00607D6A /* MainTabBarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D4E724CAB6AA00607D6A /* MainTabBarBuilder.swift */; };
 		BF88D4EA24CAB76700607D6A /* MainTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF88D4E924CAB76700607D6A /* MainTabBar.storyboard */; };
+		BF88D4ED24CAB88500607D6A /* GroupTodoViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D4EC24CAB88500607D6A /* GroupTodoViewBuilder.swift */; };
+		BF88D4EF24CAB88A00607D6A /* GroupTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D4EE24CAB88A00607D6A /* GroupTodoViewController.swift */; };
+		BF88D4F124CAB89000607D6A /* GroupTodoViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D4F024CAB89000607D6A /* GroupTodoViewPresenter.swift */; };
+		BF88D4F324CAB89500607D6A /* GroupTodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D4F224CAB89500607D6A /* GroupTodoViewModel.swift */; };
+		BF88D4F524CAB8F300607D6A /* GroupTodo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF88D4F424CAB8F300607D6A /* GroupTodo.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +74,11 @@
 		BF88D4E524CAB6A200607D6A /* MainTabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarPresenter.swift; sourceTree = "<group>"; };
 		BF88D4E724CAB6AA00607D6A /* MainTabBarBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarBuilder.swift; sourceTree = "<group>"; };
 		BF88D4E924CAB76700607D6A /* MainTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabBar.storyboard; sourceTree = "<group>"; };
+		BF88D4EC24CAB88500607D6A /* GroupTodoViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTodoViewBuilder.swift; sourceTree = "<group>"; };
+		BF88D4EE24CAB88A00607D6A /* GroupTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTodoViewController.swift; sourceTree = "<group>"; };
+		BF88D4F024CAB89000607D6A /* GroupTodoViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTodoViewPresenter.swift; sourceTree = "<group>"; };
+		BF88D4F224CAB89500607D6A /* GroupTodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTodoViewModel.swift; sourceTree = "<group>"; };
+		BF88D4F424CAB8F300607D6A /* GroupTodo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GroupTodo.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +203,7 @@
 		BF88D4C624CAA93500607D6A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BF88D4EB24CAB86300607D6A /* GroupTodo */,
 				BF88D4E024CAB65D00607D6A /* MainTabBarController */,
 				BF88D4C724CAA97A00607D6A /* Sample */,
 				BF88D4CA24CAA9C000607D6A /* Storyboards */,
@@ -231,6 +242,7 @@
 			children = (
 				BF88D4D724CAAB1100607D6A /* Sample.storyboard */,
 				BF88D4E924CAB76700607D6A /* MainTabBar.storyboard */,
+				BF88D4F424CAB8F300607D6A /* GroupTodo.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -244,6 +256,17 @@
 				BF88D4E324CAB69C00607D6A /* MainTabBarModel.swift */,
 			);
 			path = MainTabBarController;
+			sourceTree = "<group>";
+		};
+		BF88D4EB24CAB86300607D6A /* GroupTodo */ = {
+			isa = PBXGroup;
+			children = (
+				BF88D4EC24CAB88500607D6A /* GroupTodoViewBuilder.swift */,
+				BF88D4EE24CAB88A00607D6A /* GroupTodoViewController.swift */,
+				BF88D4F024CAB89000607D6A /* GroupTodoViewPresenter.swift */,
+				BF88D4F224CAB89500607D6A /* GroupTodoViewModel.swift */,
+			);
+			path = GroupTodo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,6 +376,7 @@
 			files = (
 				BF88D4D824CAAB1100607D6A /* Sample.storyboard in Resources */,
 				BF88D4EA24CAB76700607D6A /* MainTabBar.storyboard in Resources */,
+				BF88D4F524CAB8F300607D6A /* GroupTodo.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,9 +429,13 @@
 				BF88D4D624CAAAB200607D6A /* SampleViewModel.swift in Sources */,
 				BF88D4D024CAAA8D00607D6A /* SampleViewController.swift in Sources */,
 				BF88D4E624CAB6A200607D6A /* MainTabBarPresenter.swift in Sources */,
+				BF88D4F324CAB89500607D6A /* GroupTodoViewModel.swift in Sources */,
 				BF88D4E424CAB69C00607D6A /* MainTabBarModel.swift in Sources */,
+				BF88D4ED24CAB88500607D6A /* GroupTodoViewBuilder.swift in Sources */,
+				BF88D4EF24CAB88A00607D6A /* GroupTodoViewController.swift in Sources */,
 				BF88D4DA24CAAB3F00607D6A /* ExUIViewController.swift in Sources */,
 				BF88D4DC24CAAB5100607D6A /* ExUIView.swift in Sources */,
+				BF88D4F124CAB89000607D6A /* GroupTodoViewPresenter.swift in Sources */,
 				BF88D49424CAA83300607D6A /* SceneDelegate.swift in Sources */,
 				BF88D4D424CAAAA000607D6A /* SampleViewPresenter.swift in Sources */,
 				BF88D4DE24CAAB6600607D6A /* ExString.swift in Sources */,

@@ -15,6 +15,19 @@ final class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setupProfileImageView()
+        self.setupNameLabel()
+    }
+    
+    func setupProfileImageView() {
+        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width / 2
+        self.profileImageView.layer.masksToBounds = true
+    }
+    
+    func setupNameLabel() {
+        self.nameLabel.adjustsFontSizeToFitWidth = true
+        self.nameLabel.minimumScaleFactor = 0.4
     }
     
     func inject(with presenter: ProfileViewPresenterProtocol) {

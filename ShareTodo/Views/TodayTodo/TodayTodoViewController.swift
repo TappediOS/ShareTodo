@@ -10,6 +10,9 @@ import UIKit
 
 final class TodayTodoViewController: UIViewController {
     private var presenter: TodayTodoViewPresenterProtocol!
+    @IBOutlet weak var todayTodoCollectionView: UICollectionView!
+    
+    private let todayTodoCollectionViewCellId = "TodayTodoCollectionViewCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()

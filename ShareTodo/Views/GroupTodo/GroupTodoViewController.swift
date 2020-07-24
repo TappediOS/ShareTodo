@@ -20,6 +20,7 @@ final class GroupTodoViewController: UIViewController {
         super.viewDidLoad()
         
         self.setupNavigationBar()
+        self.setupUIBarButtonItem()
         self.setupGroupTableView()
     }
     
@@ -29,11 +30,23 @@ final class GroupTodoViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+    func setupUIBarButtonItem() {
+        let makeGroupButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"),
+                                                  style: .plain, target: self, action: #selector(makeGroup(_:)))
+       
+        makeGroupButtonItem.tintColor = .systemPink
+        self.navigationItem.rightBarButtonItem = makeGroupButtonItem
+    }
+    
     func setupGroupTableView() {
         self.groupTableView.rowHeight = 85
         self.groupTableView.delegate = self
         self.groupTableView.dataSource = self
         self.groupTableView.tableFooterView = UIView()
+    }
+    
+    @objc func makeGroup(_ sender: UIButton) {
+        print("Make Group")
     }
     
     func inject(with presenter: GroupTodoViewPresenterProtocol) {

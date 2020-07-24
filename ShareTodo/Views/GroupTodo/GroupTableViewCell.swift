@@ -16,7 +16,26 @@ class GroupTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.setupGroupImageView()
+        self.setupGroupNameLabel()
+        self.setupGroupMembersNameLabel()
     }
+    
+    func setupGroupImageView() {
+        self.groupImageView.layer.cornerRadius = self.groupImageView.frame.width / 2
+        self.groupImageView.layer.masksToBounds = true
+    }
+    
+    func setupGroupNameLabel() {
+        self.groupNameLabel.adjustsFontSizeToFitWidth = true
+        self.groupNameLabel.minimumScaleFactor = 0.4
+    }
+    
+    func setupGroupMembersNameLabel() {
+        self.groupMembersNameLabel.adjustsFontSizeToFitWidth = true
+        self.groupMembersNameLabel.minimumScaleFactor = 0.4
+    }
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

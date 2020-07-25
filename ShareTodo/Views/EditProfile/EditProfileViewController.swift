@@ -161,11 +161,9 @@ extension EditProfileViewController: UITextFieldDelegate {
     }
     
     @objc func textFieldDidChange(notification: NSNotification) {
-       let textField = notification.object as! UITextField
-       if let text = textField.text {
-          if textField.markedTextRange == nil && text.count > maxTextfieldLength {
-             textField.text = text.prefix(maxTextfieldLength).description
-          }
-       }
+        guard let textField = notification.object as? UITextField, let text = textField.text else { return }
+        if textField.markedTextRange == nil && text.count > maxTextfieldLength {
+            textField.text = text.prefix(maxTextfieldLength).description
+        }
     }
 }

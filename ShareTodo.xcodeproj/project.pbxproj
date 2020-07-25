@@ -42,6 +42,11 @@
 		BF88D51724CABD1000607D6A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF88D51624CABD1000607D6A /* Profile.storyboard */; };
 		BF88D51924CAC4D600607D6A /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D51824CAC4D600607D6A /* GroupTableViewCell.swift */; };
 		BF88D51B24CACEEC00607D6A /* TodayTodoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D51A24CACEEC00607D6A /* TodayTodoCollectionViewCell.swift */; };
+		BF97244C24CC6B070033BB50 /* EditProfileViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97244B24CC6B070033BB50 /* EditProfileViewBuilder.swift */; };
+		BF97244E24CC6B0D0033BB50 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97244D24CC6B0D0033BB50 /* EditProfileViewController.swift */; };
+		BF97245024CC6B130033BB50 /* EditProfileViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97244F24CC6B130033BB50 /* EditProfileViewPresenter.swift */; };
+		BF97245224CC6B1B0033BB50 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97245124CC6B1B0033BB50 /* EditProfileViewModel.swift */; };
+		BF97245424CC6BD80033BB50 /* EditProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF97245324CC6BD80033BB50 /* EditProfile.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +108,11 @@
 		BF88D51624CABD1000607D6A /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		BF88D51824CAC4D600607D6A /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
 		BF88D51A24CACEEC00607D6A /* TodayTodoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoCollectionViewCell.swift; sourceTree = "<group>"; };
+		BF97244B24CC6B070033BB50 /* EditProfileViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewBuilder.swift; sourceTree = "<group>"; };
+		BF97244D24CC6B0D0033BB50 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		BF97244F24CC6B130033BB50 /* EditProfileViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewPresenter.swift; sourceTree = "<group>"; };
+		BF97245124CC6B1B0033BB50 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		BF97245324CC6BD80033BB50 /* EditProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditProfile.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +237,7 @@
 		BF88D4C624CAA93500607D6A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BF97244A24CC6AF10033BB50 /* EditProfile */,
 				BF88D50D24CABC2800607D6A /* Profile */,
 				BF88D4F624CAB97C00607D6A /* TodayTodo */,
 				BF88D4EB24CAB86300607D6A /* GroupTodo */,
@@ -271,6 +282,7 @@
 				BF88D4F424CAB8F300607D6A /* GroupTodo.storyboard */,
 				BF88D4FF24CAB9F000607D6A /* TodayTodo.storyboard */,
 				BF88D51624CABD1000607D6A /* Profile.storyboard */,
+				BF97245324CC6BD80033BB50 /* EditProfile.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -319,6 +331,17 @@
 				BF88D51424CABCC800607D6A /* ProfileViewModel.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		BF97244A24CC6AF10033BB50 /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				BF97244B24CC6B070033BB50 /* EditProfileViewBuilder.swift */,
+				BF97244D24CC6B0D0033BB50 /* EditProfileViewController.swift */,
+				BF97244F24CC6B130033BB50 /* EditProfileViewPresenter.swift */,
+				BF97245124CC6B1B0033BB50 /* EditProfileViewModel.swift */,
+			);
+			path = EditProfile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,6 +449,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF97245424CC6BD80033BB50 /* EditProfile.storyboard in Resources */,
 				BF88D4D824CAAB1100607D6A /* Sample.storyboard in Resources */,
 				BF88D4EA24CAB76700607D6A /* MainTabBar.storyboard in Resources */,
 				BF88D51724CABD1000607D6A /* Profile.storyboard in Resources */,
@@ -479,10 +503,12 @@
 				BF88D4D224CAAA9300607D6A /* SampleViewBuilder.swift in Sources */,
 				BF88D4FC24CAB9A100607D6A /* TodayTodoViewPresenter.swift in Sources */,
 				BF88D49224CAA83300607D6A /* AppDelegate.swift in Sources */,
+				BF97245024CC6B130033BB50 /* EditProfileViewPresenter.swift in Sources */,
 				BF88D4E224CAB67C00607D6A /* MainTabBarViewController.swift in Sources */,
 				BF88D4CE24CAAA0B00607D6A /* Routes.swift in Sources */,
 				BF88D51124CABCBD00607D6A /* ProfileViewController.swift in Sources */,
 				BF88D4F824CAB99500607D6A /* TodayTodoViewbuilder.swift in Sources */,
+				BF97244E24CC6B0D0033BB50 /* EditProfileViewController.swift in Sources */,
 				BF88D50F24CABCB700607D6A /* ProfileViewBuilder.swift in Sources */,
 				BF88D4D624CAAAB200607D6A /* SampleViewModel.swift in Sources */,
 				BF88D51524CABCC800607D6A /* ProfileViewModel.swift in Sources */,
@@ -497,10 +523,12 @@
 				BF88D4EF24CAB88A00607D6A /* GroupTodoViewController.swift in Sources */,
 				BF88D4DA24CAAB3F00607D6A /* ExUIViewController.swift in Sources */,
 				BF88D4FA24CAB99C00607D6A /* TodayTodoViewController.swift in Sources */,
+				BF97245224CC6B1B0033BB50 /* EditProfileViewModel.swift in Sources */,
 				BF88D51B24CACEEC00607D6A /* TodayTodoCollectionViewCell.swift in Sources */,
 				BF88D4DC24CAAB5100607D6A /* ExUIView.swift in Sources */,
 				BF88D4F124CAB89000607D6A /* GroupTodoViewPresenter.swift in Sources */,
 				BF88D49424CAA83300607D6A /* SceneDelegate.swift in Sources */,
+				BF97244C24CC6B070033BB50 /* EditProfileViewBuilder.swift in Sources */,
 				BF88D4D424CAAAA000607D6A /* SampleViewPresenter.swift in Sources */,
 				BF88D4DE24CAAB6600607D6A /* ExString.swift in Sources */,
 			);

@@ -47,6 +47,8 @@ final class EditProfileViewController: UIViewController {
     
     func setupProfileImageView() {
         self.profileImageView.image = self.profileImage
+        self.profileImageView.layer.borderWidth = 0.25
+        self.profileImageView.layer.borderColor = UIColor.systemGray4.cgColor
         self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width / 2
         self.profileImageView.layer.masksToBounds = true
     }

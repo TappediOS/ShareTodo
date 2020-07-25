@@ -8,10 +8,12 @@
 
 protocol ProfileViewPresenterProtocol {
     var view: ProfileViewPresenterOutput! { get set }
+    
+    func didTapEditProfileButton()
 }
 
 protocol ProfileViewPresenterOutput: class {
-    
+    func presentEditProfileVC()
 }
 
 final class ProfileViewPresenter: ProfileViewPresenterProtocol, ProfileModelOutput {
@@ -21,5 +23,9 @@ final class ProfileViewPresenter: ProfileViewPresenterProtocol, ProfileModelOutp
     init(model: ProfileModelProtocol) {
         self.model = model
         self.model.presenter = self
+    }
+    
+    func didTapEditProfileButton() {
+        self.view.presentEditProfileVC()
     }
 }

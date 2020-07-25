@@ -15,6 +15,9 @@ final class EditProfileViewController: UIViewController {
     @IBOutlet weak var chageProfileButton: UIButton!
     @IBOutlet weak var nameTextField: UITextField!
     
+    var actionSheet = UIAlertController()
+    let photoPickerVC = UIImagePickerController()
+    
     var profileImage = UIImage()
     var userName: String?
     
@@ -25,6 +28,8 @@ final class EditProfileViewController: UIViewController {
         self.setupProfileImageView()
         self.setupChageProfileButton()
         self.setupNameTextField()
+        self.setupActionSheet()
+        self.setupPhotoPickerVC()
     }
     
     func setupNavigationItem() {
@@ -45,6 +50,30 @@ final class EditProfileViewController: UIViewController {
         self.chageProfileButton.setTitle("Edit Profile", for: .normal)
         self.chageProfileButton.titleLabel?.adjustsFontSizeToFitWidth = true
         self.chageProfileButton.titleLabel?.minimumScaleFactor = 0.4
+    }
+    
+    func setupActionSheet() {
+        self.actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default, handler: { _ in
+            self.presenter.didTapTakePhotoAction()
+        })
+        let selectPhotoAction = UIAlertAction(title: "Select Photo", style: .default, handler: { _ in
+            self.presenter.didTapSelectPhotoAction()
+        })
+        let deletePhotoAction = UIAlertAction(title: "Delete Photo", style: .destructive, handler: { _ in
+            self.presenter.didTapDeletePhotoAction()
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        self.actionSheet.addAction(takePhotoAction)
+        self.actionSheet.addAction(selectPhotoAction)
+        self.actionSheet.addAction(deletePhotoAction)
+        self.actionSheet.addAction(cancelAction)
+    }
+    
+    func setupPhotoPickerVC() {
+        self.photoPickerVC.delegate = self
     }
     
     func setupNameTextField() {
@@ -75,41 +104,16 @@ extension EditProfileViewController: EditProfileViewPresenterOutput {
     }
     
     func presentActionSheet() {
-        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
-        let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default, handler: { (action: UIAlertAction!) in
-            self.presenter.didTapTakePhotoAction()
-        })
-        
-        let selectPhotoAction = UIAlertAction(title: "Select Photo", style: .default, handler: { (action: UIAlertAction!) in
-            self.presenter.didTapSelectPhotoAction()
-        })
-        
-        let deletePhotoAction = UIAlertAction(title: "Delete Photo", style: .destructive, handler: { (action: UIAlertAction!) in
-            self.presenter.didTapDeletePhotoAction()
-        })
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
-        actionSheet.addAction(takePhotoAction)
-        actionSheet.addAction(selectPhotoAction)
-        actionSheet.addAction(deletePhotoAction)
-        actionSheet.addAction(cancelAction)
-        
-        self.present(actionSheet, animated: true, completion: nil)
+        self.present(self.actionSheet, animated: true, completion: nil)
     }
     
     func showUIImagePickerControllerAsCamera() {
-        let photoPickerVC = UIImagePickerController()
         photoPickerVC.sourceType = .camera
-        photoPickerVC.delegate = self
         self.present(photoPickerVC, animated: true, completion: nil)
     }
     
     func showUIImagePickerControllerAsLibrary() {
-        let photoPickerVC = UIImagePickerController()
         photoPickerVC.sourceType = .photoLibrary
-        photoPickerVC.delegate = self
         self.present(photoPickerVC, animated: true, completion: nil)
     }
 }

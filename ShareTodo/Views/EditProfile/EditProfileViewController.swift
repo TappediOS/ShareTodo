@@ -11,6 +11,11 @@ import UIKit
 final class EditProfileViewController: UIViewController {
     private var presenter: EditProfileViewPresenterProtocol!
     
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var chageProfileButton: UIButton!
+    
+    @IBOutlet weak var nameTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +36,11 @@ final class EditProfileViewController: UIViewController {
 
     @objc func tapSaveEditProfileButton() {
         self.presenter.didTapSaveEditProfileButton()
+    }
+    
+    
+    @IBAction func tapChangeProfileButton(_ sender: Any) {
+        
     }
     
     func inject(with presenter: EditProfileViewPresenterProtocol) {

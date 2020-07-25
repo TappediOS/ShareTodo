@@ -56,7 +56,10 @@ final class ProfileViewController: UIViewController {
 
 extension ProfileViewController: ProfileViewPresenterOutput {
     func presentEditProfileVC() {
-        let editProfileVC = EditProfileViewBuilder.create()
+        guard let editProfileVC = EditProfileViewBuilder.create() as? EditProfileViewController else { return }
+        editProfileVC.profileImage = self.profileImageView.image ?? UIImage()
+        editProfileVC.userName = self.nameLabel.text
+        
         let navigationController = UINavigationController(rootViewController: editProfileVC)
         navigationController.modalPresentationStyle = .fullScreen
         self.present(navigationController, animated: true, completion: nil)

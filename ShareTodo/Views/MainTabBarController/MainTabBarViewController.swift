@@ -29,24 +29,20 @@ final class MainTabBarViewController: UITabBarController {
         let profileVC = ProfileViewBuilder.create()
         let profileNavigationController = UINavigationController(rootViewController: profileVC)
         
-        //TODO:- 画像を用意すること
-        if #available(iOS 13.0, *) {
-            let todayTodoItemImage = UIImage(systemName: "house")
-            let todayTodoItemSelectedImage = UIImage(systemName: "house.fill")
-            
-            let groupTodoTabBarItemImage = UIImage(systemName: "checkmark.circle")
-            let groupTodoTabBarItemSelectedImage = UIImage(systemName: "checkmark.circle.fill")
-            
-            let profileTabBarItemImage = UIImage(systemName: "person.circle")
-            let profileTabBarItemSelectedImage = UIImage(systemName: "person.circle.fill")
-            
-            todayTodoVC.tabBarItem = UITabBarItem(title: nil, image: todayTodoItemImage, selectedImage: todayTodoItemSelectedImage)
-            groupTodoVC.tabBarItem = UITabBarItem(title: nil, image: groupTodoTabBarItemImage, selectedImage: groupTodoTabBarItemSelectedImage)
-            profileVC.tabBarItem = UITabBarItem(title: nil, image: profileTabBarItemImage, selectedImage: profileTabBarItemSelectedImage)
-        } else {
-            // Fallback on earlier versions
-        }
+        let todayTodoItemImage = UIImage(systemName: "house")
+        let todayTodoItemSelectedImage = UIImage(systemName: "house.fill")
         
+        let groupTodoTabBarItemImage = UIImage(systemName: "checkmark.circle")
+        let groupTodoTabBarItemSelectedImage = UIImage(systemName: "checkmark.circle.fill")
+        
+        let profileTabBarItemImage = UIImage(systemName: "person.circle")
+        let profileTabBarItemSelectedImage = UIImage(systemName: "person.circle.fill")
+        
+        todayTodoVC.tabBarItem = UITabBarItem(title: "Today", image: todayTodoItemImage, selectedImage: todayTodoItemSelectedImage)
+        groupTodoVC.tabBarItem = UITabBarItem(title: "Group", image: groupTodoTabBarItemImage, selectedImage: groupTodoTabBarItemSelectedImage)
+        profileVC.tabBarItem = UITabBarItem(title: "Me", image: profileTabBarItemImage, selectedImage: profileTabBarItemSelectedImage)
+        
+        UITabBar.appearance().tintColor = .systemGreen
         self.viewControllers = [todayTodoNavigationController, groupTodoNavigationController, profileNavigationController]
     }
     

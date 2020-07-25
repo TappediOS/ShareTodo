@@ -30,13 +30,13 @@ final class MainTabBarViewController: UITabBarController {
         let profileNavigationController = UINavigationController(rootViewController: profileVC)
         
         let todayTodoItemImage = UIImage(systemName: "house")
-        let todayTodoItemSelectedImage = UIImage(systemName: "house.fill")
+        let todayTodoItemSelectedImage = UIImage(systemName: "house.fill")?.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
         
         let groupTodoTabBarItemImage = UIImage(systemName: "checkmark.circle")
-        let groupTodoTabBarItemSelectedImage = UIImage(systemName: "checkmark.circle.fill")
+        let groupTodoTabBarItemSelectedImage = UIImage(systemName: "checkmark.circle.fill")?.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
         
         let profileTabBarItemImage = UIImage(systemName: "person.circle")
-        let profileTabBarItemSelectedImage = UIImage(systemName: "person.circle.fill")
+        let profileTabBarItemSelectedImage = UIImage(systemName: "person.circle.fill")?.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
         
         todayTodoVC.tabBarItem = UITabBarItem(title: "Today", image: todayTodoItemImage, selectedImage: todayTodoItemSelectedImage)
         groupTodoVC.tabBarItem = UITabBarItem(title: "Group", image: groupTodoTabBarItemImage, selectedImage: groupTodoTabBarItemSelectedImage)

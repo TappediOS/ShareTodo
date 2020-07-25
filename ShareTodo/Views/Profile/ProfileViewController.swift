@@ -45,7 +45,7 @@ final class ProfileViewController: UIViewController {
     }
 
     @objc func editProfile(_ sender: UIButton) {
-        print("editProfile")
+        self.presenter.didTapEditProfileButton()
     }
     
     func inject(with presenter: ProfileViewPresenterProtocol) {
@@ -55,5 +55,10 @@ final class ProfileViewController: UIViewController {
 }
 
 extension ProfileViewController: ProfileViewPresenterOutput {
-    
+    func presentEditProfileVC() {
+        let editProfileVC = EditProfileViewBuilder.create()
+        let navigationController = UINavigationController(rootViewController: editProfileVC)
+        navigationController.modalPresentationStyle = .fullScreen
+        self.present(navigationController, animated: true, completion: nil)
+    }
 }

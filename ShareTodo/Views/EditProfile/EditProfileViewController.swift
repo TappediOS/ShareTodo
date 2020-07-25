@@ -123,7 +123,7 @@ extension EditProfileViewController: UINavigationControllerDelegate, UIImagePick
         picker.dismiss(animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let pickerImage = (info[UIImagePickerController.InfoKey.originalImage] as? UIImage) else { return }
         picker.dismiss(animated: true)
     }

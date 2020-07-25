@@ -13,6 +13,24 @@ final class EditProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupNavigationItem()
+    }
+    
+    func setupNavigationItem() {
+        let stopItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(tapStopEditProfileButton))
+        let saveItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(tapSaveEditProfileButton))
+        self.navigationItem.leftBarButtonItem = stopItem
+        self.navigationItem.rightBarButtonItem = saveItem
+        self.navigationItem.title = "Edit Profile"
+    }
+    
+    @objc func tapStopEditProfileButton() {
+        self.presenter.didTapStopEditProfileButton()
+    }
+
+    @objc func tapSaveEditProfileButton() {
+        self.presenter.didTapSaveEditProfileButton()
     }
     
     func inject(with presenter: EditProfileViewPresenterProtocol) {
@@ -22,5 +40,7 @@ final class EditProfileViewController: UIViewController {
 }
 
 extension EditProfileViewController: EditProfileViewPresenterOutput {
-    
+    func dismissEditProfileVC() {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

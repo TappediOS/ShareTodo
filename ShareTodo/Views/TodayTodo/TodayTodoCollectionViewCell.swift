@@ -15,7 +15,7 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = .white
+        self.backgroundColor = .systemBackground
         self.layer.cornerRadius = 10
         self.clipsToBounds = true
         

@@ -12,11 +12,17 @@ protocol EditProfileViewPresenterProtocol {
     func didTapStopEditProfileButton()
     func didTapSaveEditProfileButton()
     func didTapChangeProfileButton()
+
+    func didTapTakePhotoAction()
+    func didTapSelectPhotoAction()
+    func didTapDeletePhotoAction()
 }
 
 protocol EditProfileViewPresenterOutput: class {
     func dismissEditProfileVC()
     func presentActionSheet()
+    func showUIImagePickerControllerAsCamera()
+    func showUIImagePickerControllerAsLibrary()
 }
 
 final class EditProfileViewPresenter: EditProfileViewPresenterProtocol, EditProfileModelOutput {
@@ -38,5 +44,17 @@ final class EditProfileViewPresenter: EditProfileViewPresenterProtocol, EditProf
     
     func didTapChangeProfileButton() {
         self.view.presentActionSheet()
+    }
+    
+    func didTapTakePhotoAction() {
+        self.view.showUIImagePickerControllerAsCamera()
+    }
+    
+    func didTapSelectPhotoAction() {
+        self.view.showUIImagePickerControllerAsLibrary()
+    }
+    
+    func didTapDeletePhotoAction() {
+        
     }
 }

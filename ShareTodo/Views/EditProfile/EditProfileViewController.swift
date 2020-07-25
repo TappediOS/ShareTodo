@@ -78,15 +78,15 @@ extension EditProfileViewController: EditProfileViewPresenterOutput {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default, handler: { (action: UIAlertAction!) in
-            
+            self.presenter.didTapTakePhotoAction()
         })
         
         let selectPhotoAction = UIAlertAction(title: "Select Photo", style: .default, handler: { (action: UIAlertAction!) in
-           
+            self.presenter.didTapSelectPhotoAction()
         })
         
         let deletePhotoAction = UIAlertAction(title: "Delete Photo", style: .destructive, handler: { (action: UIAlertAction!) in
-           
+            self.presenter.didTapDeletePhotoAction()
         })
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -97,5 +97,30 @@ extension EditProfileViewController: EditProfileViewPresenterOutput {
         actionSheet.addAction(cancelAction)
         
         self.present(actionSheet, animated: true, completion: nil)
+    }
+    
+    func showUIImagePickerControllerAsCamera() {
+        let photoPickerVC = UIImagePickerController()
+        photoPickerVC.sourceType = .camera
+        photoPickerVC.delegate = self
+        self.present(photoPickerVC, animated: true, completion: nil)
+    }
+    
+    func showUIImagePickerControllerAsLibrary() {
+        let photoPickerVC = UIImagePickerController()
+        photoPickerVC.sourceType = .photoLibrary
+        photoPickerVC.delegate = self
+        self.present(photoPickerVC, animated: true, completion: nil)
+    }
+}
+
+extension EditProfileViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let pickerImage = (info[UIImagePickerController.InfoKey.originalImage] as? UIImage) else { return }
+        picker.dismiss(animated: true)
     }
 }

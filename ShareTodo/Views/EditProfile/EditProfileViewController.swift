@@ -21,12 +21,15 @@ final class EditProfileViewController: UIViewController {
     var profileImage = UIImage()
     var userName: String?
     
+    let maxTextfieldLength = 15
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setupNavigationItem()
         self.setupProfileImageView()
         self.setupChageProfileButton()
+        self.setupNameTextField()
         self.setupActionSheet()
         self.setupPhotoPickerVC()
     }
@@ -34,7 +37,11 @@ final class EditProfileViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        self.setupNameTextField()
+        self.nameTextField.addBorderBottom(borderWidth: 1, color: .systemGray)
+    }
+    
+    deinit {
+       NotificationCenter.default.removeObserver(self)
     }
     
     func setupNavigationItem() {
@@ -86,7 +93,14 @@ final class EditProfileViewController: UIViewController {
     func setupNameTextField() {
         self.nameTextField.text = userName ?? ""
         self.nameTextField.borderStyle = .none
-        self.nameTextField.addBorderBottom(borderWidth: 1, color: .systemGray)
+        self.nameTextField.returnKeyType = .done
+        self.nameTextField.delegate = self
+        self.nameTextField.enablesReturnKeyAutomatically = true
+    }
+    
+    func setupNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(notification:)),
+                                               name: UITextField.textDidChangeNotification, object: self.nameTextField)
     }
     
     @objc func tapStopEditProfileButton() {
@@ -135,5 +149,23 @@ extension EditProfileViewController: UINavigationControllerDelegate, UIImagePick
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let pickerImage = (info[UIImagePickerController.InfoKey.originalImage] as? UIImage) else { return }
         picker.dismiss(animated: true)
+        
+        self.profileImageView.image = pickerImage
+    }
+}
+
+extension EditProfileViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.nameTextField.resignFirstResponder()
+        return true
+    }
+    
+    @objc func textFieldDidChange(notification: NSNotification) {
+       let textField = notification.object as! UITextField
+       if let text = textField.text {
+          if textField.markedTextRange == nil && text.count > maxTextfieldLength {
+             textField.text = text.prefix(maxTextfieldLength).description
+          }
+       }
     }
 }

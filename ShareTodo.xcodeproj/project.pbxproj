@@ -47,6 +47,7 @@
 		BF97245024CC6B130033BB50 /* EditProfileViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97244F24CC6B130033BB50 /* EditProfileViewPresenter.swift */; };
 		BF97245224CC6B1B0033BB50 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97245124CC6B1B0033BB50 /* EditProfileViewModel.swift */; };
 		BF97245424CC6BD80033BB50 /* EditProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF97245324CC6BD80033BB50 /* EditProfile.storyboard */; };
+		BF97245624CC75D70033BB50 /* ExTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97245524CC75D70033BB50 /* ExTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		BF97244F24CC6B130033BB50 /* EditProfileViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewPresenter.swift; sourceTree = "<group>"; };
 		BF97245124CC6B1B0033BB50 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		BF97245324CC6BD80033BB50 /* EditProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditProfile.storyboard; sourceTree = "<group>"; };
+		BF97245524CC75D70033BB50 /* ExTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +232,7 @@
 			children = (
 				BF88D4D924CAAB3F00607D6A /* ExUIViewController.swift */,
 				BF88D4DB24CAAB5100607D6A /* ExUIView.swift */,
+				BF97245524CC75D70033BB50 /* ExTextField.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 				BF88D49224CAA83300607D6A /* AppDelegate.swift in Sources */,
 				BF97245024CC6B130033BB50 /* EditProfileViewPresenter.swift in Sources */,
 				BF88D4E224CAB67C00607D6A /* MainTabBarViewController.swift in Sources */,
+				BF97245624CC75D70033BB50 /* ExTextField.swift in Sources */,
 				BF88D4CE24CAAA0B00607D6A /* Routes.swift in Sources */,
 				BF88D51124CABCBD00607D6A /* ProfileViewController.swift in Sources */,
 				BF88D4F824CAB99500607D6A /* TodayTodoViewbuilder.swift in Sources */,

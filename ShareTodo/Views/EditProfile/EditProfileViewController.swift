@@ -27,9 +27,14 @@ final class EditProfileViewController: UIViewController {
         self.setupNavigationItem()
         self.setupProfileImageView()
         self.setupChageProfileButton()
-        self.setupNameTextField()
         self.setupActionSheet()
         self.setupPhotoPickerVC()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.setupNameTextField()
     }
     
     func setupNavigationItem() {
@@ -78,6 +83,8 @@ final class EditProfileViewController: UIViewController {
     
     func setupNameTextField() {
         self.nameTextField.text = userName ?? ""
+        self.nameTextField.borderStyle = .none
+        self.nameTextField.addBorderBottom(borderWidth: 1, color: .systemGray)
     }
     
     @objc func tapStopEditProfileButton() {

@@ -11,10 +11,12 @@ protocol EditProfileViewPresenterProtocol {
     
     func didTapStopEditProfileButton()
     func didTapSaveEditProfileButton()
+    func didTapChangeProfileButton()
 }
 
 protocol EditProfileViewPresenterOutput: class {
     func dismissEditProfileVC()
+    func presentActionSheet()
 }
 
 final class EditProfileViewPresenter: EditProfileViewPresenterProtocol, EditProfileModelOutput {
@@ -32,5 +34,9 @@ final class EditProfileViewPresenter: EditProfileViewPresenterProtocol, EditProf
     
     func didTapSaveEditProfileButton() {
         
+    }
+    
+    func didTapChangeProfileButton() {
+        self.view.presentActionSheet()
     }
 }

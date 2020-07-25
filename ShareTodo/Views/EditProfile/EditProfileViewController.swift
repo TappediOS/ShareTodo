@@ -13,13 +13,18 @@ final class EditProfileViewController: UIViewController {
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var chageProfileButton: UIButton!
-    
     @IBOutlet weak var nameTextField: UITextField!
+    
+    var profileImage = UIImage()
+    var userName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupNavigationItem()
+        self.setupNavigationItem()
+        self.setupProfileImageView()
+        self.setupChageProfileButton()
+        self.setupNameTextField()
     }
     
     func setupNavigationItem() {
@@ -30,6 +35,22 @@ final class EditProfileViewController: UIViewController {
         self.navigationItem.title = "Edit Profile"
     }
     
+    func setupProfileImageView() {
+        self.profileImageView.image = self.profileImage
+        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width / 2
+        self.profileImageView.layer.masksToBounds = true
+    }
+    
+    func setupChageProfileButton() {
+        self.chageProfileButton.setTitle("Edit Profile", for: .normal)
+        self.chageProfileButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        self.chageProfileButton.titleLabel?.minimumScaleFactor = 0.4
+    }
+    
+    func setupNameTextField() {
+        self.nameTextField.text = userName ?? ""
+    }
+    
     @objc func tapStopEditProfileButton() {
         self.presenter.didTapStopEditProfileButton()
     }
@@ -38,9 +59,8 @@ final class EditProfileViewController: UIViewController {
         self.presenter.didTapSaveEditProfileButton()
     }
     
-    
     @IBAction func tapChangeProfileButton(_ sender: Any) {
-        
+        self.presenter.didTapChangeProfileButton()
     }
     
     func inject(with presenter: EditProfileViewPresenterProtocol) {
@@ -52,5 +72,30 @@ final class EditProfileViewController: UIViewController {
 extension EditProfileViewController: EditProfileViewPresenterOutput {
     func dismissEditProfileVC() {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func presentActionSheet() {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default, handler: { (action: UIAlertAction!) in
+            
+        })
+        
+        let selectPhotoAction = UIAlertAction(title: "Select Photo", style: .default, handler: { (action: UIAlertAction!) in
+           
+        })
+        
+        let deletePhotoAction = UIAlertAction(title: "Delete Photo", style: .destructive, handler: { (action: UIAlertAction!) in
+           
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        actionSheet.addAction(takePhotoAction)
+        actionSheet.addAction(selectPhotoAction)
+        actionSheet.addAction(deletePhotoAction)
+        actionSheet.addAction(cancelAction)
+        
+        self.present(actionSheet, animated: true, completion: nil)
     }
 }

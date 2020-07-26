@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>914051065084-evlqa6lujfj3sbitiuheu3mp5bto6qsa.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.914051065084-evlqa6lujfj3sbitiuheu3mp5bto6qsa</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCfXJiVuK2DtKP-xN_7tLdio3GJv9LstNM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>914051065084</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.Taped.ShareTodo</string>
+	<key>PROJECT_ID</key>
+	<string>sharetodo-a91ef</string>
+	<key>STORAGE_BUCKET</key>
+	<string>sharetodo-a91ef.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:914051065084:ios:0ce22d67ee4050f12e6379</string>
+	<key>DATABASE_URL</key>
+	<string>https://sharetodo-a91ef.firebaseio.com</string>
+</dict>
+</plist>

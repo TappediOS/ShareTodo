@@ -36,6 +36,12 @@ final class RegisterUserViewController: UIViewController {
         self.setupPhotoPickerVC()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.nameTextField.addBorderBottom(borderWidth: 0.5, color: .systemGray2)
+    }
+    
     func setupRegisterLabel() {
         self.registerLabel.adjustsFontSizeToFitWidth = true
         self.registerLabel.minimumScaleFactor = 0.4

@@ -10,10 +10,7 @@ import UIKit
 
 final class GroupTodoViewController: UIViewController {
     private var presenter: GroupTodoViewPresenterProtocol!
-    
     @IBOutlet weak var groupTableView: UITableView!
-    
-    var todo = ["test", "test2"]
     private let groupTodoCellID = "GroupTableViewCell"
     
     override func viewDidLoad() {
@@ -22,6 +19,8 @@ final class GroupTodoViewController: UIViewController {
         self.setupNavigationBar()
         self.setupUIBarButtonItem()
         self.setupGroupTableView()
+        
+        self.presenter.didViewDidLoad()
     }
     
     func setupNavigationBar() {
@@ -58,7 +57,9 @@ final class GroupTodoViewController: UIViewController {
 }
 
 extension GroupTodoViewController: GroupTodoViewPresenterOutput {
-    
+    func reloadGroupTableView() {
+        DispatchQueue.main.async { self.groupTableView.reloadData() }
+    }
 }
 
 extension GroupTodoViewController: UITableViewDelegate, UITableViewDataSource {
@@ -69,15 +70,16 @@ extension GroupTodoViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.todo.count
+        return self.presenter.numberOfGroup
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = self.groupTableView.dequeueReusableCell(withIdentifier: self.groupTodoCellID, for: indexPath)
                          as? GroupTableViewCell else { return UITableViewCell() }
         
+        let group = self.presenter.group[indexPath.item]
         //TODO:- 実際の文字列を表示すること
-        cell.groupNameLabel.text = "Test"
+        cell.groupNameLabel.text = group
         cell.groupMembersNameLabel.text = "list, bent, run, aws"
         cell.groupImageView.image = UIImage(systemName: "paperclip.circle.fill")
         cell.groupImageView.tintColor = .systemGreen

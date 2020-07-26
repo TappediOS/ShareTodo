@@ -24,6 +24,7 @@ protocol CreateNewGroupInfoViewPresenterOutput: class {
     func showUIImagePickerControllerAsCamera()
     func showUIImagePickerControllerAsLibrary()
     func dismissCreateNewGroupInfoVC()
+    func setDeleteAndSetDefaultImage()
 }
 
 final class CreateNewGroupInfoViewPresenter: CreateNewGroupInfoViewPresenterProtocol, CreateNewGroupInfoModelOutput {
@@ -52,7 +53,7 @@ final class CreateNewGroupInfoViewPresenter: CreateNewGroupInfoViewPresenterProt
     }
     
     func didTapDeletePhotoAction() {
-        
+        self.view.setDeleteAndSetDefaultImage()
     }
     
     func successCreateGroup() {

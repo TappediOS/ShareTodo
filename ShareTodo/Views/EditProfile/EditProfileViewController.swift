@@ -141,6 +141,10 @@ extension EditProfileViewController: EditProfileViewPresenterOutput {
         photoPickerVC.sourceType = .photoLibrary
         self.present(photoPickerVC, animated: true, completion: nil)
     }
+    
+    func setDeleteAndSetDefaultImage() {
+        DispatchQueue.main.async { self.profileImageView.image = UIImage(named: "defaultProfileImage") }
+    }
 }
 
 extension EditProfileViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {

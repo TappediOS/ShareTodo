@@ -23,6 +23,7 @@ protocol EditProfileViewPresenterOutput: class {
     func presentActionSheet()
     func showUIImagePickerControllerAsCamera()
     func showUIImagePickerControllerAsLibrary()
+    func setDeleteAndSetDefaultImage()
 }
 
 final class EditProfileViewPresenter: EditProfileViewPresenterProtocol, EditProfileModelOutput {
@@ -55,6 +56,6 @@ final class EditProfileViewPresenter: EditProfileViewPresenterProtocol, EditProf
     }
     
     func didTapDeletePhotoAction() {
-        
+        self.view.setDeleteAndSetDefaultImage()
     }
 }

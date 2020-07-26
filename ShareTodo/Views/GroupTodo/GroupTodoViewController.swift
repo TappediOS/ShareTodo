@@ -47,7 +47,6 @@ final class GroupTodoViewController: UIViewController {
     /// plusボタン押されたときの処理gropuを作成する
     /// - Parameter sender: button
     @objc func makeGroup(_ sender: UIButton) {
-        print("Make Group")
         self.presenter.didTapMakeGroupButton()
     }
     

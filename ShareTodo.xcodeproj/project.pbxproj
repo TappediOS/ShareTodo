@@ -116,6 +116,7 @@
 		BFD4362A24CDACA200B2E580 /* RegisterUserViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4362924CDACA200B2E580 /* RegisterUserViewPresenter.swift */; };
 		BFD4362C24CDACA700B2E580 /* RegisterUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4362B24CDACA700B2E580 /* RegisterUserViewModel.swift */; };
 		BFD4362E24CDAD0000B2E580 /* RegisterUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD4362D24CDAD0000B2E580 /* RegisterUser.storyboard */; };
+		BFD4363024CDB1C200B2E580 /* defaultProfileImage.png in Resources */ = {isa = PBXBuildFile; fileRef = BFD4362F24CDB1C200B2E580 /* defaultProfileImage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -265,6 +266,7 @@
 		BFD4362924CDACA200B2E580 /* RegisterUserViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewPresenter.swift; sourceTree = "<group>"; };
 		BFD4362B24CDACA700B2E580 /* RegisterUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewModel.swift; sourceTree = "<group>"; };
 		BFD4362D24CDAD0000B2E580 /* RegisterUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterUser.storyboard; sourceTree = "<group>"; };
+		BFD4362F24CDB1C200B2E580 /* defaultProfileImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultProfileImage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -633,6 +635,7 @@
 				BFD4362724CDAC9D00B2E580 /* RegisterUserViewController.swift */,
 				BFD4362924CDACA200B2E580 /* RegisterUserViewPresenter.swift */,
 				BFD4362B24CDACA700B2E580 /* RegisterUserViewModel.swift */,
+				BFD4362F24CDB1C200B2E580 /* defaultProfileImage.png */,
 			);
 			path = RegisterUser;
 			sourceTree = "<group>";
@@ -747,6 +750,7 @@
 			files = (
 				BF97245424CC6BD80033BB50 /* EditProfile.storyboard in Resources */,
 				BF88D4D824CAAB1100607D6A /* Sample.storyboard in Resources */,
+				BFD4363024CDB1C200B2E580 /* defaultProfileImage.png in Resources */,
 				BFD4362E24CDAD0000B2E580 /* RegisterUser.storyboard in Resources */,
 				BF88D4EA24CAB76700607D6A /* MainTabBar.storyboard in Resources */,
 				BFD4360524CD450200B2E580 /* CreateNewGroup.storyboard in Resources */,

@@ -19,6 +19,7 @@ protocol RegisterUserViewPresenterOutput: class {
     func presentActionSheet()
     func showUIImagePickerControllerAsCamera()
     func showUIImagePickerControllerAsLibrary()
+    func setDeleteAndSetDefaultImage()
 }
 
 final class RegisterUserViewPresenter: RegisterUserViewPresenterProtocol, RegisterUserModelOutput {
@@ -43,6 +44,6 @@ final class RegisterUserViewPresenter: RegisterUserViewPresenterProtocol, Regist
     }
     
     func didTapDeletePhotoAction() {
-        
+        self.view.setDeleteAndSetDefaultImage()
     }
 }

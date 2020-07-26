@@ -42,6 +42,7 @@ final class RegisterUserViewController: UIViewController {
     }
     
     func setupProfileImageButton() {
+        self.profileImageButton.setImage(UIImage(named: "defaultProfileImage"), for: .normal)
         self.profileImageButton.layer.borderWidth = 0.25
         self.profileImageButton.layer.borderColor = UIColor.systemGray4.cgColor
         self.profileImageButton.layer.cornerRadius = self.profileImageButton.frame.width / 2
@@ -119,6 +120,10 @@ extension RegisterUserViewController: RegisterUserViewPresenterOutput {
     func showUIImagePickerControllerAsLibrary() {
         photoPickerVC.sourceType = .photoLibrary
         self.present(photoPickerVC, animated: true, completion: nil)
+    }
+    
+    func setDeleteAndSetDefaultImage() {
+        DispatchQueue.main.async { self.profileImageButton.setImage(UIImage(named: "defaultProfileImage"), for: .normal) }
     }
 }
 

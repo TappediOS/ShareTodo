@@ -108,6 +108,8 @@
 		BFD4361924CD4F6100B2E580 /* CreateNewGroupInfoViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4361824CD4F6100B2E580 /* CreateNewGroupInfoViewPresenter.swift */; };
 		BFD4361B24CD4F6700B2E580 /* CreateNewGroupInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4361A24CD4F6700B2E580 /* CreateNewGroupInfoViewModel.swift */; };
 		BFD4361D24CD504800B2E580 /* CreateNewGroupInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD4361C24CD504800B2E580 /* CreateNewGroupInfo.storyboard */; };
+		BFD4361F24CD57F500B2E580 /* SelectedUsersAndMeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4361E24CD57F500B2E580 /* SelectedUsersAndMeCollectionViewCell.swift */; };
+		BFD4362124CD597700B2E580 /* ExCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4362024CD597700B2E580 /* ExCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -249,6 +251,8 @@
 		BFD4361824CD4F6100B2E580 /* CreateNewGroupInfoViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGroupInfoViewPresenter.swift; sourceTree = "<group>"; };
 		BFD4361A24CD4F6700B2E580 /* CreateNewGroupInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGroupInfoViewModel.swift; sourceTree = "<group>"; };
 		BFD4361C24CD504800B2E580 /* CreateNewGroupInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateNewGroupInfo.storyboard; sourceTree = "<group>"; };
+		BFD4361E24CD57F500B2E580 /* SelectedUsersAndMeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedUsersAndMeCollectionViewCell.swift; sourceTree = "<group>"; };
+		BFD4362024CD597700B2E580 /* ExCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -397,6 +401,7 @@
 				BF88D4DB24CAAB5100607D6A /* ExUIView.swift */,
 				BF97245524CC75D70033BB50 /* ExTextField.swift */,
 				BFD435F324CD36F900B2E580 /* ExUIImageView.swift */,
+				BFD4362024CD597700B2E580 /* ExCollectionView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -601,6 +606,7 @@
 				BFD4361624CD4F5B00B2E580 /* CreateNewGroupInfoViewController.swift */,
 				BFD4361824CD4F6100B2E580 /* CreateNewGroupInfoViewPresenter.swift */,
 				BFD4361A24CD4F6700B2E580 /* CreateNewGroupInfoViewModel.swift */,
+				BFD4361E24CD57F500B2E580 /* SelectedUsersAndMeCollectionViewCell.swift */,
 			);
 			path = CreateNewGroupInfo;
 			sourceTree = "<group>";
@@ -828,6 +834,7 @@
 				BFD4361924CD4F6100B2E580 /* CreateNewGroupInfoViewPresenter.swift in Sources */,
 				BFD435EC24CD333D00B2E580 /* DocumentID.swift in Sources */,
 				BFD4361724CD4F5B00B2E580 /* CreateNewGroupInfoViewController.swift in Sources */,
+				BFD4362124CD597700B2E580 /* ExCollectionView.swift in Sources */,
 				BF88D4FE24CAB9A600607D6A /* TodayTodoViewModel.swift in Sources */,
 				BFD4361B24CD4F6700B2E580 /* CreateNewGroupInfoViewModel.swift in Sources */,
 				BF88D51324CABCC300607D6A /* ProfileViewPresenter.swift in Sources */,
@@ -863,6 +870,7 @@
 				BF97244C24CC6B070033BB50 /* EditProfileViewBuilder.swift in Sources */,
 				BF88D4D424CAAAA000607D6A /* SampleViewPresenter.swift in Sources */,
 				BF88D4DE24CAAB6600607D6A /* ExString.swift in Sources */,
+				BFD4361F24CD57F500B2E580 /* SelectedUsersAndMeCollectionViewCell.swift in Sources */,
 				BFD4361224CD4BBC00B2E580 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

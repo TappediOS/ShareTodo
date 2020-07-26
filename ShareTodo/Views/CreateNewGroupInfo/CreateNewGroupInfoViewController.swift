@@ -14,8 +14,10 @@ final class CreateNewGroupInfoViewController: UIViewController {
     @IBOutlet weak var groupNameTextField: UITextField!
     @IBOutlet weak var taskLabel: UILabel!
     @IBOutlet weak var taskTextField: UITextField!
+    @IBOutlet weak var selectedUsersAndMeCollectionView: UICollectionView!
     
-    var selectedUsersArray:[User] = Array()
+    let selectedUsersAndMeCollectionViewCellId = "SelectedUsersAndMeCollectionViewCell"
+    var selectedUsersArray: [User] = Array()
     let maxTextfieldLength = 40
     
     override func viewDidLoad() {
@@ -26,13 +28,16 @@ final class CreateNewGroupInfoViewController: UIViewController {
         self.setupGroupNameTextField()
         self.setupTaskLabel()
         self.setupTaskTextField()
+        self.setupSelectedUsersCollectionView()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        self.groupNameTextField.addBorderBottom(borderWidth: 1, color: .systemGray)
-        self.taskTextField.addBorderBottom(borderWidth: 1, color: .systemGray)
+        self.groupNameTextField.addBorderBottom(borderWidth: 0.5, color: .systemGray2)
+        self.taskTextField.addBorderBottom(borderWidth: 0.5, color: .systemGray2)
+        self.selectedUsersAndMeCollectionView.addBorderBottom(borderWidth: 0.25, color: .systemGray3)
+        self.selectedUsersAndMeCollectionView.addBorderTop(borderWidth: 0.25, color: .systemGray3)
     }
     
     func addMeInSelectedUsersArray() {
@@ -68,6 +73,12 @@ final class CreateNewGroupInfoViewController: UIViewController {
         self.taskTextField.enablesReturnKeyAutomatically = true
     }
     
+    func setupSelectedUsersCollectionView() {
+        self.selectedUsersAndMeCollectionView.collectionViewLayout.invalidateLayout()
+        self.selectedUsersAndMeCollectionView.delegate = self
+        self.selectedUsersAndMeCollectionView.dataSource = self
+    }
+    
     func inject(with presenter: CreateNewGroupInfoViewPresenterProtocol) {
         self.presenter = presenter
         self.presenter.view = self
@@ -76,6 +87,34 @@ final class CreateNewGroupInfoViewController: UIViewController {
 
 extension CreateNewGroupInfoViewController: CreateNewGroupInfoViewPresenterOutput {
     
+}
+
+extension CreateNewGroupInfoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.selectedUsersArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: selectedUsersAndMeCollectionViewCellId, for: indexPath) as! SelectedUsersAndMeCollectionViewCell
+
+        cell.configure(with: self.selectedUsersArray[indexPath.item])
+        
+        cell.profileImageView.image = UIImage(systemName: "bolt.circle.fill")
+       
+        return cell
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 85, height: 90)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0.0, left: 10.0, bottom: 0.0, right: 10)
+    }
 }
 
 extension CreateNewGroupInfoViewController: UITextFieldDelegate {

@@ -117,6 +117,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tDO-GW-vAe"/>
                     </view>
+                    <connections>
+                        <outlet property="TaskLabel" destination="7gm-yo-msK" id="bgO-4Z-aw0"/>
+                        <outlet property="TaskTextField" destination="Cwk-gE-pYn" id="OvK-2E-UgP"/>
+                        <outlet property="groupImageView" destination="CRZ-oC-lSX" id="K52-hJ-844"/>
+                        <outlet property="groupNameTextField" destination="A6f-aF-ab6" id="2J2-8P-0fA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TrU-ES-G16" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

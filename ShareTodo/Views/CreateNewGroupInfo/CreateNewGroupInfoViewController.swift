@@ -10,6 +10,11 @@ import UIKit
 
 final class CreateNewGroupInfoViewController: UIViewController {
     private var presenter: CreateNewGroupInfoViewPresenterProtocol!
+    @IBOutlet weak var groupImageView: UIImageView!
+    @IBOutlet weak var groupNameTextField: UITextField!
+    @IBOutlet weak var TaskLabel: UILabel!
+    @IBOutlet weak var TaskTextField: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

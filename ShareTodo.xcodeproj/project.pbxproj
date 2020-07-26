@@ -107,6 +107,7 @@
 		BFD4361724CD4F5B00B2E580 /* CreateNewGroupInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4361624CD4F5B00B2E580 /* CreateNewGroupInfoViewController.swift */; };
 		BFD4361924CD4F6100B2E580 /* CreateNewGroupInfoViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4361824CD4F6100B2E580 /* CreateNewGroupInfoViewPresenter.swift */; };
 		BFD4361B24CD4F6700B2E580 /* CreateNewGroupInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4361A24CD4F6700B2E580 /* CreateNewGroupInfoViewModel.swift */; };
+		BFD4361D24CD504800B2E580 /* CreateNewGroupInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD4361C24CD504800B2E580 /* CreateNewGroupInfo.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -247,6 +248,7 @@
 		BFD4361624CD4F5B00B2E580 /* CreateNewGroupInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGroupInfoViewController.swift; sourceTree = "<group>"; };
 		BFD4361824CD4F6100B2E580 /* CreateNewGroupInfoViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGroupInfoViewPresenter.swift; sourceTree = "<group>"; };
 		BFD4361A24CD4F6700B2E580 /* CreateNewGroupInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGroupInfoViewModel.swift; sourceTree = "<group>"; };
+		BFD4361C24CD504800B2E580 /* CreateNewGroupInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateNewGroupInfo.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -452,6 +454,7 @@
 				BF88D51624CABD1000607D6A /* Profile.storyboard */,
 				BF97245324CC6BD80033BB50 /* EditProfile.storyboard */,
 				BFD4360424CD450200B2E580 /* CreateNewGroup.storyboard */,
+				BFD4361C24CD504800B2E580 /* CreateNewGroupInfo.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -714,6 +717,7 @@
 				BF88D4D824CAAB1100607D6A /* Sample.storyboard in Resources */,
 				BF88D4EA24CAB76700607D6A /* MainTabBar.storyboard in Resources */,
 				BFD4360524CD450200B2E580 /* CreateNewGroup.storyboard in Resources */,
+				BFD4361D24CD504800B2E580 /* CreateNewGroupInfo.storyboard in Resources */,
 				BF88D51724CABD1000607D6A /* Profile.storyboard in Resources */,
 				BF88D50024CAB9F000607D6A /* TodayTodo.storyboard in Resources */,
 				BF88D4F524CAB8F300607D6A /* GroupTodo.storyboard in Resources */,

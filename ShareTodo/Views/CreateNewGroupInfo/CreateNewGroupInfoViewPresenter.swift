@@ -8,10 +8,13 @@
 
 protocol CreateNewGroupInfoViewPresenterProtocol {
     var view: CreateNewGroupInfoViewPresenterOutput! { get set }
+    
+    func didTapStopCreateRoomButton()
+    func didTapCreateRoomutton()
 }
 
 protocol CreateNewGroupInfoViewPresenterOutput: class {
-    
+    func dismissCreateChatRoomVC()
 }
 
 final class CreateNewGroupInfoViewPresenter: CreateNewGroupInfoViewPresenterProtocol, CreateNewGroupInfoModelOutput {
@@ -21,5 +24,13 @@ final class CreateNewGroupInfoViewPresenter: CreateNewGroupInfoViewPresenterProt
     init(model: CreateNewGroupInfoModelProtocol) {
         self.model = model
         self.model.presenter = self
+    }
+    
+    func didTapStopCreateRoomButton() {
+        self.view.dismissCreateChatRoomVC()
+    }
+    
+    func didTapCreateRoomutton() {
+        
     }
 }

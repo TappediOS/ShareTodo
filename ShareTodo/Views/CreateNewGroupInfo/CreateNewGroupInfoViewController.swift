@@ -23,6 +23,7 @@ final class CreateNewGroupInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setupNavigationItem()
         self.addMeInSelectedUsersArray()
         self.setupGroupImageView()
         self.setupGroupNameTextField()
@@ -38,6 +39,14 @@ final class CreateNewGroupInfoViewController: UIViewController {
         self.taskTextField.addBorderBottom(borderWidth: 0.5, color: .systemGray2)
         self.selectedUsersAndMeCollectionView.addBorderBottom(borderWidth: 0.25, color: .systemGray3)
         self.selectedUsersAndMeCollectionView.addBorderTop(borderWidth: 0.25, color: .systemGray3)
+    }
+    
+    private func setupNavigationItem() {
+        self.navigationItem.title = "Group"
+        let stopItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(tapStopCreateRoomButton))
+        self.navigationItem.leftBarButtonItem = stopItem
+        let saveItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(tapCreateRoomButton))
+        self.navigationItem.rightBarButtonItem = saveItem
     }
     
     func addMeInSelectedUsersArray() {
@@ -79,6 +88,14 @@ final class CreateNewGroupInfoViewController: UIViewController {
         self.selectedUsersAndMeCollectionView.dataSource = self
     }
     
+    @objc func tapStopCreateRoomButton() {
+        self.presenter.didTapStopCreateRoomButton()
+    }
+    
+    @objc func tapCreateRoomButton() {
+        self.presenter.didTapCreateRoomutton()
+    }
+    
     func inject(with presenter: CreateNewGroupInfoViewPresenterProtocol) {
         self.presenter = presenter
         self.presenter.view = self
@@ -86,7 +103,9 @@ final class CreateNewGroupInfoViewController: UIViewController {
 }
 
 extension CreateNewGroupInfoViewController: CreateNewGroupInfoViewPresenterOutput {
-    
+    func dismissCreateChatRoomVC() {
+        DispatchQueue.main.async { self.dismiss(animated: true, completion: nil) }
+    }
 }
 
 extension CreateNewGroupInfoViewController: UICollectionViewDelegate, UICollectionViewDataSource {

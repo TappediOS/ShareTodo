@@ -11,10 +11,7 @@ import UIKit
 final class TodayTodoViewController: UIViewController {
     private var presenter: TodayTodoViewPresenterProtocol!
     @IBOutlet weak var todayTodoCollectionView: UICollectionView!
-    
     private let todayTodoCollectionViewCellId = "TodayTodoCollectionViewCell"
-    
-    var todo = ["test", "lost", "cooked", "lost", "cat", "lock", "la", "ja", "en", "ko", "fr"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +19,8 @@ final class TodayTodoViewController: UIViewController {
         self.setupView()
         self.setupNavigationBar()
         self.setupTodayTodoCollectionView()
+        
+        self.presenter.didViewDidLoad()
     }
     
     func setupView() {
@@ -58,21 +57,28 @@ final class TodayTodoViewController: UIViewController {
 }
 
 extension TodayTodoViewController: TodayTodoViewPresenterOutput {
-    
+    func reloadTodayTodoCollectionView() {
+        DispatchQueue.main.async { self.todayTodoCollectionView.reloadData() }
+    }
 }
 
 extension TodayTodoViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.todo.count
+        return self.presenter.numberOfTodayTodo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: todayTodoCollectionViewCellId, for: indexPath) as! TodayTodoCollectionViewCell
 
+        let todo = self.presenter.todayTodos[indexPath.item]
         //TODO:- 実際の文字列を表示すること
-        cell.taskLabel.text = todo[indexPath.item]
+        cell.taskLabel.text = todo
         cell.groupImageView.image = UIImage(systemName: "cloud.sun.rain.fill")
         cell.groupImageView.tintColor = .systemTeal
+        
+        cell.radioButtonAction = { [weak self] in
+            self?.presenter.didTapRadioButton(index: indexPath.item)
+        }
    
         return cell
     }

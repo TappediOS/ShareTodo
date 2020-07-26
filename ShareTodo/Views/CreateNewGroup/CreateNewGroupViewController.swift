@@ -10,6 +10,8 @@ import UIKit
 
 final class CreateNewGroupViewController: UIViewController {
     private var presenter: CreateNewGroupViewPresenterProtocol!
+    @IBOutlet weak var searchUserTableview: UITableView!
+    @IBOutlet weak var selectedUserCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

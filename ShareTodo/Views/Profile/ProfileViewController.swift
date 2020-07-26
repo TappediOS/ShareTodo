@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Nuke
 
 final class ProfileViewController: UIViewController {
     private var presenter: ProfileViewPresenterProtocol!
@@ -68,5 +69,16 @@ extension ProfileViewController: ProfileViewPresenterOutput {
         let navigationController = UINavigationController(rootViewController: editProfileVC)
         navigationController.modalPresentationStyle = .fullScreen
         self.present(navigationController, animated: true, completion: nil)
+    }
+    
+    func setUserName(userName: String) {
+        self.nameLabel.text = userName
+    }
+    
+    func setProfileImage(URL: URL) {
+        DispatchQueue.main.async {
+            let options = ImageLoadingOptions(placeholder: UIImage(named: "defaultProfileImage"), failureImage: UIImage(named: "defaultProfileImage"))
+            loadImage(with: URL, options: options, into: self.profileImageView, progress: nil, completion: nil)
+        }
     }
 }

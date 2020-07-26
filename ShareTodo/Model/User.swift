@@ -11,4 +11,3 @@ struct User: Codable {
     let name: String
     let profileImageURL: String?
 }
-

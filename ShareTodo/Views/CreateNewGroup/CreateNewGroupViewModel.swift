@@ -42,7 +42,7 @@ final class CreateNewGroupModel: CreateNewGroupModelProtocol {
     /// ユーザをFirestoreから検索する関数
     /// - Parameter searchText: 検索するユーザ名
     func searchUser(searchText: String) {
-        self.firestore.collection("message/v1/users").whereField("displayName", isEqualTo: searchText).getDocuments { [weak self] (documentSnapshot, error) in
+        self.firestore.collection("todo/v1/users").whereField("name", isEqualTo: searchText).getDocuments { [weak self] (documentSnapshot, error) in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
                 return

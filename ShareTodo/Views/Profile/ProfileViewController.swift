@@ -20,9 +20,12 @@ final class ProfileViewController: UIViewController {
         self.setupNameLabel()
         self.setupNavigationBar()
         self.setupUIBarButtonItem()
+        
+        self.presenter.didViewDidLoad()
     }
     
     func setupProfileImageView() {
+        self.profileImageView.image = UIImage(named: "defaultProfileImage")
         self.profileImageView.layer.borderWidth = 0.25
         self.profileImageView.layer.borderColor = UIColor.systemGray4.cgColor
         self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width / 2

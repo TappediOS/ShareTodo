@@ -10,6 +10,7 @@ protocol ProfileViewPresenterProtocol {
     var view: ProfileViewPresenterOutput! { get set }
     
     func didTapEditProfileButton()
+    func didViewDidLoad()
 }
 
 protocol ProfileViewPresenterOutput: class {
@@ -27,5 +28,13 @@ final class ProfileViewPresenter: ProfileViewPresenterProtocol, ProfileModelOutp
     
     func didTapEditProfileButton() {
         self.view.presentEditProfileVC()
+    }
+    
+    func didViewDidLoad() {
+        self.model.fetchUser()
+    }
+    
+    func successFetchUser(user: User) {
+        
     }
 }

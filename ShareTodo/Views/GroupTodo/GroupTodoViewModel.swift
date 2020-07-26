@@ -8,12 +8,20 @@
 
 protocol GroupTodoModelProtocol {
     var presenter: GroupTodoModelOutput! { get set }
+    var group: [String] { get set }
+    
+    func fetchGroup()
 }
 
 protocol GroupTodoModelOutput: class {
-    
+    func successFetchGroup()
 }
 
 final class GroupTodoModel: GroupTodoModelProtocol {
     weak var presenter: GroupTodoModelOutput!
+    var group = ["test", "test2", "Picker", "Roker"]
+    
+    func fetchGroup() {
+        self.presenter.successFetchGroup()
+    }
 }

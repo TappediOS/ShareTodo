@@ -44,6 +44,9 @@
                                                     <state key="normal" image="checkmark.circle" catalog="system">
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="23" scale="large"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="tapRadioButton:" destination="Y4d-9a-7Jk" eventType="touchUpInside" id="7EU-Gg-57T"/>
+                                                    </connections>
                                                 </button>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p4k-YR-jRL">
                                                     <rect key="frame" x="66" y="22.5" width="50" height="50"/>

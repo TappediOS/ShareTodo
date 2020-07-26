@@ -13,6 +13,8 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var taskLabel: UILabel!
     @IBOutlet weak var radioButton: UIButton!
     
+    var radioButtonAction: (() -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = .systemBackground
@@ -37,5 +39,11 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
     func setupRadioButton() {
         self.radioButton.layer.cornerRadius = self.groupImageView.frame.width / 2
         self.radioButton.layer.masksToBounds = true
+        self.radioButton.tintColor = .systemGreen
     }
+    
+    @IBAction func tapRadioButton(_ sender: Any) {
+        self.radioButtonAction?()
+    }
+    
 }

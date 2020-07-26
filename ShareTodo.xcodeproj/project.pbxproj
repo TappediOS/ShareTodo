@@ -95,6 +95,22 @@
 		BFD435F824CD425B00B2E580 /* DZNEmptyDataSet.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFD435F524CD425B00B2E580 /* DZNEmptyDataSet.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BFD435F924CD425C00B2E580 /* SCLAlertView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD435F624CD425B00B2E580 /* SCLAlertView.framework */; };
 		BFD435FA24CD425C00B2E580 /* SCLAlertView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFD435F624CD425B00B2E580 /* SCLAlertView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BFD435FD24CD449F00B2E580 /* CreateNewGroupViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD435FC24CD449F00B2E580 /* CreateNewGroupViewBuilder.swift */; };
+		BFD435FF24CD44A400B2E580 /* CreateNewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD435FE24CD44A400B2E580 /* CreateNewGroupViewController.swift */; };
+		BFD4360124CD44A900B2E580 /* CreateNewGroupViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4360024CD44A900B2E580 /* CreateNewGroupViewPresenter.swift */; };
+		BFD4360324CD44AE00B2E580 /* CreateNewGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4360224CD44AE00B2E580 /* CreateNewGroupViewModel.swift */; };
+		BFD4360524CD450200B2E580 /* CreateNewGroup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD4360424CD450200B2E580 /* CreateNewGroup.storyboard */; };
+		BFD4360D24CD49E200B2E580 /* SearchUserTableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4360C24CD49E200B2E580 /* SearchUserTableviewCell.swift */; };
+		BFD4360F24CD4A0900B2E580 /* SelectedUserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4360E24CD4A0900B2E580 /* SelectedUserCollectionViewCell.swift */; };
+		BFD4361224CD4BBC00B2E580 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4361124CD4BBC00B2E580 /* User.swift */; };
+		BFD4361524CD4F5300B2E580 /* CreateNewGroupInfoViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4361424CD4F5300B2E580 /* CreateNewGroupInfoViewBuilder.swift */; };
+		BFD4361724CD4F5B00B2E580 /* CreateNewGroupInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4361624CD4F5B00B2E580 /* CreateNewGroupInfoViewController.swift */; };
+		BFD4361924CD4F6100B2E580 /* CreateNewGroupInfoViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4361824CD4F6100B2E580 /* CreateNewGroupInfoViewPresenter.swift */; };
+		BFD4361B24CD4F6700B2E580 /* CreateNewGroupInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4361A24CD4F6700B2E580 /* CreateNewGroupInfoViewModel.swift */; };
+		BFD4361D24CD504800B2E580 /* CreateNewGroupInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD4361C24CD504800B2E580 /* CreateNewGroupInfo.storyboard */; };
+		BFD4361F24CD57F500B2E580 /* SelectedUsersAndMeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4361E24CD57F500B2E580 /* SelectedUsersAndMeCollectionViewCell.swift */; };
+		BFD4362124CD597700B2E580 /* ExCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4362024CD597700B2E580 /* ExCollectionView.swift */; };
+		BFD4362324CD659600B2E580 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4362224CD659600B2E580 /* Group.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -223,6 +239,22 @@
 		BFD435F324CD36F900B2E580 /* ExUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIImageView.swift; sourceTree = "<group>"; };
 		BFD435F524CD425B00B2E580 /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DZNEmptyDataSet.framework; path = Carthage/Build/iOS/DZNEmptyDataSet.framework; sourceTree = "<group>"; };
 		BFD435F624CD425B00B2E580 /* SCLAlertView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SCLAlertView.framework; path = Carthage/Build/iOS/SCLAlertView.framework; sourceTree = "<group>"; };
+		BFD435FC24CD449F00B2E580 /* CreateNewGroupViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGroupViewBuilder.swift; sourceTree = "<group>"; };
+		BFD435FE24CD44A400B2E580 /* CreateNewGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGroupViewController.swift; sourceTree = "<group>"; };
+		BFD4360024CD44A900B2E580 /* CreateNewGroupViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGroupViewPresenter.swift; sourceTree = "<group>"; };
+		BFD4360224CD44AE00B2E580 /* CreateNewGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGroupViewModel.swift; sourceTree = "<group>"; };
+		BFD4360424CD450200B2E580 /* CreateNewGroup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateNewGroup.storyboard; sourceTree = "<group>"; };
+		BFD4360C24CD49E200B2E580 /* SearchUserTableviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserTableviewCell.swift; sourceTree = "<group>"; };
+		BFD4360E24CD4A0900B2E580 /* SelectedUserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedUserCollectionViewCell.swift; sourceTree = "<group>"; };
+		BFD4361124CD4BBC00B2E580 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BFD4361424CD4F5300B2E580 /* CreateNewGroupInfoViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGroupInfoViewBuilder.swift; sourceTree = "<group>"; };
+		BFD4361624CD4F5B00B2E580 /* CreateNewGroupInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGroupInfoViewController.swift; sourceTree = "<group>"; };
+		BFD4361824CD4F6100B2E580 /* CreateNewGroupInfoViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGroupInfoViewPresenter.swift; sourceTree = "<group>"; };
+		BFD4361A24CD4F6700B2E580 /* CreateNewGroupInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGroupInfoViewModel.swift; sourceTree = "<group>"; };
+		BFD4361C24CD504800B2E580 /* CreateNewGroupInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateNewGroupInfo.storyboard; sourceTree = "<group>"; };
+		BFD4361E24CD57F500B2E580 /* SelectedUsersAndMeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedUsersAndMeCollectionViewCell.swift; sourceTree = "<group>"; };
+		BFD4362024CD597700B2E580 /* ExCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExCollectionView.swift; sourceTree = "<group>"; };
+		BFD4362224CD659600B2E580 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,6 +335,7 @@
 				BF88D4C324CAA8ED00607D6A /* App */,
 				BF88D4C224CAA8EA00607D6A /* Extentions */,
 				BF88D4C124CAA8E800607D6A /* Resources */,
+				BFD4361024CD4BAF00B2E580 /* Model */,
 				BFD435D224CD312000B2E580 /* FirebaseFirestoreSwift */,
 				BF88D4C624CAA93500607D6A /* Views */,
 			);
@@ -370,6 +403,7 @@
 				BF88D4DB24CAAB5100607D6A /* ExUIView.swift */,
 				BF97245524CC75D70033BB50 /* ExTextField.swift */,
 				BFD435F324CD36F900B2E580 /* ExUIImageView.swift */,
+				BFD4362024CD597700B2E580 /* ExCollectionView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -377,6 +411,8 @@
 		BF88D4C624CAA93500607D6A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BFD4361324CD4F3800B2E580 /* CreateNewGroupInfo */,
+				BFD435FB24CD448300B2E580 /* CreateNewGroup */,
 				BF97244A24CC6AF10033BB50 /* EditProfile */,
 				BF88D50D24CABC2800607D6A /* Profile */,
 				BF88D4F624CAB97C00607D6A /* TodayTodo */,
@@ -424,6 +460,8 @@
 				BF88D4FF24CAB9F000607D6A /* TodayTodo.storyboard */,
 				BF88D51624CABD1000607D6A /* Profile.storyboard */,
 				BF97245324CC6BD80033BB50 /* EditProfile.storyboard */,
+				BFD4360424CD450200B2E580 /* CreateNewGroup.storyboard */,
+				BFD4361C24CD504800B2E580 /* CreateNewGroupInfo.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -542,6 +580,40 @@
 			path = FirebaseFirestoreSwift;
 			sourceTree = "<group>";
 		};
+		BFD435FB24CD448300B2E580 /* CreateNewGroup */ = {
+			isa = PBXGroup;
+			children = (
+				BFD435FC24CD449F00B2E580 /* CreateNewGroupViewBuilder.swift */,
+				BFD435FE24CD44A400B2E580 /* CreateNewGroupViewController.swift */,
+				BFD4360024CD44A900B2E580 /* CreateNewGroupViewPresenter.swift */,
+				BFD4360224CD44AE00B2E580 /* CreateNewGroupViewModel.swift */,
+				BFD4360C24CD49E200B2E580 /* SearchUserTableviewCell.swift */,
+				BFD4360E24CD4A0900B2E580 /* SelectedUserCollectionViewCell.swift */,
+			);
+			path = CreateNewGroup;
+			sourceTree = "<group>";
+		};
+		BFD4361024CD4BAF00B2E580 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BFD4361124CD4BBC00B2E580 /* User.swift */,
+				BFD4362224CD659600B2E580 /* Group.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BFD4361324CD4F3800B2E580 /* CreateNewGroupInfo */ = {
+			isa = PBXGroup;
+			children = (
+				BFD4361424CD4F5300B2E580 /* CreateNewGroupInfoViewBuilder.swift */,
+				BFD4361624CD4F5B00B2E580 /* CreateNewGroupInfoViewController.swift */,
+				BFD4361824CD4F6100B2E580 /* CreateNewGroupInfoViewPresenter.swift */,
+				BFD4361A24CD4F6700B2E580 /* CreateNewGroupInfoViewModel.swift */,
+				BFD4361E24CD57F500B2E580 /* SelectedUsersAndMeCollectionViewCell.swift */,
+			);
+			path = CreateNewGroupInfo;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -653,6 +725,8 @@
 				BF97245424CC6BD80033BB50 /* EditProfile.storyboard in Resources */,
 				BF88D4D824CAAB1100607D6A /* Sample.storyboard in Resources */,
 				BF88D4EA24CAB76700607D6A /* MainTabBar.storyboard in Resources */,
+				BFD4360524CD450200B2E580 /* CreateNewGroup.storyboard in Resources */,
+				BFD4361D24CD504800B2E580 /* CreateNewGroupInfo.storyboard in Resources */,
 				BF88D51724CABD1000607D6A /* Profile.storyboard in Resources */,
 				BF88D50024CAB9F000607D6A /* TodayTodo.storyboard in Resources */,
 				BF88D4F524CAB8F300607D6A /* GroupTodo.storyboard in Resources */,
@@ -752,6 +826,7 @@
 				BF88D4F824CAB99500607D6A /* TodayTodoViewbuilder.swift in Sources */,
 				BFD435ED24CD333D00B2E580 /* DocumentReference+WriteEncodable.swift in Sources */,
 				BFD435E924CD333D00B2E580 /* Transaction+WriteEncodable.swift in Sources */,
+				BFD4360F24CD4A0900B2E580 /* SelectedUserCollectionViewCell.swift in Sources */,
 				BFD435E624CD333D00B2E580 /* DocumentReference+Codable.swift in Sources */,
 				BFD435EE24CD333D00B2E580 /* GeoPoint+Codable.swift in Sources */,
 				BFD435EA24CD333D00B2E580 /* ServerTimestamp.swift in Sources */,
@@ -759,17 +834,25 @@
 				BF88D50F24CABCB700607D6A /* ProfileViewBuilder.swift in Sources */,
 				BF88D4D624CAAAB200607D6A /* SampleViewModel.swift in Sources */,
 				BF88D51524CABCC800607D6A /* ProfileViewModel.swift in Sources */,
+				BFD4361924CD4F6100B2E580 /* CreateNewGroupInfoViewPresenter.swift in Sources */,
 				BFD435EC24CD333D00B2E580 /* DocumentID.swift in Sources */,
+				BFD4361724CD4F5B00B2E580 /* CreateNewGroupInfoViewController.swift in Sources */,
+				BFD4362124CD597700B2E580 /* ExCollectionView.swift in Sources */,
 				BF88D4FE24CAB9A600607D6A /* TodayTodoViewModel.swift in Sources */,
+				BFD4361B24CD4F6700B2E580 /* CreateNewGroupInfoViewModel.swift in Sources */,
 				BF88D51324CABCC300607D6A /* ProfileViewPresenter.swift in Sources */,
 				BFD435E724CD333D00B2E580 /* Timestamp+Codable.swift in Sources */,
 				BF88D4D024CAAA8D00607D6A /* SampleViewController.swift in Sources */,
+				BFD4361524CD4F5300B2E580 /* CreateNewGroupInfoViewBuilder.swift in Sources */,
 				BF88D4E624CAB6A200607D6A /* MainTabBarPresenter.swift in Sources */,
 				BFD435EB24CD333D00B2E580 /* DocumentSnapshot+ReadDecodable.swift in Sources */,
+				BFD435FD24CD449F00B2E580 /* CreateNewGroupViewBuilder.swift in Sources */,
 				BFD435E324CD333D00B2E580 /* CodablePassThroughTypes.swift in Sources */,
 				BF88D4F324CAB89500607D6A /* GroupTodoViewModel.swift in Sources */,
 				BF88D4E424CAB69C00607D6A /* MainTabBarModel.swift in Sources */,
+				BFD4360D24CD49E200B2E580 /* SearchUserTableviewCell.swift in Sources */,
 				BF88D4ED24CAB88500607D6A /* GroupTodoViewBuilder.swift in Sources */,
+				BFD4360324CD44AE00B2E580 /* CreateNewGroupViewModel.swift in Sources */,
 				BFD435E524CD333D00B2E580 /* FieldValue+Encodable.swift in Sources */,
 				BF88D51924CAC4D600607D6A /* GroupTableViewCell.swift in Sources */,
 				BF88D4EF24CAB88A00607D6A /* GroupTodoViewController.swift in Sources */,
@@ -780,14 +863,19 @@
 				BF88D51B24CACEEC00607D6A /* TodayTodoCollectionViewCell.swift in Sources */,
 				BF88D4DC24CAAB5100607D6A /* ExUIView.swift in Sources */,
 				BFD435F424CD36F900B2E580 /* ExUIImageView.swift in Sources */,
+				BFD4362324CD659600B2E580 /* Group.swift in Sources */,
+				BFD4360124CD44A900B2E580 /* CreateNewGroupViewPresenter.swift in Sources */,
 				BF88D4F124CAB89000607D6A /* GroupTodoViewPresenter.swift in Sources */,
 				BFD435F124CD346D00B2E580 /* FirestoreDecoder.swift in Sources */,
 				BFD435F224CD346D00B2E580 /* FirestoreEncoder.swift in Sources */,
 				BFD435E824CD333D00B2E580 /* WriteBatch+WriteEncodable.swift in Sources */,
+				BFD435FF24CD44A400B2E580 /* CreateNewGroupViewController.swift in Sources */,
 				BF88D49424CAA83300607D6A /* SceneDelegate.swift in Sources */,
 				BF97244C24CC6B070033BB50 /* EditProfileViewBuilder.swift in Sources */,
 				BF88D4D424CAAAA000607D6A /* SampleViewPresenter.swift in Sources */,
 				BF88D4DE24CAAB6600607D6A /* ExString.swift in Sources */,
+				BFD4361F24CD57F500B2E580 /* SelectedUsersAndMeCollectionViewCell.swift in Sources */,
+				BFD4361224CD4BBC00B2E580 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

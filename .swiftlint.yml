@@ -1,6 +1,7 @@
 excluded:
   - Carthage/
   - eventgen-viewer/App/
+  - ShareTodo/FirebaseFirestoreSwift/
 disabled_rules:
   - force_cast
   - trailing_whitespace

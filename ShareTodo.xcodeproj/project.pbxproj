@@ -74,6 +74,20 @@
 		BF9724A924CD2CB60033BB50 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BF9724A624CD2BDF0033BB50 /* libz.tbd */; };
 		BFD435CF24CD2EBC00B2E580 /* CropViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97246524CD24AD0033BB50 /* CropViewController.framework */; };
 		BFD435D024CD2EBD00B2E580 /* CropViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF97246524CD24AD0033BB50 /* CropViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BFD435E124CD333D00B2E580 /* ExplicitNull.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD435D324CD333C00B2E580 /* ExplicitNull.swift */; };
+		BFD435E224CD333D00B2E580 /* CollectionReference+WriteEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD435D424CD333C00B2E580 /* CollectionReference+WriteEncodable.swift */; };
+		BFD435E324CD333D00B2E580 /* CodablePassThroughTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD435D524CD333C00B2E580 /* CodablePassThroughTypes.swift */; };
+		BFD435E424CD333D00B2E580 /* CodableErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD435D624CD333C00B2E580 /* CodableErrors.swift */; };
+		BFD435E524CD333D00B2E580 /* FieldValue+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD435D724CD333C00B2E580 /* FieldValue+Encodable.swift */; };
+		BFD435E624CD333D00B2E580 /* DocumentReference+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD435D824CD333C00B2E580 /* DocumentReference+Codable.swift */; };
+		BFD435E724CD333D00B2E580 /* Timestamp+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD435D924CD333C00B2E580 /* Timestamp+Codable.swift */; };
+		BFD435E824CD333D00B2E580 /* WriteBatch+WriteEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD435DA24CD333D00B2E580 /* WriteBatch+WriteEncodable.swift */; };
+		BFD435E924CD333D00B2E580 /* Transaction+WriteEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD435DB24CD333D00B2E580 /* Transaction+WriteEncodable.swift */; };
+		BFD435EA24CD333D00B2E580 /* ServerTimestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD435DC24CD333D00B2E580 /* ServerTimestamp.swift */; };
+		BFD435EB24CD333D00B2E580 /* DocumentSnapshot+ReadDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD435DD24CD333D00B2E580 /* DocumentSnapshot+ReadDecodable.swift */; };
+		BFD435EC24CD333D00B2E580 /* DocumentID.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD435DE24CD333D00B2E580 /* DocumentID.swift */; };
+		BFD435ED24CD333D00B2E580 /* DocumentReference+WriteEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD435DF24CD333D00B2E580 /* DocumentReference+WriteEncodable.swift */; };
+		BFD435EE24CD333D00B2E580 /* GeoPoint+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD435E024CD333D00B2E580 /* GeoPoint+Codable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -181,6 +195,20 @@
 		BF9724A424CD2BA70033BB50 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		BF9724A524CD2BCC0033BB50 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		BF9724A624CD2BDF0033BB50 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		BFD435D324CD333C00B2E580 /* ExplicitNull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplicitNull.swift; sourceTree = "<group>"; };
+		BFD435D424CD333C00B2E580 /* CollectionReference+WriteEncodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionReference+WriteEncodable.swift"; sourceTree = "<group>"; };
+		BFD435D524CD333C00B2E580 /* CodablePassThroughTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodablePassThroughTypes.swift; sourceTree = "<group>"; };
+		BFD435D624CD333C00B2E580 /* CodableErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableErrors.swift; sourceTree = "<group>"; };
+		BFD435D724CD333C00B2E580 /* FieldValue+Encodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FieldValue+Encodable.swift"; sourceTree = "<group>"; };
+		BFD435D824CD333C00B2E580 /* DocumentReference+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DocumentReference+Codable.swift"; sourceTree = "<group>"; };
+		BFD435D924CD333C00B2E580 /* Timestamp+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Timestamp+Codable.swift"; sourceTree = "<group>"; };
+		BFD435DA24CD333D00B2E580 /* WriteBatch+WriteEncodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WriteBatch+WriteEncodable.swift"; sourceTree = "<group>"; };
+		BFD435DB24CD333D00B2E580 /* Transaction+WriteEncodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Transaction+WriteEncodable.swift"; sourceTree = "<group>"; };
+		BFD435DC24CD333D00B2E580 /* ServerTimestamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerTimestamp.swift; sourceTree = "<group>"; };
+		BFD435DD24CD333D00B2E580 /* DocumentSnapshot+ReadDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DocumentSnapshot+ReadDecodable.swift"; sourceTree = "<group>"; };
+		BFD435DE24CD333D00B2E580 /* DocumentID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentID.swift; sourceTree = "<group>"; };
+		BFD435DF24CD333D00B2E580 /* DocumentReference+WriteEncodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DocumentReference+WriteEncodable.swift"; sourceTree = "<group>"; };
+		BFD435E024CD333D00B2E580 /* GeoPoint+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GeoPoint+Codable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -475,6 +503,20 @@
 		BFD435D224CD312000B2E580 /* FirebaseFirestoreSwift */ = {
 			isa = PBXGroup;
 			children = (
+				BFD435D624CD333C00B2E580 /* CodableErrors.swift */,
+				BFD435D524CD333C00B2E580 /* CodablePassThroughTypes.swift */,
+				BFD435D424CD333C00B2E580 /* CollectionReference+WriteEncodable.swift */,
+				BFD435DE24CD333D00B2E580 /* DocumentID.swift */,
+				BFD435D824CD333C00B2E580 /* DocumentReference+Codable.swift */,
+				BFD435DF24CD333D00B2E580 /* DocumentReference+WriteEncodable.swift */,
+				BFD435DD24CD333D00B2E580 /* DocumentSnapshot+ReadDecodable.swift */,
+				BFD435D324CD333C00B2E580 /* ExplicitNull.swift */,
+				BFD435D724CD333C00B2E580 /* FieldValue+Encodable.swift */,
+				BFD435E024CD333D00B2E580 /* GeoPoint+Codable.swift */,
+				BFD435DC24CD333D00B2E580 /* ServerTimestamp.swift */,
+				BFD435D924CD333C00B2E580 /* Timestamp+Codable.swift */,
+				BFD435DB24CD333D00B2E580 /* Transaction+WriteEncodable.swift */,
+				BFD435DA24CD333D00B2E580 /* WriteBatch+WriteEncodable.swift */,
 			);
 			path = FirebaseFirestoreSwift;
 			sourceTree = "<group>";
@@ -683,27 +725,41 @@
 				BF88D4E224CAB67C00607D6A /* MainTabBarViewController.swift in Sources */,
 				BF97245624CC75D70033BB50 /* ExTextField.swift in Sources */,
 				BF88D4CE24CAAA0B00607D6A /* Routes.swift in Sources */,
+				BFD435E124CD333D00B2E580 /* ExplicitNull.swift in Sources */,
+				BFD435E424CD333D00B2E580 /* CodableErrors.swift in Sources */,
 				BF88D51124CABCBD00607D6A /* ProfileViewController.swift in Sources */,
 				BF88D4F824CAB99500607D6A /* TodayTodoViewbuilder.swift in Sources */,
+				BFD435ED24CD333D00B2E580 /* DocumentReference+WriteEncodable.swift in Sources */,
+				BFD435E924CD333D00B2E580 /* Transaction+WriteEncodable.swift in Sources */,
+				BFD435E624CD333D00B2E580 /* DocumentReference+Codable.swift in Sources */,
+				BFD435EE24CD333D00B2E580 /* GeoPoint+Codable.swift in Sources */,
+				BFD435EA24CD333D00B2E580 /* ServerTimestamp.swift in Sources */,
 				BF97244E24CC6B0D0033BB50 /* EditProfileViewController.swift in Sources */,
 				BF88D50F24CABCB700607D6A /* ProfileViewBuilder.swift in Sources */,
 				BF88D4D624CAAAB200607D6A /* SampleViewModel.swift in Sources */,
 				BF88D51524CABCC800607D6A /* ProfileViewModel.swift in Sources */,
+				BFD435EC24CD333D00B2E580 /* DocumentID.swift in Sources */,
 				BF88D4FE24CAB9A600607D6A /* TodayTodoViewModel.swift in Sources */,
 				BF88D51324CABCC300607D6A /* ProfileViewPresenter.swift in Sources */,
+				BFD435E724CD333D00B2E580 /* Timestamp+Codable.swift in Sources */,
 				BF88D4D024CAAA8D00607D6A /* SampleViewController.swift in Sources */,
 				BF88D4E624CAB6A200607D6A /* MainTabBarPresenter.swift in Sources */,
+				BFD435EB24CD333D00B2E580 /* DocumentSnapshot+ReadDecodable.swift in Sources */,
+				BFD435E324CD333D00B2E580 /* CodablePassThroughTypes.swift in Sources */,
 				BF88D4F324CAB89500607D6A /* GroupTodoViewModel.swift in Sources */,
 				BF88D4E424CAB69C00607D6A /* MainTabBarModel.swift in Sources */,
 				BF88D4ED24CAB88500607D6A /* GroupTodoViewBuilder.swift in Sources */,
+				BFD435E524CD333D00B2E580 /* FieldValue+Encodable.swift in Sources */,
 				BF88D51924CAC4D600607D6A /* GroupTableViewCell.swift in Sources */,
 				BF88D4EF24CAB88A00607D6A /* GroupTodoViewController.swift in Sources */,
 				BF88D4DA24CAAB3F00607D6A /* ExUIViewController.swift in Sources */,
 				BF88D4FA24CAB99C00607D6A /* TodayTodoViewController.swift in Sources */,
 				BF97245224CC6B1B0033BB50 /* EditProfileViewModel.swift in Sources */,
+				BFD435E224CD333D00B2E580 /* CollectionReference+WriteEncodable.swift in Sources */,
 				BF88D51B24CACEEC00607D6A /* TodayTodoCollectionViewCell.swift in Sources */,
 				BF88D4DC24CAAB5100607D6A /* ExUIView.swift in Sources */,
 				BF88D4F124CAB89000607D6A /* GroupTodoViewPresenter.swift in Sources */,
+				BFD435E824CD333D00B2E580 /* WriteBatch+WriteEncodable.swift in Sources */,
 				BF88D49424CAA83300607D6A /* SceneDelegate.swift in Sources */,
 				BF97244C24CC6B070033BB50 /* EditProfileViewBuilder.swift in Sources */,
 				BF88D4D424CAAAA000607D6A /* SampleViewPresenter.swift in Sources */,

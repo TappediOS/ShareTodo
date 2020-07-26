@@ -103,6 +103,10 @@
 		BFD4360D24CD49E200B2E580 /* SearchUserTableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4360C24CD49E200B2E580 /* SearchUserTableviewCell.swift */; };
 		BFD4360F24CD4A0900B2E580 /* SelectedUserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4360E24CD4A0900B2E580 /* SelectedUserCollectionViewCell.swift */; };
 		BFD4361224CD4BBC00B2E580 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4361124CD4BBC00B2E580 /* User.swift */; };
+		BFD4361524CD4F5300B2E580 /* CreateNewGroupInfoViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4361424CD4F5300B2E580 /* CreateNewGroupInfoViewBuilder.swift */; };
+		BFD4361724CD4F5B00B2E580 /* CreateNewGroupInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4361624CD4F5B00B2E580 /* CreateNewGroupInfoViewController.swift */; };
+		BFD4361924CD4F6100B2E580 /* CreateNewGroupInfoViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4361824CD4F6100B2E580 /* CreateNewGroupInfoViewPresenter.swift */; };
+		BFD4361B24CD4F6700B2E580 /* CreateNewGroupInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4361A24CD4F6700B2E580 /* CreateNewGroupInfoViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -239,6 +243,10 @@
 		BFD4360C24CD49E200B2E580 /* SearchUserTableviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserTableviewCell.swift; sourceTree = "<group>"; };
 		BFD4360E24CD4A0900B2E580 /* SelectedUserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedUserCollectionViewCell.swift; sourceTree = "<group>"; };
 		BFD4361124CD4BBC00B2E580 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BFD4361424CD4F5300B2E580 /* CreateNewGroupInfoViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGroupInfoViewBuilder.swift; sourceTree = "<group>"; };
+		BFD4361624CD4F5B00B2E580 /* CreateNewGroupInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGroupInfoViewController.swift; sourceTree = "<group>"; };
+		BFD4361824CD4F6100B2E580 /* CreateNewGroupInfoViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGroupInfoViewPresenter.swift; sourceTree = "<group>"; };
+		BFD4361A24CD4F6700B2E580 /* CreateNewGroupInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGroupInfoViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -394,6 +402,7 @@
 		BF88D4C624CAA93500607D6A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BFD4361324CD4F3800B2E580 /* CreateNewGroupInfo */,
 				BFD435FB24CD448300B2E580 /* CreateNewGroup */,
 				BF97244A24CC6AF10033BB50 /* EditProfile */,
 				BF88D50D24CABC2800607D6A /* Profile */,
@@ -580,6 +589,17 @@
 				BFD4361124CD4BBC00B2E580 /* User.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BFD4361324CD4F3800B2E580 /* CreateNewGroupInfo */ = {
+			isa = PBXGroup;
+			children = (
+				BFD4361424CD4F5300B2E580 /* CreateNewGroupInfoViewBuilder.swift */,
+				BFD4361624CD4F5B00B2E580 /* CreateNewGroupInfoViewController.swift */,
+				BFD4361824CD4F6100B2E580 /* CreateNewGroupInfoViewPresenter.swift */,
+				BFD4361A24CD4F6700B2E580 /* CreateNewGroupInfoViewModel.swift */,
+			);
+			path = CreateNewGroupInfo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -801,11 +821,15 @@
 				BF88D50F24CABCB700607D6A /* ProfileViewBuilder.swift in Sources */,
 				BF88D4D624CAAAB200607D6A /* SampleViewModel.swift in Sources */,
 				BF88D51524CABCC800607D6A /* ProfileViewModel.swift in Sources */,
+				BFD4361924CD4F6100B2E580 /* CreateNewGroupInfoViewPresenter.swift in Sources */,
 				BFD435EC24CD333D00B2E580 /* DocumentID.swift in Sources */,
+				BFD4361724CD4F5B00B2E580 /* CreateNewGroupInfoViewController.swift in Sources */,
 				BF88D4FE24CAB9A600607D6A /* TodayTodoViewModel.swift in Sources */,
+				BFD4361B24CD4F6700B2E580 /* CreateNewGroupInfoViewModel.swift in Sources */,
 				BF88D51324CABCC300607D6A /* ProfileViewPresenter.swift in Sources */,
 				BFD435E724CD333D00B2E580 /* Timestamp+Codable.swift in Sources */,
 				BF88D4D024CAAA8D00607D6A /* SampleViewController.swift in Sources */,
+				BFD4361524CD4F5300B2E580 /* CreateNewGroupInfoViewBuilder.swift in Sources */,
 				BF88D4E624CAB6A200607D6A /* MainTabBarPresenter.swift in Sources */,
 				BFD435EB24CD333D00B2E580 /* DocumentSnapshot+ReadDecodable.swift in Sources */,
 				BFD435FD24CD449F00B2E580 /* CreateNewGroupViewBuilder.swift in Sources */,

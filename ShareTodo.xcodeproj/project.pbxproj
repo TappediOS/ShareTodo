@@ -90,6 +90,7 @@
 		BFD435EE24CD333D00B2E580 /* GeoPoint+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD435E024CD333D00B2E580 /* GeoPoint+Codable.swift */; };
 		BFD435F124CD346D00B2E580 /* FirestoreDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD435EF24CD346D00B2E580 /* FirestoreDecoder.swift */; };
 		BFD435F224CD346D00B2E580 /* FirestoreEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD435F024CD346D00B2E580 /* FirestoreEncoder.swift */; };
+		BFD435F424CD36F900B2E580 /* ExUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD435F324CD36F900B2E580 /* ExUIImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,6 +214,7 @@
 		BFD435E024CD333D00B2E580 /* GeoPoint+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GeoPoint+Codable.swift"; sourceTree = "<group>"; };
 		BFD435EF24CD346D00B2E580 /* FirestoreDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreDecoder.swift; sourceTree = "<group>"; };
 		BFD435F024CD346D00B2E580 /* FirestoreEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreEncoder.swift; sourceTree = "<group>"; };
+		BFD435F324CD36F900B2E580 /* ExUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -357,6 +359,7 @@
 				BF88D4D924CAAB3F00607D6A /* ExUIViewController.swift */,
 				BF88D4DB24CAAB5100607D6A /* ExUIView.swift */,
 				BF97245524CC75D70033BB50 /* ExTextField.swift */,
+				BFD435F324CD36F900B2E580 /* ExUIImageView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -764,6 +767,7 @@
 				BFD435E224CD333D00B2E580 /* CollectionReference+WriteEncodable.swift in Sources */,
 				BF88D51B24CACEEC00607D6A /* TodayTodoCollectionViewCell.swift in Sources */,
 				BF88D4DC24CAAB5100607D6A /* ExUIView.swift in Sources */,
+				BFD435F424CD36F900B2E580 /* ExUIImageView.swift in Sources */,
 				BF88D4F124CAB89000607D6A /* GroupTodoViewPresenter.swift in Sources */,
 				BFD435F124CD346D00B2E580 /* FirestoreDecoder.swift in Sources */,
 				BFD435F224CD346D00B2E580 /* FirestoreEncoder.swift in Sources */,

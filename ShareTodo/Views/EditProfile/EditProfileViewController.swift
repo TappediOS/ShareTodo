@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CropViewController
 
 final class EditProfileViewController: UIViewController {
     private var presenter: EditProfileViewPresenterProtocol!
@@ -22,6 +23,7 @@ final class EditProfileViewController: UIViewController {
     var userName: String?
     
     let maxTextfieldLength = 15
+    let usersImageViewWide: CGFloat = 100
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -148,9 +150,32 @@ extension EditProfileViewController: UINavigationControllerDelegate, UIImagePick
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let pickerImage = (info[UIImagePickerController.InfoKey.originalImage] as? UIImage) else { return }
-        picker.dismiss(animated: true)
         
-        self.profileImageView.image = pickerImage
+        let cropController = CropViewController(croppingStyle: .circular, image: pickerImage)
+        cropController.aspectRatioPreset = .presetSquare
+        cropController.aspectRatioPickerButtonHidden = true
+        cropController.resetAspectRatioEnabled = false
+        cropController.rotateButtonsHidden = false
+        cropController.cancelButtonTitle = NSLocalizedString("Cancel", comment: "")
+        cropController.doneButtonTitle = NSLocalizedString("Done", comment: "")
+        cropController.cropView.cropBoxResizeEnabled = false
+        cropController.delegate = self
+
+        picker.dismiss(animated: true) {
+            self.present(cropController, animated: true, completion: nil)
+        }
+    }
+}
+
+extension EditProfileViewController: CropViewControllerDelegate {
+    func cropViewController(_ cropViewController: CropViewController, didFinishCancelled cancelled: Bool) {
+        cropViewController.dismiss(animated: true, completion: nil)
+    }
+    
+    func cropViewController(_ cropViewController: CropViewController, didCropToCircularImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+        let resizeImage = image.resizeUIImage(width: self.usersImageViewWide, height: self.usersImageViewWide)
+        self.profileImageView.image = resizeImage
+        cropViewController.dismiss(animated: true, completion: nil)
     }
 }
 

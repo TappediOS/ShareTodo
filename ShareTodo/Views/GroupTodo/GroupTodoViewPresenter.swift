@@ -12,10 +12,12 @@ protocol GroupTodoViewPresenterProtocol {
     var group: [String] { get }
     
     func didViewDidLoad()
+    func didTapMakeGroupButton()
 }
 
 protocol GroupTodoViewPresenterOutput: class {
     func reloadGroupTableView()
+    func showCreateNewGroupVC()
 }
 
 final class GroupTodoViewPresenter: GroupTodoViewPresenterProtocol, GroupTodoModelOutput {
@@ -37,6 +39,10 @@ final class GroupTodoViewPresenter: GroupTodoViewPresenterProtocol, GroupTodoMod
     
     func didViewDidLoad() {
         self.model.fetchGroup()
+    }
+    
+    func didTapMakeGroupButton() {
+        self.view.showCreateNewGroupVC()
     }
     
     func successFetchGroup() {

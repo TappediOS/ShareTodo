@@ -48,6 +48,7 @@ final class GroupTodoViewController: UIViewController {
     /// - Parameter sender: button
     @objc func makeGroup(_ sender: UIButton) {
         print("Make Group")
+        self.presenter.didTapMakeGroupButton()
     }
     
     func inject(with presenter: GroupTodoViewPresenterProtocol) {
@@ -59,6 +60,10 @@ final class GroupTodoViewController: UIViewController {
 extension GroupTodoViewController: GroupTodoViewPresenterOutput {
     func reloadGroupTableView() {
         DispatchQueue.main.async { self.groupTableView.reloadData() }
+    }
+    
+    func showCreateNewGroupVC() {
+        
     }
 }
 

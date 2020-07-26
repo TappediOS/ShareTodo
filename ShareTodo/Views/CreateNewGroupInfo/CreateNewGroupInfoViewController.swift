@@ -60,7 +60,7 @@ final class CreateNewGroupInfoViewController: UIViewController {
     }
     
     func setupGroupImageView() {
-        self.groupImageView.image = UIImage(systemName: "person") ?? UIImage()
+        self.groupImageView.image = UIImage(named: "defaultProfileImage")
         self.groupImageView.layer.borderWidth = 0.25
         self.groupImageView.layer.borderColor = UIColor.systemGray4.cgColor
         self.groupImageView.layer.cornerRadius = self.groupImageView.frame.width / 2
@@ -124,9 +124,9 @@ final class CreateNewGroupInfoViewController: UIViewController {
         guard let groupName = groupNameTextField.text, let groupTask = taskTextField.text else { return }
         guard !groupName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
         guard !groupTask.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
-        let data = self.groupImageView.image?.pngData() ?? Data()
+        let data = self.groupImageView.image?.jpegData(compressionQuality: 0.5) ?? Data()
         
-        self.presenter.didTapGroupButton(selectedUsers: self.selectedUsersArray ,groupName: groupName, groupTask: groupTask, groupImageData: data)
+        self.presenter.didTapGroupButton(selectedUsers: self.selectedUsersArray,groupName: groupName, groupTask: groupTask, groupImageData: data)
     }
     
     @objc func tapGroupImageView(_ sender: UITapGestureRecognizer) {
@@ -156,6 +156,10 @@ extension CreateNewGroupInfoViewController: CreateNewGroupInfoViewPresenterOutpu
     
     func dismissCreateNewGroupInfoVC() {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func setDeleteAndSetDefaultImage() {
+        DispatchQueue.main.async { self.groupImageView.image = UIImage(named: "defaultProfileImage") }
     }
 }
 

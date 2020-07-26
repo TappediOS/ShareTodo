@@ -259,6 +259,7 @@
 				BF88D4C324CAA8ED00607D6A /* App */,
 				BF88D4C224CAA8EA00607D6A /* Extentions */,
 				BF88D4C124CAA8E800607D6A /* Resources */,
+				BFD435D224CD312000B2E580 /* FirebaseFirestoreSwift */,
 				BF88D4C624CAA93500607D6A /* Views */,
 			);
 			path = ShareTodo;
@@ -469,6 +470,13 @@
 				BF97246324CD24AC0033BB50 /* PromisesObjC.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BFD435D224CD312000B2E580 /* FirebaseFirestoreSwift */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FirebaseFirestoreSwift;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

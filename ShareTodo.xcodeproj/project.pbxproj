@@ -110,6 +110,7 @@
 		BFD4361D24CD504800B2E580 /* CreateNewGroupInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD4361C24CD504800B2E580 /* CreateNewGroupInfo.storyboard */; };
 		BFD4361F24CD57F500B2E580 /* SelectedUsersAndMeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4361E24CD57F500B2E580 /* SelectedUsersAndMeCollectionViewCell.swift */; };
 		BFD4362124CD597700B2E580 /* ExCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4362024CD597700B2E580 /* ExCollectionView.swift */; };
+		BFD4362324CD659600B2E580 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4362224CD659600B2E580 /* Group.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -253,6 +254,7 @@
 		BFD4361C24CD504800B2E580 /* CreateNewGroupInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateNewGroupInfo.storyboard; sourceTree = "<group>"; };
 		BFD4361E24CD57F500B2E580 /* SelectedUsersAndMeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedUsersAndMeCollectionViewCell.swift; sourceTree = "<group>"; };
 		BFD4362024CD597700B2E580 /* ExCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExCollectionView.swift; sourceTree = "<group>"; };
+		BFD4362224CD659600B2E580 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -595,6 +597,7 @@
 			isa = PBXGroup;
 			children = (
 				BFD4361124CD4BBC00B2E580 /* User.swift */,
+				BFD4362224CD659600B2E580 /* Group.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -860,6 +863,7 @@
 				BF88D51B24CACEEC00607D6A /* TodayTodoCollectionViewCell.swift in Sources */,
 				BF88D4DC24CAAB5100607D6A /* ExUIView.swift in Sources */,
 				BFD435F424CD36F900B2E580 /* ExUIImageView.swift in Sources */,
+				BFD4362324CD659600B2E580 /* Group.swift in Sources */,
 				BFD4360124CD44A900B2E580 /* CreateNewGroupViewPresenter.swift in Sources */,
 				BF88D4F124CAB89000607D6A /* GroupTodoViewPresenter.swift in Sources */,
 				BFD435F124CD346D00B2E580 /* FirestoreDecoder.swift in Sources */,

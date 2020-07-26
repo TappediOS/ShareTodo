@@ -6,6 +6,8 @@
 //  Copyright © 2020 jun. All rights reserved.
 //
 
+import Foundation
+
 protocol CreateNewGroupInfoViewPresenterProtocol {
     var view: CreateNewGroupInfoViewPresenterOutput! { get set }
     
@@ -14,13 +16,14 @@ protocol CreateNewGroupInfoViewPresenterProtocol {
     func didTapSelectPhotoAction()
     func didTapDeletePhotoAction()
     
-    func didTapCreateRoomutton()
+    func didTapGroupButton(selectedUsers: [User], groupName: String, groupTask: String, groupImageData: Data)
 }
 
 protocol CreateNewGroupInfoViewPresenterOutput: class {
     func presentActionSheet()
     func showUIImagePickerControllerAsCamera()
     func showUIImagePickerControllerAsLibrary()
+    func dismissCreateNewGroupInfoVC()
 }
 
 final class CreateNewGroupInfoViewPresenter: CreateNewGroupInfoViewPresenterProtocol, CreateNewGroupInfoModelOutput {
@@ -32,8 +35,8 @@ final class CreateNewGroupInfoViewPresenter: CreateNewGroupInfoViewPresenterProt
         self.model.presenter = self
     }
     
-    func didTapCreateRoomutton() {
-        
+    func didTapGroupButton(selectedUsers: [User], groupName: String, groupTask: String, groupImageData: Data) {
+        self.model.createGroup(selectedUsers: selectedUsers, groupName: groupName, groupTask: groupTask, groupImageData: groupImageData)
     }
     
     func didTapGroupImageView() {
@@ -50,5 +53,9 @@ final class CreateNewGroupInfoViewPresenter: CreateNewGroupInfoViewPresenterProt
     
     func didTapDeletePhotoAction() {
         
+    }
+    
+    func successCreateGroup() {
+        self.view.dismissCreateNewGroupInfoVC()
     }
 }

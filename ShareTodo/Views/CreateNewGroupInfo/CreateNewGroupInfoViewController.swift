@@ -51,7 +51,7 @@ final class CreateNewGroupInfoViewController: UIViewController {
     
     private func setupNavigationItem() {
         self.navigationItem.title = "Group"
-        let saveItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(tapCreateRoomButton))
+        let saveItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(tapGroupButton))
         self.navigationItem.rightBarButtonItem = saveItem
     }
     
@@ -120,8 +120,13 @@ final class CreateNewGroupInfoViewController: UIViewController {
         self.photoPickerVC.delegate = self
     }
     
-    @objc func tapCreateRoomButton() {
-        self.presenter.didTapCreateRoomutton()
+    @objc func tapGroupButton() {
+        guard let groupName = groupNameTextField.text, let groupTask = taskTextField.text else { return }
+        guard !groupName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
+        guard !groupTask.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
+        let data = self.groupImageView.image?.pngData() ?? Data()
+        
+        self.presenter.didTapGroupButton(selectedUsers: self.selectedUsersArray ,groupName: groupName, groupTask: groupTask, groupImageData: data)
     }
     
     @objc func tapGroupImageView(_ sender: UITapGestureRecognizer) {
@@ -147,6 +152,10 @@ extension CreateNewGroupInfoViewController: CreateNewGroupInfoViewPresenterOutpu
     func showUIImagePickerControllerAsLibrary() {
         photoPickerVC.sourceType = .photoLibrary
         self.present(photoPickerVC, animated: true, completion: nil)
+    }
+    
+    func dismissCreateNewGroupInfoVC() {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

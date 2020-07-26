@@ -34,6 +34,8 @@ protocol CreateNewGroupViewPresenterOutput: class {
     
     func startActivityIndicator()
     func stopActivityIndicator()
+    
+    func presentCreateNewGropuInfoVC()
 }
 
 final class CreateNewGroupViewPresenter: CreateNewGroupViewPresenterProtocol, CreateNewGroupModelOutput {
@@ -83,6 +85,8 @@ final class CreateNewGroupViewPresenter: CreateNewGroupViewPresenterProtocol, Cr
     
     func didTapCreateRoomutton() {
         guard !self.selectedUsers.isEmpty else { return }
+        
+        self.view.presentCreateNewGropuInfoVC()
     }
     
     func didSearchBarSearchButtonClicked(searchText: String) {

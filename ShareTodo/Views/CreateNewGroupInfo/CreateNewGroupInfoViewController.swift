@@ -15,11 +15,13 @@ final class CreateNewGroupInfoViewController: UIViewController {
     @IBOutlet weak var taskLabel: UILabel!
     @IBOutlet weak var taskTextField: UITextField!
     
+    var selectedUsersArray:[User] = Array()
     let maxTextfieldLength = 40
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.addMeInSelectedUsersArray()
         self.setupGroupImageView()
         self.setupGroupNameTextField()
         self.setupTaskLabel()
@@ -31,6 +33,10 @@ final class CreateNewGroupInfoViewController: UIViewController {
         
         self.groupNameTextField.addBorderBottom(borderWidth: 1, color: .systemGray)
         self.taskTextField.addBorderBottom(borderWidth: 1, color: .systemGray)
+    }
+    
+    func addMeInSelectedUsersArray() {
+        selectedUsersArray.insert(User(id: "ss", name: "Me", profileImageURL: nil), at: 0)
     }
     
     func setupGroupImageView() {

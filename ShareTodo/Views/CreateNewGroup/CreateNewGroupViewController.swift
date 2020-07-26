@@ -138,6 +138,13 @@ extension CreateNewGroupViewController: CreateNewGroupViewPresenterOutput {
     func stopActivityIndicator() {
         DispatchQueue.main.async { self.activityIndicator.stopAnimating() }
     }
+    
+    func presentCreateNewGropuInfoVC() {
+        guard let createNewGropuInfoVC = CreateNewGroupInfoViewBuilder.create() as? CreateNewGroupInfoViewController else { return }
+        createNewGropuInfoVC.selectedUsersArray = self.presenter.selectedUsers
+        
+        self.navigationController?.pushViewController(createNewGropuInfoVC, animated: true)
+    }
 }
 
 extension CreateNewGroupViewController: UITableViewDelegate, UITableViewDataSource {

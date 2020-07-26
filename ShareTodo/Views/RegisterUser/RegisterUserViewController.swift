@@ -56,7 +56,7 @@ final class RegisterUserViewController: UIViewController {
     }
     
     func setupNameTextField() {
-        self.nameTextField.placeholder = "Group Name"
+        self.nameTextField.placeholder = "user name"
         self.nameTextField.borderStyle = .none
         self.nameTextField.returnKeyType = .done
         self.nameTextField.delegate = self
@@ -65,7 +65,7 @@ final class RegisterUserViewController: UIViewController {
     
     func setupRegisterButton() {
         self.registerButton.backgroundColor = .systemTeal
-        self.registerLabel.tintColor = .white
+        self.registerLabel.textColor = .white
         self.registerButton.titleLabel?.adjustsFontSizeToFitWidth = true
         self.registerButton.titleLabel?.minimumScaleFactor = 0.4
         self.registerButton.layer.cornerRadius = 8
@@ -99,6 +99,11 @@ final class RegisterUserViewController: UIViewController {
     
     @IBAction func tapChoseProfileImageButton(_ sender: Any) {
         self.presenter.didTapChoseProfileImageButton()
+    }
+    
+    @IBAction func tapRegisterButton(_ sender: Any) {
+        guard let userName = self.nameTextField.text else { return }
+        guard !userName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
     }
     
     func inject(with presenter: RegisterUserViewPresenterProtocol) {

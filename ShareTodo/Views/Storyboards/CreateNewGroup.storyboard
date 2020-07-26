@@ -68,6 +68,11 @@
                                                 <constraint firstItem="eA0-Mg-2W6" firstAttribute="leading" secondItem="l7I-1T-5dt" secondAttribute="trailing" constant="8" id="xYR-TD-jC9"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="profileImageView" destination="l7I-1T-5dt" id="G1a-yd-Zss"/>
+                                            <outlet property="radioImageView" destination="5o8-gm-5jv" id="8eA-VZ-jb4"/>
+                                            <outlet property="userNameLabel" destination="eA0-Mg-2W6" id="h4r-ze-0FX"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -118,6 +123,9 @@
                                                     <state key="normal" image="xmark.circle.fill" catalog="system">
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="tapDeleteUserButton:" destination="on1-zV-FCP" eventType="touchUpInside" id="HPO-6T-8rM"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -131,6 +139,11 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="85" height="90"/>
+                                        <connections>
+                                            <outlet property="deleteUserButton" destination="Yb7-ER-Ux6" id="Cx0-yJ-acy"/>
+                                            <outlet property="profileImageView" destination="rWd-YJ-Hkb" id="k6G-1Q-1su"/>
+                                            <outlet property="userNameLabel" destination="DIX-gv-QNT" id="2XR-06-7ud"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>

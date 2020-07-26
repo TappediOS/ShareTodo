@@ -32,7 +32,7 @@ final class CreateNewGroupViewController: UIViewController {
     
     private func setupNavigationItem() {
         self.navigationItem.title = "Choose friends"
-        let stopItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(tapStopCreateRoomButton))
+        let stopItem = UIBarButtonItem(image: UIImage(systemName: "arrow.right") ?? UIImage(), style: .done, target: self, action: #selector(tapStopCreateRoomButton))
         self.navigationItem.leftBarButtonItem = stopItem
         let saveItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(tapCreateRoomButton))
         self.navigationItem.rightBarButtonItem = saveItem

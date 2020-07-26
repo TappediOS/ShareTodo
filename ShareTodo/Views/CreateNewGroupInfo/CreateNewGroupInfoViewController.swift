@@ -43,8 +43,6 @@ final class CreateNewGroupInfoViewController: UIViewController {
     
     private func setupNavigationItem() {
         self.navigationItem.title = "Group"
-        let stopItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(tapStopCreateRoomButton))
-        self.navigationItem.leftBarButtonItem = stopItem
         let saveItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(tapCreateRoomButton))
         self.navigationItem.rightBarButtonItem = saveItem
     }
@@ -88,10 +86,6 @@ final class CreateNewGroupInfoViewController: UIViewController {
         self.selectedUsersAndMeCollectionView.dataSource = self
     }
     
-    @objc func tapStopCreateRoomButton() {
-        self.presenter.didTapStopCreateRoomButton()
-    }
-    
     @objc func tapCreateRoomButton() {
         self.presenter.didTapCreateRoomutton()
     }
@@ -103,9 +97,7 @@ final class CreateNewGroupInfoViewController: UIViewController {
 }
 
 extension CreateNewGroupInfoViewController: CreateNewGroupInfoViewPresenterOutput {
-    func dismissCreateChatRoomVC() {
-        DispatchQueue.main.async { self.dismiss(animated: true, completion: nil) }
-    }
+    
 }
 
 extension CreateNewGroupInfoViewController: UICollectionViewDelegate, UICollectionViewDataSource {

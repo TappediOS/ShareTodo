@@ -100,7 +100,8 @@
 		BFD4360124CD44A900B2E580 /* CreateNewGroupViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4360024CD44A900B2E580 /* CreateNewGroupViewPresenter.swift */; };
 		BFD4360324CD44AE00B2E580 /* CreateNewGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4360224CD44AE00B2E580 /* CreateNewGroupViewModel.swift */; };
 		BFD4360524CD450200B2E580 /* CreateNewGroup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD4360424CD450200B2E580 /* CreateNewGroup.storyboard */; };
-		BFD4360B24CD499400B2E580 /* SearchUserTableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4360A24CD499400B2E580 /* SearchUserTableviewCell.swift */; };
+		BFD4360D24CD49E200B2E580 /* SearchUserTableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4360C24CD49E200B2E580 /* SearchUserTableviewCell.swift */; };
+		BFD4360F24CD4A0900B2E580 /* SelectedUserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4360E24CD4A0900B2E580 /* SelectedUserCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -234,7 +235,8 @@
 		BFD4360024CD44A900B2E580 /* CreateNewGroupViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGroupViewPresenter.swift; sourceTree = "<group>"; };
 		BFD4360224CD44AE00B2E580 /* CreateNewGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewGroupViewModel.swift; sourceTree = "<group>"; };
 		BFD4360424CD450200B2E580 /* CreateNewGroup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateNewGroup.storyboard; sourceTree = "<group>"; };
-		BFD4360A24CD499400B2E580 /* SearchUserTableviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserTableviewCell.swift; sourceTree = "<group>"; };
+		BFD4360C24CD49E200B2E580 /* SearchUserTableviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserTableviewCell.swift; sourceTree = "<group>"; };
+		BFD4360E24CD4A0900B2E580 /* SelectedUserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedUserCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -563,7 +565,8 @@
 				BFD435FE24CD44A400B2E580 /* CreateNewGroupViewController.swift */,
 				BFD4360024CD44A900B2E580 /* CreateNewGroupViewPresenter.swift */,
 				BFD4360224CD44AE00B2E580 /* CreateNewGroupViewModel.swift */,
-				BFD4360A24CD499400B2E580 /* SearchUserTableviewCell.swift */,
+				BFD4360C24CD49E200B2E580 /* SearchUserTableviewCell.swift */,
+				BFD4360E24CD4A0900B2E580 /* SelectedUserCollectionViewCell.swift */,
 			);
 			path = CreateNewGroup;
 			sourceTree = "<group>";
@@ -779,6 +782,7 @@
 				BF88D4F824CAB99500607D6A /* TodayTodoViewbuilder.swift in Sources */,
 				BFD435ED24CD333D00B2E580 /* DocumentReference+WriteEncodable.swift in Sources */,
 				BFD435E924CD333D00B2E580 /* Transaction+WriteEncodable.swift in Sources */,
+				BFD4360F24CD4A0900B2E580 /* SelectedUserCollectionViewCell.swift in Sources */,
 				BFD435E624CD333D00B2E580 /* DocumentReference+Codable.swift in Sources */,
 				BFD435EE24CD333D00B2E580 /* GeoPoint+Codable.swift in Sources */,
 				BFD435EA24CD333D00B2E580 /* ServerTimestamp.swift in Sources */,
@@ -797,7 +801,7 @@
 				BFD435E324CD333D00B2E580 /* CodablePassThroughTypes.swift in Sources */,
 				BF88D4F324CAB89500607D6A /* GroupTodoViewModel.swift in Sources */,
 				BF88D4E424CAB69C00607D6A /* MainTabBarModel.swift in Sources */,
-				BFD4360B24CD499400B2E580 /* SearchUserTableviewCell.swift in Sources */,
+				BFD4360D24CD49E200B2E580 /* SearchUserTableviewCell.swift in Sources */,
 				BF88D4ED24CAB88500607D6A /* GroupTodoViewBuilder.swift in Sources */,
 				BFD4360324CD44AE00B2E580 /* CreateNewGroupViewModel.swift in Sources */,
 				BFD435E524CD333D00B2E580 /* FieldValue+Encodable.swift in Sources */,

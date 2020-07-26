@@ -1,5 +1,5 @@
 //
-//  SearchUserTableviewCell.swift
+//  SelectedUserCollectionViewCell.swift
 //  ShareTodo
 //
 //  Created by jun on 2020/07/26.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class SearchUserTableviewCell: UITableViewCell {
+class SelectedUserCollectionViewCell: UICollectionViewCell {
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
 }

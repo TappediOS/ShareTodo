@@ -153,12 +153,7 @@ extension CreateNewGroupViewController: UITableViewDelegate, UITableViewDataSour
         let isSelected = presenter.isSelected(user: user)
         cell.configure(with: user, isSelected: isSelected)
         
-        //TODO:Firestoreから取得した後で表示し直すこと
-        if #available(iOS 13.0, *) {
-            cell.profileImageView.image = UIImage(systemName: "bolt.circle.fill")
-        } else {
-            // Fallback on earlier versions
-        }
+        cell.profileImageView.image = UIImage(systemName: "bolt.circle.fill")
         
         return cell
     }

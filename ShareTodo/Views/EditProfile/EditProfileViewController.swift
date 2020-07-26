@@ -110,7 +110,16 @@ final class EditProfileViewController: UIViewController {
     }
 
     @objc func tapSaveEditProfileButton() {
-        self.presenter.didTapSaveEditProfileButton()
+        guard let userName = self.nameTextField.text else { return }
+        guard !userName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            self.nameTextField.text = String()
+            let stringAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.systemRed.withAlphaComponent(0.5)]
+            self.nameTextField.attributedPlaceholder = NSAttributedString(string: "user name", attributes: stringAttributes)
+            return
+        }
+        guard let profileImageData = self.profileImageView.image?.jpegData(compressionQuality: 0.5) else { return }
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
+        self.presenter.didTapSaveEditProfileButton(userName: userName, profileImageData: profileImageData)
     }
     
     @IBAction func tapChangeProfileButton(_ sender: Any) {

@@ -6,11 +6,13 @@
 //  Copyright © 2020 jun. All rights reserved.
 //
 
+import Foundation
+
 protocol EditProfileViewPresenterProtocol {
     var view: EditProfileViewPresenterOutput! { get set }
     
     func didTapStopEditProfileButton()
-    func didTapSaveEditProfileButton()
+    func didTapSaveEditProfileButton(userName: String, profileImageData: Data)
     func didTapChangeProfileButton()
 
     func didTapTakePhotoAction()
@@ -39,8 +41,8 @@ final class EditProfileViewPresenter: EditProfileViewPresenterProtocol, EditProf
         self.view.dismissEditProfileVC()
     }
     
-    func didTapSaveEditProfileButton() {
-        
+    func didTapSaveEditProfileButton(userName: String, profileImageData: Data) {
+        self.model.saveUser(userName: userName, profileImageData: profileImageData)
     }
     
     func didTapChangeProfileButton() {
@@ -57,5 +59,9 @@ final class EditProfileViewPresenter: EditProfileViewPresenterProtocol, EditProf
     
     func didTapDeletePhotoAction() {
         self.view.setDeleteAndSetDefaultImage()
+    }
+    
+    func successSaveUser() {
+        self.view.dismissEditProfileVC()
     }
 }

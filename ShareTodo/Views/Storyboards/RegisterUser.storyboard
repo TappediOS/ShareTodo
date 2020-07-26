@@ -51,7 +51,7 @@
                                     <constraint firstAttribute="height" constant="34" id="G88-b2-6t1"/>
                                     <constraint firstAttribute="width" constant="150" id="H3Y-g6-Ym0"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>

@@ -124,9 +124,9 @@ final class CreateNewGroupInfoViewController: UIViewController {
         guard let groupName = groupNameTextField.text, let groupTask = taskTextField.text else { return }
         guard !groupName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
         guard !groupTask.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
-        let data = self.groupImageView.image?.pngData() ?? Data()
+        let data = self.groupImageView.image?.jpegData(compressionQuality: 0.5) ?? Data()
         
-        self.presenter.didTapGroupButton(selectedUsers: self.selectedUsersArray ,groupName: groupName, groupTask: groupTask, groupImageData: data)
+        self.presenter.didTapGroupButton(selectedUsers: self.selectedUsersArray,groupName: groupName, groupTask: groupTask, groupImageData: data)
     }
     
     @objc func tapGroupImageView(_ sender: UITapGestureRecognizer) {

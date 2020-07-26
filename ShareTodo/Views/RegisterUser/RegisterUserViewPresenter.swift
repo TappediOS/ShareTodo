@@ -6,6 +6,8 @@
 //  Copyright © 2020 jun. All rights reserved.
 //
 
+import Foundation
+
 protocol RegisterUserViewPresenterProtocol {
     var view: RegisterUserViewPresenterOutput! { get set }
     
@@ -13,6 +15,7 @@ protocol RegisterUserViewPresenterProtocol {
     func didTapTakePhotoAction()
     func didTapSelectPhotoAction()
     func didTapDeletePhotoAction()
+    func didTapRegisterButton(userName: String, profileImageData: Data)
 }
 
 protocol RegisterUserViewPresenterOutput: class {
@@ -20,6 +23,7 @@ protocol RegisterUserViewPresenterOutput: class {
     func showUIImagePickerControllerAsCamera()
     func showUIImagePickerControllerAsLibrary()
     func setDeleteAndSetDefaultImage()
+    func presentMainTabBarController()
 }
 
 final class RegisterUserViewPresenter: RegisterUserViewPresenterProtocol, RegisterUserModelOutput {
@@ -45,5 +49,13 @@ final class RegisterUserViewPresenter: RegisterUserViewPresenterProtocol, Regist
     
     func didTapDeletePhotoAction() {
         self.view.setDeleteAndSetDefaultImage()
+    }
+    
+    func didTapRegisterButton(userName: String, profileImageData: Data) {
+        self.model.registerUser(userName: userName, profileImageData: profileImageData)
+    }
+    
+    func successRegisterUser() {
+        self.view.presentMainTabBarController()
     }
 }

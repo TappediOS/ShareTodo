@@ -18,6 +18,8 @@ final class RegisterUserViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var registerButton: UIButton!
     
+    var profileImage = UIImage(named: "defaultProfileImage")
+    
     var actionSheet = UIAlertController()
     let photoPickerVC = UIImagePickerController()
     
@@ -48,7 +50,7 @@ final class RegisterUserViewController: UIViewController {
     }
     
     func setupProfileImageButton() {
-        self.profileImageButton.setImage(UIImage(named: "defaultProfileImage"), for: .normal)
+        self.profileImageButton.setImage(self.profileImage, for: .normal)
         self.profileImageButton.layer.borderWidth = 0.25
         self.profileImageButton.layer.borderColor = UIColor.systemGray4.cgColor
         self.profileImageButton.layer.cornerRadius = self.profileImageButton.frame.width / 2
@@ -81,6 +83,11 @@ final class RegisterUserViewController: UIViewController {
     
     func setupActionSheet() {
         self.actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            self.actionSheet.popoverPresentationController?.sourceView = self.view
+            let screenSize = UIScreen.main.bounds
+            self.actionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width / 2, y: screenSize.size.height, width: 0, height: 0)
+        }
         
         let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default, handler: { _ in
             self.presenter.didTapTakePhotoAction()
@@ -109,7 +116,15 @@ final class RegisterUserViewController: UIViewController {
     
     @IBAction func tapRegisterButton(_ sender: Any) {
         guard let userName = self.nameTextField.text else { return }
-        guard !userName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
+        guard !userName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            self.nameTextField.text = String()
+            let stringAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.systemRed.withAlphaComponent(0.5)]
+            self.nameTextField.attributedPlaceholder = NSAttributedString(string: "user name", attributes: stringAttributes)
+            return
+        }
+        
+        guard let profileImageData = self.profileImage?.jpegData(compressionQuality: 0.5) else { return }
+        self.presenter.didTapRegisterButton(userName: userName, profileImageData: profileImageData)
     }
     
     func inject(with presenter: RegisterUserViewPresenterProtocol) {
@@ -134,7 +149,18 @@ extension RegisterUserViewController: RegisterUserViewPresenterOutput {
     }
     
     func setDeleteAndSetDefaultImage() {
-        DispatchQueue.main.async { self.profileImageButton.setImage(UIImage(named: "defaultProfileImage"), for: .normal) }
+        DispatchQueue.main.async {
+            self.profileImage = UIImage(named: "defaultProfileImage")
+            self.profileImageButton.setImage(self.profileImage, for: .normal)
+        }
+    }
+    
+    func presentMainTabBarController() {
+        DispatchQueue.main.async {
+            let mainTabBarController = MainTabBarViewBuilder.create()
+            mainTabBarController.modalPresentationStyle = .fullScreen
+            self.present(mainTabBarController, animated: true, completion: nil)
+        }
     }
 }
 
@@ -155,7 +181,7 @@ extension RegisterUserViewController: UINavigationControllerDelegate, UIImagePic
         cropController.doneButtonTitle = NSLocalizedString("Done", comment: "")
         cropController.cropView.cropBoxResizeEnabled = false
         cropController.delegate = self
-
+        
         picker.dismiss(animated: true) {
             self.present(cropController, animated: true, completion: nil)
         }
@@ -169,7 +195,9 @@ extension RegisterUserViewController: CropViewControllerDelegate {
     
     func cropViewController(_ cropViewController: CropViewController, didCropToCircularImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
         let resizeImage = image.resizeUIImage(width: self.usersImageViewWide, height: self.usersImageViewWide)
-        self.profileImageButton.setImage(resizeImage, for: .normal)
+        
+        self.profileImage = resizeImage
+        self.profileImageButton.setImage(self.profileImage, for: .normal)
         cropViewController.dismiss(animated: true, completion: nil)
     }
 }

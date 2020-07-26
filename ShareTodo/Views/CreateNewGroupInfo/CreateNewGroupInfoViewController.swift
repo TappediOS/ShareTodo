@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CropViewController
 
 final class CreateNewGroupInfoViewController: UIViewController {
     private var presenter: CreateNewGroupInfoViewPresenterProtocol!
@@ -16,9 +17,14 @@ final class CreateNewGroupInfoViewController: UIViewController {
     @IBOutlet weak var taskTextField: UITextField!
     @IBOutlet weak var selectedUsersAndMeCollectionView: UICollectionView!
     
+    var actionSheet = UIAlertController()
+    let photoPickerVC = UIImagePickerController()
+    
     let selectedUsersAndMeCollectionViewCellId = "SelectedUsersAndMeCollectionViewCell"
     var selectedUsersArray: [User] = Array()
+    
     let maxTextfieldLength = 40
+    let usersImageViewWide: CGFloat = 100
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +36,8 @@ final class CreateNewGroupInfoViewController: UIViewController {
         self.setupTaskLabel()
         self.setupTaskTextField()
         self.setupSelectedUsersCollectionView()
+        self.setupActionSheet()
+        self.setupPhotoPickerVC()
     }
     
     override func viewDidLayoutSubviews() {
@@ -57,6 +65,8 @@ final class CreateNewGroupInfoViewController: UIViewController {
         self.groupImageView.layer.borderColor = UIColor.systemGray4.cgColor
         self.groupImageView.layer.cornerRadius = self.groupImageView.frame.width / 2
         self.groupImageView.layer.masksToBounds = true
+        self.groupImageView.isUserInteractionEnabled = true
+        self.groupImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapGroupImageView(_:))))
     }
     
     func setupGroupNameTextField() {
@@ -86,8 +96,36 @@ final class CreateNewGroupInfoViewController: UIViewController {
         self.selectedUsersAndMeCollectionView.dataSource = self
     }
     
+    func setupActionSheet() {
+        self.actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default, handler: { _ in
+            self.presenter.didTapTakePhotoAction()
+        })
+        let selectPhotoAction = UIAlertAction(title: "Select Photo", style: .default, handler: { _ in
+            self.presenter.didTapSelectPhotoAction()
+        })
+        let deletePhotoAction = UIAlertAction(title: "Delete Photo", style: .destructive, handler: { _ in
+            self.presenter.didTapDeletePhotoAction()
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        self.actionSheet.addAction(takePhotoAction)
+        self.actionSheet.addAction(selectPhotoAction)
+        self.actionSheet.addAction(deletePhotoAction)
+        self.actionSheet.addAction(cancelAction)
+    }
+    
+    func setupPhotoPickerVC() {
+        self.photoPickerVC.delegate = self
+    }
+    
     @objc func tapCreateRoomButton() {
         self.presenter.didTapCreateRoomutton()
+    }
+    
+    @objc func tapGroupImageView(_ sender: UITapGestureRecognizer) {
+        self.presenter.didTapGroupImageView()
     }
     
     func inject(with presenter: CreateNewGroupInfoViewPresenterProtocol) {
@@ -97,7 +135,19 @@ final class CreateNewGroupInfoViewController: UIViewController {
 }
 
 extension CreateNewGroupInfoViewController: CreateNewGroupInfoViewPresenterOutput {
+    func presentActionSheet() {
+        self.present(self.actionSheet, animated: true, completion: nil)
+    }
     
+    func showUIImagePickerControllerAsCamera() {
+        photoPickerVC.sourceType = .camera
+        self.present(photoPickerVC, animated: true, completion: nil)
+    }
+    
+    func showUIImagePickerControllerAsLibrary() {
+        photoPickerVC.sourceType = .photoLibrary
+        self.present(photoPickerVC, animated: true, completion: nil)
+    }
 }
 
 extension CreateNewGroupInfoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -125,6 +175,42 @@ extension CreateNewGroupInfoViewController: UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0.0, left: 10.0, bottom: 0.0, right: 10)
+    }
+}
+
+extension CreateNewGroupInfoViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        guard let pickerImage = (info[UIImagePickerController.InfoKey.originalImage] as? UIImage) else { return }
+        
+        let cropController = CropViewController(croppingStyle: .circular, image: pickerImage)
+        cropController.aspectRatioPreset = .presetSquare
+        cropController.aspectRatioPickerButtonHidden = true
+        cropController.resetAspectRatioEnabled = false
+        cropController.rotateButtonsHidden = false
+        cropController.cancelButtonTitle = NSLocalizedString("Cancel", comment: "")
+        cropController.doneButtonTitle = NSLocalizedString("Done", comment: "")
+        cropController.cropView.cropBoxResizeEnabled = false
+        cropController.delegate = self
+
+        picker.dismiss(animated: true) {
+            self.present(cropController, animated: true, completion: nil)
+        }
+    }
+}
+
+extension CreateNewGroupInfoViewController: CropViewControllerDelegate {
+    func cropViewController(_ cropViewController: CropViewController, didFinishCancelled cancelled: Bool) {
+        cropViewController.dismiss(animated: true, completion: nil)
+    }
+    
+    func cropViewController(_ cropViewController: CropViewController, didCropToCircularImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+        let resizeImage = image.resizeUIImage(width: self.usersImageViewWide, height: self.usersImageViewWide)
+        self.groupImageView.image = resizeImage
+        cropViewController.dismiss(animated: true, completion: nil)
     }
 }
 

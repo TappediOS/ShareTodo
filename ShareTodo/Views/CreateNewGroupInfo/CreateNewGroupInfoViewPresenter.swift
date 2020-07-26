@@ -9,10 +9,18 @@
 protocol CreateNewGroupInfoViewPresenterProtocol {
     var view: CreateNewGroupInfoViewPresenterOutput! { get set }
     
+    func didTapGroupImageView()
+    func didTapTakePhotoAction()
+    func didTapSelectPhotoAction()
+    func didTapDeletePhotoAction()
+    
     func didTapCreateRoomutton()
 }
 
 protocol CreateNewGroupInfoViewPresenterOutput: class {
+    func presentActionSheet()
+    func showUIImagePickerControllerAsCamera()
+    func showUIImagePickerControllerAsLibrary()
 }
 
 final class CreateNewGroupInfoViewPresenter: CreateNewGroupInfoViewPresenterProtocol, CreateNewGroupInfoModelOutput {
@@ -25,6 +33,22 @@ final class CreateNewGroupInfoViewPresenter: CreateNewGroupInfoViewPresenterProt
     }
     
     func didTapCreateRoomutton() {
+        
+    }
+    
+    func didTapGroupImageView() {
+        self.view.presentActionSheet()
+    }
+    
+    func didTapTakePhotoAction() {
+        self.view.showUIImagePickerControllerAsCamera()
+    }
+    
+    func didTapSelectPhotoAction() {
+        self.view.showUIImagePickerControllerAsLibrary()
+    }
+    
+    func didTapDeletePhotoAction() {
         
     }
 }

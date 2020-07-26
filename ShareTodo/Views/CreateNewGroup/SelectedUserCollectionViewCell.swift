@@ -38,6 +38,9 @@ class SelectedUserCollectionViewCell: UICollectionViewCell {
         self.deleteUserButton.layer.masksToBounds = true
     }
     
+    func configure(with user: User) {
+        self.userNameLabel.text = user.name
+    }
     
     @IBAction func tapDeleteUserButton(_ sender: Any) {
         self.deleteUserButtonAction?()

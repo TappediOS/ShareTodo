@@ -165,6 +165,9 @@
                     </view>
                     <connections>
                         <outlet property="searchUserTableview" destination="Box-um-HXf" id="UeK-qk-aEN"/>
+                        <outlet property="selectedUserCollectionView" destination="s91-GX-23k" id="K8I-iG-8VX"/>
+                        <outlet property="selectedUserCollectionViewBottomsConstraints" destination="dpc-0r-oM8" id="aU5-C5-e9A"/>
+                        <outlet property="userNameSearchBar" destination="3pk-30-Xba" id="jWM-YO-ULD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Tb-yg-tPD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

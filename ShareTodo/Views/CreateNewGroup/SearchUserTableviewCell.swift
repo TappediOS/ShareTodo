@@ -36,4 +36,15 @@ class SearchUserTableviewCell: UITableViewCell {
         self.userNameLabel.adjustsFontSizeToFitWidth = true
         self.userNameLabel.minimumScaleFactor = 0.4
     }
+    
+    func configure(with user: User, isSelected: Bool) {
+        self.userNameLabel.text = user.name
+            
+        if #available(iOS 13.0, *) {
+            radioImageView.image = isSelected ? UIImage(systemName: "checkmark.seal.fill") : UIImage(systemName: "checkmark.seal")
+            radioImageView.tintColor = isSelected ? .systemGreen : .systemGray
+        } else {
+            //TODO:- iOS12以下の画像を用意すること
+        }
+    }
 }

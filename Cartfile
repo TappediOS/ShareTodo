@@ -4,3 +4,5 @@ binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseFirestoreBinary.j
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseStorageBinary.json"
 
 github "TimOliver/TOCropViewController"
+github "vikmeup/SCLAlertView-Swift" "master"
+github "dzenbot/DZNEmptyDataSet"

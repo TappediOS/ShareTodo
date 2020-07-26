@@ -91,6 +91,10 @@
 		BFD435F124CD346D00B2E580 /* FirestoreDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD435EF24CD346D00B2E580 /* FirestoreDecoder.swift */; };
 		BFD435F224CD346D00B2E580 /* FirestoreEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD435F024CD346D00B2E580 /* FirestoreEncoder.swift */; };
 		BFD435F424CD36F900B2E580 /* ExUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD435F324CD36F900B2E580 /* ExUIImageView.swift */; };
+		BFD435F724CD425B00B2E580 /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD435F524CD425B00B2E580 /* DZNEmptyDataSet.framework */; };
+		BFD435F824CD425B00B2E580 /* DZNEmptyDataSet.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFD435F524CD425B00B2E580 /* DZNEmptyDataSet.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BFD435F924CD425C00B2E580 /* SCLAlertView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD435F624CD425B00B2E580 /* SCLAlertView.framework */; };
+		BFD435FA24CD425C00B2E580 /* SCLAlertView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFD435F624CD425B00B2E580 /* SCLAlertView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,7 +121,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				BFD435F824CD425B00B2E580 /* DZNEmptyDataSet.framework in Embed Frameworks */,
 				BFD435D024CD2EBD00B2E580 /* CropViewController.framework in Embed Frameworks */,
+				BFD435FA24CD425C00B2E580 /* SCLAlertView.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,6 +221,8 @@
 		BFD435EF24CD346D00B2E580 /* FirestoreDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreDecoder.swift; sourceTree = "<group>"; };
 		BFD435F024CD346D00B2E580 /* FirestoreEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreEncoder.swift; sourceTree = "<group>"; };
 		BFD435F324CD36F900B2E580 /* ExUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIImageView.swift; sourceTree = "<group>"; };
+		BFD435F524CD425B00B2E580 /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DZNEmptyDataSet.framework; path = Carthage/Build/iOS/DZNEmptyDataSet.framework; sourceTree = "<group>"; };
+		BFD435F624CD425B00B2E580 /* SCLAlertView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SCLAlertView.framework; path = Carthage/Build/iOS/SCLAlertView.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +233,7 @@
 				BF9724A924CD2CB60033BB50 /* libz.tbd in Frameworks */,
 				BF9724A824CD2CAD0033BB50 /* libsqlite3.tbd in Frameworks */,
 				BF9724A724CD2C930033BB50 /* libc++.tbd in Frameworks */,
+				BFD435F724CD425B00B2E580 /* DZNEmptyDataSet.framework in Frameworks */,
 				BF97247324CD24AD0033BB50 /* FirebaseCore.framework in Frameworks */,
 				BF97248D24CD24B00033BB50 /* GoogleAppMeasurement.framework in Frameworks */,
 				BF97249524CD24B10033BB50 /* gRPC-Core.framework in Frameworks */,
@@ -238,6 +247,7 @@
 				BF97247724CD24AD0033BB50 /* FirebaseAuth.framework in Frameworks */,
 				BF97247924CD24AE0033BB50 /* FIRAnalyticsConnector.framework in Frameworks */,
 				BF97247D24CD24AE0033BB50 /* GoogleDataTransport.framework in Frameworks */,
+				BFD435F924CD425C00B2E580 /* SCLAlertView.framework in Frameworks */,
 				BF97247524CD24AD0033BB50 /* FirebaseStorage.framework in Frameworks */,
 				BF9724A324CD2B180033BB50 /* StoreKit.framework in Frameworks */,
 				BF97248924CD24AF0033BB50 /* FirebaseCoreDiagnostics.framework in Frameworks */,
@@ -478,6 +488,8 @@
 		BF97245724CD24AC0033BB50 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BFD435F524CD425B00B2E580 /* DZNEmptyDataSet.framework */,
+				BFD435F624CD425B00B2E580 /* SCLAlertView.framework */,
 				BF9724A624CD2BDF0033BB50 /* libz.tbd */,
 				BF9724A524CD2BCC0033BB50 /* libsqlite3.tbd */,
 				BF9724A424CD2BA70033BB50 /* libc++.tbd */,

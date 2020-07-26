@@ -70,6 +70,11 @@ final class EditProfileViewController: UIViewController {
     
     func setupActionSheet() {
         self.actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            self.actionSheet.popoverPresentationController?.sourceView = self.view
+            let screenSize = UIScreen.main.bounds
+            self.actionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width / 2, y: screenSize.size.height, width: 0, height: 0)
+        }
         
         let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default, handler: { _ in
             self.presenter.didTapTakePhotoAction()

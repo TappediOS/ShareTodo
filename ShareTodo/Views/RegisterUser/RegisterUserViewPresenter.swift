@@ -8,10 +8,17 @@
 
 protocol RegisterUserViewPresenterProtocol {
     var view: RegisterUserViewPresenterOutput! { get set }
+    
+    func didTapChoseProfileImageButton()
+    func didTapTakePhotoAction()
+    func didTapSelectPhotoAction()
+    func didTapDeletePhotoAction()
 }
 
 protocol RegisterUserViewPresenterOutput: class {
-    
+    func presentActionSheet()
+    func showUIImagePickerControllerAsCamera()
+    func showUIImagePickerControllerAsLibrary()
 }
 
 final class RegisterUserViewPresenter: RegisterUserViewPresenterProtocol, RegisterUserModelOutput {
@@ -22,5 +29,20 @@ final class RegisterUserViewPresenter: RegisterUserViewPresenterProtocol, Regist
         self.model = model
         self.model.presenter = self
     }
+    
+    func didTapChoseProfileImageButton() {
+        self.view.presentActionSheet()
+    }
+    
+    func didTapTakePhotoAction() {
+        self.view.showUIImagePickerControllerAsCamera()
+    }
+    
+    func didTapSelectPhotoAction() {
+        self.view.showUIImagePickerControllerAsLibrary()
+    }
+    
+    func didTapDeletePhotoAction() {
+        
+    }
 }
-

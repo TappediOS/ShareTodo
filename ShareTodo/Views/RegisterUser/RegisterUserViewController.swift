@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CropViewController
 
 final class RegisterUserViewController: UIViewController {
     private var presenter: RegisterUserViewPresenterProtocol!
@@ -17,7 +18,11 @@ final class RegisterUserViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var registerButton: UIButton!
     
+    var actionSheet = UIAlertController()
+    let photoPickerVC = UIImagePickerController()
+    
     let maxTextfieldLength = 15
+    let usersImageViewWide: CGFloat = 100
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +32,8 @@ final class RegisterUserViewController: UIViewController {
         self.setupChoseProfileImageButton()
         self.setupNameTextField()
         self.setupRegisterButton()
+        self.setupActionSheet()
+        self.setupPhotoPickerVC()
     }
     
     func setupRegisterLabel() {
@@ -65,8 +72,32 @@ final class RegisterUserViewController: UIViewController {
         self.registerButton.isUserInteractionEnabled = true
     }
     
-    @IBAction func tapChoseProfileImageButton(_ sender: Any) {
+    func setupActionSheet() {
+        self.actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
+        let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default, handler: { _ in
+            self.presenter.didTapTakePhotoAction()
+        })
+        let selectPhotoAction = UIAlertAction(title: "Select Photo", style: .default, handler: { _ in
+            self.presenter.didTapSelectPhotoAction()
+        })
+        let deletePhotoAction = UIAlertAction(title: "Delete Photo", style: .destructive, handler: { _ in
+            self.presenter.didTapDeletePhotoAction()
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        self.actionSheet.addAction(takePhotoAction)
+        self.actionSheet.addAction(selectPhotoAction)
+        self.actionSheet.addAction(deletePhotoAction)
+        self.actionSheet.addAction(cancelAction)
+    }
+    
+    func setupPhotoPickerVC() {
+        self.photoPickerVC.delegate = self
+    }
+    
+    @IBAction func tapChoseProfileImageButton(_ sender: Any) {
+        self.presenter.didTapChoseProfileImageButton()
     }
     
     func inject(with presenter: RegisterUserViewPresenterProtocol) {
@@ -76,7 +107,55 @@ final class RegisterUserViewController: UIViewController {
 }
 
 extension RegisterUserViewController: RegisterUserViewPresenterOutput {
+    func presentActionSheet() {
+        self.present(self.actionSheet, animated: true, completion: nil)
+    }
     
+    func showUIImagePickerControllerAsCamera() {
+        photoPickerVC.sourceType = .camera
+        self.present(photoPickerVC, animated: true, completion: nil)
+    }
+    
+    func showUIImagePickerControllerAsLibrary() {
+        photoPickerVC.sourceType = .photoLibrary
+        self.present(photoPickerVC, animated: true, completion: nil)
+    }
+}
+
+extension RegisterUserViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        guard let pickerImage = (info[UIImagePickerController.InfoKey.originalImage] as? UIImage) else { return }
+        
+        let cropController = CropViewController(croppingStyle: .circular, image: pickerImage)
+        cropController.aspectRatioPreset = .presetSquare
+        cropController.aspectRatioPickerButtonHidden = true
+        cropController.resetAspectRatioEnabled = false
+        cropController.rotateButtonsHidden = false
+        cropController.cancelButtonTitle = NSLocalizedString("Cancel", comment: "")
+        cropController.doneButtonTitle = NSLocalizedString("Done", comment: "")
+        cropController.cropView.cropBoxResizeEnabled = false
+        cropController.delegate = self
+
+        picker.dismiss(animated: true) {
+            self.present(cropController, animated: true, completion: nil)
+        }
+    }
+}
+
+extension RegisterUserViewController: CropViewControllerDelegate {
+    func cropViewController(_ cropViewController: CropViewController, didFinishCancelled cancelled: Bool) {
+        cropViewController.dismiss(animated: true, completion: nil)
+    }
+    
+    func cropViewController(_ cropViewController: CropViewController, didCropToCircularImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+        let resizeImage = image.resizeUIImage(width: self.usersImageViewWide, height: self.usersImageViewWide)
+        self.profileImageButton.setImage(resizeImage, for: .normal)
+        cropViewController.dismiss(animated: true, completion: nil)
+    }
 }
 
 extension RegisterUserViewController: UITextFieldDelegate {

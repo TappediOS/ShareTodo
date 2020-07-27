@@ -12,11 +12,13 @@ import Firebase
 protocol CreateNewGroupInfoModelProtocol {
     var presenter: CreateNewGroupInfoModelOutput! { get set }
     
+    func fetchUser()
     func createGroup(selectedUsers: [User], groupName: String, groupTask: String, groupImageData: Data)
 }
 
 protocol CreateNewGroupInfoModelOutput: class {
     func successCreateGroup()
+    func successFetchUser(user: User)
 }
 
 final class CreateNewGroupInfoModel: CreateNewGroupInfoModelProtocol {
@@ -27,6 +29,29 @@ final class CreateNewGroupInfoModel: CreateNewGroupInfoModelProtocol {
         self.firestore = Firestore.firestore()
         let settings = FirestoreSettings()
         self.firestore.settings = settings
+    }
+    
+    func fetchUser() {
+        guard let user = Auth.auth().currentUser else { return }
+        self.firestore.collection("todo/v1/users/").document(user.uid).addSnapshotListener { [weak self] (document, error) in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let document = document else {
+                print("The document doesn't exist.")
+                return
+            }
+            
+            do {
+                let userInfo = try document.data(as: User.self)
+                self?.presenter.successFetchUser(user: userInfo!)
+            } catch let error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+        }
     }
     
     func createGroup(selectedUsers: [User], groupName: String, groupTask: String, groupImageData: Data) {

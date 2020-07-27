@@ -30,7 +30,6 @@ final class CreateNewGroupInfoViewController: UIViewController {
         super.viewDidLoad()
         
         self.setupNavigationItem()
-        self.addMeInSelectedUsersArray()
         self.setupGroupImageView()
         self.setupGroupNameTextField()
         self.setupTaskLabel()
@@ -38,6 +37,8 @@ final class CreateNewGroupInfoViewController: UIViewController {
         self.setupSelectedUsersCollectionView()
         self.setupActionSheet()
         self.setupPhotoPickerVC()
+        
+        self.presenter.didViewDidLoad()
     }
     
     override func viewDidLayoutSubviews() {
@@ -53,10 +54,6 @@ final class CreateNewGroupInfoViewController: UIViewController {
         self.navigationItem.title = "Group"
         let saveItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(tapGroupButton))
         self.navigationItem.rightBarButtonItem = saveItem
-    }
-    
-    func addMeInSelectedUsersArray() {
-        selectedUsersArray.insert(User(id: "ss", name: "Me", profileImageURL: nil), at: 0)
     }
     
     func setupGroupImageView() {
@@ -165,6 +162,11 @@ extension CreateNewGroupInfoViewController: CreateNewGroupInfoViewPresenterOutpu
     
     func setDeleteAndSetDefaultImage() {
         DispatchQueue.main.async { self.groupImageView.image = UIImage(named: "defaultProfileImage") }
+    }
+    
+    func reloadCollectionView(addUser: User) {
+        self.selectedUsersArray.insert(addUser, at: 0)
+        DispatchQueue.main.async { self.selectedUsersAndMeCollectionView.reloadData() }
     }
 }
 

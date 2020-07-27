@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Nuke
 
 class SelectedUsersAndMeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
@@ -31,5 +32,10 @@ class SelectedUsersAndMeCollectionViewCell: UICollectionViewCell {
     
     func configure(with user: User) {
         self.nameLabel.text = user.name
+        
+        DispatchQueue.main.async {
+            let options = ImageLoadingOptions(placeholder: UIImage(named: "defaultProfileImage"), failureImage: UIImage(named: "defaultProfileImage"))
+            loadImage(with: URL(string: user.profileImageURL ?? "")!, options: options, into: self.profileImageView, progress: nil, completion: nil)
+        }
     }
 }

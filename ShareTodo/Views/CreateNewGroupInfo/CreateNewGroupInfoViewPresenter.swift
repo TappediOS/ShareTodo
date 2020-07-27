@@ -11,6 +11,7 @@ import Foundation
 protocol CreateNewGroupInfoViewPresenterProtocol {
     var view: CreateNewGroupInfoViewPresenterOutput! { get set }
     
+    func didViewDidLoad()
     func didTapGroupImageView()
     func didTapTakePhotoAction()
     func didTapSelectPhotoAction()
@@ -25,6 +26,7 @@ protocol CreateNewGroupInfoViewPresenterOutput: class {
     func showUIImagePickerControllerAsLibrary()
     func dismissCreateNewGroupInfoVC()
     func setDeleteAndSetDefaultImage()
+    func reloadCollectionView(addUser: User)
 }
 
 final class CreateNewGroupInfoViewPresenter: CreateNewGroupInfoViewPresenterProtocol, CreateNewGroupInfoModelOutput {
@@ -34,6 +36,10 @@ final class CreateNewGroupInfoViewPresenter: CreateNewGroupInfoViewPresenterProt
     init(model: CreateNewGroupInfoModelProtocol) {
         self.model = model
         self.model.presenter = self
+    }
+    
+    func didViewDidLoad() {
+        self.model.fetchUser()
     }
     
     func didTapGroupButton(selectedUsers: [User], groupName: String, groupTask: String, groupImageData: Data) {
@@ -58,5 +64,9 @@ final class CreateNewGroupInfoViewPresenter: CreateNewGroupInfoViewPresenterProt
     
     func successCreateGroup() {
         self.view.dismissCreateNewGroupInfoVC()
+    }
+    
+    func successFetchUser(user: User) {
+        self.view.reloadCollectionView(addUser: user)
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
 final class CreateNewGroupViewController: UIViewController {
     private var presenter: CreateNewGroupViewPresenterProtocol!
@@ -47,6 +48,8 @@ final class CreateNewGroupViewController: UIViewController {
         self.searchUserTableview.rowHeight = 75
         self.searchUserTableview.delegate = self
         self.searchUserTableview.dataSource = self
+        self.searchUserTableview.emptyDataSetSource = self
+        self.searchUserTableview.emptyDataSetDelegate = self
         self.searchUserTableview.tableFooterView = UIView()
     }
     
@@ -219,5 +222,23 @@ extension CreateNewGroupViewController: UISearchBarDelegate {
         self.userNameSearchBar.resignFirstResponder()
         
         self.presenter.didSearchBarSearchButtonClicked(searchText: searchBarText)
+    }
+}
+
+extension CreateNewGroupViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        let str = "No results"
+        let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline)]
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+   
+    func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        let str = "It will be displayed when you search and find it."
+        let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)]
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+
+    func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView!) -> Bool {
+        return true
     }
 }

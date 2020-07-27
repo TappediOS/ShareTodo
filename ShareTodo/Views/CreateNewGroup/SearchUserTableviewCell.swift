@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Nuke
 
 class SearchUserTableviewCell: UITableViewCell {
     @IBOutlet weak var radioImageView: UIImageView!
@@ -40,6 +41,11 @@ class SearchUserTableviewCell: UITableViewCell {
     func configure(with user: User, isSelected: Bool) {
         self.userNameLabel.text = user.name
             
+        DispatchQueue.main.async {
+            let options = ImageLoadingOptions(placeholder: UIImage(named: "defaultProfileImage"), failureImage: UIImage(named: "defaultProfileImage"))
+            loadImage(with: URL(string: user.profileImageURL ?? "")!, options: options, into: self.profileImageView, progress: nil, completion: nil)
+        }
+        
         radioImageView.image = isSelected ? UIImage(systemName: "checkmark.seal.fill") : UIImage(systemName: "checkmark.seal")
         radioImageView.tintColor = isSelected ? .systemGreen : .systemGray
     }

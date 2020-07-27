@@ -30,7 +30,6 @@ final class CreateNewGroupInfoViewController: UIViewController {
         super.viewDidLoad()
         
         self.setupNavigationItem()
-        self.addMeInSelectedUsersArray()
         self.setupGroupImageView()
         self.setupGroupNameTextField()
         self.setupTaskLabel()
@@ -38,6 +37,8 @@ final class CreateNewGroupInfoViewController: UIViewController {
         self.setupSelectedUsersCollectionView()
         self.setupActionSheet()
         self.setupPhotoPickerVC()
+        
+        self.presenter.didViewDidLoad()
     }
     
     override func viewDidLayoutSubviews() {
@@ -53,10 +54,6 @@ final class CreateNewGroupInfoViewController: UIViewController {
         self.navigationItem.title = "Group"
         let saveItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(tapGroupButton))
         self.navigationItem.rightBarButtonItem = saveItem
-    }
-    
-    func addMeInSelectedUsersArray() {
-        selectedUsersArray.insert(User(id: "ss", name: "Me", profileImageURL: nil), at: 0)
     }
     
     func setupGroupImageView() {
@@ -98,6 +95,11 @@ final class CreateNewGroupInfoViewController: UIViewController {
     
     func setupActionSheet() {
         self.actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            self.actionSheet.popoverPresentationController?.sourceView = self.view
+            let screenSize = UIScreen.main.bounds
+            self.actionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width / 2, y: screenSize.size.height, width: 0, height: 0)
+        }
         
         let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default, handler: { _ in
             self.presenter.didTapTakePhotoAction()
@@ -126,6 +128,7 @@ final class CreateNewGroupInfoViewController: UIViewController {
         guard !groupTask.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
         let data = self.groupImageView.image?.jpegData(compressionQuality: 0.5) ?? Data()
         
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
         self.presenter.didTapGroupButton(selectedUsers: self.selectedUsersArray,groupName: groupName, groupTask: groupTask, groupImageData: data)
     }
     
@@ -160,6 +163,11 @@ extension CreateNewGroupInfoViewController: CreateNewGroupInfoViewPresenterOutpu
     
     func setDeleteAndSetDefaultImage() {
         DispatchQueue.main.async { self.groupImageView.image = UIImage(named: "defaultProfileImage") }
+    }
+    
+    func reloadCollectionView(addUser: User) {
+        self.selectedUsersArray.insert(addUser, at: 0)
+        DispatchQueue.main.async { self.selectedUsersAndMeCollectionView.reloadData() }
     }
 }
 

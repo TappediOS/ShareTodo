@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Nuke
 
 class SelectedUserCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
@@ -40,6 +41,11 @@ class SelectedUserCollectionViewCell: UICollectionViewCell {
     
     func configure(with user: User) {
         self.userNameLabel.text = user.name
+        
+        DispatchQueue.main.async {
+            let options = ImageLoadingOptions(placeholder: UIImage(named: "defaultProfileImage"), failureImage: UIImage(named: "defaultProfileImage"))
+            loadImage(with: URL(string: user.profileImageURL ?? "")!, options: options, into: self.profileImageView, progress: nil, completion: nil)
+        }
     }
     
     @IBAction func tapDeleteUserButton(_ sender: Any) {

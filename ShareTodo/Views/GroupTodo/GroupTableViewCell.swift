@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Nuke
 
 class GroupTableViewCell: UITableViewCell {
     @IBOutlet weak var groupImageView: UIImageView!
@@ -34,6 +35,17 @@ class GroupTableViewCell: UITableViewCell {
     func setupGroupMembersNameLabel() {
         self.groupMembersNameLabel.adjustsFontSizeToFitWidth = true
         self.groupMembersNameLabel.minimumScaleFactor = 0.4
+    }
+    
+    func configure(with group: Group) {
+        self.groupNameLabel.text = group.name
+        groupMembersNameLabel.text = group.members.joined(separator: ", ")
+        
+        guard let url = URL(string: group.profileImageURL ?? "") else { return }
+        DispatchQueue.main.async {
+            let options = ImageLoadingOptions(placeholder: UIImage(named: "defaultProfileImage"), failureImage: UIImage(named: "defaultProfileImage"))
+            loadImage(with: url, options: options, into: self.groupImageView, progress: nil, completion: nil)
+        }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -63,13 +63,19 @@ final class EditProfileViewController: UIViewController {
     }
     
     func setupChageProfileButton() {
-        self.chageProfileButton.setTitle("Edit Profile", for: .normal)
+        self.chageProfileButton.setTitle("Chose Profile Photo", for: .normal)
+        self.chageProfileButton.titleLabel?.textColor = .systemBlue
         self.chageProfileButton.titleLabel?.adjustsFontSizeToFitWidth = true
         self.chageProfileButton.titleLabel?.minimumScaleFactor = 0.4
     }
     
     func setupActionSheet() {
         self.actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            self.actionSheet.popoverPresentationController?.sourceView = self.view
+            let screenSize = UIScreen.main.bounds
+            self.actionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width / 2, y: screenSize.size.height, width: 0, height: 0)
+        }
         
         let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default, handler: { _ in
             self.presenter.didTapTakePhotoAction()
@@ -110,7 +116,16 @@ final class EditProfileViewController: UIViewController {
     }
 
     @objc func tapSaveEditProfileButton() {
-        self.presenter.didTapSaveEditProfileButton()
+        guard let userName = self.nameTextField.text else { return }
+        guard !userName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            self.nameTextField.text = String()
+            let stringAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.systemRed.withAlphaComponent(0.5)]
+            self.nameTextField.attributedPlaceholder = NSAttributedString(string: "user name", attributes: stringAttributes)
+            return
+        }
+        guard let profileImageData = self.profileImageView.image?.jpegData(compressionQuality: 0.5) else { return }
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
+        self.presenter.didTapSaveEditProfileButton(userName: userName, profileImageData: profileImageData)
     }
     
     @IBAction func tapChangeProfileButton(_ sender: Any) {

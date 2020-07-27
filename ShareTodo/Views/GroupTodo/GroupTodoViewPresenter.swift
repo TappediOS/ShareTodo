@@ -9,7 +9,7 @@
 protocol GroupTodoViewPresenterProtocol {
     var view: GroupTodoViewPresenterOutput! { get set }
     var numberOfGroup: Int { get }
-    var group: [String] { get }
+    var group: [Group] { get }
     
     func didViewDidLoad()
     func didTapMakeGroupButton()
@@ -28,7 +28,7 @@ final class GroupTodoViewPresenter: GroupTodoViewPresenterProtocol, GroupTodoMod
         return self.model.group.count
     }
     
-    var group: [String] {
+    var group: [Group] {
         return self.model.group
     }
     

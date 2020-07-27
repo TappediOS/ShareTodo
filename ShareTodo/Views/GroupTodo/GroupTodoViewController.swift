@@ -84,13 +84,7 @@ extension GroupTodoViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = self.groupTableView.dequeueReusableCell(withIdentifier: self.groupTodoCellID, for: indexPath)
                          as? GroupTableViewCell else { return UITableViewCell() }
         
-        let group = self.presenter.group[indexPath.item]
-        //TODO:- 実際の文字列を表示すること
-        cell.groupNameLabel.text = group
-        cell.groupMembersNameLabel.text = "list, bent, run, aws"
-        cell.groupImageView.image = UIImage(systemName: "paperclip.circle.fill")
-        cell.groupImageView.tintColor = .systemGreen
-        
+        cell.configure(with: self.presenter.group[indexPath.item])
         return cell
     }
     

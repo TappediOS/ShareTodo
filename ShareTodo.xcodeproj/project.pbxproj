@@ -119,6 +119,7 @@
 		BFD4363024CDB1C200B2E580 /* defaultProfileImage.png in Resources */ = {isa = PBXBuildFile; fileRef = BFD4362F24CDB1C200B2E580 /* defaultProfileImage.png */; };
 		BFD4366224CDC4B800B2E580 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD4365D24CDC4AD00B2E580 /* Nuke.framework */; };
 		BFD4366324CDC4B800B2E580 /* Nuke.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFD4365D24CDC4AD00B2E580 /* Nuke.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BFD4366624CE62C700B2E580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFD4366524CE62C700B2E580 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -317,6 +318,7 @@
 		BFD4365F24CDC4AD00B2E580 /* SCLAlertView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCLAlertView.framework; sourceTree = "<group>"; };
 		BFD4366024CDC4AD00B2E580 /* .DZNEmptyDataSet.version */ = {isa = PBXFileReference; lastKnownFileType = text; path = .DZNEmptyDataSet.version; sourceTree = "<group>"; };
 		BFD4366124CDC4AE00B2E580 /* .FirebaseAnalyticsBinary.version */ = {isa = PBXFileReference; lastKnownFileType = text; path = .FirebaseAnalyticsBinary.version; sourceTree = "<group>"; };
+		BFD4366524CE62C700B2E580 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -426,6 +428,7 @@
 		BF88D4C124CAA8E800607D6A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BFD4366424CE62B000B2E580 /* Asset */,
 				BF88D4C924CAA99B00607D6A /* GoogleInfo */,
 				BF88D4C824CAA99900607D6A /* Info */,
 			);
@@ -755,6 +758,14 @@
 			path = iOS;
 			sourceTree = "<group>";
 		};
+		BFD4366424CE62B000B2E580 /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				BFD4366524CE62C700B2E580 /* Assets.xcassets */,
+			);
+			path = Asset;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -873,6 +884,7 @@
 				BF88D51724CABD1000607D6A /* Profile.storyboard in Resources */,
 				BF88D50024CAB9F000607D6A /* TodayTodo.storyboard in Resources */,
 				BF88D4F524CAB8F300607D6A /* GroupTodo.storyboard in Resources */,
+				BFD4366624CE62C700B2E580 /* Assets.xcassets in Resources */,
 				BF97249C24CD27010033BB50 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

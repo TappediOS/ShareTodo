@@ -56,11 +56,12 @@ final class CreateNewGroupInfoModel: CreateNewGroupInfoModelProtocol {
     
     func createGroup(selectedUsers: [User], groupName: String, groupTask: String, groupImageData: Data) {
         let memberIDs = selectedUsers.compactMap { $0.id }
+        let groupUid: String = UUID().uuidString
         
         let group = Group(name: groupName, task: groupTask, members: memberIDs, profileImageURL: nil)
         let groupData: [String: Any]
         
-        let groupReference = self.firestore.collection("todo").document("v1").collection("groups").document()
+        let groupReference = self.firestore.collection("todo").document("v1").collection("groups").document(groupUid)
         let batch = self.firestore.batch()
         
         do {
@@ -81,6 +82,38 @@ final class CreateNewGroupInfoModel: CreateNewGroupInfoModelProtocol {
                 print("Error: \(error.localizedDescription)")
                 return
             }
+            
+        }
+        
+        self.registerGroupImageFireStorage(uid: groupUid, imageData: groupImageData)
+    }
+    
+    func registerGroupImageFireStorage(uid: String, imageData: Data) {
+        let storage = Storage.storage()
+        let profileImagesRef = storage.reference().child("group*ProfileImage/" + uid + ".png")
+        
+        _ = profileImagesRef.putData(imageData as Data, metadata: nil) { (metadata, error) in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            
+            profileImagesRef.downloadURL { (url, error) in
+                guard let downloadURL = url else { return }
+                self.registerProfileURLtoFirestore(uid: uid, downloadURL: downloadURL)
+            }
+        }
+    }
+    
+    func registerProfileURLtoFirestore(uid: String, downloadURL: URL) {
+        let downloadURLStr: String = downloadURL.absoluteString
+        
+        self.firestore.collection("todo/v1/groups").document(uid).setData(["profileImageURL": downloadURLStr], merge: true) { error in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            
             self.presenter.successCreateGroup()
         }
     }

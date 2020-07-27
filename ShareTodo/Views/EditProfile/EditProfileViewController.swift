@@ -63,7 +63,8 @@ final class EditProfileViewController: UIViewController {
     }
     
     func setupChageProfileButton() {
-        self.chageProfileButton.setTitle("Edit Profile", for: .normal)
+        self.chageProfileButton.setTitle("Chose Profile Photo", for: .normal)
+        self.chageProfileButton.titleLabel?.textColor = .systemBlue
         self.chageProfileButton.titleLabel?.adjustsFontSizeToFitWidth = true
         self.chageProfileButton.titleLabel?.minimumScaleFactor = 0.4
     }

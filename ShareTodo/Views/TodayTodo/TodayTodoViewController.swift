@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
 final class TodayTodoViewController: UIViewController {
     private var presenter: TodayTodoViewPresenterProtocol!
@@ -48,6 +49,8 @@ final class TodayTodoViewController: UIViewController {
         
         self.todayTodoCollectionView.delegate = self
         self.todayTodoCollectionView.dataSource = self
+        self.todayTodoCollectionView.emptyDataSetSource = self
+        self.todayTodoCollectionView.emptyDataSetDelegate = self
     }
     
     func inject(with presenter: TodayTodoViewPresenterProtocol) {
@@ -80,5 +83,23 @@ extension TodayTodoViewController: UICollectionViewDelegate, UICollectionViewDat
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 32, left: 0, bottom: 40, right: 0)
+    }
+}
+
+extension TodayTodoViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        let str = "No Task"
+        let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline)]
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+   
+    func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        let str = "It will be displayed when you create New Group!"
+        let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)]
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+
+    func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView!) -> Bool {
+        return true
     }
 }

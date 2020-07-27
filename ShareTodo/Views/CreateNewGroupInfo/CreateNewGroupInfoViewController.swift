@@ -128,6 +128,7 @@ final class CreateNewGroupInfoViewController: UIViewController {
         guard !groupTask.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
         let data = self.groupImageView.image?.jpegData(compressionQuality: 0.5) ?? Data()
         
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
         self.presenter.didTapGroupButton(selectedUsers: self.selectedUsersArray,groupName: groupName, groupTask: groupTask, groupImageData: data)
     }
     

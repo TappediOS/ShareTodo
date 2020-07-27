@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
 final class GroupTodoViewController: UIViewController {
     private var presenter: GroupTodoViewPresenterProtocol!
@@ -41,6 +42,8 @@ final class GroupTodoViewController: UIViewController {
         self.groupTableView.rowHeight = 85
         self.groupTableView.delegate = self
         self.groupTableView.dataSource = self
+        self.groupTableView.emptyDataSetSource = self
+        self.groupTableView.emptyDataSetDelegate = self
         self.groupTableView.tableFooterView = UIView()
     }
     
@@ -90,5 +93,23 @@ extension GroupTodoViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.groupTableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension GroupTodoViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        let str = "No Task"
+        let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline)]
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+   
+    func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        let str = "It will be displayed when you create New Group!"
+        let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)]
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+
+    func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView!) -> Bool {
+        return true
     }
 }

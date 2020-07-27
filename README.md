@@ -3,7 +3,7 @@
 これは複数人で共有するtodoアプリです。
 
 
-# 使用記述
+# 使用技術
 
 + firebase
 + TOCropViewController

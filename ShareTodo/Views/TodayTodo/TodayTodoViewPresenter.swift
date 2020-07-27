@@ -9,7 +9,7 @@
 protocol TodayTodoViewPresenterProtocol {
     var view: TodayTodoViewPresenterOutput! { get set }
     var numberOfTodayTodo: Int { get }
-    var todayTodos: [String] { get }
+    var todayTodos: [Group] { get }
     
     func didViewDidLoad()
     func didTapRadioButton(index: Int)
@@ -27,7 +27,7 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
         return self.model.todayTodo.count
     }
     
-    var todayTodos: [String] {
+    var todayTodos: [Group] {
         return self.model.todayTodo
     }
     

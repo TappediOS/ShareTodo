@@ -6,9 +6,11 @@
 //  Copyright © 2020 jun. All rights reserved.
 //
 
+import Firebase
+
 protocol TodayTodoModelProtocol {
     var presenter: TodayTodoModelOutput! { get set }
-    var todayTodo: [String] { get set }
+    var todayTodo: [Group] { get set }
     
     func fetchTodayTodo()
 }
@@ -19,9 +21,44 @@ protocol TodayTodoModelOutput: class {
 
 final class TodayTodoModel: TodayTodoModelProtocol {
     weak var presenter: TodayTodoModelOutput!
-    var todayTodo = ["test", "lost", "cooked", "lost", "cat", "lock", "la", "ja", "en", "ko", "fr"]
+    var todayTodo: [Group] = Array()
+    private var firestore: Firestore!
+    private var listener: ListenerRegistration?
+    
+    init() {
+        self.setUpFirestore()
+    }
+    
+    deinit {
+        listener?.remove()
+    }
+    
+    func setUpFirestore() {
+        self.firestore = Firestore.firestore()
+        let settings = FirestoreSettings()
+        self.firestore.settings = settings
+    }
     
     func fetchTodayTodo() {
-        self.presenter.successFetchTodayTodo()
+        guard let user = Auth.auth().currentUser else { return }
+        
+        self.listener = self.firestore.collection("todo/v1/groups/").whereField("members", arrayContains: user.uid).addSnapshotListener { [weak self] (documentSnapshot, error) in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let documents = documentSnapshot?.documents else {
+                print("The document doesn't exist.")
+                return
+            }
+            
+            self?.todayTodo = documents.compactMap { queryDocumentSnapshot -> Group? in
+                return try? queryDocumentSnapshot.data(as: Group.self)
+            }
+            
+            self?.presenter.successFetchTodayTodo()
+        }
+        
     }
 }

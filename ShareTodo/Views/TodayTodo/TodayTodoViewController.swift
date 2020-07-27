@@ -70,16 +70,7 @@ extension TodayTodoViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: todayTodoCollectionViewCellId, for: indexPath) as! TodayTodoCollectionViewCell
 
-        let todo = self.presenter.todayTodos[indexPath.item]
-        //TODO:- 実際の文字列を表示すること
-        cell.taskLabel.text = todo
-        cell.groupImageView.image = UIImage(systemName: "cloud.sun.rain.fill")
-        cell.groupImageView.tintColor = .systemTeal
-        
-        cell.radioButtonAction = { [weak self] in
-            self?.presenter.didTapRadioButton(index: indexPath.item)
-        }
-   
+        cell.configure(with: self.presenter.todayTodos[indexPath.item])
         return cell
     }
     

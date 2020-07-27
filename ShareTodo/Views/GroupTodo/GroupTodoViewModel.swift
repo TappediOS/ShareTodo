@@ -39,7 +39,6 @@ final class GroupTodoModel: GroupTodoModelProtocol {
         self.firestore.settings = settings
     }
     
-    
     func fetchGroup() {
         guard let user = Auth.auth().currentUser else { return }
         

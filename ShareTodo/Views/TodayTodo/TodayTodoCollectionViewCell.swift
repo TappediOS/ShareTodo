@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Nuke
 
 class TodayTodoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var groupImageView: UIImageView!
@@ -40,6 +41,16 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
         self.radioButton.layer.cornerRadius = self.groupImageView.frame.width / 2
         self.radioButton.layer.masksToBounds = true
         self.radioButton.tintColor = .systemGreen
+    }
+    
+    func configure(with group: Group) {
+        self.taskLabel.text = group.task
+        
+        guard let url = URL(string: group.profileImageURL ?? "") else { return }
+        DispatchQueue.main.async {
+            let options = ImageLoadingOptions(placeholder: UIImage(named: "defaultProfileImage"), failureImage: UIImage(named: "defaultProfileImage"))
+            loadImage(with: url, options: options, into: self.groupImageView, progress: nil, completion: nil)
+        }
     }
     
     @IBAction func tapRadioButton(_ sender: Any) {

@@ -28,6 +28,8 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
     }
     
     func setupGroupImageView() {
+        self.groupImageView.layer.borderWidth = 0.25
+        self.groupImageView.layer.borderColor = UIColor.systemGray4.cgColor
         self.groupImageView.layer.cornerRadius = self.groupImageView.frame.width / 2
         self.groupImageView.layer.masksToBounds = true
     }

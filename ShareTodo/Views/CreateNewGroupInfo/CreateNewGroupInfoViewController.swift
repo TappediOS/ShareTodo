@@ -16,6 +16,7 @@ final class CreateNewGroupInfoViewController: UIViewController {
     @IBOutlet weak var taskLabel: UILabel!
     @IBOutlet weak var taskTextField: UITextField!
     @IBOutlet weak var selectedUsersAndMeCollectionView: UICollectionView!
+    @IBOutlet weak var photoImageView: UIImageView!
     
     var actionSheet = UIAlertController()
     let photoPickerVC = UIImagePickerController()
@@ -34,6 +35,7 @@ final class CreateNewGroupInfoViewController: UIViewController {
         self.setupGroupNameTextField()
         self.setupTaskLabel()
         self.setupTaskTextField()
+        self.setupPhotoImageView()
         self.setupSelectedUsersCollectionView()
         self.setupActionSheet()
         self.setupPhotoPickerVC()
@@ -57,7 +59,7 @@ final class CreateNewGroupInfoViewController: UIViewController {
     }
     
     func setupGroupImageView() {
-        self.groupImageView.image = UIImage(named: "defaultProfileImage")
+        self.groupImageView.image = UIImage(named: "groupDefaultImage")
         self.groupImageView.layer.borderWidth = 0.25
         self.groupImageView.layer.borderColor = UIColor.systemGray4.cgColor
         self.groupImageView.layer.cornerRadius = self.groupImageView.frame.width / 2
@@ -85,6 +87,15 @@ final class CreateNewGroupInfoViewController: UIViewController {
         self.taskTextField.returnKeyType = .done
         self.taskTextField.delegate = self
         self.taskTextField.enablesReturnKeyAutomatically = true
+    }
+    
+    func setupPhotoImageView() {
+        self.photoImageView.layer.cornerRadius = self.photoImageView.frame.width / 2
+        self.photoImageView.layer.masksToBounds = false
+        self.photoImageView.layer.shadowColor = UIColor.black.cgColor
+        self.photoImageView.layer.shadowOffset = CGSize(width: 2.75, height: 2.75)
+        self.photoImageView.layer.shadowOpacity = 0.7
+        self.photoImageView.layer.shadowRadius = 8.25
     }
     
     func setupSelectedUsersCollectionView() {
@@ -162,7 +173,7 @@ extension CreateNewGroupInfoViewController: CreateNewGroupInfoViewPresenterOutpu
     }
     
     func setDeleteAndSetDefaultImage() {
-        DispatchQueue.main.async { self.groupImageView.image = UIImage(named: "defaultProfileImage") }
+        DispatchQueue.main.async { self.groupImageView.image = UIImage(named: "groupDefaultImage") }
     }
     
     func reloadCollectionView(addUser: User) {

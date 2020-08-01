@@ -17,6 +17,7 @@ protocol TodayTodoViewPresenterProtocol {
 
 protocol TodayTodoViewPresenterOutput: class {
     func reloadTodayTodoCollectionView()
+    func showRequestAllowNotificationView()
 }
 
 final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoModelOutput {
@@ -37,6 +38,7 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
     }
     
     func didViewDidLoad() {
+        if self.model.isFirstOpen() { self.view.showRequestAllowNotificationView() }
         self.model.fetchTodayTodo()
     }
     

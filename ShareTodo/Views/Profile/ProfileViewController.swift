@@ -77,7 +77,7 @@ extension ProfileViewController: ProfileViewPresenterOutput {
     
     func setProfileImage(URL: URL) {
         DispatchQueue.main.async {
-            let options = ImageLoadingOptions(placeholder: UIImage(named: "defaultProfileImage"), failureImage: UIImage(named: "defaultProfileImage"))
+            let options = ImageLoadingOptions(placeholder: UIImage(named: "placeholderImage"), transition: .fadeIn(duration: 0.25), failureImage: UIImage(named: "defaultProfileImage"))
             loadImage(with: URL, options: options, into: self.profileImageView, progress: nil, completion: nil)
         }
     }

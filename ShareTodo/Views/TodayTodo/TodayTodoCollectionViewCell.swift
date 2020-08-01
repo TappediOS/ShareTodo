@@ -28,6 +28,8 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
     }
     
     func setupGroupImageView() {
+        self.groupImageView.layer.borderWidth = 0.25
+        self.groupImageView.layer.borderColor = UIColor.systemGray4.cgColor
         self.groupImageView.layer.cornerRadius = self.groupImageView.frame.width / 2
         self.groupImageView.layer.masksToBounds = true
     }
@@ -48,7 +50,7 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
         
         guard let url = URL(string: group.profileImageURL ?? "") else { return }
         DispatchQueue.main.async {
-            let options = ImageLoadingOptions(placeholder: UIImage(named: "defaultProfileImage"), failureImage: UIImage(named: "defaultProfileImage"))
+            let options = ImageLoadingOptions(placeholder: UIImage(named: "placeholderImage"), transition: .fadeIn(duration: 0.25), failureImage: UIImage(named: "defaultProfileImage"))
             loadImage(with: url, options: options, into: self.groupImageView, progress: nil, completion: nil)
         }
     }

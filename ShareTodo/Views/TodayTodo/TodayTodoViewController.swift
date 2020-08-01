@@ -63,6 +63,18 @@ extension TodayTodoViewController: TodayTodoViewPresenterOutput {
     func reloadTodayTodoCollectionView() {
         DispatchQueue.main.async { self.todayTodoCollectionView.reloadData() }
     }
+    
+    func showRequestAllowNotificationView() {
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { granted, error in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            
+            if granted { UIApplication.shared.registerForRemoteNotifications() }
+        }
+    }
 }
 
 extension TodayTodoViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

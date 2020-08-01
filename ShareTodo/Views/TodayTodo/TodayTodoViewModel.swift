@@ -13,6 +13,7 @@ protocol TodayTodoModelProtocol {
     var todayTodo: [Group] { get set }
     
     func fetchTodayTodo()
+    func isFirstOpen() -> Bool
 }
 
 protocol TodayTodoModelOutput: class {
@@ -59,6 +60,15 @@ final class TodayTodoModel: TodayTodoModelProtocol {
             
             self?.presenter.successFetchTodayTodo()
         }
+    }
+    
+    func isFirstOpen() -> Bool {
+        //TODO:- 実装後に以下の一文を取り除くこと
+        return true
+        UserDefaults.standard.register(defaults: ["isFirstOpen": true])
+        if !UserDefaults.standard.bool(forKey: "isFirstOpen") { return false }
         
+        UserDefaults.standard.set(false, forKey: "isFirstOpen")
+        return true
     }
 }

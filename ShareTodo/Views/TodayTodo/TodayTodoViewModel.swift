@@ -68,6 +68,7 @@ final class TodayTodoModel: TodayTodoModelProtocol {
     
     private func getTodayFormat() -> String {
         let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.dateFormat = "yyyy_MM_dd"
         return formatter.string(from: Date())
     }
@@ -81,6 +82,7 @@ final class TodayTodoModel: TodayTodoModelProtocol {
             dispatchGroup.enter()
             dispatchQueue.async(group: dispatchGroup) { [weak self] in
                 let documentRef = "todo/v1/groups/" + document.documentID + "/todo/" + userID + "_" + todayFormat
+                print(documentRef)
                 self?.firestore.document(documentRef).getDocument { (document, error) in
                     if let error = error {
                         print("Error: \(error.localizedDescription)")

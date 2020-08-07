@@ -10,6 +10,7 @@ protocol TodayTodoViewPresenterProtocol {
     var view: TodayTodoViewPresenterOutput! { get set }
     var numberOfGroups: Int { get }
     var groups: [Group] { get }
+    var todos: [Todo] { get }
     
     func didViewDidLoad()
     func didTapRadioButton(index: Int)
@@ -30,6 +31,10 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
     
     var groups: [Group] {
         return self.model.groups
+    }
+    
+    var todos: [Todo] {
+        return self.model.todos
     }
     
     init(model: TodayTodoModelProtocol) {

@@ -17,6 +17,7 @@ protocol TodayTodoModelProtocol {
     func fetchTodayTodo(groupDocuments: [QueryDocumentSnapshot], userID: String)
     
     func isFirstOpen() -> Bool
+    func isFinishedTodo(index: Int) -> Bool
 }
 
 protocol TodayTodoModelOutput: class {
@@ -111,6 +112,22 @@ final class TodayTodoModel: TodayTodoModelProtocol {
         
         dispatchGroup.notify(queue: .main) {
             self.presenter.successFetchTodayTodo()
+        }
+    }
+    
+    func isContainsTodoInGroups(index: Int) -> Bool {
+        let group = groups[index]
+        return !self.todos.filter({ $0.groupID == group.groupID ?? ""}).isEmpty
+    }
+    
+    func isFinishedTodo(index: Int) -> Bool {
+        guard isContainsTodoInGroups(index: index) else { return false }
+        let todo = todos.filter({ $0.groupID == groups[index].groupID ?? ""}).first
+        
+        if let todo = todo {
+            return todo.isFinished
+        } else {
+            return false
         }
     }
     

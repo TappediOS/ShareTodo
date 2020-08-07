@@ -14,6 +14,8 @@ protocol TodayTodoViewPresenterProtocol {
     
     func didViewDidLoad()
     func didTapRadioButton(index: Int)
+    
+    func isFinishedTodo(index: Int) -> Bool
 }
 
 protocol TodayTodoViewPresenterOutput: class {
@@ -53,5 +55,9 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
     
     func didTapRadioButton(index: Int) {
         //self.model.
+    }
+    
+    func isFinishedTodo(index: Int) -> Bool {
+        return self.model.isFinishedTodo(index: index)
     }
 }

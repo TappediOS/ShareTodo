@@ -45,8 +45,11 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
         self.radioButton.tintColor = .systemGreen
     }
     
-    func configure(with group: Group) {
+    func configure(with group: Group, isFinished: Bool) {
+        let radioButtonImage = isFinished ? UIImage(systemName: "checkmark.circle.fill") : UIImage(systemName: "checkmark.circle")
+        
         self.taskLabel.text = group.task
+        self.radioButton.setImage(radioButtonImage, for: .normal)
         
         guard let url = URL(string: group.profileImageURL ?? "") else { return }
         DispatchQueue.main.async {

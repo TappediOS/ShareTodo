@@ -8,8 +8,8 @@
 
 protocol TodayTodoViewPresenterProtocol {
     var view: TodayTodoViewPresenterOutput! { get set }
-    var numberOfTodayTodo: Int { get }
-    var todayTodos: [Group] { get }
+    var numberOfGroups: Int { get }
+    var groups: [Group] { get }
     
     func didViewDidLoad()
     func didTapRadioButton(index: Int)
@@ -24,12 +24,12 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
     weak var view: TodayTodoViewPresenterOutput!
     private var model: TodayTodoModelProtocol
     
-    var numberOfTodayTodo: Int {
-        return self.model.todayTodo.count
+    var numberOfGroups: Int {
+        return self.model.groups.count
     }
     
-    var todayTodos: [Group] {
-        return self.model.todayTodo
+    var groups: [Group] {
+        return self.model.groups
     }
     
     init(model: TodayTodoModelProtocol) {
@@ -39,7 +39,7 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
     
     func didViewDidLoad() {
         if self.model.isFirstOpen() { self.view.showRequestAllowNotificationView() }
-        self.model.fetchTodayTodo()
+        self.model.fetchGroups()
     }
     
     func successFetchTodayTodo() {
@@ -47,6 +47,6 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
     }
     
     func didTapRadioButton(index: Int) {
-        
+        //self.model.
     }
 }

@@ -79,13 +79,13 @@ extension TodayTodoViewController: TodayTodoViewPresenterOutput {
 
 extension TodayTodoViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.presenter.numberOfTodayTodo
+        return self.presenter.numberOfGroups
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: todayTodoCollectionViewCellId, for: indexPath) as! TodayTodoCollectionViewCell
 
-        cell.configure(with: self.presenter.todayTodos[indexPath.item])
+        cell.configure(with: self.presenter.groups[indexPath.item])
         
         cell.radioButtonAction = { [weak self] in
             self?.presenter.didTapRadioButton(index: indexPath.item)

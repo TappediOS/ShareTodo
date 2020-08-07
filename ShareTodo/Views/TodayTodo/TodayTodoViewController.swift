@@ -86,6 +86,11 @@ extension TodayTodoViewController: UICollectionViewDelegate, UICollectionViewDat
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: todayTodoCollectionViewCellId, for: indexPath) as! TodayTodoCollectionViewCell
 
         cell.configure(with: self.presenter.todayTodos[indexPath.item])
+        
+        cell.radioButtonAction = { [weak self] in
+            self?.presenter.didTapRadioButton(index: indexPath.item)
+        }
+        
         return cell
     }
     

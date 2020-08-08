@@ -53,8 +53,21 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
         self.view.reloadTodayTodoCollectionView()
     }
     
+    func successUnfinishedTodo() {
+        self.view.reloadTodayTodoCollectionView()
+    }
+    
+    func successFinishedTodo() {
+        self.model.fetchGroups()
+    }
+    
     func didTapRadioButton(index: Int) {
-        //self.model.
+        if self.model.isFinishedTodo(index: index) {
+            self.model.unfinishedTodo(index: index)
+            return
+        }
+        
+        self.model.finishedTodo(index: index)
     }
     
     func isFinishedTodo(index: Int) -> Bool {

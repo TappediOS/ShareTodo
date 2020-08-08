@@ -18,10 +18,15 @@ protocol TodayTodoModelProtocol {
     
     func isFirstOpen() -> Bool
     func isFinishedTodo(index: Int) -> Bool
+    
+    func unfinishedTodo(index: Int)
+    func finishedTodo(index: Int)
 }
 
 protocol TodayTodoModelOutput: class {
     func successFetchTodayTodo()
+    func successUnfinishedTodo()
+    func successFinishedTodo()
 }
 
 final class TodayTodoModel: TodayTodoModelProtocol {
@@ -63,6 +68,7 @@ final class TodayTodoModel: TodayTodoModelProtocol {
                 return try? queryDocumentSnapshot.data(as: Group.self)
             }
             
+            self?.todos.removeAll()
             self?.fetchTodayTodo(groupDocuments: documents, userID: user.uid)
         }
     }
@@ -128,6 +134,61 @@ final class TodayTodoModel: TodayTodoModelProtocol {
             return todo.isFinished
         } else {
             return false
+        }
+    }
+    
+    func getFinishedTodoIndex(groupIndex: Int) -> Int? {
+        for tmp in 0 ..< todos.count {
+            if self.todos[tmp].groupID == self.groups[groupIndex].groupID ?? "" { return tmp }
+        }
+        return nil
+    }
+    
+    func unfinishedTodo(index: Int) {
+        let todo = todos.filter({ $0.groupID == groups[index].groupID ?? ""}).first
+        guard var finishedTodo = todo else { return }
+        guard let finishedTodoIndex = getFinishedTodoIndex(groupIndex: index) else { return }
+        
+        finishedTodo.isFinished = false
+        let todayFormat = getTodayFormat()
+        
+        let documentRef = "todo/v1/groups/" + finishedTodo.groupID + "/todo/" + finishedTodo.userID + "_" + todayFormat
+        
+        do {
+            _ = try self.firestore.document(documentRef).setData(from: finishedTodo, merge: true) { [weak self] error in
+                if let error = error {
+                    print("Error: \(error.localizedDescription)")
+                    return
+                }
+                
+                self?.todos[finishedTodoIndex].isFinished = false
+                self?.presenter.successUnfinishedTodo()
+            }
+        } catch let error {
+            print("Error: \(error.localizedDescription)")
+            return
+        }
+    }
+    
+    func finishedTodo(index: Int) {
+        guard let user = Auth.auth().currentUser else { return }
+        guard let groupID = self.groups[index].groupID else { return }
+        let todayFormat = getTodayFormat()
+        let documentRef = "todo/v1/groups/" + groupID + "/todo/" + user.uid + "_" + todayFormat
+        let todo = Todo(isFinished: true, userID: user.uid, groupID: groupID)
+        
+        do {
+            _ = try self.firestore.document(documentRef).setData(from: todo, merge: true) { [weak self] error in
+                if let error = error {
+                    print("Error: \(error.localizedDescription)")
+                    return
+                }
+                
+                self?.presenter.successFinishedTodo()
+            }
+        } catch let error {
+            print("Error: \(error.localizedDescription)")
+            return
         }
     }
     

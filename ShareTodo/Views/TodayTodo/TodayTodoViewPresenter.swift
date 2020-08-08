@@ -21,6 +21,9 @@ protocol TodayTodoViewPresenterProtocol {
 protocol TodayTodoViewPresenterOutput: class {
     func reloadTodayTodoCollectionView()
     func showRequestAllowNotificationView()
+    
+    func startActivityIndicator()
+    func stopActivityIndicator()
 }
 
 final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoModelOutput {
@@ -46,11 +49,13 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
     
     func didViewDidLoad() {
         if self.model.isFirstOpen() { self.view.showRequestAllowNotificationView() }
+        self.view.startActivityIndicator()
         self.model.fetchGroups()
     }
     
     func successFetchTodayTodo() {
         self.view.reloadTodayTodoCollectionView()
+        self.view.stopActivityIndicator()
     }
     
     func successUnfinishedTodo() {
@@ -59,6 +64,7 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
     
     func successFinishedTodo() {
         self.model.fetchGroups()
+        self.view.stopActivityIndicator()
     }
     
     func didTapRadioButton(index: Int) {

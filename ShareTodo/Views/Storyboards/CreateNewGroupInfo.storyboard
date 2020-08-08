@@ -111,6 +111,18 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Org-cp-hoF">
+                                <rect key="frame" x="65" y="109" width="50" height="50"/>
+                                <color key="backgroundColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="2bM-rC-uZB"/>
+                                    <constraint firstAttribute="height" constant="50" id="D01-EJ-dtn"/>
+                                </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="default" weight="bold">
+                                    <fontDescription key="fontDescription" type="system" pointSize="7"/>
+                                </preferredSymbolConfiguration>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -125,7 +137,9 @@
                             <constraint firstItem="Cwk-gE-pYn" firstAttribute="leading" secondItem="7gm-yo-msK" secondAttribute="trailing" constant="8" id="Kks-Pt-Hno"/>
                             <constraint firstItem="Inb-wv-Op6" firstAttribute="top" secondItem="qJd-8h-MT0" secondAttribute="bottom" constant="8" id="LTK-HA-RSB"/>
                             <constraint firstItem="Inb-wv-Op6" firstAttribute="leading" secondItem="tDO-GW-vAe" secondAttribute="leading" constant="20" id="LUl-b2-cIC"/>
+                            <constraint firstItem="Org-cp-hoF" firstAttribute="top" secondItem="tDO-GW-vAe" secondAttribute="top" constant="65" id="MTc-v5-vBp"/>
                             <constraint firstItem="Cwk-gE-pYn" firstAttribute="top" secondItem="CRZ-oC-lSX" secondAttribute="bottom" constant="24" id="N6Q-XV-gue"/>
+                            <constraint firstItem="Org-cp-hoF" firstAttribute="leading" secondItem="tDO-GW-vAe" secondAttribute="leading" constant="65" id="T2Z-eU-aOB"/>
                             <constraint firstItem="A6f-aF-ab6" firstAttribute="leading" secondItem="CRZ-oC-lSX" secondAttribute="trailing" constant="8" id="Vja-1Q-hfV"/>
                             <constraint firstItem="A6f-aF-ab6" firstAttribute="top" secondItem="tDO-GW-vAe" secondAttribute="top" constant="20" id="ZBx-7G-xLi"/>
                             <constraint firstItem="qJd-8h-MT0" firstAttribute="top" secondItem="Cwk-gE-pYn" secondAttribute="bottom" constant="25" id="vwi-Iq-4KB"/>
@@ -135,6 +149,7 @@
                     <connections>
                         <outlet property="groupImageView" destination="CRZ-oC-lSX" id="K52-hJ-844"/>
                         <outlet property="groupNameTextField" destination="A6f-aF-ab6" id="2J2-8P-0fA"/>
+                        <outlet property="photoImageView" destination="Org-cp-hoF" id="TpC-Ls-XmG"/>
                         <outlet property="selectedUsersAndMeCollectionView" destination="Inb-wv-Op6" id="Lph-Mi-FAq"/>
                         <outlet property="taskLabel" destination="7gm-yo-msK" id="bgO-4Z-aw0"/>
                         <outlet property="taskTextField" destination="Cwk-gE-pYn" id="OvK-2E-UgP"/>
@@ -145,4 +160,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camera.fill" catalog="system" width="128" height="96"/>
+    </resources>
 </document>

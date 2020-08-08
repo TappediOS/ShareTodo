@@ -7,6 +7,7 @@
 //
 
 struct Group: Codable {
+    @DocumentID var groupID: String?
     let name: String
     let task: String
     let members: [String]

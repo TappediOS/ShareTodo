@@ -12,6 +12,8 @@ import DZNEmptyDataSet
 final class TodayTodoViewController: UIViewController {
     private var presenter: TodayTodoViewPresenterProtocol!
     @IBOutlet weak var todayTodoCollectionView: UICollectionView!
+    var activityIndicator = UIActivityIndicatorView()
+    
     private let todayTodoCollectionViewCellId = "TodayTodoCollectionViewCell"
     
     override func viewDidLoad() {
@@ -20,6 +22,7 @@ final class TodayTodoViewController: UIViewController {
         self.setupView()
         self.setupNavigationBar()
         self.setupTodayTodoCollectionView()
+        self.setupActivityIndicator()
         
         self.presenter.didViewDidLoad()
     }
@@ -53,6 +56,13 @@ final class TodayTodoViewController: UIViewController {
         self.todayTodoCollectionView.emptyDataSetDelegate = self
     }
     
+    func setupActivityIndicator() {
+        self.activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        self.activityIndicator.center = self.view.center
+        self.activityIndicator.hidesWhenStopped = true
+        self.view.addSubview(self.activityIndicator)
+    }
+    
     func inject(with presenter: TodayTodoViewPresenterProtocol) {
         self.presenter = presenter
         self.presenter.view = self
@@ -62,6 +72,14 @@ final class TodayTodoViewController: UIViewController {
 extension TodayTodoViewController: TodayTodoViewPresenterOutput {
     func reloadTodayTodoCollectionView() {
         DispatchQueue.main.async { self.todayTodoCollectionView.reloadData() }
+    }
+    
+    func startActivityIndicator() {
+        DispatchQueue.main.async { self.activityIndicator.startAnimating() }
+    }
+    
+    func stopActivityIndicator() {
+        DispatchQueue.main.async { self.activityIndicator.stopAnimating() }
     }
     
     func showRequestAllowNotificationView() {
@@ -79,13 +97,16 @@ extension TodayTodoViewController: TodayTodoViewPresenterOutput {
 
 extension TodayTodoViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.presenter.numberOfTodayTodo
+        return self.presenter.numberOfGroups
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: todayTodoCollectionViewCellId, for: indexPath) as! TodayTodoCollectionViewCell
-
-        cell.configure(with: self.presenter.todayTodos[indexPath.item])
+        cell.configure(with: self.presenter.groups[indexPath.item], isFinished: self.presenter.isFinishedTodo(index: indexPath.item))
+        cell.radioButtonAction = { [weak self] in
+            self?.presenter.didTapRadioButton(index: indexPath.item)
+        }
+        
         return cell
     }
     

@@ -73,7 +73,7 @@ final class TodayTodoModel: TodayTodoModelProtocol {
         }
     }
     
-    private func getTodayFormat() -> String {
+    func getTodayFormat() -> String {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.dateFormat = "yyyy_MM_dd"

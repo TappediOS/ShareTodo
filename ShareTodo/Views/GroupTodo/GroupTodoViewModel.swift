@@ -120,7 +120,24 @@ final class GroupTodoModel: GroupTodoModelProtocol {
         }
         
         dispatchGroup.notify(queue: .main) {
-            print(self.groupUsers)
+            self.sortGroupUsersArray()
+           
+        }
+    }
+    
+    func sortGroupUsersArray() {
+        for (groupNum, group) in self.group.enumerated() {
+            for (usersNum, users) in self.groupUsers.enumerated() {
+                let usersIDs = users.reduce([]) { (array, user) -> [String] in
+                    var array = array
+                    array.append(user.id ?? "")
+                    return array
+                }
+                
+                if group.members.sorted() == usersIDs.sorted() {
+                    self.groupUsers.swapAt(groupNum, usersNum)
+                }
+            }
         }
     }
 }

@@ -11,8 +11,10 @@ import Firebase
 protocol GroupTodoModelProtocol {
     var presenter: GroupTodoModelOutput! { get set }
     var group: [Group] { get set }
+    var groupUsersNames: [[String]] { get set }
     
     func fetchGroup()
+    func fetchGroupsUsersNames()
 }
 
 protocol GroupTodoModelOutput: class {
@@ -22,6 +24,7 @@ protocol GroupTodoModelOutput: class {
 final class GroupTodoModel: GroupTodoModelProtocol {
     weak var presenter: GroupTodoModelOutput!
     var group: [Group] = Array()
+    var groupUsersNames: [[String]] = Array()
     private var firestore: Firestore!
     private var listener: ListenerRegistration?
     
@@ -60,6 +63,64 @@ final class GroupTodoModel: GroupTodoModelProtocol {
             }
             
             self.presenter.successFetchGroup()
+        }
+    }
+    
+    func fetchUsersNames(membersIDs: [String]) -> [String] {
+        var result: [String] = Array()
+        let semaphore = DispatchSemaphore(value: 0)
+        
+        for membersID in membersIDs {
+            let usersPath = "todo/v1/users/" + membersID
+            self.firestore.document(usersPath).getDocument { (document, error) in
+                if let error = error {
+                    print("Error: \(error.localizedDescription)")
+                    semaphore.signal()
+                    return
+                }
+                
+                guard let document = document, document.exists else {
+                    print("The document doesn't exist.")
+                    semaphore.signal()
+                    return
+                }
+                
+                do {
+                    let userData = try document.data(as: User.self)
+                    guard let user = userData else { return }
+                    result.append(user.name)
+                } catch {
+                    print("Error happen")
+                }
+                
+                semaphore.signal()
+            }
+        }
+        
+        for _ in 1 ... membersIDs.count { semaphore.wait() }
+        
+        return result
+    }
+    
+    func fetchGroupsUsersNames() {
+        let dispatchGroup = DispatchGroup()
+        let dispatchQueue = DispatchQueue(label: "queue", attributes: .concurrent)
+        
+        for group in self.group {
+            dispatchGroup.enter()
+            dispatchQueue.async(group: dispatchGroup) { [weak self] in
+                guard let self = self else { return }
+                let result = self.fetchUsersNames(membersIDs: group.members)
+                //排他的に制御する必要がある
+                DispatchQueue.main.async {
+                    self.groupUsersNames.append(result)
+                }
+                dispatchGroup.leave()
+            }
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            print(self.groupUsersNames)
         }
     }
 }

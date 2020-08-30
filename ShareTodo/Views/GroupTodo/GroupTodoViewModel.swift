@@ -43,6 +43,8 @@ final class GroupTodoModel: GroupTodoModelProtocol {
         guard let user = Auth.auth().currentUser else { return }
         
         self.listener = self.firestore.collection("todo/v1/groups/").whereField("members", arrayContains: user.uid).addSnapshotListener { [weak self] (documentSnapshot, error) in
+            guard let self = self else { return }
+            
             if let error = error {
                 print("Error: \(error.localizedDescription)")
                 return
@@ -53,11 +55,11 @@ final class GroupTodoModel: GroupTodoModelProtocol {
                 return
             }
             
-            self?.group = documents.compactMap { queryDocumentSnapshot -> Group? in
+            self.group = documents.compactMap { queryDocumentSnapshot -> Group? in
                 return try? queryDocumentSnapshot.data(as: Group.self)
             }
             
-            self?.presenter.successFetchGroup()
+            self.presenter.successFetchGroup()
         }
     }
 }

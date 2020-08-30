@@ -43,6 +43,8 @@ final class CreateNewGroupModel: CreateNewGroupModelProtocol {
     /// - Parameter searchText: 検索するユーザ名
     func searchUser(searchText: String) {
         self.firestore.collection("todo/v1/users").whereField("name", isEqualTo: searchText).getDocuments { [weak self] (documentSnapshot, error) in
+            guard let self = self else { return }
+            
             if let error = error {
                 print("Error: \(error.localizedDescription)")
                 return
@@ -57,8 +59,8 @@ final class CreateNewGroupModel: CreateNewGroupModelProtocol {
                 return try? queryDocumentSnapshot.data(as: User.self)
             }
             
-            self?.searchedUsersArray = searchedUsers
-            self?.presenter.successSearchUser()
+            self.searchedUsersArray = searchedUsers
+            self.presenter.successSearchUser()
         }
     }
     

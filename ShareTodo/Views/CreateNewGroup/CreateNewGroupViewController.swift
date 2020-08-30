@@ -185,7 +185,8 @@ extension CreateNewGroupViewController: UICollectionViewDelegate, UICollectionVi
 
         cell.configure(with: self.presenter.selectedUsers[indexPath.item])
         cell.deleteUserButtonAction = { [weak self] in
-            self?.presenter.didTapSelectedUserCollectionViewCellDeleteUserButton(index: indexPath.item)
+            guard let self = self else { return }
+            self.presenter.didTapSelectedUserCollectionViewCellDeleteUserButton(index: indexPath.item)
         }
         
         cell.profileImageView.image = UIImage(systemName: "bolt.circle.fill")

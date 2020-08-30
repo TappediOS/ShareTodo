@@ -54,6 +54,8 @@ final class TodayTodoModel: TodayTodoModelProtocol {
         guard let user = Auth.auth().currentUser else { return }
         
         self.listener = self.firestore.collection("todo/v1/groups/").whereField("members", arrayContains: user.uid).addSnapshotListener { [weak self] (documentSnapshot, error) in
+            guard let self = self else { return }
+            
             if let error = error {
                 print("Error: \(error.localizedDescription)")
                 return
@@ -64,12 +66,12 @@ final class TodayTodoModel: TodayTodoModelProtocol {
                 return
             }
             
-            self?.groups = documents.compactMap { queryDocumentSnapshot -> Group? in
+            self.groups = documents.compactMap { queryDocumentSnapshot -> Group? in
                 return try? queryDocumentSnapshot.data(as: Group.self)
             }
             
-            self?.todos.removeAll()
-            self?.fetchTodayTodo(groupDocuments: documents, userID: user.uid)
+            self.todos.removeAll()
+            self.fetchTodayTodo(groupDocuments: documents, userID: user.uid)
         }
     }
     
@@ -88,9 +90,11 @@ final class TodayTodoModel: TodayTodoModelProtocol {
         for document in groupDocuments {
             dispatchGroup.enter()
             dispatchQueue.async(group: dispatchGroup) { [weak self] in
+                guard let self = self else { return }
+                
                 let documentRef = "todo/v1/groups/" + document.documentID + "/todo/" + userID + "_" + todayFormat
                 print(documentRef)
-                self?.firestore.document(documentRef).getDocument { (document, error) in
+                self.firestore.document(documentRef).getDocument { (document, error) in
                     if let error = error {
                         print("Error: \(error.localizedDescription)")
                         dispatchGroup.leave()
@@ -106,7 +110,7 @@ final class TodayTodoModel: TodayTodoModelProtocol {
                     do {
                         let todoData = try document.data(as: Todo.self)
                         guard let todo = todoData else { return }
-                        self?.todos.append(todo)
+                        self.todos.append(todo)
                     } catch {
                         print("Error happen.")
                     }

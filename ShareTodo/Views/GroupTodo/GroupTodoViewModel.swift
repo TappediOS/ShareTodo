@@ -11,7 +11,7 @@ import Firebase
 protocol GroupTodoModelProtocol {
     var presenter: GroupTodoModelOutput! { get set }
     var group: [Group] { get set }
-    var groupUsersNames: [[String]] { get set }
+    var groupUsers: [[User]] { get set }
     
     func fetchGroup()
     func fetchGroupsUsersNames()
@@ -24,7 +24,7 @@ protocol GroupTodoModelOutput: class {
 final class GroupTodoModel: GroupTodoModelProtocol {
     weak var presenter: GroupTodoModelOutput!
     var group: [Group] = Array()
-    var groupUsersNames: [[String]] = Array()
+    var groupUsers: [[User]] = Array()
     private var firestore: Firestore!
     private var listener: ListenerRegistration?
     
@@ -66,8 +66,8 @@ final class GroupTodoModel: GroupTodoModelProtocol {
         }
     }
     
-    func fetchUsersNames(membersIDs: [String]) -> [String] {
-        var result: [String] = Array()
+    func fetchUsersNames(membersIDs: [String]) -> [User] {
+        var result: [User] = Array()
         let semaphore = DispatchSemaphore(value: 0)
         
         for membersID in membersIDs {
@@ -88,7 +88,7 @@ final class GroupTodoModel: GroupTodoModelProtocol {
                 do {
                     let userData = try document.data(as: User.self)
                     guard let user = userData else { return }
-                    result.append(user.name)
+                    result.append(user)
                 } catch {
                     print("Error happen")
                 }
@@ -113,14 +113,14 @@ final class GroupTodoModel: GroupTodoModelProtocol {
                 let result = self.fetchUsersNames(membersIDs: group.members)
                 //排他的に制御する必要がある
                 DispatchQueue.main.async {
-                    self.groupUsersNames.append(result)
+                    self.groupUsers.append(result)
                 }
                 dispatchGroup.leave()
             }
         }
         
         dispatchGroup.notify(queue: .main) {
-            print(self.groupUsersNames)
+            print(self.groupUsers)
         }
     }
 }

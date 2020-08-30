@@ -19,6 +19,7 @@ protocol GroupTodoModelProtocol {
 
 protocol GroupTodoModelOutput: class {
     func successFetchGroup()
+    func successFetchUsersName()
 }
 
 final class GroupTodoModel: GroupTodoModelProtocol {
@@ -121,7 +122,7 @@ final class GroupTodoModel: GroupTodoModelProtocol {
         
         dispatchGroup.notify(queue: .main) {
             self.sortGroupUsersArray()
-           
+            self.presenter.successFetchUsersName()
         }
     }
     

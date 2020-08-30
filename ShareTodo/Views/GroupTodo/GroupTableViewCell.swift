@@ -39,9 +39,9 @@ class GroupTableViewCell: UITableViewCell {
         self.groupMembersNameLabel.minimumScaleFactor = 0.4
     }
     
-    func configure(with group: Group) {
+    func configure(group: Group, user: [User]) {
         self.groupNameLabel.text = group.name
-        groupMembersNameLabel.text = group.members.joined(separator: ", ")
+        self.groupMembersNameLabel.text = user.map { $0.name }.joined(separator: ", ")
         
         guard let url = URL(string: group.profileImageURL ?? "") else { return }
         DispatchQueue.main.async {

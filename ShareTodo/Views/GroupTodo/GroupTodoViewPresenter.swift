@@ -45,4 +45,8 @@ final class GroupTodoViewPresenter: GroupTodoViewPresenterProtocol, GroupTodoMod
     func successFetchGroup() {
         self.model.fetchGroupsUsersNames()
     }
+    
+    func successFetchUsersName() {
+        self.view.reloadGroupTableView()
+    }
 }

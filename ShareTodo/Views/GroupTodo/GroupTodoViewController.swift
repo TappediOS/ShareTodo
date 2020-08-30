@@ -87,7 +87,7 @@ extension GroupTodoViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = self.groupTableView.dequeueReusableCell(withIdentifier: self.groupTodoCellID, for: indexPath)
                          as? GroupTableViewCell else { return UITableViewCell() }
         
-        cell.configure(with: self.presenter.group[indexPath.item])
+        cell.configure(group: self.presenter.group[indexPath.item], user: self.presenter.groupUsers[indexPath.item])
         return cell
     }
     

@@ -158,7 +158,7 @@ extension EditProfileViewController: EditProfileViewPresenterOutput {
     }
     
     func setDeleteAndSetDefaultImage() {
-        DispatchQueue.main.async { self.profileImageView.image = UIImage(named: "defaultProfileImage") }
+        DispatchQueue.main.async { self.profileImageView.image = R.image.defaultProfileImage() }
     }
 }
 

@@ -53,7 +53,7 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
         
         guard let url = URL(string: group.profileImageURL ?? "") else { return }
         DispatchQueue.main.async {
-            let options = ImageLoadingOptions(placeholder: UIImage(named: "placeholderImage"), transition: .fadeIn(duration: 0.25), failureImage: UIImage(named: "groupDefaultImage"))
+            let options = ImageLoadingOptions(placeholder: R.image.placeholderImage(), transition: .fadeIn(duration: 0.25), failureImage: R.image.groupDefaultImage())
             loadImage(with: url, options: options, into: self.groupImageView, progress: nil, completion: nil)
         }
     }

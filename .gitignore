@@ -16,7 +16,10 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
+R.generated.swift
 
 # Carthage
 Carthage/Build/
 Carthage/Checkouts/
+
+Pods/

@@ -22,13 +22,24 @@ jobs:
         key: ${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}
         restore-keys: |
           ${{ runner.os }}-carthage-
+    - name: Cache CocoaPods files
+      uses: actions/cache@v1
+      with:
+        path: Pods
+        key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-pods-
+
 
     - name: Carthage
       run: carthage bootstrap --platform iOS --cache-builds
+    - name: CocoaPods
+      run: pod install
 
     # Run build
     - name: Build
       run: xcodebuild
+            -workspace ShareTodo.xcworkspace
             -scheme ShareTodo
             -sdk iphonesimulator
             -configuration Debug
@@ -37,6 +48,7 @@ jobs:
     - name: Run tests
       run: xcodebuild
             -scheme ShareTodo
+            -workspace ShareTodo.xcworkspace
             -sdk iphonesimulator
             -configuration Debug
             -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max'

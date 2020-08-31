@@ -23,7 +23,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-carthage-
     - name: Cache CocoaPods files
-      uses: actions/cache@preview
+      uses: actions/cache@v1
       with:
         path: Pods
         key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}

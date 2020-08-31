@@ -34,6 +34,8 @@ final class CreateNewGroupInfoModel: CreateNewGroupInfoModelProtocol {
     func fetchUser() {
         guard let user = Auth.auth().currentUser else { return }
         self.firestore.collection("todo/v1/users/").document(user.uid).addSnapshotListener { [weak self] (document, error) in
+            guard let self = self else { return }
+            
             if let error = error {
                 print("Error: \(error.localizedDescription)")
                 return
@@ -46,7 +48,7 @@ final class CreateNewGroupInfoModel: CreateNewGroupInfoModelProtocol {
             
             do {
                 let userInfo = try document.data(as: User.self)
-                self?.presenter.successFetchUser(user: userInfo!)
+                self.presenter.successFetchUser(user: userInfo!)
             } catch let error {
                 print("Error: \(error.localizedDescription)")
                 return

@@ -6,7 +6,7 @@
 //  Copyright © 2020 jun. All rights reserved.
 //
 
-struct User: Codable {
+struct User: Codable, Equatable {
     @DocumentID var id: String?
     let name: String
     let profileImageURL: String?

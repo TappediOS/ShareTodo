@@ -121,14 +121,16 @@ final class GroupTodoModel: GroupTodoModelProtocol {
         }
         
         dispatchGroup.notify(queue: .main) {
-            self.sortGroupUsersArray()
+            self.groupUsers = self.sortGroupUsersArray(groupArray: self.group, groupUsersArray: self.groupUsers)
             self.presenter.successFetchUsersName()
         }
     }
     
-    func sortGroupUsersArray() {
-        for (groupNum, group) in self.group.enumerated() {
-            for (usersNum, users) in self.groupUsers.enumerated() {
+    func sortGroupUsersArray(groupArray: [Group], groupUsersArray: [[User]]) -> [[User]] {
+        var result = groupUsersArray
+        
+        for (groupNum, group) in groupArray.enumerated() {
+            for (usersNum, users) in result.enumerated() {
                 let usersIDs = users.reduce([]) { (array, user) -> [String] in
                     var array = array
                     array.append(user.id ?? "")
@@ -136,9 +138,11 @@ final class GroupTodoModel: GroupTodoModelProtocol {
                 }
                 
                 if group.members.sorted() == usersIDs.sorted() {
-                    self.groupUsers.swapAt(groupNum, usersNum)
+                    result.swapAt(groupNum, usersNum)
                 }
             }
         }
+        
+        return result
     }
 }

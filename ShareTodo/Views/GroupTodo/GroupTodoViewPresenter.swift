@@ -19,6 +19,9 @@ protocol GroupTodoViewPresenterProtocol {
 protocol GroupTodoViewPresenterOutput: class {
     func reloadGroupTableView()
     func showCreateNewGroupVC()
+    
+    func startActivityIndicator()
+    func stopActivityIndicator()
 }
 
 final class GroupTodoViewPresenter: GroupTodoViewPresenterProtocol, GroupTodoModelOutput {
@@ -35,6 +38,7 @@ final class GroupTodoViewPresenter: GroupTodoViewPresenterProtocol, GroupTodoMod
     }
     
     func didViewDidLoad() {
+        self.view.startActivityIndicator()
         self.model.fetchGroup()
     }
     
@@ -43,6 +47,7 @@ final class GroupTodoViewPresenter: GroupTodoViewPresenterProtocol, GroupTodoMod
     }
     
     func successFetchGroup() {
+        self.view.stopActivityIndicator()
         self.model.fetchGroupsUsersNames()
     }
     

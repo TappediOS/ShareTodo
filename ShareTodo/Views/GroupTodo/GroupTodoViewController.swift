@@ -12,6 +12,8 @@ import DZNEmptyDataSet
 final class GroupTodoViewController: UIViewController {
     private var presenter: GroupTodoViewPresenterProtocol!
     @IBOutlet weak var groupTableView: UITableView!
+    var activityIndicator = UIActivityIndicatorView()
+    
     private let groupTodoCellID = "GroupTableViewCell"
     
     override func viewDidLoad() {
@@ -20,6 +22,7 @@ final class GroupTodoViewController: UIViewController {
         self.setupNavigationBar()
         self.setupUIBarButtonItem()
         self.setupGroupTableView()
+        self.setupActivityIndicator()
         
         self.presenter.didViewDidLoad()
     }
@@ -47,6 +50,13 @@ final class GroupTodoViewController: UIViewController {
         self.groupTableView.tableFooterView = UIView()
     }
     
+    func setupActivityIndicator() {
+        self.activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        self.activityIndicator.center = self.view.center
+        self.activityIndicator.hidesWhenStopped = true
+        self.view.addSubview(self.activityIndicator)
+    }
+    
     /// plusボタン押されたときの処理gropuを作成する
     /// - Parameter sender: button
     @objc func makeGroup(_ sender: UIButton) {
@@ -62,6 +72,14 @@ final class GroupTodoViewController: UIViewController {
 extension GroupTodoViewController: GroupTodoViewPresenterOutput {
     func reloadGroupTableView() {
         DispatchQueue.main.async { self.groupTableView.reloadData() }
+    }
+    
+    func startActivityIndicator() {
+        DispatchQueue.main.async { self.activityIndicator.startAnimating() }
+    }
+    
+    func stopActivityIndicator() {
+        DispatchQueue.main.async { self.activityIndicator.stopAnimating() }
     }
     
     func showCreateNewGroupVC() {

@@ -39,6 +39,7 @@ jobs:
     # Run build
     - name: Build
       run: xcodebuild
+            -workspace {ShareTodo}.xcworkspace
             -scheme ShareTodo
             -sdk iphonesimulator
             -configuration Debug
@@ -47,6 +48,7 @@ jobs:
     - name: Run tests
       run: xcodebuild
             -scheme ShareTodo
+            -workspace {ShareTodo}.xcworkspace
             -sdk iphonesimulator
             -configuration Debug
             -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max'

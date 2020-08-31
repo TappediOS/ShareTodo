@@ -59,7 +59,7 @@ final class CreateNewGroupInfoViewController: UIViewController {
     }
     
     func setupGroupImageView() {
-        self.groupImageView.image = UIImage(named: "groupDefaultImage")
+        self.groupImageView.image = R.image.groupDefaultImage()
         self.groupImageView.layer.borderWidth = 0.25
         self.groupImageView.layer.borderColor = UIColor.systemGray4.cgColor
         self.groupImageView.layer.cornerRadius = self.groupImageView.frame.width / 2
@@ -140,7 +140,7 @@ final class CreateNewGroupInfoViewController: UIViewController {
         let data = self.groupImageView.image?.jpegData(compressionQuality: 0.5) ?? Data()
         
         self.navigationItem.rightBarButtonItem?.isEnabled = false
-        self.presenter.didTapGroupButton(selectedUsers: self.selectedUsersArray,groupName: groupName, groupTask: groupTask, groupImageData: data)
+        self.presenter.didTapGroupButton(selectedUsers: self.selectedUsersArray, groupName: groupName, groupTask: groupTask, groupImageData: data)
     }
     
     @objc func tapGroupImageView(_ sender: UITapGestureRecognizer) {
@@ -173,7 +173,7 @@ extension CreateNewGroupInfoViewController: CreateNewGroupInfoViewPresenterOutpu
     }
     
     func setDeleteAndSetDefaultImage() {
-        DispatchQueue.main.async { self.groupImageView.image = UIImage(named: "groupDefaultImage") }
+        DispatchQueue.main.async { self.groupImageView.image = R.image.groupDefaultImage() }
     }
     
     func reloadCollectionView(addUser: User) {

@@ -26,7 +26,7 @@ final class ProfileViewController: UIViewController {
     }
     
     func setupProfileImageView() {
-        self.profileImageView.image = UIImage(named: "defaultProfileImage")
+        self.profileImageView.image = R.image.defaultProfileImage()
         self.profileImageView.layer.borderWidth = 0.25
         self.profileImageView.layer.borderColor = UIColor.systemGray4.cgColor
         self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width / 2
@@ -77,7 +77,7 @@ extension ProfileViewController: ProfileViewPresenterOutput {
     
     func setProfileImage(URL: URL) {
         DispatchQueue.main.async {
-            let options = ImageLoadingOptions(placeholder: UIImage(named: "placeholderImage"), transition: .fadeIn(duration: 0.25), failureImage: UIImage(named: "defaultProfileImage"))
+            let options = ImageLoadingOptions(placeholder: R.image.placeholderImage(), transition: .fadeIn(duration: 0.25), failureImage: R.image.defaultProfileImage())
             loadImage(with: URL, options: options, into: self.profileImageView, progress: nil, completion: nil)
         }
     }

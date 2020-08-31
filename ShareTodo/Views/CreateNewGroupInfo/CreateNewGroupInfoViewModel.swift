@@ -92,7 +92,7 @@ final class CreateNewGroupInfoModel: CreateNewGroupInfoModelProtocol {
     
     func registerGroupImageFireStorage(uid: String, imageData: Data) {
         let storage = Storage.storage()
-        let profileImagesRef = storage.reference().child("group*ProfileImage/" + uid + ".png")
+        let profileImagesRef = storage.reference().child("groupProfileImage/" + uid + ".png")
         
         _ = profileImagesRef.putData(imageData as Data, metadata: nil) { (metadata, error) in
             if let error = error {

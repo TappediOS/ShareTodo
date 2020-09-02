@@ -88,6 +88,11 @@ extension GroupTodoViewController: GroupTodoViewPresenterOutput {
         navigationController.modalPresentationStyle = .fullScreen
         self.present(navigationController, animated: true, completion: nil)
     }
+    
+    func segueGroupDetailViewController(index: Int) {
+        let groupDetailVC = GroupDetailViewBuilder.create()
+        self.navigationController?.pushViewController(groupDetailVC, animated: true)
+    }
 }
 
 extension GroupTodoViewController: UITableViewDelegate, UITableViewDataSource {
@@ -111,6 +116,8 @@ extension GroupTodoViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.groupTableView.deselectRow(at: indexPath, animated: true)
+        
+        self.presenter.didTapGroupTableViewCell(index: indexPath.item)
     }
 }
 

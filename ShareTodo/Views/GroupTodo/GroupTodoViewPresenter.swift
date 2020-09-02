@@ -14,6 +14,7 @@ protocol GroupTodoViewPresenterProtocol {
     
     func didViewDidLoad()
     func didTapMakeGroupButton()
+    func didTapGroupTableViewCell(index: Int)
 }
 
 protocol GroupTodoViewPresenterOutput: class {
@@ -22,6 +23,8 @@ protocol GroupTodoViewPresenterOutput: class {
     
     func startActivityIndicator()
     func stopActivityIndicator()
+    
+    func segueGroupDetailViewController(index: Int)
 }
 
 final class GroupTodoViewPresenter: GroupTodoViewPresenterProtocol, GroupTodoModelOutput {
@@ -53,5 +56,9 @@ final class GroupTodoViewPresenter: GroupTodoViewPresenterProtocol, GroupTodoMod
     
     func successFetchUsersName() {
         self.view.reloadGroupTableView()
+    }
+    
+    func didTapGroupTableViewCell(index: Int) {
+        self.view.segueGroupDetailViewController(index: index)
     }
 }

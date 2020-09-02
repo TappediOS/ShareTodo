@@ -16,13 +16,22 @@ final class GroupDetailViewController: UIViewController {
         super.viewDidLoad()
         
         self.setupNavigationBar()
+        self.setupUIBarButtonItem()
         self.setupActivityIndicator()
     }
     
     func setupNavigationBar() {
+        //TODO:- group名に変更すること
         self.navigationItem.title = "Group Name"
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    func setupUIBarButtonItem() {
+        let editGroupButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editGroup(_:)))
+        
+        editGroupButtonItem.tintColor = .systemPink
+        self.navigationItem.rightBarButtonItem = editGroupButtonItem
     }
     
     func setupActivityIndicator() {
@@ -30,6 +39,10 @@ final class GroupDetailViewController: UIViewController {
         self.activityIndicator.center = self.view.center
         self.activityIndicator.hidesWhenStopped = true
         self.view.addSubview(self.activityIndicator)
+    }
+    
+    @objc func editGroup(_ sender: UIButton) {
+        
     }
     
     func inject(with presenter: GroupDetailViewPresenterProtocol) {

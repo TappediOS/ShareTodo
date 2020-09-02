@@ -6,4 +6,21 @@
 //  Copyright © 2020 jun. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+final class GroupDetailViewController: UIViewController {
+    private var presenter: GroupDetailViewPresenterProtocol!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    func inject(with presenter: GroupDetailViewPresenterProtocol) {
+        self.presenter = presenter
+        self.presenter.view = self
+    }
+}
+
+extension GroupDetailViewController: GroupDetailViewPresenterOutput {
+    
+}

@@ -60,7 +60,7 @@ final class RegisterUserViewController: UIViewController {
     func setupChoseProfileImageButton() {
         self.choseProfileImageButton.titleLabel?.adjustsFontSizeToFitWidth = true
         self.choseProfileImageButton.titleLabel?.minimumScaleFactor = 0.4
-    }
+    }
     
     func setupNameTextField() {
         self.nameTextField.placeholder = "user name"

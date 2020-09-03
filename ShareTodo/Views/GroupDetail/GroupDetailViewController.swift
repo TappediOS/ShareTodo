@@ -10,6 +10,8 @@ import UIKit
 
 final class GroupDetailViewController: UIViewController {
     private var presenter: GroupDetailViewPresenterProtocol!
+    
+    @IBOutlet weak var groupDetailCollectionView: UICollectionView!
     var activityIndicator = UIActivityIndicatorView()
     
     override func viewDidLoad() {
@@ -17,6 +19,7 @@ final class GroupDetailViewController: UIViewController {
         
         self.setupNavigationBar()
         self.setupUIBarButtonItem()
+        self.setupGroupDetailCollectionView()
         self.setupActivityIndicator()
     }
     
@@ -32,6 +35,21 @@ final class GroupDetailViewController: UIViewController {
         
         editGroupButtonItem.tintColor = .systemPink
         self.navigationItem.rightBarButtonItem = editGroupButtonItem
+    }
+    
+    func setupGroupDetailCollectionView() {
+        print(view.frame.width, UIScreen.main.bounds.width)
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width - 32, height: 95)
+        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.minimumLineSpacing = 16
+        flowLayout.sectionInset = UIEdgeInsets(top: 32, left: 16, bottom: 40, right: 16)
+        
+        self.groupDetailCollectionView.setCollectionViewLayout(flowLayout, animated: true)
+        
+        self.groupDetailCollectionView.delegate = self
+        self.groupDetailCollectionView.dataSource = self
+        self.groupDetailCollectionView.register(R.nib.groupDetailCollectionViewCell(), forCellWithReuseIdentifier: "GroupDetailCell")
     }
     
     func setupActivityIndicator() {
@@ -53,4 +71,21 @@ final class GroupDetailViewController: UIViewController {
 
 extension GroupDetailViewController: GroupDetailViewPresenterOutput {
     
+}
+
+extension GroupDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 6
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = self.groupDetailCollectionView.dequeueReusableCell(withReuseIdentifier: "GroupDetailCell", for: indexPath)
+        
+        return cell
+    }
+
 }

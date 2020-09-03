@@ -17,10 +17,15 @@ final class GroupDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setupView()
         self.setupNavigationBar()
         self.setupUIBarButtonItem()
         self.setupGroupDetailCollectionView()
         self.setupActivityIndicator()
+    }
+    
+    func setupView() {
+        self.view.backgroundColor = .secondarySystemBackground
     }
     
     func setupNavigationBar() {
@@ -46,7 +51,7 @@ final class GroupDetailViewController: UIViewController {
         flowLayout.sectionInset = UIEdgeInsets(top: 32, left: 16, bottom: 40, right: 16)
         
         self.groupDetailCollectionView.setCollectionViewLayout(flowLayout, animated: true)
-        
+        self.groupDetailCollectionView.backgroundColor = .secondarySystemBackground
         self.groupDetailCollectionView.delegate = self
         self.groupDetailCollectionView.dataSource = self
         self.groupDetailCollectionView.register(R.nib.groupDetailCollectionViewCell(), forCellWithReuseIdentifier: "GroupDetailCell")

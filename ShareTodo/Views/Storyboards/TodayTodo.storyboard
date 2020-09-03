@@ -42,7 +42,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <state key="normal" image="checkmark.circle" catalog="system">
-                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large" weight="semibold"/>
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="33" scale="large" weight="semibold"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="tapRadioButton:" destination="Y4d-9a-7Jk" eventType="touchUpInside" id="7EU-Gg-57T"/>

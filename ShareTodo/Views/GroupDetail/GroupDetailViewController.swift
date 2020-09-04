@@ -54,12 +54,12 @@ final class GroupDetailViewController: UIViewController {
         self.groupDetailCollectionView.backgroundColor = .secondarySystemBackground
         self.groupDetailCollectionView.delegate = self
         self.groupDetailCollectionView.dataSource = self
-        self.groupDetailCollectionView.register(R.nib.groupDetailCollectionViewCell(), forCellWithReuseIdentifier: "GroupDetailCell")
+        self.groupDetailCollectionView.register(UINib(resource: R.nib.groupDetailCollectionViewCell), forCellWithReuseIdentifier: "GroupDetailCell")
         
-        self.groupDetailCollectionView.register(UINib(nibName: String(describing: GroupDetailCollectionReusableView.self), bundle: .main),
+        self.groupDetailCollectionView.register(UINib(resource: R.nib.groupDetailCollectionReusableView),
                                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                                 withReuseIdentifier: "header")
-
+    
     }
     
     func setupActivityIndicator() {

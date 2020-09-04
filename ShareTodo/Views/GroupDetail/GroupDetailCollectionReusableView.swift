@@ -16,5 +16,7 @@ class GroupDetailCollectionReusableView: UICollectionReusableView {
         // Initialization code
     }
     
-
+    func setLabelTitle(title: String) {
+        self.sectionTitleLabel.text = title
+    }
 }

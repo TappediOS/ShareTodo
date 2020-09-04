@@ -37,7 +37,7 @@ final class GroupTodoViewController: UIViewController {
         let makeGroupButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"),
                                                   style: .plain, target: self, action: #selector(makeGroup(_:)))
        
-        makeGroupButtonItem.tintColor = .systemPink
+        makeGroupButtonItem.tintColor = .systemGreen
         self.navigationItem.rightBarButtonItem = makeGroupButtonItem
     }
     

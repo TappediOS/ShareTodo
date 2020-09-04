@@ -43,7 +43,6 @@ final class GroupDetailViewController: UIViewController {
     }
     
     func setupGroupDetailCollectionView() {
-        print(view.frame.width, UIScreen.main.bounds.width)
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width - 32, height: 95)
         flowLayout.minimumInteritemSpacing = 0

@@ -49,6 +49,7 @@ final class TodayTodoViewController: UIViewController {
         
         self.todayTodoCollectionView.setCollectionViewLayout(flowLayout, animated: true)
         self.todayTodoCollectionView.backgroundColor = .secondarySystemBackground
+        self.todayTodoCollectionView.alwaysBounceVertical = true
         
         self.todayTodoCollectionView.delegate = self
         self.todayTodoCollectionView.dataSource = self

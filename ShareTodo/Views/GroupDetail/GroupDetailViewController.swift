@@ -48,13 +48,18 @@ final class GroupDetailViewController: UIViewController {
         flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width - 32, height: 95)
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.minimumLineSpacing = 16
-        flowLayout.sectionInset = UIEdgeInsets(top: 32, left: 16, bottom: 40, right: 16)
+        flowLayout.sectionInset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
         
         self.groupDetailCollectionView.setCollectionViewLayout(flowLayout, animated: true)
         self.groupDetailCollectionView.backgroundColor = .secondarySystemBackground
         self.groupDetailCollectionView.delegate = self
         self.groupDetailCollectionView.dataSource = self
         self.groupDetailCollectionView.register(R.nib.groupDetailCollectionViewCell(), forCellWithReuseIdentifier: "GroupDetailCell")
+        
+        self.groupDetailCollectionView.register(UINib(nibName: String(describing: GroupDetailCollectionReusableView.self), bundle: .main),
+                                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                                withReuseIdentifier: "header")
+
     }
     
     func setupActivityIndicator() {
@@ -79,6 +84,7 @@ extension GroupDetailViewController: GroupDetailViewPresenterOutput {
 }
 
 extension GroupDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -93,4 +99,21 @@ extension GroupDetailViewController: UICollectionViewDelegate, UICollectionViewD
         return cell
     }
 
+}
+
+extension GroupDetailViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionHeader,
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
+                                                                             withReuseIdentifier: "header",
+                                                                             for: indexPath) as? GroupDetailCollectionReusableView {
+            return headerView
+        }
+        return UICollectionReusableView()
+    }
+
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.width, height: 35)
+    }
 }

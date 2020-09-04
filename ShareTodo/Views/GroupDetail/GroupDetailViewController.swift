@@ -48,7 +48,7 @@ final class GroupDetailViewController: UIViewController {
         flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width - 32, height: 95)
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.minimumLineSpacing = 16
-        flowLayout.sectionInset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
+        flowLayout.sectionInset = UIEdgeInsets(top: 4, left: 16, bottom: 8, right: 16)
         
         self.groupDetailCollectionView.setCollectionViewLayout(flowLayout, animated: true)
         self.groupDetailCollectionView.backgroundColor = .secondarySystemBackground

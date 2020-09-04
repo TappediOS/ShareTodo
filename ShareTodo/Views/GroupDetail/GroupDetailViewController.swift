@@ -38,7 +38,7 @@ final class GroupDetailViewController: UIViewController {
     func setupUIBarButtonItem() {
         let editGroupButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editGroup(_:)))
         
-        editGroupButtonItem.tintColor = .systemPink
+        editGroupButtonItem.tintColor = .systemGreen
         self.navigationItem.rightBarButtonItem = editGroupButtonItem
     }
     
@@ -80,7 +80,9 @@ final class GroupDetailViewController: UIViewController {
 }
 
 extension GroupDetailViewController: GroupDetailViewPresenterOutput {
-    
+    func showEditGroupVC() {
+        
+    }
 }
 
 extension GroupDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {

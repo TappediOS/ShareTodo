@@ -8,10 +8,12 @@
 
 protocol GroupDetailViewPresenterProtocol {
     var view: GroupDetailViewPresenterOutput! { get set }
+    
+    func didTapEditGroup()
 }
 
 protocol GroupDetailViewPresenterOutput: class {
-    
+    func showEditGroupVC()
 }
 
 final class GroupDetailViewPresenter: GroupDetailViewPresenterProtocol, GroupDetailModelOutput {
@@ -21,5 +23,9 @@ final class GroupDetailViewPresenter: GroupDetailViewPresenterProtocol, GroupDet
     init(model: GroupDetailModelProtocol) {
         self.model = model
         self.model.presenter = self
+    }
+    
+    func didTapEditGroup() {
+        self.view.showEditGroupVC()
     }
 }

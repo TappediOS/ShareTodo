@@ -37,7 +37,7 @@ final class EditProfileModel: EditProfileModelProtocol {
     }
     
     func saveUserFirebase(uid: String, name: String) {
-        self.firestore.collection("todo/v1/users/").document(uid).updateData(["name" : name]) { error in
+        self.firestore.collection("todo/v1/users/").document(uid).updateData(["name": name]) { error in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
                 return

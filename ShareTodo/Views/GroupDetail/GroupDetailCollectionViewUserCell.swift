@@ -16,11 +16,17 @@ class GroupDetailCollectionViewUserCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
+        self.setupCell()
         self.setupProfileImageView()
         self.setupNameLabel()
         self.setupCustomImageView()
+    }
+    
+    func setupCell() {
+        self.backgroundColor = .systemBackground
+        self.layer.cornerRadius = 8
+        self.layer.masksToBounds = true
     }
     
     func setupProfileImageView() {

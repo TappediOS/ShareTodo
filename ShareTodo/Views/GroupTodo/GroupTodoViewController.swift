@@ -90,7 +90,7 @@ extension GroupTodoViewController: GroupTodoViewPresenterOutput {
     }
     
     func segueGroupDetailViewController(index: Int) {
-        let groupDetailVC = GroupDetailViewBuilder.create()
+        let groupDetailVC = GroupDetailViewBuilder.create(group: self.presenter.group[index], groupUsers: self.presenter.groupUsers[index])
         self.navigationController?.pushViewController(groupDetailVC, animated: true)
     }
 }

@@ -24,6 +24,8 @@ final class GroupDetailViewController: UIViewController {
         self.setupUIBarButtonItem()
         self.setupGroupDetailCollectionView()
         self.setupActivityIndicator()
+        
+         self.navigationController?.navigationBar.isTranslucent = true
     }
     
     func setupView() {
@@ -31,10 +33,9 @@ final class GroupDetailViewController: UIViewController {
     }
     
     func setupNavigationBar() {
-        //TODO:- group名に変更すること
-        self.navigationItem.title = "Group Name"
+        let title = self.presenter.group.name
+        self.navigationItem.title = title
         self.navigationItem.largeTitleDisplayMode = .always
-        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     func setupUIBarButtonItem() {
@@ -88,13 +89,17 @@ extension GroupDetailViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return self.presenter.groupUsers.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if indexPath.section == 0 {
-            let cell = self.groupDetailCollectionView.dequeueReusableCell(withReuseIdentifier: "GroupDetailCell", for: indexPath)
+            guard let cell = self.groupDetailCollectionView.dequeueReusableCell(withReuseIdentifier: "GroupDetailCell", for: indexPath) as? GroupDetailCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            
+            cell.configure(with: self.presenter.groupUsers[indexPath.item], isFinished: false)
             return cell
         }
         
@@ -102,6 +107,7 @@ extension GroupDetailViewController: UICollectionViewDelegate, UICollectionViewD
             return UICollectionViewCell()
         }
         
+        cell.configure(with: self.presenter.groupUsers[indexPath.item])
         return cell
     }
 

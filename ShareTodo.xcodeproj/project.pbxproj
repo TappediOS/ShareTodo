@@ -13,6 +13,8 @@
 		BF28E41524FC886600269D82 /* GroupTodoViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */; };
 		BF5CB6B02501CD9100EA1024 /* GroupDetailCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5CB6AE2501CD9100EA1024 /* GroupDetailCollectionReusableView.swift */; };
 		BF5CB6B12501CD9100EA1024 /* GroupDetailCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5CB6AF2501CD9100EA1024 /* GroupDetailCollectionReusableView.xib */; };
+		BF5CB6B42504AB8100EA1024 /* GroupDetailCollectionViewUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5CB6B22504AB8100EA1024 /* GroupDetailCollectionViewUserCell.swift */; };
+		BF5CB6B52504AB8100EA1024 /* GroupDetailCollectionViewUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5CB6B32504AB8100EA1024 /* GroupDetailCollectionViewUserCell.xib */; };
 		BF636F5124FCDFD700F30F63 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF636F5024FCDFD700F30F63 /* R.generated.swift */; };
 		BF6468C12500F36100F1CB75 /* GroupDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6468BF2500F36100F1CB75 /* GroupDetailCollectionViewCell.swift */; };
 		BF6468C22500F36100F1CB75 /* GroupDetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF6468C02500F36100F1CB75 /* GroupDetailCollectionViewCell.xib */; };
@@ -182,6 +184,8 @@
 		BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTodoViewModelTests.swift; sourceTree = "<group>"; };
 		BF5CB6AE2501CD9100EA1024 /* GroupDetailCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailCollectionReusableView.swift; sourceTree = "<group>"; };
 		BF5CB6AF2501CD9100EA1024 /* GroupDetailCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupDetailCollectionReusableView.xib; sourceTree = "<group>"; };
+		BF5CB6B22504AB8100EA1024 /* GroupDetailCollectionViewUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailCollectionViewUserCell.swift; sourceTree = "<group>"; };
+		BF5CB6B32504AB8100EA1024 /* GroupDetailCollectionViewUserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupDetailCollectionViewUserCell.xib; sourceTree = "<group>"; };
 		BF636F5024FCDFD700F30F63 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		BF6468BF2500F36100F1CB75 /* GroupDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		BF6468C02500F36100F1CB75 /* GroupDetailCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupDetailCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -714,6 +718,8 @@
 				BF5CB6AF2501CD9100EA1024 /* GroupDetailCollectionReusableView.xib */,
 				BF6468BF2500F36100F1CB75 /* GroupDetailCollectionViewCell.swift */,
 				BF6468C02500F36100F1CB75 /* GroupDetailCollectionViewCell.xib */,
+				BF5CB6B22504AB8100EA1024 /* GroupDetailCollectionViewUserCell.swift */,
+				BF5CB6B32504AB8100EA1024 /* GroupDetailCollectionViewUserCell.xib */,
 			);
 			path = GroupDetail;
 			sourceTree = "<group>";
@@ -980,6 +986,7 @@
 				BFD4362E24CDAD0000B2E580 /* RegisterUser.storyboard in Resources */,
 				BF88D4EA24CAB76700607D6A /* MainTabBar.storyboard in Resources */,
 				BFD4360524CD450200B2E580 /* CreateNewGroup.storyboard in Resources */,
+				BF5CB6B52504AB8100EA1024 /* GroupDetailCollectionViewUserCell.xib in Resources */,
 				BFD4361D24CD504800B2E580 /* CreateNewGroupInfo.storyboard in Resources */,
 				BF88D51724CABD1000607D6A /* Profile.storyboard in Resources */,
 				BF88D50024CAB9F000607D6A /* TodayTodo.storyboard in Resources */,
@@ -1204,6 +1211,7 @@
 				BFD435E924CD333D00B2E580 /* Transaction+WriteEncodable.swift in Sources */,
 				BFD4360F24CD4A0900B2E580 /* SelectedUserCollectionViewCell.swift in Sources */,
 				BFD435E624CD333D00B2E580 /* DocumentReference+Codable.swift in Sources */,
+				BF5CB6B42504AB8100EA1024 /* GroupDetailCollectionViewUserCell.swift in Sources */,
 				BFD435EE24CD333D00B2E580 /* GeoPoint+Codable.swift in Sources */,
 				BFD435EA24CD333D00B2E580 /* ServerTimestamp.swift in Sources */,
 				BF97244E24CC6B0D0033BB50 /* EditProfileViewController.swift in Sources */,

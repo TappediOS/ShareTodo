@@ -28,6 +28,12 @@ final class GroupDetailViewController: UIViewController {
          self.navigationController?.navigationBar.isTranslucent = true
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.groupDetailCollectionView.layoutIfNeeded()
+    }
+    
     func setupView() {
         self.view.backgroundColor = .secondarySystemBackground
     }

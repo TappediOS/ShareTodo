@@ -55,6 +55,7 @@ final class GroupDetailViewController: UIViewController {
         self.groupDetailCollectionView.delegate = self
         self.groupDetailCollectionView.dataSource = self
         self.groupDetailCollectionView.register(UINib(resource: R.nib.groupDetailCollectionViewCell), forCellWithReuseIdentifier: "GroupDetailCell")
+        self.groupDetailCollectionView.register(UINib(resource: R.nib.groupDetailCollectionViewUserCell), forCellWithReuseIdentifier: "GroupDetailUserCell")
         
         self.groupDetailCollectionView.register(UINib(resource: R.nib.groupDetailCollectionReusableView),
                                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
@@ -88,7 +89,7 @@ extension GroupDetailViewController: GroupDetailViewPresenterOutput {
 extension GroupDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -96,7 +97,16 @@ extension GroupDetailViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = self.groupDetailCollectionView.dequeueReusableCell(withReuseIdentifier: "GroupDetailCell", for: indexPath)
+        
+        if indexPath.section == 0 {
+            let cell = self.groupDetailCollectionView.dequeueReusableCell(withReuseIdentifier: "GroupDetailCell", for: indexPath)
+            return cell
+        }
+        
+        guard let cell = self.groupDetailCollectionView.dequeueReusableCell(withReuseIdentifier: "GroupDetailUserCell", for: indexPath) as? GroupDetailCollectionViewUserCell else {
+            return UICollectionViewCell()
+        }
+        
         
         return cell
     }

@@ -14,6 +14,8 @@ final class GroupDetailViewController: UIViewController {
     @IBOutlet weak var groupDetailCollectionView: UICollectionView!
     var activityIndicator = UIActivityIndicatorView()
     
+    let sectionTitles = ["Today's progress", "Progress to date"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,13 +45,6 @@ final class GroupDetailViewController: UIViewController {
     }
     
     func setupGroupDetailCollectionView() {
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width - 32, height: 95)
-        flowLayout.minimumInteritemSpacing = 0
-        flowLayout.minimumLineSpacing = 16
-        flowLayout.sectionInset = UIEdgeInsets(top: 4, left: 16, bottom: 8, right: 16)
-        
-        self.groupDetailCollectionView.setCollectionViewLayout(flowLayout, animated: true)
         self.groupDetailCollectionView.backgroundColor = .secondarySystemBackground
         self.groupDetailCollectionView.alwaysBounceVertical = true
         self.groupDetailCollectionView.delegate = self
@@ -107,13 +102,13 @@ extension GroupDetailViewController: UICollectionViewDelegate, UICollectionViewD
             return UICollectionViewCell()
         }
         
-        
         return cell
     }
 
 }
 
 extension GroupDetailViewController: UICollectionViewDelegateFlowLayout {
+    // MARK: - Header View
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard kind == UICollectionView.elementKindSectionHeader else {
             return UICollectionReusableView()
@@ -124,10 +119,40 @@ extension GroupDetailViewController: UICollectionViewDelegateFlowLayout {
             return UICollectionReusableView()
         }
         
+        headerView.setLabelTitle(title: self.sectionTitles[indexPath.section])
+        
         return headerView
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: view.frame.width, height: 35)
+    }
+    
+    // MARK: - FlowLayout
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        switch indexPath.section {
+        case 0: return CGSize(width: UIScreen.main.bounds.width - 32, height: 95)
+        case 1:
+            let width = UIScreen.main.bounds.width / 2 - 16 - 8
+            return CGSize(width: width, height: width * 0.85)
+        default: return CGSize(width: UIScreen.main.bounds.width - 32, height: 95)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        switch section {
+        case 0: return UIEdgeInsets(top: 4, left: 16, bottom: 24, right: 16)
+        case 1: return UIEdgeInsets(top: 4, left: 16, bottom: 24, right: 16)
+        default: return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 16
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
 }

@@ -42,6 +42,7 @@ class GroupDetailCollectionViewUserCell: UICollectionViewCell {
     }
     
     func setupCustomImageView() {
+        self.customImageView.contentMode = .scaleAspectFill
         self.customImageView.image = R.image.groupDefaultImage()
         self.customImageView.layer.cornerRadius = 8
         self.customImageView.layer.masksToBounds = true

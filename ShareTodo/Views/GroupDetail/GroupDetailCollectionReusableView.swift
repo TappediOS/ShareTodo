@@ -13,10 +13,7 @@ class GroupDetailCollectionReusableView: UICollectionReusableView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        
-        //FIXME:- 以下の関数から表示できる様にしたら消すこと
-        self.sectionTitleLabel.text = "Today's progress"
+
     }
     
     func setLabelTitle(title: String) {

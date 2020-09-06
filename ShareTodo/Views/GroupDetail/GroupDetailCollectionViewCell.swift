@@ -16,15 +16,18 @@ class GroupDetailCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        self.backgroundColor = .systemBackground
-        self.layer.cornerRadius = 8
-        self.layer.masksToBounds = true
         
+        self.setupCell()
         self.setupRadioButton()
         self.setupProfileImageView()
         self.setupNameLabel()
         
+    }
+    
+    private func setupCell() {
+        self.backgroundColor = .systemBackground
+        self.layer.cornerRadius = 8
+        self.layer.masksToBounds = true
     }
     
     private func setupRadioButton() {

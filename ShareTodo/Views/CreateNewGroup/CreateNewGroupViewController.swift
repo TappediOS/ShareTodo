@@ -57,6 +57,7 @@ final class CreateNewGroupViewController: UIViewController {
     
     private func setupSelectedUserCollectionView() {
         self.selectedUserCollectionView.isHidden = true
+        self.selectedUserCollectionView.alwaysBounceHorizontal = true
         self.selectedUserCollectionView.collectionViewLayout.invalidateLayout()
         self.selectedUserCollectionView.delegate = self
         self.selectedUserCollectionView.dataSource = self

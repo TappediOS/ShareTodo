@@ -69,8 +69,7 @@ final class GroupDetailModel: GroupDetailModelProtocol {
                 return
             }
             
-            var result: [Todo] = Array()
-            result = documents.compactMap { queryDocumentSnapshot -> Todo? in
+            let result = documents.compactMap { queryDocumentSnapshot -> Todo? in
                 return try? queryDocumentSnapshot.data(as: Todo.self)
             }
                         

@@ -35,7 +35,6 @@ final class TodayTodoViewController: UIViewController {
         self.navigationItem.title = "Today"
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationBar.backgroundColor = .secondarySystemBackground
     }
     
     func setupTodayTodoCollectionView() {

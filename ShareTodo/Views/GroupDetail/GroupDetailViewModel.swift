@@ -27,11 +27,16 @@ final class GroupDetailModel: GroupDetailModelProtocol {
     var groupUsers: [User]
     var isFinishedUsersIDs: [String] = Array()
     private var firestore: Firestore!
+    private var listener: ListenerRegistration?
     
     init(group: Group, groupUsers: [User]) {
         self.group = group
         self.groupUsers = groupUsers
         self.setUpFirestore()
+    }
+    
+    deinit {
+        listener?.remove()
     }
     
     func setUpFirestore() {
@@ -51,7 +56,7 @@ final class GroupDetailModel: GroupDetailModelProtocol {
         let startTime: Date = formatter.date(from: startDate) ?? Date(timeIntervalSince1970: 0)
         let startTimestamp: Timestamp = Timestamp(date: startTime)
         
-        self.firestore.collection(collectionRef).whereField("createdAt", isGreaterThanOrEqualTo: startTimestamp).whereField("isFinished", isEqualTo: true).getDocuments { [weak self] (documentSnapshot, error) in
+        self.listener = self.firestore.collection(collectionRef).whereField("createdAt", isGreaterThanOrEqualTo: startTimestamp).whereField("isFinished", isEqualTo: true).addSnapshotListener { [weak self] (documentSnapshot, error) in
             guard let self = self else { return }
             
             if let error = error {

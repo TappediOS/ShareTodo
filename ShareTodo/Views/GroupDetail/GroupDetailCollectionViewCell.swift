@@ -31,8 +31,6 @@ class GroupDetailCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupRadioButton() {
-        //FIXME:- 以下1行はfirebaseからの取得が完了したら消すこと
-        self.radioImageView.image = UIImage(systemName: "checkmark.circle.fill")
         self.radioImageView.layer.cornerRadius = self.radioImageView.frame.width / 2
         self.radioImageView.layer.masksToBounds = true
         self.radioImageView.tintColor = .systemGreen
@@ -50,7 +48,13 @@ class GroupDetailCollectionViewCell: UICollectionViewCell {
         self.nameLabel.minimumScaleFactor = 0.4
     }
     
-    func configure(with user: User, isFinished: Bool) {
+    func isFinishedUser(user: User, isFinishedUsersIDs: [String]) -> Bool {
+        guard let userId = user.id else { return false }
+        return isFinishedUsersIDs.contains(userId)
+    }
+    
+    func configure(with user: User, isFinishedUsersIDs: [String]) {
+        let isFinished = isFinishedUser(user: user, isFinishedUsersIDs: isFinishedUsersIDs)
         let radioButtonImage = isFinished ? UIImage(systemName: "checkmark.circle.fill") : UIImage(systemName: "checkmark.circle")
         
         self.nameLabel.text = user.name

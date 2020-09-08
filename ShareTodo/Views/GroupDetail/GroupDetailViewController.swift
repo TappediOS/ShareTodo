@@ -25,7 +25,7 @@ final class GroupDetailViewController: UIViewController {
         self.setupGroupDetailCollectionView()
         self.setupActivityIndicator()
         
-         self.navigationController?.navigationBar.isTranslucent = true
+        self.presenter.didViewDidLoad()
     }
     
     override func viewDidLayoutSubviews() {
@@ -83,6 +83,12 @@ final class GroupDetailViewController: UIViewController {
 }
 
 extension GroupDetailViewController: GroupDetailViewPresenterOutput {
+    func reloadGroupDetailCollectionView() {
+        DispatchQueue.main.async {
+            self.groupDetailCollectionView.reloadData()
+        }
+    }
+    
     func showEditGroupVC() {
         
     }
@@ -105,7 +111,7 @@ extension GroupDetailViewController: UICollectionViewDelegate, UICollectionViewD
                 return UICollectionViewCell()
             }
             
-            cell.configure(with: self.presenter.groupUsers[indexPath.item], isFinished: false)
+            cell.configure(with: self.presenter.groupUsers[indexPath.item], isFinishedUsersIDs: self.presenter.isFinishedUsersIDs)
             return cell
         }
         

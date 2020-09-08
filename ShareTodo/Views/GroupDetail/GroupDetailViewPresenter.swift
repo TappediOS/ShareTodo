@@ -10,11 +10,14 @@ protocol GroupDetailViewPresenterProtocol {
     var view: GroupDetailViewPresenterOutput! { get set }
     var group: Group { get }
     var groupUsers: [User] { get }
+    var isFinishedUsersIDs: [String] { get }
     
+    func didViewDidLoad()
     func didTapEditGroup()
 }
 
 protocol GroupDetailViewPresenterOutput: class {
+    func reloadGroupDetailCollectionView()
     func showEditGroupVC()
 }
 
@@ -24,6 +27,7 @@ final class GroupDetailViewPresenter: GroupDetailViewPresenterProtocol, GroupDet
 
     var group: Group { return self.model.group }
     var groupUsers: [User] { return self.model.groupUsers }
+    var isFinishedUsersIDs: [String] { return self.model.isFinishedUsersIDs }
     var numberOfGroupUsers: Int { return self.model.groupUsers.count }
     
     init(model: GroupDetailModelProtocol) {
@@ -31,7 +35,15 @@ final class GroupDetailViewPresenter: GroupDetailViewPresenterProtocol, GroupDet
         self.model.presenter = self
     }
     
+    func didViewDidLoad() {
+        self.model.fetchTodayTodo()
+    }
+    
     func didTapEditGroup() {
         self.view.showEditGroupVC()
+    }
+    
+    func successFetchTodayTodo() {
+        self.view.reloadGroupDetailCollectionView()
     }
 }

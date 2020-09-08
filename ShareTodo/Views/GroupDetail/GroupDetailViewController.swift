@@ -16,6 +16,8 @@ final class GroupDetailViewController: UIViewController {
     
     let sectionTitles = ["Today's progress", "Progress to date"]
     
+    var visualEffectView = UIVisualEffectView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,6 +44,7 @@ final class GroupDetailViewController: UIViewController {
         let title = self.presenter.group.name
         self.navigationItem.title = title
         self.navigationItem.largeTitleDisplayMode = .always
+        self.navigationController?.navigationBar.tintColor = .systemGreen
     }
     
     func setupUIBarButtonItem() {

@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SIM-as-ySw">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="2" minimumInteritemSpacing="2" id="WyB-Tc-JDd">
                                     <size key="itemSize" width="398" height="95"/>
@@ -87,9 +87,9 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="SIM-as-ySw" firstAttribute="bottom" secondItem="jDu-HG-zeq" secondAttribute="bottom" id="07A-As-chm"/>
+                            <constraint firstItem="SIM-as-ySw" firstAttribute="bottom" secondItem="tg8-Ls-Xl6" secondAttribute="bottom" id="07A-As-chm"/>
                             <constraint firstItem="SIM-as-ySw" firstAttribute="leading" secondItem="jDu-HG-zeq" secondAttribute="leading" id="I5I-RC-T9C"/>
-                            <constraint firstItem="SIM-as-ySw" firstAttribute="top" secondItem="jDu-HG-zeq" secondAttribute="top" id="h3b-mX-o0x"/>
+                            <constraint firstItem="SIM-as-ySw" firstAttribute="top" secondItem="tg8-Ls-Xl6" secondAttribute="top" id="h3b-mX-o0x"/>
                             <constraint firstItem="SIM-as-ySw" firstAttribute="trailing" secondItem="jDu-HG-zeq" secondAttribute="trailing" id="ysU-T5-F19"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jDu-HG-zeq"/>

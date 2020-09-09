@@ -88,7 +88,10 @@ extension TodayTodoViewController: TodayTodoViewPresenterOutput {
                 return
             }
             
-            if granted { UIApplication.shared.registerForRemoteNotifications() }
+            guard granted == true else { return }
+            
+            //FIXME:- メインスレッドで実行すること
+            UIApplication.shared.registerForRemoteNotifications()
         }
     }
 }

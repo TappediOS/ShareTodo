@@ -46,7 +46,7 @@ final class ProfileViewController: UIViewController {
     
     func setupUIBarButtonItem() {
         let editProfileButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editProfile(_:)))
-        editProfileButtonItem.tintColor = .systemBlue
+        editProfileButtonItem.tintColor = .systemGreen
         self.navigationItem.rightBarButtonItem = editProfileButtonItem
     }
 

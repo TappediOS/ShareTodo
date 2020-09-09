@@ -35,20 +35,18 @@ final class TodayTodoViewController: UIViewController {
         self.navigationItem.title = "Today"
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationBar.backgroundColor = .secondarySystemBackground
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     func setupTodayTodoCollectionView() {
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width * 0.9, height: 95)
+        flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width - 32, height: 95)
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.minimumLineSpacing = 16
-        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        flowLayout.sectionInset = UIEdgeInsets(top: 32, left: 16, bottom: 40, right: 16)
         
         self.todayTodoCollectionView.setCollectionViewLayout(flowLayout, animated: true)
         self.todayTodoCollectionView.backgroundColor = .secondarySystemBackground
+        self.todayTodoCollectionView.alwaysBounceVertical = true
         
         self.todayTodoCollectionView.delegate = self
         self.todayTodoCollectionView.dataSource = self
@@ -115,9 +113,6 @@ extension TodayTodoViewController: UICollectionViewDelegate, UICollectionViewDat
         return 1
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 32, left: 0, bottom: 40, right: 0)
-    }
 }
 
 extension TodayTodoViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {

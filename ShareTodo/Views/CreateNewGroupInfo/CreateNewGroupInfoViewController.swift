@@ -99,6 +99,7 @@ final class CreateNewGroupInfoViewController: UIViewController {
     }
     
     func setupSelectedUsersCollectionView() {
+        self.selectedUsersAndMeCollectionView.alwaysBounceHorizontal = true
         self.selectedUsersAndMeCollectionView.collectionViewLayout.invalidateLayout()
         self.selectedUsersAndMeCollectionView.delegate = self
         self.selectedUsersAndMeCollectionView.dataSource = self

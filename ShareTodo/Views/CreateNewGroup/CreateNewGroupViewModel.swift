@@ -39,6 +39,10 @@ final class CreateNewGroupModel: CreateNewGroupModelProtocol {
         self.firestore.settings = settings
     }
     
+    func removeSelfUidFromSearchedUsersArray(removeUid: String, array: [User]) -> [User] {
+        return array.filter { ($0.id ?? "") != removeUid }
+    }
+    
     /// ユーザをFirestoreから検索する関数
     /// - Parameter searchText: 検索するユーザ名
     func searchUser(searchText: String) {
@@ -59,7 +63,9 @@ final class CreateNewGroupModel: CreateNewGroupModelProtocol {
                 return try? queryDocumentSnapshot.data(as: User.self)
             }
             
+            guard let uid = Auth.auth().currentUser?.uid else { return }
             self.searchedUsersArray = searchedUsers
+            self.searchedUsersArray = self.removeSelfUidFromSearchedUsersArray(removeUid: uid, array: self.searchedUsersArray)
             self.presenter.successSearchUser()
         }
     }

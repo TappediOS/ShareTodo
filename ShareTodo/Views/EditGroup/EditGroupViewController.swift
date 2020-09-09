@@ -28,6 +28,8 @@ final class EditGroupViewController: UIViewController {
         let saveItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(tapSaveEditProfileButton))
         self.navigationItem.leftBarButtonItem = stopItem
         self.navigationItem.rightBarButtonItem = saveItem
+        self.navigationItem.leftBarButtonItem?.tintColor = .systemPink
+        self.navigationItem.rightBarButtonItem?.tintColor = .systemGreen
         self.navigationItem.title = "Edit Group"
     }
     

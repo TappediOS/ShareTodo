@@ -65,4 +65,3 @@ final class EditGroupViewPresenter: EditGroupViewPresenterProtocol, EditGroupMod
         self.view.setDeleteAndSetDefaultImage()
     }
 }
-

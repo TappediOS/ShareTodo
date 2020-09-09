@@ -19,4 +19,3 @@ struct EditGroupViewBuilder {
         return editGroupViewController
     }
 }
-

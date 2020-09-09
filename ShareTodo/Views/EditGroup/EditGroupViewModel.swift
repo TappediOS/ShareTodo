@@ -17,4 +17,3 @@ protocol EditGroupModelOutput: class {
 final class EditGroupModel: EditGroupModelProtocol {
     weak var presenter: EditGroupModelOutput!
 }
-

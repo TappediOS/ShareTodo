@@ -43,6 +43,15 @@ final class EditGroupViewController: UIViewController {
         self.setupPhotoPickerVC()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.groupNameTextField.addBorderBottom(borderWidth: 0.5, color: .systemGray2)
+        self.taskTextField.addBorderBottom(borderWidth: 0.5, color: .systemGray2)
+        self.selectedUsersAndMeCollectionView.addBorderBottom(borderWidth: 0.25, color: .systemGray3)
+        self.selectedUsersAndMeCollectionView.addBorderTop(borderWidth: 0.25, color: .systemGray3)
+    }
+    
     func setupNavigationItem() {
         let stopItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(tapStopEditProfileButton))
         let saveItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(tapSaveEditProfileButton))

@@ -51,8 +51,8 @@ final class EditGroupViewController: UIViewController {
     }
     
     func setupNavigationItem() {
-        let stopItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(tapStopEditProfileButton))
-        let saveItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(tapSaveEditProfileButton))
+        let stopItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(tapStopEditGroupButton))
+        let saveItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(tapSaveEditGroupButton))
         self.navigationItem.leftBarButtonItem = stopItem
         self.navigationItem.rightBarButtonItem = saveItem
         self.navigationItem.leftBarButtonItem?.tintColor = .systemPink
@@ -136,11 +136,11 @@ final class EditGroupViewController: UIViewController {
         self.photoPickerVC.delegate = self
     }
     
-    @objc func tapStopEditProfileButton() {
+    @objc func tapStopEditGroupButton() {
         self.presenter.didTapStopEditGroupButton()
     }
 
-    @objc func tapSaveEditProfileButton() {
+    @objc func tapSaveEditGroupButton() {
         
         self.navigationItem.rightBarButtonItem?.isEnabled = false
     }

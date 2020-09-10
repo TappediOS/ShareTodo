@@ -11,6 +11,14 @@ import CropViewController
 
 final class EditGroupViewController: UIViewController {
     private var presenter: EditGroupViewPresenterProtocol!
+    @IBOutlet weak var groupImageView: UIImageView!
+    @IBOutlet weak var groupNameTextField: UITextField!
+    @IBOutlet weak var taskLabel: UILabel!
+    @IBOutlet weak var taskTextField: UITextField!
+    @IBOutlet weak var selectedUsersAndMeCollectionView: UICollectionView!
+    @IBOutlet weak var photoImageView: UIImageView!
+    
+    
     
     var actionSheet = UIAlertController()
     let photoPickerVC = UIImagePickerController()

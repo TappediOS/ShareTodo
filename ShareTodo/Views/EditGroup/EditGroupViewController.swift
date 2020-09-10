@@ -18,8 +18,6 @@ final class EditGroupViewController: UIViewController {
     @IBOutlet weak var selectedUsersAndMeCollectionView: UICollectionView!
     @IBOutlet weak var photoImageView: UIImageView!
     
-    
-    
     var actionSheet = UIAlertController()
     let photoPickerVC = UIImagePickerController()
     
@@ -177,8 +175,7 @@ extension EditGroupViewController: EditGroupViewPresenterOutput {
     }
     
     func setDeleteAndSetDefaultImage() {
-        //TODO:- デフォルトの画像をセットすること
-        //DispatchQueue.main.async { self.profileImageView.image = R.image. }
+        DispatchQueue.main.async { self.groupImageView.image = R.image.groupDefaultImage() }
     }
     
 }
@@ -192,9 +189,6 @@ extension EditGroupViewController: UICollectionViewDelegate, UICollectionViewDat
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: selectedUsersAndMeCollectionViewCellId, for: indexPath) as! SelectedUsersAndMeCollectionViewCell
 
         cell.configure(with: self.selectedUsersArray[indexPath.item])
-        
-        cell.profileImageView.image = UIImage(systemName: "bolt.circle.fill")
-       
         return cell
     }
     
@@ -241,25 +235,23 @@ extension EditGroupViewController: CropViewControllerDelegate {
     }
     
     func cropViewController(_ cropViewController: CropViewController, didCropToCircularImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
-        //TODO:- risizeしてセットすること
-        //let resizeImage = image.resizeUIImage(width: self.usersImageViewWide, height: self.usersImageViewWide)
-        //self.profileImageView.image = resizeImage
+        let resizeImage = image.resizeUIImage(width: self.usersImageViewWide, height: self.usersImageViewWide)
+        self.groupImageView.image = resizeImage
         cropViewController.dismiss(animated: true, completion: nil)
     }
 }
 
 extension EditGroupViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        //TODO:- textFieldを削除すること
-        //self.nameTextField.resignFirstResponder()
+        self.groupNameTextField.resignFirstResponder()
+        self.taskTextField.resignFirstResponder()
         return true
     }
     
     @objc func textFieldDidChange(notification: NSNotification) {
         guard let textField = notification.object as? UITextField, let text = textField.text else { return }
-        //TODO:- グループ名の最大値を設定すること
-        //if textField.markedTextRange == nil && text.count > maxTextfieldLength {
-        //    textField.text = text.prefix(maxTextfieldLength).description
-        //}
+        if textField.markedTextRange == nil && text.count > maxTextfieldLength {
+            textField.text = text.prefix(maxTextfieldLength).description
+        }
     }
 }

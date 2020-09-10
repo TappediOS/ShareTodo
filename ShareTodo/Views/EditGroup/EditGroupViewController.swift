@@ -23,10 +23,22 @@ final class EditGroupViewController: UIViewController {
     var actionSheet = UIAlertController()
     let photoPickerVC = UIImagePickerController()
     
+    let selectedUsersAndMeCollectionViewCellId = "SelectedUsersAndMeCollectionViewCell"
+    var selectedUsersArray: [User] = Array()
+    
+    let maxTextfieldLength = 40
+    let usersImageViewWide: CGFloat = 100
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setupNavigationItem()
+        self.setupGroupImageView()
+        self.setupGroupNameTextField()
+        self.setupTaskLabel()
+        self.setupTaskTextField()
+        self.setupPhotoImageView()
+        self.setupSelectedUsersCollectionView()
         self.setupActionSheet()
         self.setupPhotoPickerVC()
     }
@@ -39,6 +51,53 @@ final class EditGroupViewController: UIViewController {
         self.navigationItem.leftBarButtonItem?.tintColor = .systemPink
         self.navigationItem.rightBarButtonItem?.tintColor = .systemGreen
         self.navigationItem.title = "Edit Group"
+    }
+    
+    func setupGroupImageView() {
+        self.groupImageView.image = R.image.groupDefaultImage()
+        self.groupImageView.layer.borderWidth = 0.25
+        self.groupImageView.layer.borderColor = UIColor.systemGray4.cgColor
+        self.groupImageView.layer.cornerRadius = self.groupImageView.frame.width / 2
+        self.groupImageView.layer.masksToBounds = true
+        self.groupImageView.isUserInteractionEnabled = true
+        self.groupImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapGroupImageView(_:))))
+    }
+    
+    func setupGroupNameTextField() {
+        self.groupNameTextField.placeholder = "Group Name"
+        self.groupNameTextField.borderStyle = .none
+        self.groupNameTextField.returnKeyType = .done
+        self.groupNameTextField.delegate = self
+        self.groupNameTextField.enablesReturnKeyAutomatically = true
+    }
+    
+    func setupTaskLabel() {
+        self.taskLabel.adjustsFontSizeToFitWidth = true
+        self.taskLabel.minimumScaleFactor = 0.4
+    }
+    
+    func setupTaskTextField() {
+        self.taskTextField.placeholder = "Group Task"
+        self.taskTextField.borderStyle = .none
+        self.taskTextField.returnKeyType = .done
+        self.taskTextField.delegate = self
+        self.taskTextField.enablesReturnKeyAutomatically = true
+    }
+    
+    func setupPhotoImageView() {
+        self.photoImageView.layer.cornerRadius = self.photoImageView.frame.width / 2
+        self.photoImageView.layer.masksToBounds = false
+        self.photoImageView.layer.shadowColor = UIColor.black.cgColor
+        self.photoImageView.layer.shadowOffset = CGSize(width: 2.75, height: 2.75)
+        self.photoImageView.layer.shadowOpacity = 0.7
+        self.photoImageView.layer.shadowRadius = 8.25
+    }
+    
+    func setupSelectedUsersCollectionView() {
+        self.selectedUsersAndMeCollectionView.alwaysBounceHorizontal = true
+        self.selectedUsersAndMeCollectionView.collectionViewLayout.invalidateLayout()
+        self.selectedUsersAndMeCollectionView.delegate = self
+        self.selectedUsersAndMeCollectionView.dataSource = self
     }
     
     func setupActionSheet() {
@@ -79,6 +138,10 @@ final class EditGroupViewController: UIViewController {
         self.navigationItem.rightBarButtonItem?.isEnabled = false
     }
     
+    @objc func tapGroupImageView(_ sender: UITapGestureRecognizer) {
+        self.presenter.didTapGroupImageView()
+    }
+    
     func inject(with presenter: EditGroupViewPresenterProtocol) {
         self.presenter = presenter
         self.presenter.view = self
@@ -109,6 +172,34 @@ extension EditGroupViewController: EditGroupViewPresenterOutput {
         //DispatchQueue.main.async { self.profileImageView.image = R.image. }
     }
     
+}
+
+extension EditGroupViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.selectedUsersArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: selectedUsersAndMeCollectionViewCellId, for: indexPath) as! SelectedUsersAndMeCollectionViewCell
+
+        cell.configure(with: self.selectedUsersArray[indexPath.item])
+        
+        cell.profileImageView.image = UIImage(systemName: "bolt.circle.fill")
+       
+        return cell
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 85, height: 90)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0.0, left: 10.0, bottom: 0.0, right: 10)
+    }
 }
 
 extension EditGroupViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {

@@ -14,6 +14,7 @@ protocol EditGroupViewPresenterProtocol {
     func didTapStopEditGroupButton()
     func didTapSaveEditGroupButton(groupName: String, profileImageData: Data)
     func didTapChangeGroupButton()
+    func didTapGroupImageView()
     
     func didTapTakePhotoAction()
     func didTapSelectPhotoAction()
@@ -50,6 +51,10 @@ final class EditGroupViewPresenter: EditGroupViewPresenterProtocol, EditGroupMod
     }
     
     func didTapChangeProfileButton() {
+        self.view.presentActionSheet()
+    }
+    
+    func didTapGroupImageView() {
         self.view.presentActionSheet()
     }
     

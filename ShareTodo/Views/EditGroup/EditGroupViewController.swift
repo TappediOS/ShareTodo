@@ -8,6 +8,7 @@
 
 import UIKit
 import CropViewController
+import Nuke
 
 final class EditGroupViewController: UIViewController {
     private var presenter: EditGroupViewPresenterProtocol!
@@ -22,7 +23,6 @@ final class EditGroupViewController: UIViewController {
     let photoPickerVC = UIImagePickerController()
     
     let selectedUsersAndMeCollectionViewCellId = "SelectedUsersAndMeCollectionViewCell"
-    var selectedUsersArray: [User] = Array()
     
     let maxTextfieldLength = 40
     let usersImageViewWide: CGFloat = 100
@@ -39,6 +39,8 @@ final class EditGroupViewController: UIViewController {
         self.setupSelectedUsersCollectionView()
         self.setupActionSheet()
         self.setupPhotoPickerVC()
+        
+        self.presenter.didViewDidLoad()
     }
     
     override func viewDidLayoutSubviews() {
@@ -156,6 +158,31 @@ final class EditGroupViewController: UIViewController {
 }
 
 extension EditGroupViewController: EditGroupViewPresenterOutput {
+    func setCurrnetGroupImage() {
+        DispatchQueue.main.async {
+            guard let url = URL(string: self.presenter.group.profileImageURL ?? "") else {
+                self.groupImageView.image = R.image.groupDefaultImage()
+                return
+            }
+            let options = ImageLoadingOptions(placeholder: R.image.placeholderImage(), transition: .fadeIn(duration: 0.25),
+                                              failureImage: R.image.groupDefaultImage())
+            
+            loadImage(with: url, options: options, into: self.groupImageView, progress: nil, completion: nil)
+        }
+    }
+    
+    func setGroupName() {
+        DispatchQueue.main.async {
+            self.groupNameTextField.text = self.presenter.group.name
+        }
+    }
+    
+    func setGroupTask() {
+        DispatchQueue.main.async {
+            self.taskTextField.text = self.presenter.group.task
+        }
+    }
+    
     func dismissEditGroupVC() {
         self.dismiss(animated: true, completion: nil)
     }
@@ -182,13 +209,13 @@ extension EditGroupViewController: EditGroupViewPresenterOutput {
 
 extension EditGroupViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.selectedUsersArray.count
+        return self.presenter.groupUsers.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: selectedUsersAndMeCollectionViewCellId, for: indexPath) as! SelectedUsersAndMeCollectionViewCell
 
-        cell.configure(with: self.selectedUsersArray[indexPath.item])
+        cell.configure(with: self.presenter.groupUsers[indexPath.item])
         return cell
     }
     

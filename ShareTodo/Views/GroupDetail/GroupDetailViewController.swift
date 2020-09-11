@@ -93,7 +93,7 @@ extension GroupDetailViewController: GroupDetailViewPresenterOutput {
     }
     
     func showEditGroupVC() {
-        let editGroupVC = EditGroupViewBuilder.create()
+        let editGroupVC = EditGroupViewBuilder.create(group: self.presenter.group, groupUsers: self.presenter.groupUsers)
         let navigationController = UINavigationController(rootViewController: editGroupVC)
         navigationController.modalPresentationStyle = .fullScreen
         self.present(navigationController, animated: true, completion: nil)

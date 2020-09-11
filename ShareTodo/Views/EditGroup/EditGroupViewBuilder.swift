@@ -9,11 +9,11 @@
 import UIKit
 
 struct EditGroupViewBuilder {
-    static func create() -> UIViewController {
+    static func create(group: Group, groupUsers: [User]) -> UIViewController {
         guard let editGroupViewController = EditGroupViewController.loadFromStoryboard() as? EditGroupViewController else {
             fatalError("fatal: Failed to initialize the EditGroupViewController")
         }
-        let model = EditGroupModel()
+        let model = EditGroupModel(group: group, groupUsers: groupUsers)
         let presenter = EditGroupViewPresenter(model: model)
         editGroupViewController.inject(with: presenter)
         return editGroupViewController

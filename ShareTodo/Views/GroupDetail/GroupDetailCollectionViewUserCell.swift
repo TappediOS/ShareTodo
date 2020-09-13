@@ -43,7 +43,7 @@ class GroupDetailCollectionViewUserCell: UICollectionViewCell {
     
     func setupCustomImageView() {
         self.customImageView.contentMode = .scaleAspectFill
-        self.customImageView.image = R.image.groupDefaultImage()
+        self.customImageView.backgroundColor = UIColor.randomSystemColor()
         self.customImageView.layer.cornerRadius = 4
         self.customImageView.layer.masksToBounds = true
     }

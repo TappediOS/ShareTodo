@@ -142,6 +142,7 @@
 		BFFA616F2508883900A1D2CE /* EditGroupViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFA616E2508883900A1D2CE /* EditGroupViewPresenter.swift */; };
 		BFFA61712508883D00A1D2CE /* EditGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFA61702508883D00A1D2CE /* EditGroupViewModel.swift */; };
 		BFFA61732508884700A1D2CE /* EditGroup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFFA61722508884700A1D2CE /* EditGroup.storyboard */; };
+		BFFA6175250E087000A1D2CE /* ExUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFA6174250E087000A1D2CE /* ExUIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -367,6 +368,7 @@
 		BFFA616E2508883900A1D2CE /* EditGroupViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupViewPresenter.swift; sourceTree = "<group>"; };
 		BFFA61702508883D00A1D2CE /* EditGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupViewModel.swift; sourceTree = "<group>"; };
 		BFFA61722508884700A1D2CE /* EditGroup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditGroup.storyboard; sourceTree = "<group>"; };
+		BFFA6174250E087000A1D2CE /* ExUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIColor.swift; sourceTree = "<group>"; };
 		D8154F274295E699E436DBD1 /* Pods-ShareTodo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareTodo.debug.xcconfig"; path = "Target Support Files/Pods-ShareTodo/Pods-ShareTodo.debug.xcconfig"; sourceTree = "<group>"; };
 		F9E42D6423E6911CC15CCCFF /* Pods-ShareTodo-ShareTodoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareTodo-ShareTodoUITests.release.xcconfig"; path = "Target Support Files/Pods-ShareTodo-ShareTodoUITests/Pods-ShareTodo-ShareTodoUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -556,6 +558,7 @@
 				BF97245524CC75D70033BB50 /* ExTextField.swift */,
 				BFD435F324CD36F900B2E580 /* ExUIImageView.swift */,
 				BFD4362024CD597700B2E580 /* ExCollectionView.swift */,
+				BFFA6174250E087000A1D2CE /* ExUIColor.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1242,6 +1245,7 @@
 				BFD4362624CDAC9600B2E580 /* RegisterUserViewBuilder.swift in Sources */,
 				BF88D50F24CABCB700607D6A /* ProfileViewBuilder.swift in Sources */,
 				BF88D4D624CAAAB200607D6A /* SampleViewModel.swift in Sources */,
+				BFFA6175250E087000A1D2CE /* ExUIColor.swift in Sources */,
 				BF95E78724DCFFF600FF562D /* Todo.swift in Sources */,
 				BFA31F3C24FF443600553F06 /* GroupDetailViewBuilder.swift in Sources */,
 				BF88D51524CABCC800607D6A /* ProfileViewModel.swift in Sources */,

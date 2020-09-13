@@ -15,7 +15,7 @@ protocol EditGroupViewPresenterProtocol {
     
     func didViewDidLoad()
     func didTapStopEditGroupButton()
-    func didTapSaveEditGroupButton(groupName: String, groupTask: String, profileImageData: Data)
+    func didTapSaveEditGroupButton(selectedUsers: [User], groupName: String, groupTask: String, groupImageData: Data)
     func didTapSaveEditGroupButton(isEmptyTextField: Bool)
     func didTapChangeGroupButton()
     func didTapGroupImageView()
@@ -59,8 +59,8 @@ final class EditGroupViewPresenter: EditGroupViewPresenterProtocol, EditGroupMod
         self.view.dismissEditGroupVC()
     }
     
-    func didTapSaveEditGroupButton(groupName: String, groupTask: String, profileImageData: Data) {
-        
+    func didTapSaveEditGroupButton(selectedUsers: [User], groupName: String, groupTask: String, groupImageData: Data) {
+        self.model.updateGroup(selectedUsers: selectedUsers, groupName: groupName, groupTask: groupTask, groupImageData: groupImageData)
     }
     
     func didTapSaveEditGroupButton(isEmptyTextField: Bool) {
@@ -91,5 +91,9 @@ final class EditGroupViewPresenter: EditGroupViewPresenterProtocol, EditGroupMod
     
     func didTapDeletePhotoAction() {
         self.view.setDeleteAndSetDefaultImage()
+    }
+    
+    func successSaveGroup() {
+        self.view.dismissEditGroupVC()
     }
 }

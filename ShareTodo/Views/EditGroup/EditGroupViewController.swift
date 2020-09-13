@@ -154,7 +154,7 @@ final class EditGroupViewController: UIViewController {
         }
         
         let data = self.groupImageView.image?.jpegData(compressionQuality: 0.5) ?? Data()
-        self.presenter.didTapSaveEditGroupButton(groupName: groupName, groupTask: groupTask, profileImageData: data)
+        self.presenter.didTapSaveEditGroupButton(selectedUsers: self.presenter.groupUsers, groupName: groupName, groupTask: groupTask, groupImageData: data)
         self.navigationItem.rightBarButtonItem?.isEnabled = false
     }
     

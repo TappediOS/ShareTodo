@@ -84,6 +84,22 @@ final class EditGroupModel: EditGroupModelProtocol {
                 return
             }
             
+            profileImagesRef.downloadURL { (url, error) in
+                guard let downloadURL = url else { return }
+                self.registerProfileURLtoFirestore(uid: uid, downloadURL: downloadURL)
+            }
+        }
+    }
+    
+    func registerProfileURLtoFirestore(uid: String, downloadURL: URL) {
+        let downloadURLStr: String = downloadURL.absoluteString
+        
+        self.firestore.collection("todo/v1/groups").document(uid).setData(["profileImageURL": downloadURLStr], merge: true) { error in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            
             self.presenter.successSaveGroup()
         }
     }

@@ -15,7 +15,8 @@ protocol EditGroupViewPresenterProtocol {
     
     func didViewDidLoad()
     func didTapStopEditGroupButton()
-    func didTapSaveEditGroupButton(groupName: String, profileImageData: Data)
+    func didTapSaveEditGroupButton(groupName: String, groupTask: String, profileImageData: Data)
+    func didTapSaveEditGroupButton(isEmptyTextField: Bool)
     func didTapChangeGroupButton()
     func didTapGroupImageView()
     
@@ -28,6 +29,7 @@ protocol EditGroupViewPresenterOutput: class {
     func setCurrnetGroupImage()
     func setGroupName()
     func setGroupTask()
+    func setRedColorPlaceholder()
     func dismissEditGroupVC()
     func presentActionSheet()
     func showUIImagePickerControllerAsCamera()
@@ -57,8 +59,14 @@ final class EditGroupViewPresenter: EditGroupViewPresenterProtocol, EditGroupMod
         self.view.dismissEditGroupVC()
     }
     
-    func didTapSaveEditGroupButton(groupName: String, profileImageData: Data) {
+    func didTapSaveEditGroupButton(groupName: String, groupTask: String, profileImageData: Data) {
         
+    }
+    
+    func didTapSaveEditGroupButton(isEmptyTextField: Bool) {
+        guard isEmptyTextField else { return }
+        
+        self.view.setRedColorPlaceholder()
     }
     
     func didTapChangeGroupButton() {

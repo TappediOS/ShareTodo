@@ -141,9 +141,20 @@ final class EditGroupViewController: UIViewController {
     @objc func tapStopEditGroupButton() {
         self.presenter.didTapStopEditGroupButton()
     }
-
+    
     @objc func tapSaveEditGroupButton() {
+        guard let groupName = groupNameTextField.text, let groupTask = taskTextField.text else { return }
+        guard !groupName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            self.presenter.didTapSaveEditGroupButton(isEmptyTextField: true)
+            return
+        }
+        guard !groupTask.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            self.presenter.didTapSaveEditGroupButton(isEmptyTextField: true)
+            return
+        }
         
+        let data = self.groupImageView.image?.jpegData(compressionQuality: 0.5) ?? Data()
+        self.presenter.didTapSaveEditGroupButton(groupName: groupName, groupTask: groupTask, profileImageData: data)
         self.navigationItem.rightBarButtonItem?.isEnabled = false
     }
     
@@ -181,6 +192,13 @@ extension EditGroupViewController: EditGroupViewPresenterOutput {
         DispatchQueue.main.async {
             self.taskTextField.text = self.presenter.group.task
         }
+    }
+    
+    func setRedColorPlaceholder() {
+        let attributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.systemPink.withAlphaComponent(0.55),
+                                                          .font: UIFont.boldSystemFont(ofSize: 14)]
+        self.taskTextField.attributedPlaceholder = NSAttributedString(string: "Group Task", attributes: attributes)
+        self.groupNameTextField.attributedPlaceholder = NSAttributedString(string: "Group Name", attributes: attributes)
     }
     
     func dismissEditGroupVC() {

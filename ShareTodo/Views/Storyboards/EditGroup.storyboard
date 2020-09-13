@@ -148,12 +148,12 @@
                         <viewLayoutGuide key="safeArea" id="DyQ-br-Vgv"/>
                     </view>
                     <connections>
-                        <outlet property="groupImageView" destination="OwZ-gJ-YY5" id="N3Q-S9-8gY"/>
-                        <outlet property="groupNameTextField" destination="0Xl-xA-QA7" id="yae-F6-Zwu"/>
-                        <outlet property="photoImageView" destination="bzr-bZ-Jla" id="9Bz-FG-LwY"/>
-                        <outlet property="selectedUsersAndMeCollectionView" destination="OEs-vo-hbF" id="tBG-BI-mNc"/>
-                        <outlet property="taskLabel" destination="V5R-7T-j2Y" id="RDl-By-bDd"/>
-                        <outlet property="taskTextField" destination="TQq-BG-N3j" id="pcg-Oq-n7R"/>
+                        <outlet property="groupImageView" destination="OwZ-gJ-YY5" id="Mju-YO-Xuw"/>
+                        <outlet property="groupNameTextField" destination="0Xl-xA-QA7" id="Dtg-PN-o8d"/>
+                        <outlet property="photoImageView" destination="bzr-bZ-Jla" id="LYe-hh-tnn"/>
+                        <outlet property="selectedUsersAndMeCollectionView" destination="OEs-vo-hbF" id="TYj-4v-Ldf"/>
+                        <outlet property="taskLabel" destination="V5R-7T-j2Y" id="uNs-LD-T19"/>
+                        <outlet property="taskTextField" destination="TQq-BG-N3j" id="eIM-Dh-YqU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="llP-Pb-Tpm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

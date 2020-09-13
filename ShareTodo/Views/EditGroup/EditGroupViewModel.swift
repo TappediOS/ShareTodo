@@ -1,79 +1,63 @@
 //
-//  CreateNewGroupInfoViewModel.swift
+//  EditGroupViewModel.swift
 //  ShareTodo
 //
-//  Created by jun on 2020/07/26.
+//  Created by jun on 2020/09/09.
 //  Copyright © 2020 jun. All rights reserved.
 //
 
 import Foundation
 import Firebase
 
-protocol CreateNewGroupInfoModelProtocol {
-    var presenter: CreateNewGroupInfoModelOutput! { get set }
+protocol EditGroupModelProtocol {
+    var presenter: EditGroupModelOutput! { get set }
+    var group: Group { get set }
+    var groupUsers: [User] { get set }
     
-    func fetchUser()
-    func createGroup(selectedUsers: [User], groupName: String, groupTask: String, groupImageData: Data)
+    func updateGroup(selectedUsers: [User], groupName: String, groupTask: String, groupImageData: Data)
 }
 
-protocol CreateNewGroupInfoModelOutput: class {
-    func successCreateGroup()
-    func successFetchUser(user: User)
+protocol EditGroupModelOutput: class {
+    func successSaveGroup()
 }
 
-final class CreateNewGroupInfoModel: CreateNewGroupInfoModelProtocol {
-    weak var presenter: CreateNewGroupInfoModelOutput!
+final class EditGroupModel: EditGroupModelProtocol {
+    weak var presenter: EditGroupModelOutput!
+    var group: Group
+    var groupUsers: [User]
     private var firestore: Firestore!
     
-    init() {
+    init(group: Group, groupUsers: [User]) {
+        self.group = group
+        self.groupUsers = groupUsers
+        self.setupFirestore()
+    }
+    
+    func setupFirestore() {
         self.firestore = Firestore.firestore()
         let settings = FirestoreSettings()
         self.firestore.settings = settings
     }
     
-    func fetchUser() {
-        guard let user = Auth.auth().currentUser else { return }
-        self.firestore.collection("todo/v1/users/").document(user.uid).addSnapshotListener { [weak self] (document, error) in
-            guard let self = self else { return }
-            
-            if let error = error {
-                print("Error: \(error.localizedDescription)")
-                return
-            }
-            
-            guard let document = document else {
-                print("The document doesn't exist.")
-                return
-            }
-            
-            do {
-                let userInfo = try document.data(as: User.self)
-                self.presenter.successFetchUser(user: userInfo!)
-            } catch let error {
-                print("Error: \(error.localizedDescription)")
-                return
-            }
-        }
-    }
-    
-    func createGroup(selectedUsers: [User], groupName: String, groupTask: String, groupImageData: Data) {
+    func updateGroup(selectedUsers: [User], groupName: String, groupTask: String, groupImageData: Data) {
         let memberIDs = selectedUsers.compactMap { $0.id }
-        let groupUid: String = UUID().uuidString
+        guard let groupUid = self.group.groupID else { return }
+        guard let profileImageURL = self.group.profileImageURL else { return }
         
-        let group = Group(name: groupName, task: groupTask, members: memberIDs, profileImageURL: nil)
+        let updatedGroup = Group(name: groupName, task: groupTask, members: memberIDs, profileImageURL: profileImageURL)
         let groupData: [String: Any]
         
         let groupReference = self.firestore.collection("todo").document("v1").collection("groups").document(groupUid)
         let batch = self.firestore.batch()
         
         do {
-            groupData = try Firestore.Encoder().encode(group)
+            groupData = try Firestore.Encoder().encode(updatedGroup)
         } catch let error {
             print("Error: \(error.localizedDescription)")
             return
         }
         
-        batch.setData(groupData, forDocument: groupReference)
+        batch.setData(groupData, forDocument: groupReference, merge: true)
         
         group.members.forEach { memberID in
             batch.setData([:], forDocument: groupReference.collection("members").document(memberID))
@@ -120,7 +104,7 @@ final class CreateNewGroupInfoModel: CreateNewGroupInfoModelProtocol {
                 return
             }
             
-            self.presenter.successCreateGroup()
+            self.presenter.successSaveGroup()
         }
     }
 }

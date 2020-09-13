@@ -76,7 +76,7 @@ final class GroupDetailViewController: UIViewController {
     }
     
     @objc func editGroup(_ sender: UIButton) {
-        
+        self.presenter.didTapEditGroup()
     }
     
     func inject(with presenter: GroupDetailViewPresenterProtocol) {
@@ -93,7 +93,10 @@ extension GroupDetailViewController: GroupDetailViewPresenterOutput {
     }
     
     func showEditGroupVC() {
-        
+        let editGroupVC = EditGroupViewBuilder.create(group: self.presenter.group, groupUsers: self.presenter.groupUsers)
+        let navigationController = UINavigationController(rootViewController: editGroupVC)
+        navigationController.modalPresentationStyle = .fullScreen
+        self.present(navigationController, animated: true, completion: nil)
     }
 }
 

@@ -48,6 +48,8 @@ final class ProfileViewController: UIViewController {
         let editProfileButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editProfile(_:)))
         editProfileButtonItem.tintColor = .systemGreen
         self.navigationItem.rightBarButtonItem = editProfileButtonItem
+        self.navigationItem.rightBarButtonItem?.tintColor = .systemGreen
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
     }
 
     @objc func editProfile(_ sender: UIButton) {
@@ -78,7 +80,9 @@ extension ProfileViewController: ProfileViewPresenterOutput {
     func setProfileImage(URL: URL) {
         DispatchQueue.main.async {
             let options = ImageLoadingOptions(placeholder: R.image.placeholderImage(), transition: .fadeIn(duration: 0.25), failureImage: R.image.defaultProfileImage())
-            loadImage(with: URL, options: options, into: self.profileImageView, progress: nil, completion: nil)
+            loadImage(with: URL, options: options, into: self.profileImageView, progress: nil, completion: { _ in
+                self.navigationItem.rightBarButtonItem?.isEnabled = true
+            })
         }
     }
 }

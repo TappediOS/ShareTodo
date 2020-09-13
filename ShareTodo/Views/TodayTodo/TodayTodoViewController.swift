@@ -88,7 +88,11 @@ extension TodayTodoViewController: TodayTodoViewPresenterOutput {
                 return
             }
             
-            if granted { UIApplication.shared.registerForRemoteNotifications() }
+            guard granted == true else { return }
+            
+            DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()
+            }
         }
     }
 }

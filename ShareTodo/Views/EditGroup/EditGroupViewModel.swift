@@ -78,13 +78,17 @@ final class EditGroupModel: EditGroupModelProtocol {
         let storage = Storage.storage()
         let profileImagesRef = storage.reference().child("groupProfileImage/" + uid + ".png")
         
-        _ = profileImagesRef.putData(imageData as Data, metadata: nil) { (metadata, error) in
+        _ = profileImagesRef.putData(imageData as Data, metadata: nil) { (_, error) in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
                 return
             }
             
             profileImagesRef.downloadURL { (url, error) in
+                if let error = error {
+                    print("Error: \(error.localizedDescription)")
+                    return
+                }
                 guard let downloadURL = url else { return }
                 self.registerProfileURLtoFirestore(uid: uid, downloadURL: downloadURL)
             }

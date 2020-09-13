@@ -90,8 +90,9 @@ extension TodayTodoViewController: TodayTodoViewPresenterOutput {
             
             guard granted == true else { return }
             
-            //FIXME:- メインスレッドで実行すること
-            UIApplication.shared.registerForRemoteNotifications()
+            DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()
+            }
         }
     }
 }

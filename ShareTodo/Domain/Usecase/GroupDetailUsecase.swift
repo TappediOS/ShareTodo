@@ -37,7 +37,7 @@ final class GroupDetailUsecase {
         self.firestore.settings = settings
     }
 
-    func getGorup() -> Group {
+    func getGroup() -> Group {
         return self.groupDetailStore.group
     }
     

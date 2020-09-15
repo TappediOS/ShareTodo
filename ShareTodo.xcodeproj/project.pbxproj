@@ -10,6 +10,7 @@
 		5351F0CBA328C0EAE483315B /* Pods_ShareTodoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF085C8000FC5CF84F842ED /* Pods_ShareTodoTests.framework */; };
 		54D84C8D9F17E645305C91CB /* Pods_ShareTodo_ShareTodoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 156399CFB9921D8DC0DA264E /* Pods_ShareTodo_ShareTodoUITests.framework */; };
 		B2970E3AE18D1DE3B355EB91 /* Pods_ShareTodo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 850E6E869595058D8B899188 /* Pods_ShareTodo.framework */; };
+		BF020FBF2510A99E006DC525 /* GroupRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF020FBE2510A99E006DC525 /* GroupRepositoryProtocol.swift */; };
 		BF28E41524FC886600269D82 /* GroupTodoViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */; };
 		BF5CB6B02501CD9100EA1024 /* GroupDetailCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5CB6AE2501CD9100EA1024 /* GroupDetailCollectionReusableView.swift */; };
 		BF5CB6B12501CD9100EA1024 /* GroupDetailCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5CB6AF2501CD9100EA1024 /* GroupDetailCollectionReusableView.xib */; };
@@ -189,6 +190,7 @@
 		83B96B12A9F4876855708BD5 /* Pods-ShareTodo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareTodo.release.xcconfig"; path = "Target Support Files/Pods-ShareTodo/Pods-ShareTodo.release.xcconfig"; sourceTree = "<group>"; };
 		850E6E869595058D8B899188 /* Pods_ShareTodo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShareTodo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF77A6C611471318CB973FAD /* Pods-ShareTodoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareTodoTests.debug.xcconfig"; path = "Target Support Files/Pods-ShareTodoTests/Pods-ShareTodoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BF020FBE2510A99E006DC525 /* GroupRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRepositoryProtocol.swift; sourceTree = "<group>"; };
 		BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTodoViewModelTests.swift; sourceTree = "<group>"; };
 		BF5CB6AE2501CD9100EA1024 /* GroupDetailCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailCollectionReusableView.swift; sourceTree = "<group>"; };
 		BF5CB6AF2501CD9100EA1024 /* GroupDetailCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupDetailCollectionReusableView.xib; sourceTree = "<group>"; };
@@ -489,6 +491,7 @@
 		BF68712625105D4D00923A8B /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				BF020FBE2510A99E006DC525 /* GroupRepositoryProtocol.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -1303,6 +1306,7 @@
 				BFFA616D2508883400A1D2CE /* EditGroupViewController.swift in Sources */,
 				BF88D4FE24CAB9A600607D6A /* TodayTodoViewModel.swift in Sources */,
 				BFD4361B24CD4F6700B2E580 /* CreateNewGroupInfoViewModel.swift in Sources */,
+				BF020FBF2510A99E006DC525 /* GroupRepositoryProtocol.swift in Sources */,
 				BF88D51324CABCC300607D6A /* ProfileViewPresenter.swift in Sources */,
 				BFD435E724CD333D00B2E580 /* Timestamp+Codable.swift in Sources */,
 				BF88D4D024CAAA8D00607D6A /* SampleViewController.swift in Sources */,

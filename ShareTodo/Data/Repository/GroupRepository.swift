@@ -8,7 +8,7 @@
 
 import Firebase
 
-class GroupRepository {
+class GroupRepository: GroupRepositoryProtocol {
     private var firestore: Firestore!
     private var listener: ListenerRegistration?
         

@@ -18,9 +18,6 @@
 		BF636F5124FCDFD700F30F63 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF636F5024FCDFD700F30F63 /* R.generated.swift */; };
 		BF6468C12500F36100F1CB75 /* GroupDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6468BF2500F36100F1CB75 /* GroupDetailCollectionViewCell.swift */; };
 		BF6468C22500F36100F1CB75 /* GroupDetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF6468C02500F36100F1CB75 /* GroupDetailCollectionViewCell.xib */; };
-		BF6870E1250F50B900923A8B /* GroupDetailUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6870E0250F50B900923A8B /* GroupDetailUsecase.swift */; };
-		BF687122251050CF00923A8B /* GroupDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF687121251050CF00923A8B /* GroupDetailRepository.swift */; };
-		BF68712825105D7100923A8B /* GroupDetailRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF68712725105D7100923A8B /* GroupDetailRepositoryProtocol.swift */; };
 		BF68712B25109EA300923A8B /* GroupRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF68712A25109EA300923A8B /* GroupRepository.swift */; };
 		BF68712D25109F0B00923A8B /* GroupDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF68712C25109F0B00923A8B /* GroupDataStore.swift */; };
 		BF88D49224CAA83300607D6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D49124CAA83300607D6A /* AppDelegate.swift */; };
@@ -200,9 +197,6 @@
 		BF636F5024FCDFD700F30F63 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		BF6468BF2500F36100F1CB75 /* GroupDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		BF6468C02500F36100F1CB75 /* GroupDetailCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupDetailCollectionViewCell.xib; sourceTree = "<group>"; };
-		BF6870E0250F50B900923A8B /* GroupDetailUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailUsecase.swift; sourceTree = "<group>"; };
-		BF687121251050CF00923A8B /* GroupDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailRepository.swift; sourceTree = "<group>"; };
-		BF68712725105D7100923A8B /* GroupDetailRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailRepositoryProtocol.swift; sourceTree = "<group>"; };
 		BF68712A25109EA300923A8B /* GroupRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRepository.swift; sourceTree = "<group>"; };
 		BF68712C25109F0B00923A8B /* GroupDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDataStore.swift; sourceTree = "<group>"; };
 		BF88D48E24CAA83300607D6A /* ShareTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -471,24 +465,15 @@
 			isa = PBXGroup;
 			children = (
 				BF68712625105D4D00923A8B /* Repository */,
-				BF6870D9250F3D5500923A8B /* Usecase */,
 			);
 			path = Domain;
-			sourceTree = "<group>";
-		};
-		BF6870D9250F3D5500923A8B /* Usecase */ = {
-			isa = PBXGroup;
-			children = (
-				BF6870E0250F50B900923A8B /* GroupDetailUsecase.swift */,
-			);
-			path = Usecase;
 			sourceTree = "<group>";
 		};
 		BF68711E2510508D00923A8B /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				BF68712925109E8B00923A8B /* DataStore */,
 				BF68711F2510509600923A8B /* Repository */,
+				BF68712925109E8B00923A8B /* DataStore */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -497,7 +482,6 @@
 			isa = PBXGroup;
 			children = (
 				BF68712A25109EA300923A8B /* GroupRepository.swift */,
-				BF687121251050CF00923A8B /* GroupDetailRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -505,7 +489,6 @@
 		BF68712625105D4D00923A8B /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				BF68712725105D7100923A8B /* GroupDetailRepositoryProtocol.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -1306,7 +1289,6 @@
 				BFD435EA24CD333D00B2E580 /* ServerTimestamp.swift in Sources */,
 				BF97244E24CC6B0D0033BB50 /* EditProfileViewController.swift in Sources */,
 				BFD4362624CDAC9600B2E580 /* RegisterUserViewBuilder.swift in Sources */,
-				BF687122251050CF00923A8B /* GroupDetailRepository.swift in Sources */,
 				BF88D50F24CABCB700607D6A /* ProfileViewBuilder.swift in Sources */,
 				BF88D4D624CAAAB200607D6A /* SampleViewModel.swift in Sources */,
 				BFFA6175250E087000A1D2CE /* ExUIColor.swift in Sources */,
@@ -1349,7 +1331,6 @@
 				BFD4362C24CDACA700B2E580 /* RegisterUserViewModel.swift in Sources */,
 				BF88D51B24CACEEC00607D6A /* TodayTodoCollectionViewCell.swift in Sources */,
 				BF88D4DC24CAAB5100607D6A /* ExUIView.swift in Sources */,
-				BF68712825105D7100923A8B /* GroupDetailRepositoryProtocol.swift in Sources */,
 				BFD435F424CD36F900B2E580 /* ExUIImageView.swift in Sources */,
 				BFD4362324CD659600B2E580 /* Group.swift in Sources */,
 				BFA31F3E24FF443C00553F06 /* GroupDetailViewController.swift in Sources */,
@@ -1358,7 +1339,6 @@
 				BF88D4F124CAB89000607D6A /* GroupTodoViewPresenter.swift in Sources */,
 				BFD435F124CD346D00B2E580 /* FirestoreDecoder.swift in Sources */,
 				BFD435F224CD346D00B2E580 /* FirestoreEncoder.swift in Sources */,
-				BF6870E1250F50B900923A8B /* GroupDetailUsecase.swift in Sources */,
 				BFD4362A24CDACA200B2E580 /* RegisterUserViewPresenter.swift in Sources */,
 				BFD435E824CD333D00B2E580 /* WriteBatch+WriteEncodable.swift in Sources */,
 				BFD435FF24CD44A400B2E580 /* CreateNewGroupViewController.swift in Sources */,

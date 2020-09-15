@@ -26,7 +26,7 @@ final class GroupDetailViewPresenter: GroupDetailViewPresenterProtocol, GroupDet
     weak var view: GroupDetailViewPresenterOutput!
     private var model: GroupDetailModelProtocol
     
-    let repository = GroupDetailRepository()
+    let repository = GroupRepository()
 
     var group: Group { return self.model.group }
     var groupUsers: [User] { return self.model.groupUsers }
@@ -36,7 +36,7 @@ final class GroupDetailViewPresenter: GroupDetailViewPresenterProtocol, GroupDet
     init(model: GroupDetailModelProtocol) {
         self.model = model
         self.model.presenter = self
-        self.repository.delegate = self
+        GroupDataStore.groupDataStore.delegate = self
     }
     
     func didViewDidLoad() {
@@ -49,7 +49,7 @@ final class GroupDetailViewPresenter: GroupDetailViewPresenterProtocol, GroupDet
     
     func didFinishedEditGroup() {
         guard let groupID = self.model.group.groupID else { return }
-        GroupDetailUsecase(repository: repository).fetchGroup(groupID: groupID)
+        repository.fetchGroup(groupID: groupID)
     }
     
     func successFetchTodayTodo() {
@@ -57,9 +57,12 @@ final class GroupDetailViewPresenter: GroupDetailViewPresenterProtocol, GroupDet
     }
 }
 
-extension GroupDetailViewPresenter: GroupDetailComplateDelegate {
-    func success(group: Group?) {
-        guard let group = group else { return }
+extension GroupDetailViewPresenter: GroupCompleteDelegate {
+    func success(groups: [Group]) {
+        
+    }
+    
+    func success(group: Group) {
         self.model.group = group
         //TODO:- navigationTitleも変更すること
         self.view.reloadGroupDetailCollectionView()

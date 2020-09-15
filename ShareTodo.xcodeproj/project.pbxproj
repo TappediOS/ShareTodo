@@ -11,6 +11,9 @@
 		54D84C8D9F17E645305C91CB /* Pods_ShareTodo_ShareTodoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 156399CFB9921D8DC0DA264E /* Pods_ShareTodo_ShareTodoUITests.framework */; };
 		B2970E3AE18D1DE3B355EB91 /* Pods_ShareTodo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 850E6E869595058D8B899188 /* Pods_ShareTodo.framework */; };
 		BF020FBF2510A99E006DC525 /* GroupRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF020FBE2510A99E006DC525 /* GroupRepositoryProtocol.swift */; };
+		BF020FC12510AA36006DC525 /* UserRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF020FC02510AA36006DC525 /* UserRepositoryProtocol.swift */; };
+		BF020FC32510AA57006DC525 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF020FC22510AA57006DC525 /* UserRepository.swift */; };
+		BF020FC52510AA7D006DC525 /* UserDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF020FC42510AA7D006DC525 /* UserDataStore.swift */; };
 		BF28E41524FC886600269D82 /* GroupTodoViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */; };
 		BF5CB6B02501CD9100EA1024 /* GroupDetailCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5CB6AE2501CD9100EA1024 /* GroupDetailCollectionReusableView.swift */; };
 		BF5CB6B12501CD9100EA1024 /* GroupDetailCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5CB6AF2501CD9100EA1024 /* GroupDetailCollectionReusableView.xib */; };
@@ -191,6 +194,9 @@
 		850E6E869595058D8B899188 /* Pods_ShareTodo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShareTodo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF77A6C611471318CB973FAD /* Pods-ShareTodoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareTodoTests.debug.xcconfig"; path = "Target Support Files/Pods-ShareTodoTests/Pods-ShareTodoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BF020FBE2510A99E006DC525 /* GroupRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRepositoryProtocol.swift; sourceTree = "<group>"; };
+		BF020FC02510AA36006DC525 /* UserRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryProtocol.swift; sourceTree = "<group>"; };
+		BF020FC22510AA57006DC525 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		BF020FC42510AA7D006DC525 /* UserDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataStore.swift; sourceTree = "<group>"; };
 		BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTodoViewModelTests.swift; sourceTree = "<group>"; };
 		BF5CB6AE2501CD9100EA1024 /* GroupDetailCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailCollectionReusableView.swift; sourceTree = "<group>"; };
 		BF5CB6AF2501CD9100EA1024 /* GroupDetailCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupDetailCollectionReusableView.xib; sourceTree = "<group>"; };
@@ -484,6 +490,7 @@
 			isa = PBXGroup;
 			children = (
 				BF68712A25109EA300923A8B /* GroupRepository.swift */,
+				BF020FC22510AA57006DC525 /* UserRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -492,6 +499,7 @@
 			isa = PBXGroup;
 			children = (
 				BF020FBE2510A99E006DC525 /* GroupRepositoryProtocol.swift */,
+				BF020FC02510AA36006DC525 /* UserRepositoryProtocol.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -500,6 +508,7 @@
 			isa = PBXGroup;
 			children = (
 				BF68712C25109F0B00923A8B /* GroupDataStore.swift */,
+				BF020FC42510AA7D006DC525 /* UserDataStore.swift */,
 			);
 			path = DataStore;
 			sourceTree = "<group>";
@@ -1274,6 +1283,7 @@
 				BF88D4D224CAAA9300607D6A /* SampleViewBuilder.swift in Sources */,
 				BF88D4FC24CAB9A100607D6A /* TodayTodoViewPresenter.swift in Sources */,
 				BF88D49224CAA83300607D6A /* AppDelegate.swift in Sources */,
+				BF020FC12510AA36006DC525 /* UserRepositoryProtocol.swift in Sources */,
 				BF5CB6B02501CD9100EA1024 /* GroupDetailCollectionReusableView.swift in Sources */,
 				BF97245024CC6B130033BB50 /* EditProfileViewPresenter.swift in Sources */,
 				BF88D4E224CAB67C00607D6A /* MainTabBarViewController.swift in Sources */,
@@ -1281,6 +1291,7 @@
 				BF88D4CE24CAAA0B00607D6A /* Routes.swift in Sources */,
 				BFD435E124CD333D00B2E580 /* ExplicitNull.swift in Sources */,
 				BFD435E424CD333D00B2E580 /* CodableErrors.swift in Sources */,
+				BF020FC52510AA7D006DC525 /* UserDataStore.swift in Sources */,
 				BF88D51124CABCBD00607D6A /* ProfileViewController.swift in Sources */,
 				BF88D4F824CAB99500607D6A /* TodayTodoViewbuilder.swift in Sources */,
 				BFD435ED24CD333D00B2E580 /* DocumentReference+WriteEncodable.swift in Sources */,
@@ -1346,6 +1357,7 @@
 				BFD4362A24CDACA200B2E580 /* RegisterUserViewPresenter.swift in Sources */,
 				BFD435E824CD333D00B2E580 /* WriteBatch+WriteEncodable.swift in Sources */,
 				BFD435FF24CD44A400B2E580 /* CreateNewGroupViewController.swift in Sources */,
+				BF020FC32510AA57006DC525 /* UserRepository.swift in Sources */,
 				BFFA61712508883D00A1D2CE /* EditGroupViewModel.swift in Sources */,
 				BFA31F4224FF444700553F06 /* GroupDetailViewModel.swift in Sources */,
 				BF88D49424CAA83300607D6A /* SceneDelegate.swift in Sources */,

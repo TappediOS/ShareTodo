@@ -8,7 +8,7 @@
 
 import Firebase
 
-protocol GroupDetailComplateDelegate {
+protocol GroupDetailComplateDelegate: class {
     func success(group: Group?)
     func failure(error: Error)
 }
@@ -17,7 +17,7 @@ class GroupDetailRepository: GroupDetailRepositoryProtocol {
     private var firestore: Firestore!
     private var listener: ListenerRegistration?
     
-    var delegate: GroupDetailComplateDelegate?
+    weak var delegate: GroupDetailComplateDelegate?
     
     init() {
         self.setUpFirestore()

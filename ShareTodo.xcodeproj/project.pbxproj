@@ -19,6 +19,8 @@
 		BF6468C12500F36100F1CB75 /* GroupDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6468BF2500F36100F1CB75 /* GroupDetailCollectionViewCell.swift */; };
 		BF6468C22500F36100F1CB75 /* GroupDetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF6468C02500F36100F1CB75 /* GroupDetailCollectionViewCell.xib */; };
 		BF6870E1250F50B900923A8B /* GroupDetailUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6870E0250F50B900923A8B /* GroupDetailUsecase.swift */; };
+		BF687122251050CF00923A8B /* GroupDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF687121251050CF00923A8B /* GroupDetailRepository.swift */; };
+		BF68712825105D7100923A8B /* GroupDetailRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF68712725105D7100923A8B /* GroupDetailRepositoryProtocol.swift */; };
 		BF88D49224CAA83300607D6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D49124CAA83300607D6A /* AppDelegate.swift */; };
 		BF88D49424CAA83300607D6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D49324CAA83300607D6A /* SceneDelegate.swift */; };
 		BF88D4A924CAA83600607D6A /* ShareTodoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88D4A824CAA83600607D6A /* ShareTodoTests.swift */; };
@@ -197,6 +199,8 @@
 		BF6468BF2500F36100F1CB75 /* GroupDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		BF6468C02500F36100F1CB75 /* GroupDetailCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupDetailCollectionViewCell.xib; sourceTree = "<group>"; };
 		BF6870E0250F50B900923A8B /* GroupDetailUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailUsecase.swift; sourceTree = "<group>"; };
+		BF687121251050CF00923A8B /* GroupDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailRepository.swift; sourceTree = "<group>"; };
+		BF68712725105D7100923A8B /* GroupDetailRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailRepositoryProtocol.swift; sourceTree = "<group>"; };
 		BF88D48E24CAA83300607D6A /* ShareTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF88D49124CAA83300607D6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF88D49324CAA83300607D6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -462,6 +466,7 @@
 		BF6870D8250F3D4C00923A8B /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				BF68712625105D4D00923A8B /* Repository */,
 				BF6870D9250F3D5500923A8B /* Usecase */,
 			);
 			path = Domain;
@@ -473,6 +478,30 @@
 				BF6870E0250F50B900923A8B /* GroupDetailUsecase.swift */,
 			);
 			path = Usecase;
+			sourceTree = "<group>";
+		};
+		BF68711E2510508D00923A8B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				BF68711F2510509600923A8B /* Repository */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		BF68711F2510509600923A8B /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				BF687121251050CF00923A8B /* GroupDetailRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		BF68712625105D4D00923A8B /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				BF68712725105D7100923A8B /* GroupDetailRepositoryProtocol.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		BF88D48524CAA83300607D6A = {
@@ -506,6 +535,7 @@
 				BF88D4C124CAA8E800607D6A /* Resources */,
 				BFD4361024CD4BAF00B2E580 /* Model */,
 				BF6870D8250F3D4C00923A8B /* Domain */,
+				BF68711E2510508D00923A8B /* Data */,
 				BFD435D224CD312000B2E580 /* FirebaseFirestoreSwift */,
 				BF88D4C624CAA93500607D6A /* Views */,
 			);
@@ -1262,6 +1292,7 @@
 				BFD435EA24CD333D00B2E580 /* ServerTimestamp.swift in Sources */,
 				BF97244E24CC6B0D0033BB50 /* EditProfileViewController.swift in Sources */,
 				BFD4362624CDAC9600B2E580 /* RegisterUserViewBuilder.swift in Sources */,
+				BF687122251050CF00923A8B /* GroupDetailRepository.swift in Sources */,
 				BF88D50F24CABCB700607D6A /* ProfileViewBuilder.swift in Sources */,
 				BF88D4D624CAAAB200607D6A /* SampleViewModel.swift in Sources */,
 				BFFA6175250E087000A1D2CE /* ExUIColor.swift in Sources */,
@@ -1302,6 +1333,7 @@
 				BFD4362C24CDACA700B2E580 /* RegisterUserViewModel.swift in Sources */,
 				BF88D51B24CACEEC00607D6A /* TodayTodoCollectionViewCell.swift in Sources */,
 				BF88D4DC24CAAB5100607D6A /* ExUIView.swift in Sources */,
+				BF68712825105D7100923A8B /* GroupDetailRepositoryProtocol.swift in Sources */,
 				BFD435F424CD36F900B2E580 /* ExUIImageView.swift in Sources */,
 				BFD4362324CD659600B2E580 /* Group.swift in Sources */,
 				BFA31F3E24FF443C00553F06 /* GroupDetailViewController.swift in Sources */,

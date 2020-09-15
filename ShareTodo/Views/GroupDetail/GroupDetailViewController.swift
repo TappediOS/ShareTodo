@@ -30,6 +30,11 @@ final class GroupDetailViewController: UIViewController {
         self.presenter.didViewDidLoad()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        self.presenter.didFinishedEditGroup()
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         

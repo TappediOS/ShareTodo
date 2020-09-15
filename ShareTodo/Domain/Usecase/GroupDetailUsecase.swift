@@ -9,21 +9,17 @@
 import Foundation
 import Firebase
 
-protocol GroupDetailStoreProtocol: AnyObject {
-    var group: Group { get set }
-    var groupUsers: [User] { get set }
-    var isFinishedUsersIDs: [String] { get set }
-    
-    func fetchTodayTodo()
-}
-
 final class GroupDetailUsecase {
-    let groupDetailStore: GroupDetailStoreProtocol
+    var group: Group
+    var groupUsers: [User]
+    var isFinishedUsersIDs: [String] = Array()
+    
     private var firestore: Firestore!
     private var listener: ListenerRegistration?
     
-    init(groupDetailStore: GroupDetailStoreProtocol) {
-        self.groupDetailStore = groupDetailStore
+    init(group: Group, groupUsers: [User]) {
+        self.group = group
+        self.groupUsers = groupUsers
         self.setUpFirestore()
     }
     
@@ -38,15 +34,15 @@ final class GroupDetailUsecase {
     }
 
     func getGroup() -> Group {
-        return self.groupDetailStore.group
+        return self.group
     }
     
     func getGroupUsers() -> [User] {
-        return self.groupDetailStore.groupUsers
+        return self.groupUsers
     }
     
     func fetchGroup(completion: @escaping ((Result<Void, Error>) -> Void)) {
-        guard let groupID = self.groupDetailStore.group.groupID else { return }
+        guard let groupID = self.group.groupID else { return }
         let documentRef = "todo/v1/groups/" + groupID
         
         self.listener = self.firestore.document(documentRef).addSnapshotListener { [weak self] (document, error) in
@@ -67,7 +63,7 @@ final class GroupDetailUsecase {
             do {
                 let groupData = try document.data(as: Group.self)
                 guard let group = groupData else { return }
-                self.groupDetailStore.group = group
+                self.group = group
                 completion(.success(()))
             } catch let error {
                 print("Error happen.")
@@ -77,7 +73,7 @@ final class GroupDetailUsecase {
     }
     
     func fetchTodayTodo(completion: @escaping ((Result<Void, Error>) -> Void)) {
-        guard let groupID = self.groupDetailStore.group.groupID else { return }
+        guard let groupID = self.group.groupID else { return }
         let collectionRef = "todo/v1/groups/" + groupID + "/todo"
                 
         let formatter = DateFormatter()
@@ -106,7 +102,7 @@ final class GroupDetailUsecase {
                 return try? queryDocumentSnapshot.data(as: Todo.self)
             }
                         
-            self.groupDetailStore.isFinishedUsersIDs = result.map { $0.userID }
+            self.isFinishedUsersIDs = result.map { $0.userID }
             
             completion(.success(()))
         }

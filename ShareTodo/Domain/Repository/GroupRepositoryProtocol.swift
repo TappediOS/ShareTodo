@@ -6,6 +6,6 @@
 //  Copyright © 2020 jun. All rights reserved.
 //
 
-protocol GroupRepositoryProtocol: class {
+protocol GroupRepositoryProtocol: class {
     func fetchGroup(groupID: String)
 }

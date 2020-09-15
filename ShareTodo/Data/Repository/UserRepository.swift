@@ -6,6 +6,8 @@
 //  Copyright © 2020 jun. All rights reserved.
 //
 
+import Firebase
+
 class UserRepository: UserRepositoryProtocol {
     private var firestore: Firestore!
     private var listener: ListenerRegistration?

@@ -7,9 +7,9 @@
 //
 
 
+
 protocol UserCompleteDelegate: class {
-    func success(user: User)
-    func success(users: [User])
+    func success(dataStore: UserDataStore)
     func failuer(error: Error)
 }
 
@@ -19,8 +19,7 @@ class UserDataStore {
     
     var users: [User] = [] {
         didSet {
-            guard let lastUser = self.users.last else { return }
-            delegate?.success(user: lastUser)
+            delegate?.success(dataStore: UserDataStore.userDataStore)
         }
     }
     

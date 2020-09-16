@@ -6,9 +6,9 @@
 //  Copyright © 2020 jun. All rights reserved.
 //
 
+
 protocol GroupCompleteDelegate: class {
-    func success(group: Group)
-    func success(groups: [Group])
+    func success(dataStore: GroupDataStore)
     func failure(error: Error)
 }
 
@@ -18,8 +18,7 @@ class GroupDataStore {
     
     var groups: [Group] = [] {
         didSet {
-            guard let lastGroup = self.groups.last else { return }
-            delegate?.success(group: lastGroup)
+            delegate?.success(dataStore: GroupDataStore.groupDataStore)
         }
     }
     

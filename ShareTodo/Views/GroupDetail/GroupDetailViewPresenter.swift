@@ -58,14 +58,8 @@ final class GroupDetailViewPresenter: GroupDetailViewPresenterProtocol, GroupDet
 }
 
 extension GroupDetailViewPresenter: GroupCompleteDelegate {
-    func success(groups: [Group]) {
-        
-    }
-    
-    func success(group: Group) {
-        self.model.group = group
-        //TODO:- navigationTitleも変更すること
-        self.view.reloadGroupDetailCollectionView()
+    func success(dataStore: GroupDataStore) {
+        print(dataStore.groups)
     }
     
     func failure(error: Error) {

@@ -198,6 +198,7 @@
 		BF020FC22510AA57006DC525 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		BF020FC42510AA7D006DC525 /* UserDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataStore.swift; sourceTree = "<group>"; };
 		BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTodoViewModelTests.swift; sourceTree = "<group>"; };
+		BF58FDD9251301FA0013F547 /* CarthageXcode12Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CarthageXcode12Config.xcconfig; sourceTree = "<group>"; };
 		BF5CB6AE2501CD9100EA1024 /* GroupDetailCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailCollectionReusableView.swift; sourceTree = "<group>"; };
 		BF5CB6AF2501CD9100EA1024 /* GroupDetailCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupDetailCollectionReusableView.xib; sourceTree = "<group>"; };
 		BF5CB6B22504AB8100EA1024 /* GroupDetailCollectionViewUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailCollectionViewUserCell.swift; sourceTree = "<group>"; };
@@ -381,6 +382,9 @@
 		BFFA61702508883D00A1D2CE /* EditGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupViewModel.swift; sourceTree = "<group>"; };
 		BFFA61722508884700A1D2CE /* EditGroup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditGroup.storyboard; sourceTree = "<group>"; };
 		BFFA6174250E087000A1D2CE /* ExUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIColor.swift; sourceTree = "<group>"; };
+		BFFF05C52519ADDB00FCFD5D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		BFFF05C62519ADEA00FCFD5D /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		BFFF05C72519ADF200FCFD5D /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		D8154F274295E699E436DBD1 /* Pods-ShareTodo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareTodo.debug.xcconfig"; path = "Target Support Files/Pods-ShareTodo/Pods-ShareTodo.debug.xcconfig"; sourceTree = "<group>"; };
 		F9E42D6423E6911CC15CCCFF /* Pods-ShareTodo-ShareTodoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareTodo-ShareTodoUITests.release.xcconfig"; path = "Target Support Files/Pods-ShareTodo-ShareTodoUITests/Pods-ShareTodo-ShareTodoUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -516,6 +520,7 @@
 		BF88D48524CAA83300607D6A = {
 			isa = PBXGroup;
 			children = (
+				BFFF05C42519AD4C00FCFD5D /* Enviroment */,
 				BF88D49024CAA83300607D6A /* ShareTodo */,
 				BF88D4A724CAA83600607D6A /* ShareTodoTests */,
 				BF88D4B224CAA83600607D6A /* ShareTodoUITests */,
@@ -946,6 +951,17 @@
 				BFFA61702508883D00A1D2CE /* EditGroupViewModel.swift */,
 			);
 			path = EditGroup;
+			sourceTree = "<group>";
+		};
+		BFFF05C42519AD4C00FCFD5D /* Enviroment */ = {
+			isa = PBXGroup;
+			children = (
+				BF58FDD9251301FA0013F547 /* CarthageXcode12Config.xcconfig */,
+				BFFF05C52519ADDB00FCFD5D /* README.md */,
+				BFFF05C62519ADEA00FCFD5D /* Podfile */,
+				BFFF05C72519ADF200FCFD5D /* Cartfile */,
+			);
+			name = Enviroment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

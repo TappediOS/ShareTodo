@@ -42,7 +42,7 @@ final class GroupTodoViewController: UIViewController {
     }
     
     func setupGroupTableView() {
-        self.groupTableView.rowHeight = 85
+        self.groupTableView.rowHeight = 96
         self.groupTableView.delegate = self
         self.groupTableView.dataSource = self
         self.groupTableView.emptyDataSetSource = self

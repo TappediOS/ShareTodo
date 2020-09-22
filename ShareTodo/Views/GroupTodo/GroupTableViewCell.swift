@@ -12,6 +12,7 @@ import Nuke
 class GroupTableViewCell: UITableViewCell {
     @IBOutlet weak var groupImageView: UIImageView!
     @IBOutlet weak var groupNameLabel: UILabel!
+    @IBOutlet weak var groupTaskLabel: UILabel!
     @IBOutlet weak var groupMembersNameLabel: UILabel!
     
     override func awakeFromNib() {
@@ -41,6 +42,7 @@ class GroupTableViewCell: UITableViewCell {
     
     func configure(group: Group, user: [User]) {
         self.groupNameLabel.text = group.name
+        self.groupTaskLabel.text = group.task
         self.groupMembersNameLabel.text = user.map { $0.name }.joined(separator: ", ")
         
         guard let url = URL(string: group.profileImageURL ?? "") else { return }

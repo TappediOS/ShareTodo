@@ -49,7 +49,7 @@ final class UserDetailViewController: UIViewController {
     
     func setupGroupTaskLabel() {
         self.groupTaskLabel.adjustsFontSizeToFitWidth = true
-        self.groupTaskLabel.minimumScaleFactor = 0.4
+        self.groupTaskLabel.minimumScaleFactor = 0.4
     }
     
     func setupActivityIndicator() {

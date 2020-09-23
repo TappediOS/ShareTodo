@@ -147,6 +147,7 @@
 		BFD5DDDE251AFFE900E35F18 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5DDDD251AFFE900E35F18 /* UserDetailViewController.swift */; };
 		BFD5DDE2251AFFF900E35F18 /* UserDetailViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5DDE1251AFFF900E35F18 /* UserDetailViewPresenter.swift */; };
 		BFD5DDE6251AFFFD00E35F18 /* UserDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5DDE5251AFFFD00E35F18 /* UserDetailViewModel.swift */; };
+		BFD5DDEA251B007200E35F18 /* UserDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD5DDE9251B007200E35F18 /* UserDetail.storyboard */; };
 		BFFA616B2508882F00A1D2CE /* EditGroupViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFA616A2508882F00A1D2CE /* EditGroupViewBuilder.swift */; };
 		BFFA616D2508883400A1D2CE /* EditGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFA616C2508883400A1D2CE /* EditGroupViewController.swift */; };
 		BFFA616F2508883900A1D2CE /* EditGroupViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFA616E2508883900A1D2CE /* EditGroupViewPresenter.swift */; };
@@ -384,6 +385,7 @@
 		BFD5DDDD251AFFE900E35F18 /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 		BFD5DDE1251AFFF900E35F18 /* UserDetailViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewPresenter.swift; sourceTree = "<group>"; };
 		BFD5DDE5251AFFFD00E35F18 /* UserDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewModel.swift; sourceTree = "<group>"; };
+		BFD5DDE9251B007200E35F18 /* UserDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserDetail.storyboard; sourceTree = "<group>"; };
 		BFFA616A2508882F00A1D2CE /* EditGroupViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupViewBuilder.swift; sourceTree = "<group>"; };
 		BFFA616C2508883400A1D2CE /* EditGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupViewController.swift; sourceTree = "<group>"; };
 		BFFA616E2508883900A1D2CE /* EditGroupViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupViewPresenter.swift; sourceTree = "<group>"; };
@@ -695,6 +697,7 @@
 				BFD4362D24CDAD0000B2E580 /* RegisterUser.storyboard */,
 				BFA31F4324FF445200553F06 /* GroupDetail.storyboard */,
 				BFFA61722508884700A1D2CE /* EditGroup.storyboard */,
+				BFD5DDE9251B007200E35F18 /* UserDetail.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -1098,6 +1101,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFD5DDEA251B007200E35F18 /* UserDetail.storyboard in Resources */,
 				BF5CB6B12501CD9100EA1024 /* GroupDetailCollectionReusableView.xib in Resources */,
 				BF97245424CC6BD80033BB50 /* EditProfile.storyboard in Resources */,
 				BFA31F4424FF445200553F06 /* GroupDetail.storyboard in Resources */,

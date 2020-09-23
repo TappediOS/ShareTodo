@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import FSCalendar
 
 final class UserDetailViewController: UIViewController {
     private var presenter: UserDetailViewPresenterProtocol!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var calenderView: FSCalendar!
     @IBOutlet weak var groupImageView: UIImageView!
     @IBOutlet weak var groupNameLabel: UILabel!
     @IBOutlet weak var groupTaskLabel: UILabel!
@@ -22,10 +24,11 @@ final class UserDetailViewController: UIViewController {
         super.viewDidLoad()
         
         self.setupNavigationBar()
-        self.setupActivityIndicator()
+        self.setupCalenderView()
         self.setupGroupImageView()
         self.setupGroupNameLabel()
         self.setupGroupTaskLabel()
+        self.setupActivityIndicator()
     }
     
     func setupNavigationBar() {
@@ -33,6 +36,11 @@ final class UserDetailViewController: UIViewController {
         self.navigationItem.title = "さんま"
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.tintColor = .systemGreen
+    }
+    
+    func setupCalenderView() {
+        self.calenderView.delegate = self
+        self.calenderView.dataSource = self
     }
     
     func setupGroupImageView() {
@@ -67,4 +75,18 @@ final class UserDetailViewController: UIViewController {
 
 extension UserDetailViewController: UserDetailViewPresenterOutput {
     
+}
+
+extension UserDetailViewController: FSCalendarDelegate, FSCalendarDataSource {
+    func maximumDate(for calendar: FSCalendar) -> Date {
+        return Date()
+    }
+    
+    func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
+        if arc4random() % 15 == 0 {
+            let image = UIImage(systemName: "checkmark.seal.fill")?.withTintColor(.systemGreen).withRenderingMode(.alwaysOriginal)
+            return image
+        }
+        return nil
+    }
 }

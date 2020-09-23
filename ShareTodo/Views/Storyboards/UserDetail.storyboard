@@ -63,9 +63,19 @@
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a53-2h-RHf">
                                                 <rect key="frame" x="0.0" y="68" width="414" height="500"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0t1-Ak-KaL" customClass="FSCalendar">
+                                                        <rect key="frame" x="8" y="8" width="398" height="484"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    </view>
+                                                </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="500" id="2Hn-u8-iFP"/>
+                                                    <constraint firstItem="0t1-Ak-KaL" firstAttribute="top" secondItem="a53-2h-RHf" secondAttribute="top" constant="8" id="4k9-Ew-ZxT"/>
+                                                    <constraint firstAttribute="bottom" secondItem="0t1-Ak-KaL" secondAttribute="bottom" constant="8" id="6CR-ef-BfL"/>
+                                                    <constraint firstItem="0t1-Ak-KaL" firstAttribute="leading" secondItem="a53-2h-RHf" secondAttribute="leading" constant="8" id="jPw-Ph-pdK"/>
+                                                    <constraint firstAttribute="trailing" secondItem="0t1-Ak-KaL" secondAttribute="trailing" constant="8" id="zRj-Si-L9b"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E02-D3-RAc">
@@ -122,6 +132,7 @@
                     </view>
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
+                        <outlet property="calenderView" destination="0t1-Ak-KaL" id="Nbd-Gn-BY0"/>
                         <outlet property="groupImageView" destination="f4n-bb-oVe" id="Ksf-Uy-5Pb"/>
                         <outlet property="groupNameLabel" destination="xeO-SB-V4J" id="7bp-51-Dt2"/>
                         <outlet property="groupTaskLabel" destination="ft3-Ro-Bxs" id="gRe-L6-3Sb"/>

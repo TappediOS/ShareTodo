@@ -11,6 +11,7 @@ protocol GroupDetailViewPresenterProtocol {
     var group: Group { get }
     var groupUsers: [User] { get }
     var isFinishedUsersIDs: [String] { get }
+    func didFinishedEditGroup()
     
     func didViewDidLoad()
     func didTapEditGroup()
@@ -24,6 +25,8 @@ protocol GroupDetailViewPresenterOutput: class {
 final class GroupDetailViewPresenter: GroupDetailViewPresenterProtocol, GroupDetailModelOutput {
     weak var view: GroupDetailViewPresenterOutput!
     private var model: GroupDetailModelProtocol
+    
+    let repository = GroupRepository()
 
     var group: Group { return self.model.group }
     var groupUsers: [User] { return self.model.groupUsers }
@@ -33,6 +36,7 @@ final class GroupDetailViewPresenter: GroupDetailViewPresenterProtocol, GroupDet
     init(model: GroupDetailModelProtocol) {
         self.model = model
         self.model.presenter = self
+        GroupDataStore.groupDataStore.delegate = self
     }
     
     func didViewDidLoad() {
@@ -43,7 +47,23 @@ final class GroupDetailViewPresenter: GroupDetailViewPresenterProtocol, GroupDet
         self.view.showEditGroupVC()
     }
     
+    func didFinishedEditGroup() {
+        guard let groupID = self.model.group.groupID else { return }
+        repository.fetchGroup(groupID: groupID)
+    }
+    
     func successFetchTodayTodo() {
         self.view.reloadGroupDetailCollectionView()
+    }
+}
+
+extension GroupDetailViewPresenter: GroupCompleteDelegate {
+    func success(dataStore: GroupDataStore) {
+        print(dataStore.groups)
+    }
+    
+    func failure(error: Error) {
+        print("Error: \(error.localizedDescription)")
+        return
     }
 }

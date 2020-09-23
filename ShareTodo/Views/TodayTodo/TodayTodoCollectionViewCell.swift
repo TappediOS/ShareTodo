@@ -12,6 +12,7 @@ import Nuke
 class TodayTodoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var groupImageView: UIImageView!
     @IBOutlet weak var taskLabel: UILabel!
+    @IBOutlet weak var groupNameLabel: UILabel!
     @IBOutlet weak var radioButton: UIButton!
     
     var radioButtonAction: (() -> Void)?
@@ -49,6 +50,8 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
         let radioButtonImage = isFinished ? UIImage(systemName: "checkmark.circle.fill") : UIImage(systemName: "checkmark.circle")
         
         self.taskLabel.text = group.task
+        //TODO:- StringFileで抜き出すこと
+        self.groupNameLabel.text = "Group: " + group.name
         self.radioButton.setImage(radioButtonImage, for: .normal)
         
         guard let url = URL(string: group.profileImageURL ?? "") else { return }

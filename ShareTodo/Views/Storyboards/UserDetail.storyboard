@@ -27,14 +27,14 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f4n-bb-oVe">
-                                                        <rect key="frame" x="8" y="8" width="50" height="50"/>
+                                                        <rect key="frame" x="32" y="8" width="50" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="50" id="SJl-Jx-aX3"/>
                                                             <constraint firstAttribute="width" secondItem="f4n-bb-oVe" secondAttribute="height" multiplier="1:1" id="lPn-Sd-ZMH"/>
                                                         </constraints>
                                                     </imageView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="gCz-Mv-3KR">
-                                                        <rect key="frame" x="66" y="8" width="340" height="45.5"/>
+                                                        <rect key="frame" x="90" y="10.5" width="316" height="45.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xeO-SB-V4J">
                                                                 <rect key="frame" x="0.0" y="0.0" width="111" height="24"/>
@@ -55,10 +55,10 @@
                                                 <constraints>
                                                     <constraint firstItem="f4n-bb-oVe" firstAttribute="centerY" secondItem="X6m-eo-fYl" secondAttribute="centerY" id="8Nc-rX-Bqy"/>
                                                     <constraint firstAttribute="height" constant="66" id="93P-W5-b5O"/>
-                                                    <constraint firstItem="f4n-bb-oVe" firstAttribute="leading" secondItem="X6m-eo-fYl" secondAttribute="leading" constant="8" id="Tgz-0S-cI0"/>
+                                                    <constraint firstItem="gCz-Mv-3KR" firstAttribute="centerY" secondItem="X6m-eo-fYl" secondAttribute="centerY" id="G2s-Fr-Co7"/>
+                                                    <constraint firstItem="f4n-bb-oVe" firstAttribute="leading" secondItem="X6m-eo-fYl" secondAttribute="leading" constant="32" id="Tgz-0S-cI0"/>
                                                     <constraint firstItem="gCz-Mv-3KR" firstAttribute="leading" secondItem="f4n-bb-oVe" secondAttribute="trailing" constant="8" symbolic="YES" id="ToO-fQ-4oL"/>
                                                     <constraint firstAttribute="trailing" secondItem="gCz-Mv-3KR" secondAttribute="trailing" constant="8" id="kYd-TD-dRT"/>
-                                                    <constraint firstItem="gCz-Mv-3KR" firstAttribute="top" secondItem="f4n-bb-oVe" secondAttribute="top" id="vwt-i2-I3d"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a53-2h-RHf">

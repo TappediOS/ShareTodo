@@ -151,6 +151,8 @@
 		BFD5DDEE251B0EE700E35F18 /* carthage.sh in Resources */ = {isa = PBXBuildFile; fileRef = BFD5DDED251B0EE700E35F18 /* carthage.sh */; };
 		BFD5DDF4251B0FE700E35F18 /* FSCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD5DDF3251B0FE700E35F18 /* FSCalendar.framework */; };
 		BFD5DDF5251B0FE800E35F18 /* FSCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFD5DDF3251B0FE700E35F18 /* FSCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BFD5DE00251B8CE400E35F18 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BFD5DDFF251B8CE300E35F18 /* .swiftlint.yml */; };
+		BFD5DE04251B8CFB00E35F18 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BFD5DE03251B8CFB00E35F18 /* .gitignore */; };
 		BFFA616B2508882F00A1D2CE /* EditGroupViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFA616A2508882F00A1D2CE /* EditGroupViewBuilder.swift */; };
 		BFFA616D2508883400A1D2CE /* EditGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFA616C2508883400A1D2CE /* EditGroupViewController.swift */; };
 		BFFA616F2508883900A1D2CE /* EditGroupViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFA616E2508883900A1D2CE /* EditGroupViewPresenter.swift */; };
@@ -391,6 +393,8 @@
 		BFD5DDE9251B007200E35F18 /* UserDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserDetail.storyboard; sourceTree = "<group>"; };
 		BFD5DDED251B0EE700E35F18 /* carthage.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = carthage.sh; sourceTree = "<group>"; };
 		BFD5DDF3251B0FE700E35F18 /* FSCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FSCalendar.framework; path = Carthage/Build/iOS/FSCalendar.framework; sourceTree = "<group>"; };
+		BFD5DDFF251B8CE300E35F18 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		BFD5DE03251B8CFB00E35F18 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		BFFA616A2508882F00A1D2CE /* EditGroupViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupViewBuilder.swift; sourceTree = "<group>"; };
 		BFFA616C2508883400A1D2CE /* EditGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupViewController.swift; sourceTree = "<group>"; };
 		BFFA616E2508883900A1D2CE /* EditGroupViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupViewPresenter.swift; sourceTree = "<group>"; };
@@ -990,6 +994,8 @@
 				BFFF05C52519ADDB00FCFD5D /* README.md */,
 				BFFF05C62519ADEA00FCFD5D /* Podfile */,
 				BFFF05C72519ADF200FCFD5D /* Cartfile */,
+				BFD5DDFF251B8CE300E35F18 /* .swiftlint.yml */,
+				BFD5DE03251B8CFB00E35F18 /* .gitignore */,
 			);
 			name = Enviroment;
 			sourceTree = "<group>";
@@ -1108,7 +1114,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFD5DE04251B8CFB00E35F18 /* .gitignore in Resources */,
 				BFD5DDEA251B007200E35F18 /* UserDetail.storyboard in Resources */,
+				BFD5DE00251B8CE400E35F18 /* .swiftlint.yml in Resources */,
 				BF5CB6B12501CD9100EA1024 /* GroupDetailCollectionReusableView.xib in Resources */,
 				BF97245424CC6BD80033BB50 /* EditProfile.storyboard in Resources */,
 				BFA31F4424FF445200553F06 /* GroupDetail.storyboard in Resources */,

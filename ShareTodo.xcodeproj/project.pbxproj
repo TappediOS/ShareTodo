@@ -153,6 +153,7 @@
 		BFD5DDF5251B0FE800E35F18 /* FSCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFD5DDF3251B0FE700E35F18 /* FSCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BFD5DE00251B8CE400E35F18 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BFD5DDFF251B8CE300E35F18 /* .swiftlint.yml */; };
 		BFD5DE04251B8CFB00E35F18 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BFD5DE03251B8CFB00E35F18 /* .gitignore */; };
+		BFD5DE09251B8ED200E35F18 /* NavigationImageConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5DE08251B8ED200E35F18 /* NavigationImageConst.swift */; };
 		BFFA616B2508882F00A1D2CE /* EditGroupViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFA616A2508882F00A1D2CE /* EditGroupViewBuilder.swift */; };
 		BFFA616D2508883400A1D2CE /* EditGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFA616C2508883400A1D2CE /* EditGroupViewController.swift */; };
 		BFFA616F2508883900A1D2CE /* EditGroupViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFA616E2508883900A1D2CE /* EditGroupViewPresenter.swift */; };
@@ -395,6 +396,7 @@
 		BFD5DDF3251B0FE700E35F18 /* FSCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FSCalendar.framework; path = Carthage/Build/iOS/FSCalendar.framework; sourceTree = "<group>"; };
 		BFD5DDFF251B8CE300E35F18 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		BFD5DE03251B8CFB00E35F18 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		BFD5DE08251B8ED200E35F18 /* NavigationImageConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationImageConst.swift; sourceTree = "<group>"; };
 		BFFA616A2508882F00A1D2CE /* EditGroupViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupViewBuilder.swift; sourceTree = "<group>"; };
 		BFFA616C2508883400A1D2CE /* EditGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupViewController.swift; sourceTree = "<group>"; };
 		BFFA616E2508883900A1D2CE /* EditGroupViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupViewPresenter.swift; sourceTree = "<group>"; };
@@ -504,6 +506,7 @@
 		BF68711E2510508D00923A8B /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				BFD5DE07251B8EBD00E35F18 /* AppData */,
 				BF68711F2510509600923A8B /* Repository */,
 				BF68712925109E8B00923A8B /* DataStore */,
 			);
@@ -976,6 +979,14 @@
 			path = UserDetail;
 			sourceTree = "<group>";
 		};
+		BFD5DE07251B8EBD00E35F18 /* AppData */ = {
+			isa = PBXGroup;
+			children = (
+				BFD5DE08251B8ED200E35F18 /* NavigationImageConst.swift */,
+			);
+			path = AppData;
+			sourceTree = "<group>";
+		};
 		BFFA61692508881800A1D2CE /* EditGroup */ = {
 			isa = PBXGroup;
 			children = (
@@ -1380,6 +1391,7 @@
 				BF88D4D024CAAA8D00607D6A /* SampleViewController.swift in Sources */,
 				BF68712B25109EA300923A8B /* GroupRepository.swift in Sources */,
 				BFD4361524CD4F5300B2E580 /* CreateNewGroupInfoViewBuilder.swift in Sources */,
+				BFD5DE09251B8ED200E35F18 /* NavigationImageConst.swift in Sources */,
 				BF88D4E624CAB6A200607D6A /* MainTabBarPresenter.swift in Sources */,
 				BFFA616B2508882F00A1D2CE /* EditGroupViewBuilder.swift in Sources */,
 				BFD4362824CDAC9D00B2E580 /* RegisterUserViewController.swift in Sources */,

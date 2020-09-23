@@ -148,6 +148,9 @@
 		BFD5DDE2251AFFF900E35F18 /* UserDetailViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5DDE1251AFFF900E35F18 /* UserDetailViewPresenter.swift */; };
 		BFD5DDE6251AFFFD00E35F18 /* UserDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5DDE5251AFFFD00E35F18 /* UserDetailViewModel.swift */; };
 		BFD5DDEA251B007200E35F18 /* UserDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD5DDE9251B007200E35F18 /* UserDetail.storyboard */; };
+		BFD5DDEE251B0EE700E35F18 /* carthage.sh in Resources */ = {isa = PBXBuildFile; fileRef = BFD5DDED251B0EE700E35F18 /* carthage.sh */; };
+		BFD5DDF4251B0FE700E35F18 /* FSCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD5DDF3251B0FE700E35F18 /* FSCalendar.framework */; };
+		BFD5DDF5251B0FE800E35F18 /* FSCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFD5DDF3251B0FE700E35F18 /* FSCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BFFA616B2508882F00A1D2CE /* EditGroupViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFA616A2508882F00A1D2CE /* EditGroupViewBuilder.swift */; };
 		BFFA616D2508883400A1D2CE /* EditGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFA616C2508883400A1D2CE /* EditGroupViewController.swift */; };
 		BFFA616F2508883900A1D2CE /* EditGroupViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFA616E2508883900A1D2CE /* EditGroupViewPresenter.swift */; };
@@ -183,6 +186,7 @@
 				BFD435F824CD425B00B2E580 /* DZNEmptyDataSet.framework in Embed Frameworks */,
 				BFD4366324CDC4B800B2E580 /* Nuke.framework in Embed Frameworks */,
 				BFD435D024CD2EBD00B2E580 /* CropViewController.framework in Embed Frameworks */,
+				BFD5DDF5251B0FE800E35F18 /* FSCalendar.framework in Embed Frameworks */,
 				BFD435FA24CD425C00B2E580 /* SCLAlertView.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -203,7 +207,6 @@
 		BF020FC22510AA57006DC525 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		BF020FC42510AA7D006DC525 /* UserDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataStore.swift; sourceTree = "<group>"; };
 		BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTodoViewModelTests.swift; sourceTree = "<group>"; };
-		BF58FDD9251301FA0013F547 /* CarthageXcode12Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CarthageXcode12Config.xcconfig; sourceTree = "<group>"; };
 		BF5CB6AE2501CD9100EA1024 /* GroupDetailCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailCollectionReusableView.swift; sourceTree = "<group>"; };
 		BF5CB6AF2501CD9100EA1024 /* GroupDetailCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupDetailCollectionReusableView.xib; sourceTree = "<group>"; };
 		BF5CB6B22504AB8100EA1024 /* GroupDetailCollectionViewUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailCollectionViewUserCell.swift; sourceTree = "<group>"; };
@@ -386,6 +389,8 @@
 		BFD5DDE1251AFFF900E35F18 /* UserDetailViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewPresenter.swift; sourceTree = "<group>"; };
 		BFD5DDE5251AFFFD00E35F18 /* UserDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewModel.swift; sourceTree = "<group>"; };
 		BFD5DDE9251B007200E35F18 /* UserDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserDetail.storyboard; sourceTree = "<group>"; };
+		BFD5DDED251B0EE700E35F18 /* carthage.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = carthage.sh; sourceTree = "<group>"; };
+		BFD5DDF3251B0FE700E35F18 /* FSCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FSCalendar.framework; path = Carthage/Build/iOS/FSCalendar.framework; sourceTree = "<group>"; };
 		BFFA616A2508882F00A1D2CE /* EditGroupViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupViewBuilder.swift; sourceTree = "<group>"; };
 		BFFA616C2508883400A1D2CE /* EditGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupViewController.swift; sourceTree = "<group>"; };
 		BFFA616E2508883900A1D2CE /* EditGroupViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupViewPresenter.swift; sourceTree = "<group>"; };
@@ -413,6 +418,7 @@
 				BF97249524CD24B10033BB50 /* gRPC-Core.framework in Frameworks */,
 				BF97248124CD24AE0033BB50 /* gRPC-C++.framework in Frameworks */,
 				BF97248324CD24AE0033BB50 /* PromisesObjC.framework in Frameworks */,
+				BFD5DDF4251B0FE700E35F18 /* FSCalendar.framework in Frameworks */,
 				BFD4366224CDC4B800B2E580 /* Nuke.framework in Frameworks */,
 				BF97246D24CD24AD0033BB50 /* leveldb-library.framework in Frameworks */,
 				BF97248F24CD24B00033BB50 /* FirebaseInstallations.framework in Frameworks */,
@@ -762,6 +768,7 @@
 		BF97245724CD24AC0033BB50 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BFD5DDF3251B0FE700E35F18 /* FSCalendar.framework */,
 				BFD4363124CDC4AD00B2E580 /* Build */,
 				BFD435F524CD425B00B2E580 /* DZNEmptyDataSet.framework */,
 				BFD435F624CD425B00B2E580 /* SCLAlertView.framework */,
@@ -979,7 +986,7 @@
 		BFFF05C42519AD4C00FCFD5D /* Enviroment */ = {
 			isa = PBXGroup;
 			children = (
-				BF58FDD9251301FA0013F547 /* CarthageXcode12Config.xcconfig */,
+				BFD5DDED251B0EE700E35F18 /* carthage.sh */,
 				BFFF05C52519ADDB00FCFD5D /* README.md */,
 				BFFF05C62519ADEA00FCFD5D /* Podfile */,
 				BFFF05C72519ADF200FCFD5D /* Cartfile */,
@@ -1114,6 +1121,7 @@
 				BFD4361D24CD504800B2E580 /* CreateNewGroupInfo.storyboard in Resources */,
 				BF88D51724CABD1000607D6A /* Profile.storyboard in Resources */,
 				BF88D50024CAB9F000607D6A /* TodayTodo.storyboard in Resources */,
+				BFD5DDEE251B0EE700E35F18 /* carthage.sh in Resources */,
 				BF88D4F524CAB8F300607D6A /* GroupTodo.storyboard in Resources */,
 				BFD4366624CE62C700B2E580 /* Assets.xcassets in Resources */,
 				BFFA61732508884700A1D2CE /* EditGroup.storyboard in Resources */,

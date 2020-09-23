@@ -121,6 +121,12 @@
                         </constraints>
                     </view>
                     <size key="freeformSize" width="414" height="1000"/>
+                    <connections>
+                        <outlet property="groupImageView" destination="f4n-bb-oVe" id="Ksf-Uy-5Pb"/>
+                        <outlet property="groupNameLabel" destination="xeO-SB-V4J" id="7bp-51-Dt2"/>
+                        <outlet property="groupTaskLabel" destination="ft3-Ro-Bxs" id="gRe-L6-3Sb"/>
+                        <outlet property="scrollView" destination="9xU-Rn-w6k" id="yaW-y0-I7A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="odf-8f-iym" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

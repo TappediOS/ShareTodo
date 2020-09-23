@@ -10,6 +10,10 @@ import UIKit
 
 final class UserDetailViewController: UIViewController {
     private var presenter: UserDetailViewPresenterProtocol!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var groupImageView: UIImageView!
+    @IBOutlet weak var groupNameLabel: UILabel!
+    @IBOutlet weak var groupTaskLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,4 +28,3 @@ final class UserDetailViewController: UIViewController {
 extension UserDetailViewController: UserDetailViewPresenterOutput {
     
 }
-

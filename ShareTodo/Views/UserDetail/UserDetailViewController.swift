@@ -17,12 +17,15 @@ final class UserDetailViewController: UIViewController {
     @IBOutlet weak var groupNameLabel: UILabel!
     @IBOutlet weak var groupTaskLabel: UILabel!
     
+    private let profileImageView = UIImageView()
     var activityIndicator = UIActivityIndicatorView()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setupView()
+        self.setupProfileImageView()
         self.setupNavigationBar()
         self.setupCalenderView()
         self.setupGroupImageView()
@@ -31,11 +34,49 @@ final class UserDetailViewController: UIViewController {
         self.setupActivityIndicator()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.showNavigationImage(false)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.showNavigationImage(true)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.profileImageView.removeFromSuperview()
+    }
+    
+    func setupView() {
+        self.scrollView.delegate = self
+    }
+    
+    func setupProfileImageView() {
+        //TODO:- 以下を実際のユーザimageに変更すること
+        self.profileImageView.image = R.image.defaultProfileImage()
+        self.profileImageView.layer.borderWidth = 0.25
+        self.profileImageView.layer.borderColor = UIColor.systemGray2.cgColor
+    }
+    
     func setupNavigationBar() {
         //TODO:- 以下を実際のユーザ名に変更すること
         self.navigationItem.title = "さんま"
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.tintColor = .systemGreen
+        
+        guard let navigationBar = self.navigationController?.navigationBar else { return }
+        navigationBar.addSubview(profileImageView)
+        profileImageView.layer.cornerRadius = NavigationImageConst.ImageSizeForLargeState / 2
+        profileImageView.clipsToBounds = true
+        profileImageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            profileImageView.rightAnchor.constraint(equalTo: navigationBar.rightAnchor, constant: -NavigationImageConst.ImageRightMargin),
+            profileImageView.bottomAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: -NavigationImageConst.ImageBottomMarginForLargeState),
+            profileImageView.heightAnchor.constraint(equalToConstant: NavigationImageConst.ImageSizeForLargeState),
+            profileImageView.widthAnchor.constraint(equalTo: profileImageView.heightAnchor)
+        ])
     }
     
     func setupCalenderView() {
@@ -67,6 +108,12 @@ final class UserDetailViewController: UIViewController {
         self.view.addSubview(self.activityIndicator)
     }
     
+    private func showNavigationImage(_ show: Bool) {
+        UIView.animate(withDuration: 0.2) {
+            self.profileImageView.alpha = show ? 1.0 : 0.0
+        }
+    }
+    
     func inject(with presenter: UserDetailViewPresenterProtocol) {
         self.presenter = presenter
         self.presenter.view = self
@@ -74,7 +121,19 @@ final class UserDetailViewController: UIViewController {
 }
 
 extension UserDetailViewController: UserDetailViewPresenterOutput {
-    
+    func moveAndResizeImage(scale: CGFloat, xTranslation: CGFloat, yTranslation: CGFloat) {
+        DispatchQueue.main.async {
+            self.profileImageView.transform = CGAffineTransform.identity.scaledBy(x: scale, y: scale).translatedBy(x: xTranslation, y: yTranslation)
+            self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width / 2
+        }
+    }
+}
+
+extension UserDetailViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let height = navigationController?.navigationBar.frame.height else { return }
+        self.presenter.didScrollViewDidScroll(height: height)
+    }
 }
 
 extension UserDetailViewController: FSCalendarDelegate, FSCalendarDataSource {

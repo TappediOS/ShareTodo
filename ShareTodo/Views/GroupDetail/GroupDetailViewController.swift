@@ -103,10 +103,14 @@ extension GroupDetailViewController: GroupDetailViewPresenterOutput {
         navigationController.modalPresentationStyle = .fullScreen
         self.present(navigationController, animated: true, completion: nil)
     }
+    
+    func segueUserDetailViewController(index: Int) {
+        let userDetailVC = UserDetailViewBuilder.create()
+        self.navigationController?.pushViewController(userDetailVC, animated: true)
+    }
 }
 
 extension GroupDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
@@ -132,6 +136,11 @@ extension GroupDetailViewController: UICollectionViewDelegate, UICollectionViewD
         
         cell.configure(with: self.presenter.groupUsers[indexPath.item])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard indexPath.section == 1 else { return }
+        self.presenter.didTapGroupDetailCollectionViewuserCell(index: indexPath.item)
     }
 
 }

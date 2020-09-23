@@ -32,7 +32,7 @@ final class GroupDetailViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        self.presenter.didFinishedEditGroup()
+        
     }
     
     override func viewDidLayoutSubviews() {

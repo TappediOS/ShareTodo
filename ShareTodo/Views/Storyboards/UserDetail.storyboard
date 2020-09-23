@@ -20,8 +20,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9xU-Rn-w6k">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="jlt-Ad-vVy">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="670"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="jlt-Ad-vVy">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="724"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X6m-eo-fYl">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
@@ -62,7 +62,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a53-2h-RHf">
-                                                <rect key="frame" x="0.0" y="68" width="414" height="500"/>
+                                                <rect key="frame" x="0.0" y="70" width="414" height="500"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0t1-Ak-KaL" customClass="FSCalendar">
                                                         <rect key="frame" x="8" y="8" width="398" height="484"/>
@@ -76,6 +76,9 @@
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="selectionColor">
                                                                 <color key="value" systemColor="systemTealColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="titleDefaultColor">
+                                                                <color key="value" systemColor="labelColor"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
@@ -94,7 +97,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E02-D3-RAc">
-                                                <rect key="frame" x="0.0" y="570" width="414" height="100"/>
+                                                <rect key="frame" x="0.0" y="574" width="414" height="150"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1週間より過去のタスクを確認したい方に" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YP0-5q-OKa">
                                                         <rect key="frame" x="8" y="16" width="398" height="21"/>
@@ -117,7 +120,7 @@
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstItem="SfA-1g-skh" firstAttribute="centerX" secondItem="E02-D3-RAc" secondAttribute="centerX" id="9dA-1E-mg7"/>
-                                                    <constraint firstAttribute="height" constant="100" id="EQw-ss-DGe"/>
+                                                    <constraint firstAttribute="height" constant="150" id="EQw-ss-DGe"/>
                                                     <constraint firstItem="SfA-1g-skh" firstAttribute="top" secondItem="YP0-5q-OKa" secondAttribute="bottom" constant="8" id="G9g-DS-eYJ"/>
                                                     <constraint firstItem="YP0-5q-OKa" firstAttribute="top" secondItem="E02-D3-RAc" secondAttribute="top" constant="16" id="M0p-8V-psu"/>
                                                     <constraint firstItem="YP0-5q-OKa" firstAttribute="leading" secondItem="E02-D3-RAc" secondAttribute="leading" constant="8" id="dmg-6h-3im"/>
@@ -160,6 +163,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

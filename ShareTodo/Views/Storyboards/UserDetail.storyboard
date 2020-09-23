@@ -14,11 +14,11 @@
             <objects>
                 <viewController id="A52-EZ-iv1" customClass="UserDetailViewController" customModule="ShareTodo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vcb-bW-Aaf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9xU-Rn-w6k">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="jlt-Ad-vVy">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="683"/>
@@ -62,6 +62,7 @@
                             <constraint firstItem="9xU-Rn-w6k" firstAttribute="trailing" secondItem="53y-mG-UsW" secondAttribute="trailing" id="udm-zX-Ga3"/>
                         </constraints>
                     </view>
+                    <size key="freeformSize" width="414" height="1000"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="odf-8f-iym" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

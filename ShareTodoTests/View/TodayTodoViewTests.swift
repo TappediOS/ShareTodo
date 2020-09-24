@@ -89,7 +89,6 @@ class TodayTodoViewTests: XCTestCase {
     func test_起動時の変数の値が正しいこと() {
         let presenter = TodayTodoViewPresenter(model: TodayTodoModelMock())
         view.inject(with: presenter)
-        
         view.loadViewIfNeeded()
         view.view.layoutIfNeeded()
         
@@ -109,7 +108,6 @@ class TodayTodoViewTests: XCTestCase {
     func test_起動時のCellの値が正しいこと() {
         let presenter = TodayTodoViewPresenter(model: TodayTodoModelMock())
         view.inject(with: presenter)
-        
         view.loadViewIfNeeded()
         view.view.layoutIfNeeded()
 
@@ -135,6 +133,79 @@ class TodayTodoViewTests: XCTestCase {
             XCTAssertEqual(cell3.groupNameLabel.text, "Group: Grape")
             XCTAssertEqual(cell3.taskLabel.text, "Jelly")
             XCTAssertNil(cell3.groupImageView.image)
+        }
+    }
+    
+    func test_起動後に1つ目のcellをタップしたときのテスト() {
+        let presenter = TodayTodoViewPresenter(model: TodayTodoModelMock())
+        view.inject(with: presenter)
+        view.loadViewIfNeeded()
+        view.view.layoutIfNeeded()
+        
+        presenter.didTapRadioButton(index: 0)
+        
+        XCTContext.runActivity(named: "todosの状態が正しいこと") { _ in
+            XCTAssertEqual(presenter.todos.count, 2)
+            XCTAssertTrue(presenter.todos[0].isFinished)
+            XCTAssertTrue(presenter.todos[1].isFinished)
+        }
+    }
+    
+    func test_起動後に2つ目のcellをタップしたときのテスト() {
+        let presenter = TodayTodoViewPresenter(model: TodayTodoModelMock())
+        view.inject(with: presenter)
+        view.loadViewIfNeeded()
+        view.view.layoutIfNeeded()
+        
+        presenter.didTapRadioButton(index: 1)
+        
+        XCTContext.runActivity(named: "todosの状態が正しいこと") { _ in
+            XCTAssertEqual(presenter.todos.count, 2)
+            XCTAssertFalse(presenter.todos[0].isFinished)
+            XCTAssertFalse(presenter.todos[1].isFinished)
+        }
+    }
+    
+    func test_起動後に3つ目のcellをタップしたときのテスト() {
+        let presenter = TodayTodoViewPresenter(model: TodayTodoModelMock())
+        view.inject(with: presenter)
+        view.loadViewIfNeeded()
+        view.view.layoutIfNeeded()
+        
+        presenter.didTapRadioButton(index: 2)
+        
+        XCTContext.runActivity(named: "todosの状態が正しいこと") { _ in
+            XCTAssertEqual(presenter.todos.count, 3)
+            XCTAssertFalse(presenter.todos[0].isFinished)
+            XCTAssertTrue(presenter.todos[1].isFinished)
+            XCTAssertTrue(presenter.todos[2].isFinished)
+        }
+    }
+    
+    func test_起動後に複数のcellをタップしたときのテスト() {
+        let presenter = TodayTodoViewPresenter(model: TodayTodoModelMock())
+        view.inject(with: presenter)
+        view.loadViewIfNeeded()
+        view.view.layoutIfNeeded()
+        
+        presenter.didTapRadioButton(index: 0)
+        presenter.didTapRadioButton(index: 1)
+        
+        XCTContext.runActivity(named: "todosの状態が正しいこと") { _ in
+            XCTAssertEqual(presenter.todos.count, 2)
+            XCTAssertTrue(presenter.todos[0].isFinished)
+            XCTAssertFalse(presenter.todos[1].isFinished)
+        }
+        
+        presenter.didTapRadioButton(index: 2)
+        presenter.didTapRadioButton(index: 0)
+        presenter.didTapRadioButton(index: 2)
+        
+        XCTContext.runActivity(named: "todosの状態が正しいこと") { _ in
+            XCTAssertEqual(presenter.todos.count, 3)
+            XCTAssertFalse(presenter.todos[0].isFinished)
+            XCTAssertFalse(presenter.todos[1].isFinished)
+            XCTAssertFalse(presenter.todos[2].isFinished)
         }
     }
     

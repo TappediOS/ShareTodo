@@ -150,7 +150,6 @@ extension UserDetailViewController: UserDetailViewPresenterOutput {
     func moveAndResizeImage(scale: CGFloat, xTranslation: CGFloat, yTranslation: CGFloat) {
         DispatchQueue.main.async {
             self.profileImageView.transform = CGAffineTransform.identity.scaledBy(x: scale, y: scale).translatedBy(x: xTranslation, y: yTranslation)
-            self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width / 2
         }
     }
 }

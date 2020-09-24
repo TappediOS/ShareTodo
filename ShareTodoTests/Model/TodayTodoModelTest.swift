@@ -20,8 +20,8 @@ class TodayTodoModelTests: XCTestCase {
     }
 
     func testGetTodayFormat() throws {
-        let todayTodoModel = TodayTodoModel()
-        let exp = todayTodoModel.getTodayFormat()
+        let model = TodayTodoModel()
+        let exp = model.getTodayFormat()
         let expArray = exp.components(separatedBy: "_")
                 
         XCTAssertEqual(expArray.count, 3)

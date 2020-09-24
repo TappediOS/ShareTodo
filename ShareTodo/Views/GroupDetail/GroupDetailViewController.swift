@@ -105,7 +105,8 @@ extension GroupDetailViewController: GroupDetailViewPresenterOutput {
     }
     
     func segueUserDetailViewController(index: Int) {
-        let userDetailVC = UserDetailViewBuilder.create()
+        print(self.presenter.groupUsers[index].name)
+        let userDetailVC = UserDetailViewBuilder.create(group: self.presenter.group, user: self.presenter.groupUsers[index])
         self.navigationController?.pushViewController(userDetailVC, animated: true)
     }
 }

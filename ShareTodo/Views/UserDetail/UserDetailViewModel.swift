@@ -10,6 +10,8 @@ import UIKit
 
 protocol UserDetailModelProtocol {
     var presenter: UserDetailModelOutput! { get set }
+    var group: Group { get set }
+    var user: User { get set }
     
     func calculateForNavigationImage(height: CGFloat) -> (scale: CGFloat, xTranslation: CGFloat, yTranslation: CGFloat)
 }
@@ -20,6 +22,14 @@ protocol UserDetailModelOutput: class {
 
 final class UserDetailModel: UserDetailModelProtocol {
     weak var presenter: UserDetailModelOutput!
+    var group: Group
+    var user: User
+    
+    init(group: Group, user: User) {
+        self.group = group
+        self.user = user
+    }
+    
     
     func calculateForNavigationImage(height: CGFloat) -> (scale: CGFloat, xTranslation: CGFloat, yTranslation: CGFloat) {
         let coeff: CGFloat = {

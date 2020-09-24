@@ -10,6 +10,8 @@ import UIKit
 
 protocol UserDetailViewPresenterProtocol {
     var view: UserDetailViewPresenterOutput! { get set }
+    var group: Group { get }
+    var user: User { get }
     
     func didScrollViewDidScroll(height: CGFloat)
 }
@@ -21,6 +23,9 @@ protocol UserDetailViewPresenterOutput: class {
 final class UserDetailViewPresenter: UserDetailViewPresenterProtocol, UserDetailModelOutput {
     weak var view: UserDetailViewPresenterOutput!
     private var model: UserDetailModelProtocol
+    
+    var group: Group { return self.model.group }
+    var user: User { return self.model.user }
     
     init(model: UserDetailModelProtocol) {
         self.model = model

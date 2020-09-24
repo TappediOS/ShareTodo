@@ -154,6 +154,7 @@
 		BFD5DE00251B8CE400E35F18 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BFD5DDFF251B8CE300E35F18 /* .swiftlint.yml */; };
 		BFD5DE04251B8CFB00E35F18 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BFD5DE03251B8CFB00E35F18 /* .gitignore */; };
 		BFD5DE09251B8ED200E35F18 /* NavigationImageConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5DE08251B8ED200E35F18 /* NavigationImageConst.swift */; };
+		BFD5DE30251C893E00E35F18 /* ProfileViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5DE2F251C893E00E35F18 /* ProfileViewTest.swift */; };
 		BFFA616B2508882F00A1D2CE /* EditGroupViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFA616A2508882F00A1D2CE /* EditGroupViewBuilder.swift */; };
 		BFFA616D2508883400A1D2CE /* EditGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFA616C2508883400A1D2CE /* EditGroupViewController.swift */; };
 		BFFA616F2508883900A1D2CE /* EditGroupViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFA616E2508883900A1D2CE /* EditGroupViewPresenter.swift */; };
@@ -397,6 +398,7 @@
 		BFD5DDFF251B8CE300E35F18 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		BFD5DE03251B8CFB00E35F18 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		BFD5DE08251B8ED200E35F18 /* NavigationImageConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationImageConst.swift; sourceTree = "<group>"; };
+		BFD5DE2F251C893E00E35F18 /* ProfileViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewTest.swift; sourceTree = "<group>"; };
 		BFFA616A2508882F00A1D2CE /* EditGroupViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupViewBuilder.swift; sourceTree = "<group>"; };
 		BFFA616C2508883400A1D2CE /* EditGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupViewController.swift; sourceTree = "<group>"; };
 		BFFA616E2508883900A1D2CE /* EditGroupViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupViewPresenter.swift; sourceTree = "<group>"; };
@@ -582,9 +584,8 @@
 		BF88D4A724CAA83600607D6A /* ShareTodoTests */ = {
 			isa = PBXGroup;
 			children = (
+				BFD5DE2E251C891600E35F18 /* View */,
 				BF88D4A824CAA83600607D6A /* ShareTodoTests.swift */,
-				BF95E78824DE4D3700FF562D /* TodayTodoViewTests.swift */,
-				BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */,
 				BF88D4AA24CAA83600607D6A /* Info.plist */,
 			);
 			path = ShareTodoTests;
@@ -985,6 +986,16 @@
 				BFD5DE08251B8ED200E35F18 /* NavigationImageConst.swift */,
 			);
 			path = AppData;
+			sourceTree = "<group>";
+		};
+		BFD5DE2E251C891600E35F18 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BFD5DE2F251C893E00E35F18 /* ProfileViewTest.swift */,
+				BF95E78824DE4D3700FF562D /* TodayTodoViewTests.swift */,
+				BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		BFFA61692508881800A1D2CE /* EditGroup */ = {
@@ -1446,6 +1457,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFD5DE30251C893E00E35F18 /* ProfileViewTest.swift in Sources */,
 				BF95E78924DE4D3700FF562D /* TodayTodoViewTests.swift in Sources */,
 				BF88D4A924CAA83600607D6A /* ShareTodoTests.swift in Sources */,
 				BF28E41524FC886600269D82 /* GroupTodoViewModelTests.swift in Sources */,

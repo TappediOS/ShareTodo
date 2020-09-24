@@ -38,7 +38,6 @@ class ProfileViewTest: XCTestCase {
         let presenter = ProfileViewPresenter(model: ProfileViewModelMock())
         view.inject(with: presenter)
         
-        
         view.loadViewIfNeeded()
         view.view.layoutIfNeeded()
         XCTAssertEqual(view.profileImageView.image, R.image.defaultProfileImage())

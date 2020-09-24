@@ -42,7 +42,7 @@ final class UserDetailModel: UserDetailModelProtocol {
 
         let scale: Double = {
             let sizeAddendumFactor = coeff * (1.0 - factor)
-            return min(1.0, sizeAddendumFactor + factor)
+            return min(NavigationImageConst.ImageMaxScale, sizeAddendumFactor + factor)
         }()
 
         let sizeDiff = Double(NavigationImageConst.ImageSizeForLargeState) * (1.0 - factor)

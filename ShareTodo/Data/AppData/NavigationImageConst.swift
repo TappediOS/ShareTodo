@@ -16,4 +16,5 @@ struct NavigationImageConst {
     static let ImageSizeForSmallState: CGFloat = 32
     static let NavBarHeightSmallState: CGFloat = 44
     static let NavBarHeightLargeState: CGFloat = 96.5
+    static let ImageMaxScale: Double = 1.32
 }

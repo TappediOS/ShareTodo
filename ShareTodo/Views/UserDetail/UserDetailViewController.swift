@@ -147,7 +147,10 @@ extension UserDetailViewController: UserDetailViewPresenterOutput {
         }
     }
     
-    func moveAndResizeImage(scale: CGFloat, xTranslation: CGFloat, yTranslation: CGFloat) {
+    func moveAndResizeImage(scale: Double, xTranslation: Double, yTranslation: Double) {
+        let scale = CGFloat(scale)
+        let xTranslation = CGFloat(xTranslation)
+        let yTranslation = CGFloat(yTranslation)
         DispatchQueue.main.async {
             self.profileImageView.transform = CGAffineTransform.identity.scaledBy(x: scale, y: scale).translatedBy(x: xTranslation, y: yTranslation)
         }
@@ -157,7 +160,7 @@ extension UserDetailViewController: UserDetailViewPresenterOutput {
 extension UserDetailViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let height = navigationController?.navigationBar.frame.height else { return }
-        self.presenter.didScrollViewDidScroll(height: height)
+        self.presenter.didScrollViewDidScroll(height: Double(height))
     }
 }
 

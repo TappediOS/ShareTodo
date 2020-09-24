@@ -6,14 +6,14 @@
 //  Copyright © 2020 jun. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 protocol UserDetailModelProtocol {
     var presenter: UserDetailModelOutput! { get set }
     var group: Group { get set }
     var user: User { get set }
     
-    func calculateForNavigationImage(height: CGFloat) -> (scale: CGFloat, xTranslation: CGFloat, yTranslation: CGFloat)
+    func calculateForNavigationImage(height: Double) -> (scale: Double, xTranslation: Double, yTranslation: Double)
 }
 
 protocol UserDetailModelOutput: class {
@@ -31,24 +31,24 @@ final class UserDetailModel: UserDetailModelProtocol {
     }
     
     
-    func calculateForNavigationImage(height: CGFloat) -> (scale: CGFloat, xTranslation: CGFloat, yTranslation: CGFloat) {
-        let coeff: CGFloat = {
-            let delta = height - NavigationImageConst.NavBarHeightSmallState
+    func calculateForNavigationImage(height: Double) -> (scale: Double, xTranslation: Double, yTranslation: Double) {
+        let coeff: Double = {
+            let delta = height - Double(NavigationImageConst.NavBarHeightSmallState)
             let heightDifferenceBetweenStates = (NavigationImageConst.NavBarHeightLargeState - NavigationImageConst.NavBarHeightSmallState)
-            return delta / heightDifferenceBetweenStates
+            return delta / Double(heightDifferenceBetweenStates)
         }()
 
-        let factor = NavigationImageConst.ImageSizeForSmallState / NavigationImageConst.ImageSizeForLargeState
+        let factor: Double = Double(NavigationImageConst.ImageSizeForSmallState / NavigationImageConst.ImageSizeForLargeState)
 
-        let scale: CGFloat = {
+        let scale: Double = {
             let sizeAddendumFactor = coeff * (1.0 - factor)
             return min(1.0, sizeAddendumFactor + factor)
         }()
 
-        let sizeDiff = NavigationImageConst.ImageSizeForLargeState * (1.0 - factor)
-        let yTranslation: CGFloat = {
-            let maxYTranslation = NavigationImageConst.ImageBottomMarginForLargeState - NavigationImageConst.ImageBottomMarginForSmallState + sizeDiff
-            return max(0, min(maxYTranslation, (maxYTranslation - coeff * (NavigationImageConst.ImageBottomMarginForSmallState + sizeDiff))))
+        let sizeDiff = Double(NavigationImageConst.ImageSizeForLargeState) * (1.0 - factor)
+        let yTranslation: Double = {
+            let maxYTranslation = Double(NavigationImageConst.ImageBottomMarginForLargeState - NavigationImageConst.ImageBottomMarginForSmallState) + sizeDiff
+            return max(0, min(maxYTranslation, (maxYTranslation - coeff * (Double(NavigationImageConst.ImageBottomMarginForSmallState) + sizeDiff))))
         }()
 
         let xTranslation = max(0, sizeDiff - coeff * sizeDiff)

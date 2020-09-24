@@ -6,7 +6,7 @@
 //  Copyright © 2020 jun. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 protocol UserDetailViewPresenterProtocol {
     var view: UserDetailViewPresenterOutput! { get set }
@@ -14,7 +14,7 @@ protocol UserDetailViewPresenterProtocol {
     var user: User { get }
     
     func didViewDidLoad()
-    func didScrollViewDidScroll(height: CGFloat)
+    func didScrollViewDidScroll(height: Double)
 }
 
 protocol UserDetailViewPresenterOutput: class {
@@ -23,7 +23,7 @@ protocol UserDetailViewPresenterOutput: class {
     func setGroupTask()
     func setProfileImage(_ url: URL)
     func setGroupImage(_ url: URL)
-    func moveAndResizeImage(scale: CGFloat, xTranslation: CGFloat, yTranslation: CGFloat)
+    func moveAndResizeImage(scale: Double, xTranslation: Double, yTranslation: Double)
 }
 
 final class UserDetailViewPresenter: UserDetailViewPresenterProtocol, UserDetailModelOutput {
@@ -46,7 +46,7 @@ final class UserDetailViewPresenter: UserDetailViewPresenterProtocol, UserDetail
         
     }
     
-    func didScrollViewDidScroll(height: CGFloat) {
+    func didScrollViewDidScroll(height: Double) {
         let result = self.model.calculateForNavigationImage(height: height)
         self.view.moveAndResizeImage(scale: result.scale, xTranslation: result.xTranslation, yTranslation: result.yTranslation)
     }

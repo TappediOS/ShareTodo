@@ -17,6 +17,9 @@ final class UserDetailViewController: UIViewController {
     @IBOutlet weak var groupImageView: UIImageView!
     @IBOutlet weak var groupNameLabel: UILabel!
     @IBOutlet weak var groupTaskLabel: UILabel!
+    @IBOutlet weak var introductionLabel: UILabel!
+    @IBOutlet weak var introductionButton: UIButton!
+    
     
     private let profileImageView = UIImageView()
     var activityIndicator = UIActivityIndicatorView()
@@ -32,6 +35,8 @@ final class UserDetailViewController: UIViewController {
         self.setupGroupImageView()
         self.setupGroupNameLabel()
         self.setupGroupTaskLabel()
+        self.setupIntroductionLabel()
+        self.setupIntroductionButton()
         self.setupActivityIndicator()
         
         self.presenter.didViewDidLoad()
@@ -101,6 +106,20 @@ final class UserDetailViewController: UIViewController {
         self.groupTaskLabel.minimumScaleFactor = 0.4
     }
     
+    func setupIntroductionLabel() {
+        self.introductionLabel.adjustsFontSizeToFitWidth = true
+        self.introductionLabel.minimumScaleFactor = 0.4
+    }
+    
+    func setupIntroductionButton() {
+        //TODO:- Stringを切り分けること
+        self.introductionButton.setTitle("ご紹介", for: .normal)
+        self.introductionButton.backgroundColor = .systemBlue
+        self.introductionButton.tintColor = .white
+        self.introductionButton.layer.cornerRadius = 8
+        self.introductionButton.layer.masksToBounds = true
+    }
+    
     func setupActivityIndicator() {
         self.activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         self.activityIndicator.center = self.view.center
@@ -113,6 +132,10 @@ final class UserDetailViewController: UIViewController {
             self.profileImageView.alpha = show ? 1.0 : 0.0
         }
     }
+    
+    @IBAction func tapIntroductionButton(_ sender: Any) {
+    }
+    
     
     func inject(with presenter: UserDetailViewPresenterProtocol) {
         self.presenter = presenter

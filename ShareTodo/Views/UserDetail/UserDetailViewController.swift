@@ -204,6 +204,16 @@ extension UserDetailViewController: FSCalendarDelegate, FSCalendarDataSource {
         }
         
         if arc4random() % 15 == 0 {
+            let image = UIImage(systemName: "xmark.seal.fill")?.withTintColor(.systemRed).withRenderingMode(.alwaysOriginal)
+            return image
+        }
+        
+        if arc4random() % 15 == 0 {
+            let image = UIImage(systemName: "xmark.seal.fill")?.withTintColor(.systemPink).withRenderingMode(.alwaysOriginal)
+            return image
+        }
+        
+        if arc4random() % 15 == 0 {
             let image = UIImage(systemName: "lock.fill")?.withTintColor(.systemYellow).withRenderingMode(.alwaysOriginal)
             return image?.resizeUIImage(width: 20, height: 20)
         }

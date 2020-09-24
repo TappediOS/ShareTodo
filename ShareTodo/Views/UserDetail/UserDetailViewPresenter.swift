@@ -14,6 +14,7 @@ protocol UserDetailViewPresenterProtocol {
     var user: User { get }
     
     func didViewDidLoad()
+    func didTapIntroductionButton()
     func didScrollViewDidScroll(height: Double)
 }
 
@@ -24,6 +25,8 @@ protocol UserDetailViewPresenterOutput: class {
     func setProfileImage(_ url: URL)
     func setGroupImage(_ url: URL)
     func moveAndResizeImage(scale: Double, xTranslation: Double, yTranslation: Double)
+    
+    func segueIntroductionShareTodoPlusVC()
 }
 
 final class UserDetailViewPresenter: UserDetailViewPresenterProtocol, UserDetailModelOutput {
@@ -44,6 +47,10 @@ final class UserDetailViewPresenter: UserDetailViewPresenterProtocol, UserDetail
         if let profileImageURL = URL(string: self.user.profileImageURL ?? "") { self.view.setProfileImage(profileImageURL) }
         if let groupImageURL = URL(string: self.group.profileImageURL ?? "") { self.view.setGroupImage(groupImageURL) }
         
+    }
+    
+    func didTapIntroductionButton() {
+        self.view.segueIntroductionShareTodoPlusVC()
     }
     
     func didScrollViewDidScroll(height: Double) {

@@ -134,6 +134,7 @@ final class UserDetailViewController: UIViewController {
     }
     
     @IBAction func tapIntroductionButton(_ sender: Any) {
+        self.presenter.didTapIntroductionButton()
     }
     
     
@@ -168,6 +169,10 @@ extension UserDetailViewController: UserDetailViewPresenterOutput {
             let options = ImageLoadingOptions(placeholder: R.image.placeholderImage(), transition: .fadeIn(duration: 0.25), failureImage: R.image.groupDefaultImage())
             loadImage(with: url, options: options, into: self.groupImageView, progress: nil, completion: nil)
         }
+    }
+    
+    func segueIntroductionShareTodoPlusVC() {
+        //TODO:- 画面遷移を描くこと
     }
     
     func moveAndResizeImage(scale: Double, xTranslation: Double, yTranslation: Double) {

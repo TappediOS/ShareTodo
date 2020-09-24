@@ -11,18 +11,24 @@ import Nuke
 
 final class ProfileViewController: UIViewController {
     private var presenter: ProfileViewPresenterProtocol!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setupScrollView()
         self.setupProfileImageView()
         self.setupNameLabel()
         self.setupNavigationBar()
         self.setupUIBarButtonItem()
         
         self.presenter.didViewDidLoad()
+    }
+    
+    func setupScrollView() {
+        self.scrollView.alwaysBounceVertical = true
     }
     
     func setupProfileImageView() {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Nuke
 import FSCalendar
 
 final class UserDetailViewController: UIViewController {
@@ -32,6 +33,8 @@ final class UserDetailViewController: UIViewController {
         self.setupGroupNameLabel()
         self.setupGroupTaskLabel()
         self.setupActivityIndicator()
+        
+        self.presenter.didViewDidLoad()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -54,15 +57,12 @@ final class UserDetailViewController: UIViewController {
     }
     
     func setupProfileImageView() {
-        //TODO:- 以下を実際のユーザimageに変更すること
-        self.profileImageView.image = R.image.defaultProfileImage()
         self.profileImageView.layer.borderWidth = 0.25
         self.profileImageView.layer.borderColor = UIColor.systemGray2.cgColor
     }
     
     func setupNavigationBar() {
-        //TODO:- 以下を実際のユーザ名に変更すること
-        self.navigationItem.title = "さんま"
+        self.navigationItem.title = self.presenter.user.name
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.tintColor = .systemGreen
         
@@ -121,6 +121,32 @@ final class UserDetailViewController: UIViewController {
 }
 
 extension UserDetailViewController: UserDetailViewPresenterOutput {
+    func setUserName() {
+        DispatchQueue.main.async { self.navigationItem.title = self.presenter.user.name }
+    }
+    
+    func setGroupName() {
+        DispatchQueue.main.async { self.groupNameLabel.text = self.presenter.group.name }
+    }
+    
+    func setGroupTask() {
+        DispatchQueue.main.async { self.groupTaskLabel.text = self.presenter.group.task }
+    }
+    
+    func setProfileImage(_ url: URL) {
+        DispatchQueue.main.async {
+            let options = ImageLoadingOptions(placeholder: R.image.placeholderImage(), transition: .fadeIn(duration: 0.25), failureImage: R.image.defaultProfileImage())
+            loadImage(with: url, options: options, into: self.profileImageView, progress: nil, completion: nil)
+        }
+    }
+    
+    func setGroupImage(_ url: URL) {
+        DispatchQueue.main.async {
+            let options = ImageLoadingOptions(placeholder: R.image.placeholderImage(), transition: .fadeIn(duration: 0.25), failureImage: R.image.groupDefaultImage())
+            loadImage(with: url, options: options, into: self.groupImageView, progress: nil, completion: nil)
+        }
+    }
+    
     func moveAndResizeImage(scale: CGFloat, xTranslation: CGFloat, yTranslation: CGFloat) {
         DispatchQueue.main.async {
             self.profileImageView.transform = CGAffineTransform.identity.scaledBy(x: scale, y: scale).translatedBy(x: xTranslation, y: yTranslation)

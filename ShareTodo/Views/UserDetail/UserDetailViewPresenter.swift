@@ -13,10 +13,16 @@ protocol UserDetailViewPresenterProtocol {
     var group: Group { get }
     var user: User { get }
     
+    func didViewDidLoad()
     func didScrollViewDidScroll(height: CGFloat)
 }
 
 protocol UserDetailViewPresenterOutput: class {
+    func setUserName()
+    func setGroupName()
+    func setGroupTask()
+    func setProfileImage(_ url: URL)
+    func setGroupImage(_ url: URL)
     func moveAndResizeImage(scale: CGFloat, xTranslation: CGFloat, yTranslation: CGFloat)
 }
 
@@ -30,6 +36,14 @@ final class UserDetailViewPresenter: UserDetailViewPresenterProtocol, UserDetail
     init(model: UserDetailModelProtocol) {
         self.model = model
         self.model.presenter = self
+    }
+    
+    func didViewDidLoad() {
+        self.view.setGroupName()
+        self.view.setGroupTask()
+        if let profileImageURL = URL(string: self.user.profileImageURL ?? "") { self.view.setProfileImage(profileImageURL) }
+        if let groupImageURL = URL(string: self.group.profileImageURL ?? "") { self.view.setGroupImage(groupImageURL) }
+        
     }
     
     func didScrollViewDidScroll(height: CGFloat) {

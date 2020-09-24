@@ -109,7 +109,7 @@ final class UserDetailViewController: UIViewController {
     }
     
     private func showNavigationImage(_ show: Bool) {
-        UIView.animate(withDuration: 0.2) {
+        UIView.animate(withDuration: show ? 0.18 : 0.15) {
             self.profileImageView.alpha = show ? 1.0 : 0.0
         }
     }

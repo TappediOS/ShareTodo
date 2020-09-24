@@ -43,6 +43,59 @@ class TodayTodoModelTests: XCTestCase {
         XCTAssertLessThanOrEqual(day, 31)
     }
     
+    func test_isFinishedTodo() {
+        let model = TodayTodoModelMock()
+        let group1 = Group(groupID: "group1", name: "Apple", task: "Pie", members: ["user1", "user2"], profileImageURL: nil)
+        let group2 = Group(groupID: "group2", name: "Banana", task: "Juice", members: ["user1", "user3"], profileImageURL: nil)
+        let group3 = Group(groupID: "group3", name: "Grape", task: "Jelly", members: ["user2", "user3", "user4"], profileImageURL: nil)
+        let todo1 = Todo(isFinished: false, userID: "user1", groupID: "group1", createdAt: Timestamp(date: Date()))
+        let todo2 = Todo(isFinished: true, userID: "user1", groupID: "group2", createdAt: Timestamp(date: Date()))
+        let todo3 = Todo(isFinished: true, userID: "user1", groupID: "group3", createdAt: Timestamp(date: Date()))
+        model.groups = [group1, group2, group3]
+        
+        model.todos = [todo1, todo2]
+        
+        XCTContext.runActivity(named: "関数の返り値が正しいこと") { _ in
+            XCTAssertFalse(model.isFinishedTodo(index: 0))
+            XCTAssertTrue(model.isFinishedTodo(index: 1))
+            XCTAssertFalse(model.isFinishedTodo(index: 2))
+        }
+        
+        model.todos = [todo3, todo2]
+        
+        XCTContext.runActivity(named: "関数の返り値が正しいこと") { _ in
+            XCTAssertFalse(model.isFinishedTodo(index: 0))
+            XCTAssertTrue(model.isFinishedTodo(index: 1))
+            XCTAssertTrue(model.isFinishedTodo(index: 2))
+            
+            XCTContext.runActivity(named: "isFinishedを変更した時も返り値が正しいこと") { _ in
+                model.todos[0].isFinished = false
+                model.todos[1].isFinished = false
+                
+                XCTAssertFalse(model.isFinishedTodo(index: 0))
+                XCTAssertFalse(model.isFinishedTodo(index: 1))
+                XCTAssertFalse(model.isFinishedTodo(index: 2))
+            }
+        }
+        
+        model.todos = [todo3, todo1, todo2]
+        
+        XCTContext.runActivity(named: "関数の返り値が正しいこと") { _ in
+            XCTAssertFalse(model.isFinishedTodo(index: 0))
+            XCTAssertTrue(model.isFinishedTodo(index: 1))
+            XCTAssertTrue(model.isFinishedTodo(index: 2))
+        }
+        
+        model.todos = []
+        
+        XCTContext.runActivity(named: "関数の返り値が正しいこと") { _ in
+            XCTAssertFalse(model.isFinishedTodo(index: 0))
+            XCTAssertFalse(model.isFinishedTodo(index: 1))
+            XCTAssertFalse(model.isFinishedTodo(index: 2))
+        }
+        
+    }
+    
     func test_getFinishedTodoIndex() {
         let model = TodayTodoModelMock()
         let group1 = Group(groupID: "group1", name: "Apple", task: "Pie", members: ["user1", "user2"], profileImageURL: nil)

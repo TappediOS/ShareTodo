@@ -26,11 +26,11 @@ class GroupTodoViewModelTests: XCTestCase {
     let group8 = Group(groupID: "8", name: "g8", task: "iRis", members: ["id2", "id4", "id5", "id6"], profileImageURL: "p3")
     
     override func setUpWithError() throws {
-        print("setup with Error")
+
     }
     
     override func tearDownWithError() throws {
-        print("tearDown with Error")
+
     }
     
     func testSortGroupUsersArray() {

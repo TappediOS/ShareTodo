@@ -73,13 +73,11 @@ class TodayTodoModelMock: TodayTodoModelProtocol {
 }
 
 class TodayTodoViewTests: XCTestCase {
-
     var view: TodayTodoViewController!
     
     override func setUpWithError() throws {
         view = R.storyboard.todayTodo().instantiateInitialViewController() as? TodayTodoViewController
         guard view != nil else { return }
-        
     }
 
     override func tearDownWithError() throws {
@@ -207,29 +205,6 @@ class TodayTodoViewTests: XCTestCase {
             XCTAssertFalse(presenter.todos[1].isFinished)
             XCTAssertFalse(presenter.todos[2].isFinished)
         }
-    }
-    
-    func testGetTodayFormat() throws {
-        let todayTodoModel = TodayTodoModel()
-        let exp = todayTodoModel.getTodayFormat()
-        let expArray = exp.components(separatedBy: "_")
-                
-        XCTAssertEqual(expArray.count, 3)
-        XCTAssertEqual(expArray[0].map { String($0) }.count, 4)
-        XCTAssertEqual(expArray[1].map { String($0) }.count, 2)
-        XCTAssertEqual(expArray[2].map { String($0) }.count, 2)
-        
-        let year = Int(expArray[0])!
-        let month = Int(expArray[1])!
-        let day = Int(expArray[2])!
-        
-        XCTAssertGreaterThanOrEqual(year, 2020)
-        
-        XCTAssertGreaterThanOrEqual(month, 1)
-        XCTAssertLessThanOrEqual(month, 12)
-        
-        XCTAssertGreaterThanOrEqual(day, 1)
-        XCTAssertLessThanOrEqual(day, 31)
     }
     
     func testPerformanceExample() throws {

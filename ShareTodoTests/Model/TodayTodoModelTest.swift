@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Firebase
 @testable import ShareTodo
 
 class TodayTodoModelTests: XCTestCase {
@@ -40,5 +41,48 @@ class TodayTodoModelTests: XCTestCase {
         
         XCTAssertGreaterThanOrEqual(day, 1)
         XCTAssertLessThanOrEqual(day, 31)
+    }
+    
+    func test_getFinishedTodoIndex() {
+        let model = TodayTodoModelMock()
+        let group1 = Group(groupID: "group1", name: "Apple", task: "Pie", members: ["user1", "user2"], profileImageURL: nil)
+        let group2 = Group(groupID: "group2", name: "Banana", task: "Juice", members: ["user1", "user3"], profileImageURL: nil)
+        let group3 = Group(groupID: "group3", name: "Grape", task: "Jelly", members: ["user2", "user3", "user4"], profileImageURL: nil)
+        let todo1 = Todo(isFinished: false, userID: "user1", groupID: "group1", createdAt: Timestamp(date: Date()))
+        let todo2 = Todo(isFinished: true, userID: "user1", groupID: "group2", createdAt: Timestamp(date: Date()))
+        let todo3 = Todo(isFinished: true, userID: "user1", groupID: "group3", createdAt: Timestamp(date: Date()))
+        model.groups = [group1, group2, group3]
+        
+        model.todos = [todo1, todo2]
+        
+        XCTContext.runActivity(named: "関数の返り値が正しいこと") { _ in
+            XCTAssertEqual(model.getFinishedTodoIndex(groupIndex: 0), 0)
+            XCTAssertEqual(model.getFinishedTodoIndex(groupIndex: 1), 1)
+            XCTAssertNil(model.getFinishedTodoIndex(groupIndex: 2))
+        }
+        
+        model.todos = [todo3, todo1]
+        
+        XCTContext.runActivity(named: "関数の返り値が正しいこと") { _ in
+            XCTAssertEqual(model.getFinishedTodoIndex(groupIndex: 0), 1)
+            XCTAssertNil(model.getFinishedTodoIndex(groupIndex: 1))
+            XCTAssertEqual(model.getFinishedTodoIndex(groupIndex: 2), 0)
+        }
+        
+        model.todos = [todo2, todo3, todo1]
+        
+        XCTContext.runActivity(named: "関数の返り値が正しいこと") { _ in
+            XCTAssertEqual(model.getFinishedTodoIndex(groupIndex: 0), 2)
+            XCTAssertEqual(model.getFinishedTodoIndex(groupIndex: 1), 0)
+            XCTAssertEqual(model.getFinishedTodoIndex(groupIndex: 2), 1)
+        }
+        
+        model.todos = []
+        
+        XCTContext.runActivity(named: "関数の返り値が正しいこと") { _ in
+            XCTAssertNil(model.getFinishedTodoIndex(groupIndex: 0))
+            XCTAssertNil(model.getFinishedTodoIndex(groupIndex: 1))
+            XCTAssertNil(model.getFinishedTodoIndex(groupIndex: 2))
+        }
     }
 }

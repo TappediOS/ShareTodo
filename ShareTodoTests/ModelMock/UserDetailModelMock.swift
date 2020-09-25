@@ -27,6 +27,7 @@ class UserDetailModelMock: UserDetailModelProtocol {
     }
     
     func fetchTodoList() {
+        // swiftlint:disable comma
         let todo1 = Todo(isFinished: false, userID: "user1", groupID: "group1", createdAt: Timestamp(date: Date()))
         let todo2 = Todo(isFinished: false, userID: "user1", groupID: "group1", createdAt: Timestamp(date: Date(timeIntervalSinceNow: -60*60*24*1)))
         let todo3 = Todo(isFinished: true,  userID: "user1", groupID: "group1", createdAt: Timestamp(date: Date(timeIntervalSinceNow: -60*60*24*2)))
@@ -36,7 +37,8 @@ class UserDetailModelMock: UserDetailModelProtocol {
         let todo7 = Todo(isFinished: false, userID: "user1", groupID: "group1", createdAt: Timestamp(date: Date(timeIntervalSinceNow: -60*60*24*6)))
         let todo8 = Todo(isFinished: true,  userID: "user1", groupID: "group1", createdAt: Timestamp(date: Date(timeIntervalSinceNow: -60*60*24*7)))
         let todo9 = Todo(isFinished: false, userID: "user1", groupID: "group1", createdAt: Timestamp(date: Date(timeIntervalSinceNow: -60*60*24*8)))
-    
+        // swiftlint:enable comma
+        
         self.todos = [todo1, todo2, todo3, todo4, todo5, todo6, todo7, todo8, todo9]
         self.todos.shuffle()
         self.presenter.successFetchTodoList()

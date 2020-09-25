@@ -7,7 +7,6 @@
 //
 
 @testable import ShareTodo
-import Firebase
 
 class ProfileViewModelMock: ProfileModelProtocol {
     var presenter: ProfileModelOutput!

@@ -18,6 +18,7 @@
 		BF38EF2D251CAD150024CD17 /* TodayTodoModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF2C251CAD150024CD17 /* TodayTodoModelTest.swift */; };
 		BF38EF44251DE6EC0024CD17 /* TodayTodoModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF43251DE6EC0024CD17 /* TodayTodoModelMock.swift */; };
 		BF38EF4A251DE6F70024CD17 /* ProfileViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF49251DE6F70024CD17 /* ProfileViewModelMock.swift */; };
+		BF38EF4E251DE7A20024CD17 /* UserDetailModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF4D251DE7A20024CD17 /* UserDetailModelMock.swift */; };
 		BF5CB6B02501CD9100EA1024 /* GroupDetailCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5CB6AE2501CD9100EA1024 /* GroupDetailCollectionReusableView.swift */; };
 		BF5CB6B12501CD9100EA1024 /* GroupDetailCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5CB6AF2501CD9100EA1024 /* GroupDetailCollectionReusableView.xib */; };
 		BF5CB6B42504AB8100EA1024 /* GroupDetailCollectionViewUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5CB6B22504AB8100EA1024 /* GroupDetailCollectionViewUserCell.swift */; };
@@ -217,6 +218,7 @@
 		BF38EF2C251CAD150024CD17 /* TodayTodoModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoModelTest.swift; sourceTree = "<group>"; };
 		BF38EF43251DE6EC0024CD17 /* TodayTodoModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoModelMock.swift; sourceTree = "<group>"; };
 		BF38EF49251DE6F70024CD17 /* ProfileViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelMock.swift; sourceTree = "<group>"; };
+		BF38EF4D251DE7A20024CD17 /* UserDetailModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailModelMock.swift; sourceTree = "<group>"; };
 		BF5CB6AE2501CD9100EA1024 /* GroupDetailCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailCollectionReusableView.swift; sourceTree = "<group>"; };
 		BF5CB6AF2501CD9100EA1024 /* GroupDetailCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupDetailCollectionReusableView.xib; sourceTree = "<group>"; };
 		BF5CB6B22504AB8100EA1024 /* GroupDetailCollectionViewUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailCollectionViewUserCell.swift; sourceTree = "<group>"; };
@@ -501,6 +503,7 @@
 			children = (
 				BF38EF43251DE6EC0024CD17 /* TodayTodoModelMock.swift */,
 				BF38EF49251DE6F70024CD17 /* ProfileViewModelMock.swift */,
+				BF38EF4D251DE7A20024CD17 /* UserDetailModelMock.swift */,
 			);
 			path = ModelMock;
 			sourceTree = "<group>";
@@ -1483,6 +1486,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFD5DE30251C893E00E35F18 /* ProfileViewTest.swift in Sources */,
+				BF38EF4E251DE7A20024CD17 /* UserDetailModelMock.swift in Sources */,
 				BF38EF2D251CAD150024CD17 /* TodayTodoModelTest.swift in Sources */,
 				BF95E78924DE4D3700FF562D /* TodayTodoViewTests.swift in Sources */,
 				BF88D4A924CAA83600607D6A /* ShareTodoTests.swift in Sources */,

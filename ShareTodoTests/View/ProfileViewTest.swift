@@ -9,25 +9,12 @@
 import XCTest
 @testable import ShareTodo
 
-class ProfileViewModelMock: ProfileModelProtocol {
-    var presenter: ProfileModelOutput!
-    
-    func fetchUser() {
-        let result = User(id: "123", name: "Rock", profileImageURL: nil)
-        self.presenter.successFetchUser(user: result)
-    }
-    
-    
-}
-
 class ProfileViewTest: XCTestCase {
-
     var view: ProfileViewController!
     
     override func setUpWithError() throws {
         view = R.storyboard.profile().instantiateInitialViewController() as? ProfileViewController
         guard view != nil else { return }
-        
     }
 
     override func tearDownWithError() throws {

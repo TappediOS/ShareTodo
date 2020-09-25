@@ -16,6 +16,8 @@ protocol UserDetailModelProtocol {
     var todos: [Todo] { get set }
     
     func fetchTodoList()
+    func isTheDayAWeekAgo(date: Date) -> Bool
+    func getContaintFinishedDate(date: Date) -> Bool
     func calculateForNavigationImage(height: Double) -> (scale: Double, xTranslation: Double, yTranslation: Double)
 }
 
@@ -30,11 +32,14 @@ final class UserDetailModel: UserDetailModelProtocol {
     var todos: [Todo] = Array()
     private var firestore: Firestore!
     private var listener: ListenerRegistration?
+    let dateFormatter = DateFormatter()
+    
     
     init(group: Group, user: User) {
         self.group = group
         self.user = user
         self.setUpFirestore()
+        self.setupDataFormatter()
     }
     
     deinit {
@@ -45,6 +50,11 @@ final class UserDetailModel: UserDetailModelProtocol {
         self.firestore = Firestore.firestore()
         let settings = FirestoreSettings()
         self.firestore.settings = settings
+    }
+    
+    func setupDataFormatter() {
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy/MM/dd"
     }
     
     func fetchTodoList() {
@@ -70,6 +80,25 @@ final class UserDetailModel: UserDetailModelProtocol {
             
             self.presenter.successFetchTodoList()
         }
+    }
+    
+    func isTheDayAWeekAgo(date: Date) -> Bool {
+        return Date(timeIntervalSinceNow: -60 * 60 * 24 * 7) < date
+    }
+    
+    func getTodoListAsFinishedDate() -> [String] {
+        return self.todos.filter { $0.isFinished }.reduce([String]()) { list, todo in
+            var list = list
+            guard todo.isFinished else { return list }
+            guard let createdAt = todo.createdAt?.dateValue() else { return list }
+            list.append(dateFormatter.string(from: createdAt))
+            return list
+        }
+    }
+    
+    func getContaintFinishedDate(date: Date) -> Bool {
+        let list = getTodoListAsFinishedDate()
+        return list.contains(self.dateFormatter.string(from: date))
     }
     
     func calculateForNavigationImage(height: Double) -> (scale: Double, xTranslation: Double, yTranslation: Double) {

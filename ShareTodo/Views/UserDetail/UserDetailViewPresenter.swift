@@ -17,6 +17,9 @@ protocol UserDetailViewPresenterProtocol {
     func didViewDidLoad()
     func didTapIntroductionButton()
     func didScrollViewDidScroll(height: Double)
+    
+    func getTheDayIsAWeekAgo(date: Date) -> Bool
+    func getContaintFinishedDate(date: Date) -> Bool
 }
 
 protocol UserDetailViewPresenterOutput: class {
@@ -60,6 +63,14 @@ final class UserDetailViewPresenter: UserDetailViewPresenterProtocol, UserDetail
     func didScrollViewDidScroll(height: Double) {
         let result = self.model.calculateForNavigationImage(height: height)
         self.view.moveAndResizeImage(scale: result.scale, xTranslation: result.xTranslation, yTranslation: result.yTranslation)
+    }
+    
+    func getTheDayIsAWeekAgo(date: Date) -> Bool {
+        return self.model.isTheDayAWeekAgo(date: date)
+    }
+    
+    func getContaintFinishedDate(date: Date) -> Bool {
+        return self.model.getContaintFinishedDate(date: date)
     }
     
     func successFetchTodoList() {

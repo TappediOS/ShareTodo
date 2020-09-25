@@ -201,31 +201,33 @@ extension UserDetailViewController: FSCalendarDelegate, FSCalendarDataSource {
         return Date()
     }
     
+    func minimumDate(for calendar: FSCalendar) -> Date {
+        //TODO:- 以下はグループ作成日にすること
+        let list = self.presenter.todoList.filter { $0.isFinished }.reduce([Date]()) { list, todo in
+            var list = list
+            guard todo.isFinished else { return list }
+            guard let createdAt = todo.createdAt?.dateValue() else { return list }
+            list.append(createdAt)
+            return list
+        }.sorted()
+        
+        guard let first = list.first else { return Date(timeIntervalSinceNow: -60 * 60 * 24 * 30) }
+        return first
+    }
+    
     func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
-        if arc4random() % 15 == 0 {
-            let image = UIImage(systemName: "checkmark.seal.fill")?.withTintColor(.systemGreen).withRenderingMode(.alwaysOriginal)
-            return image
+        guard calenderView.maximumDate >= date else { return nil } //最小の日(今日)以降はnil
+        guard calenderView.minimumDate <= date else { return nil } //最後の日和前はnil
+        
+        //今日から1週間までは記録をする
+        if self.presenter.getTheDayIsAWeekAgo(date: date) {
+            if self.presenter.getContaintFinishedDate(date: date) {
+                return UIImage(systemName: "checkmark.seal.fill")?.withTintColor(.systemGreen).withRenderingMode(.alwaysOriginal)
+            }
+            return UIImage(systemName: "xmark.seal.fill")?.withTintColor(.systemRed).withRenderingMode(.alwaysOriginal)
         }
         
-        if arc4random() % 15 == 0 {
-            let image = UIImage(systemName: "xmark.seal.fill")?.withTintColor(.systemRed).withRenderingMode(.alwaysOriginal)
-            return image
-        }
-        
-        if arc4random() % 15 == 0 {
-            let image = UIImage(systemName: "xmark.seal.fill")?.withTintColor(.systemPink).withRenderingMode(.alwaysOriginal)
-            return image
-        }
-        
-        if arc4random() % 15 == 0 {
-            let image = UIImage(systemName: "lock.fill")?.withTintColor(.systemYellow).withRenderingMode(.alwaysOriginal)
-            return image?.resizeUIImage(width: 20, height: 20)
-        }
-        
-        if arc4random() % 15 == 0 {
-            let image = UIImage(systemName: "lock.fill")?.withTintColor(.systemOrange).withRenderingMode(.alwaysOriginal)
-            return image?.resizeUIImage(width: 20, height: 20)
-        }
-        return nil
+        //1週間より前はロック状態によって変化させる
+        return UIImage(systemName: "lock.fill")?.withTintColor(.systemOrange).withRenderingMode(.alwaysOriginal)
     }
 }

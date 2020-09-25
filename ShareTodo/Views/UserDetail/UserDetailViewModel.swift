@@ -7,29 +7,70 @@
 //
 
 import Foundation
+import Firebase
 
 protocol UserDetailModelProtocol {
     var presenter: UserDetailModelOutput! { get set }
     var group: Group { get set }
     var user: User { get set }
+    var todos: [Todo] { get set }
     
+    func fetchTodoList()
     func calculateForNavigationImage(height: Double) -> (scale: Double, xTranslation: Double, yTranslation: Double)
 }
 
 protocol UserDetailModelOutput: class {
-    
+    func successFetchTodoList()
 }
 
 final class UserDetailModel: UserDetailModelProtocol {
     weak var presenter: UserDetailModelOutput!
     var group: Group
     var user: User
+    var todos: [Todo] = Array()
+    private var firestore: Firestore!
+    private var listener: ListenerRegistration?
     
     init(group: Group, user: User) {
         self.group = group
         self.user = user
+        self.setUpFirestore()
     }
     
+    deinit {
+        listener?.remove()
+    }
+    
+    func setUpFirestore() {
+        self.firestore = Firestore.firestore()
+        let settings = FirestoreSettings()
+        self.firestore.settings = settings
+    }
+    
+    func fetchTodoList() {
+        guard let userID = self.user.id else { return }
+        guard let groupID = self.group.groupID else { return }
+        let collectionRef = "todo/v1/groups/" + groupID + "/todo"
+        self.listener = self.firestore.collection(collectionRef).whereField("userID", isEqualTo: userID) .addSnapshotListener { [weak self] (documentSnapshot, error) in
+            guard let self = self else { return }
+            
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let documents = documentSnapshot?.documents else {
+                print("The document doesn't exist.")
+                return
+            }
+            
+            self.todos = documents.compactMap { queryDocumentSnapshot -> Todo? in
+                return try? queryDocumentSnapshot.data(as: Todo.self)
+            }
+            
+            self.presenter.successFetchTodoList()
+        }
+    }
     
     func calculateForNavigationImage(height: Double) -> (scale: Double, xTranslation: Double, yTranslation: Double) {
         let coeff: Double = {

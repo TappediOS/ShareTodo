@@ -12,6 +12,7 @@ protocol UserDetailViewPresenterProtocol {
     var view: UserDetailViewPresenterOutput! { get set }
     var group: Group { get }
     var user: User { get }
+    var todoList: [Todo] { get }
     
     func didViewDidLoad()
     func didTapIntroductionButton()
@@ -24,6 +25,7 @@ protocol UserDetailViewPresenterOutput: class {
     func setGroupTask()
     func setProfileImage(_ url: URL)
     func setGroupImage(_ url: URL)
+    func reloadCalenderView()
     func moveAndResizeImage(scale: Double, xTranslation: Double, yTranslation: Double)
     
     func segueIntroductionShareTodoPlusVC()
@@ -35,6 +37,7 @@ final class UserDetailViewPresenter: UserDetailViewPresenterProtocol, UserDetail
     
     var group: Group { return self.model.group }
     var user: User { return self.model.user }
+    var todoList: [Todo] { return self.model.todos }
     
     init(model: UserDetailModelProtocol) {
         self.model = model
@@ -42,6 +45,7 @@ final class UserDetailViewPresenter: UserDetailViewPresenterProtocol, UserDetail
     }
     
     func didViewDidLoad() {
+        self.model.fetchTodoList()
         self.view.setGroupName()
         self.view.setGroupTask()
         if let profileImageURL = URL(string: self.user.profileImageURL ?? "") { self.view.setProfileImage(profileImageURL) }
@@ -56,5 +60,9 @@ final class UserDetailViewPresenter: UserDetailViewPresenterProtocol, UserDetail
     func didScrollViewDidScroll(height: Double) {
         let result = self.model.calculateForNavigationImage(height: height)
         self.view.moveAndResizeImage(scale: result.scale, xTranslation: result.xTranslation, yTranslation: result.yTranslation)
+    }
+    
+    func successFetchTodoList() {
+        self.view.reloadCalenderView()
     }
 }

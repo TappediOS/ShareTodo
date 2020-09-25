@@ -171,6 +171,10 @@ extension UserDetailViewController: UserDetailViewPresenterOutput {
         }
     }
     
+    func reloadCalenderView() {
+        DispatchQueue.main.async { self.calenderView.reloadData() }
+    }
+    
     func segueIntroductionShareTodoPlusVC() {
         //TODO:- 画面遷移を描くこと
     }

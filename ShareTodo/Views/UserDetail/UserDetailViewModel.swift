@@ -83,7 +83,9 @@ final class UserDetailModel: UserDetailModelProtocol {
     }
     
     func isTheDayAWeekAgo(date: Date) -> Bool {
-        return Date(timeIntervalSinceNow: -60 * 60 * 24 * 7) < date
+        let aWeekAgo = Date(timeIntervalSinceNow: -60 * 60 * 24 * 7)
+        let tomorrow = Date(timeIntervalSinceNow: 60 * 60 * 24)
+        return aWeekAgo < date && date < tomorrow
     }
     
     func getTodoListAsFinishedDate() -> [String] {

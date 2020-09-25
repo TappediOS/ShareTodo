@@ -23,7 +23,7 @@ class UserDetailModelTests: XCTestCase {
     
     func appendTodo() {
         // swiftlint:disable comma
-        let todo1 = Todo(isFinished: false, userID: "user1", groupID: "group1", createdAt: Timestamp(date: Date()))
+        let todo1 = Todo(isFinished: false, userID: "user1", groupID: "group1", createdAt: Timestamp(date: Date(timeIntervalSinceNow: -60*60*24*0)))
         let todo2 = Todo(isFinished: false, userID: "user1", groupID: "group1", createdAt: Timestamp(date: Date(timeIntervalSinceNow: -60*60*24*1)))
         let todo3 = Todo(isFinished: true,  userID: "user1", groupID: "group1", createdAt: Timestamp(date: Date(timeIntervalSinceNow: -60*60*24*2)))
         let todo4 = Todo(isFinished: false, userID: "user1", groupID: "group1", createdAt: Timestamp(date: Date(timeIntervalSinceNow: -60*60*24*3)))
@@ -51,7 +51,7 @@ class UserDetailModelTests: XCTestCase {
         
         XCTContext.runActivity(named: "今日以降はFalseである") { _ in
             for tmp in 1 ... 30 * 12 * 10 {
-                XCTAssertFalse(model.isTheDayAWeekAgo(date: Date(timeIntervalSinceNow: 60 * 60 * 24 * Double(tmp))))
+                XCTAssertFalse(model.isTheDayAWeekAgo(date: Date(timeIntervalSinceNow: 60 * 60 * 24 * Double(tmp) + 1)))
             }
         }
     }
@@ -66,6 +66,28 @@ class UserDetailModelTests: XCTestCase {
         XCTAssertEqual(self.model.getTodoListAsFinishedDate(), exp)
     }
     
+    func test_getContaintFinishedDate() {
+        XCTContext.runActivity(named: "存在する9日分の関数の返り値が正しいこと") { _ in
+            XCTAssertFalse(self.model.getContaintFinishedDate(date: Date(timeIntervalSinceNow: -60*60*24*0)))
+            XCTAssertFalse(self.model.getContaintFinishedDate(date: Date(timeIntervalSinceNow: -60*60*24*1)))
+            XCTAssertTrue(self.model.getContaintFinishedDate(date: Date(timeIntervalSinceNow: -60*60*24*2)))
+            XCTAssertFalse(self.model.getContaintFinishedDate(date: Date(timeIntervalSinceNow: -60*60*24*3)))
+            XCTAssertTrue(self.model.getContaintFinishedDate(date: Date(timeIntervalSinceNow: -60*60*24*4)))
+            XCTAssertTrue(self.model.getContaintFinishedDate(date: Date(timeIntervalSinceNow: -60*60*24*5)))
+            XCTAssertFalse(self.model.getContaintFinishedDate(date: Date(timeIntervalSinceNow: -60*60*24*6)))
+            XCTAssertTrue(self.model.getContaintFinishedDate(date: Date(timeIntervalSinceNow: -60*60*24*7)))
+            XCTAssertFalse(self.model.getContaintFinishedDate(date: Date(timeIntervalSinceNow: -60*60*24*8)))
+        }
+        
+        XCTContext.runActivity(named: "存在しない日の関数の返り値が正しいこと") { _ in
+            XCTAssertFalse(self.model.getContaintFinishedDate(date: Date(timeIntervalSinceNow: -60*60*24*10)))
+            XCTAssertFalse(self.model.getContaintFinishedDate(date: Date(timeIntervalSinceNow: -60*60*24*24)))
+            XCTAssertFalse(self.model.getContaintFinishedDate(date: Date(timeIntervalSinceNow: -60*60*24*100)))
+            XCTAssertFalse(self.model.getContaintFinishedDate(date: Date(timeIntervalSinceNow: 60*60*24*2)))
+            XCTAssertFalse(self.model.getContaintFinishedDate(date: Date(timeIntervalSinceNow: 60*60*24*10)))
+            XCTAssertFalse(self.model.getContaintFinishedDate(date: Date(timeIntervalSinceNow: 60*60*24*100)))
+        }
+    }
     
     func testPerformanceExample() throws {
         self.measure {

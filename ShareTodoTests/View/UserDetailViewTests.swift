@@ -40,6 +40,17 @@ class UserDetailViewTests: XCTestCase {
         wait(for: [expectation], timeout: 5)
     }
     
+    func test_calenderの表示最大日が今日であること() {
+        let presenter = UserDetailViewPresenter(model: UserDetailModelMock())
+        view.inject(with: presenter)
+        view.loadViewIfNeeded()
+        view.view.layoutIfNeeded()
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        XCTAssertEqual(dateFormatter.string(from: self.view.calenderView.maximumDate), dateFormatter.string(from: Date()))
+    }
+    
     func test_viewを閉じたときにprofileImageViewがnavigationBarから削除されていること() {
         let expectation = self.expectation(description: "expectation")
         let parentVC = UIViewController()

@@ -66,7 +66,7 @@ class UserDetailViewTests: XCTestCase {
             })
         })
         
-        wait(for: [expectation], timeout: 3.0)
+        wait(for: [expectation], timeout: 5)
         
     }
 }

@@ -20,6 +20,7 @@
 		BF38EF4A251DE6F70024CD17 /* ProfileViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF49251DE6F70024CD17 /* ProfileViewModelMock.swift */; };
 		BF38EF4E251DE7A20024CD17 /* UserDetailModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF4D251DE7A20024CD17 /* UserDetailModelMock.swift */; };
 		BF38EF52251DEA2B0024CD17 /* UserDetailModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF51251DEA2B0024CD17 /* UserDetailModelTests.swift */; };
+		BF38EF57251EEE3D0024CD17 /* UserDetailViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF56251EEE3D0024CD17 /* UserDetailViewTests.swift */; };
 		BF5CB6B02501CD9100EA1024 /* GroupDetailCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5CB6AE2501CD9100EA1024 /* GroupDetailCollectionReusableView.swift */; };
 		BF5CB6B12501CD9100EA1024 /* GroupDetailCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5CB6AF2501CD9100EA1024 /* GroupDetailCollectionReusableView.xib */; };
 		BF5CB6B42504AB8100EA1024 /* GroupDetailCollectionViewUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5CB6B22504AB8100EA1024 /* GroupDetailCollectionViewUserCell.swift */; };
@@ -221,6 +222,7 @@
 		BF38EF49251DE6F70024CD17 /* ProfileViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelMock.swift; sourceTree = "<group>"; };
 		BF38EF4D251DE7A20024CD17 /* UserDetailModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailModelMock.swift; sourceTree = "<group>"; };
 		BF38EF51251DEA2B0024CD17 /* UserDetailModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailModelTests.swift; sourceTree = "<group>"; };
+		BF38EF56251EEE3D0024CD17 /* UserDetailViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewTests.swift; sourceTree = "<group>"; };
 		BF5CB6AE2501CD9100EA1024 /* GroupDetailCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailCollectionReusableView.swift; sourceTree = "<group>"; };
 		BF5CB6AF2501CD9100EA1024 /* GroupDetailCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupDetailCollectionReusableView.xib; sourceTree = "<group>"; };
 		BF5CB6B22504AB8100EA1024 /* GroupDetailCollectionViewUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailCollectionViewUserCell.swift; sourceTree = "<group>"; };
@@ -1025,6 +1027,7 @@
 			children = (
 				BFD5DE2F251C893E00E35F18 /* ProfileViewTest.swift */,
 				BF95E78824DE4D3700FF562D /* TodayTodoViewTests.swift */,
+				BF38EF56251EEE3D0024CD17 /* UserDetailViewTests.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1492,6 +1495,7 @@
 				BF38EF4E251DE7A20024CD17 /* UserDetailModelMock.swift in Sources */,
 				BF38EF2D251CAD150024CD17 /* TodayTodoModelTest.swift in Sources */,
 				BF95E78924DE4D3700FF562D /* TodayTodoViewTests.swift in Sources */,
+				BF38EF57251EEE3D0024CD17 /* UserDetailViewTests.swift in Sources */,
 				BF88D4A924CAA83600607D6A /* ShareTodoTests.swift in Sources */,
 				BF38EF4A251DE6F70024CD17 /* ProfileViewModelMock.swift in Sources */,
 				BF28E41524FC886600269D82 /* GroupTodoViewModelTests.swift in Sources */,

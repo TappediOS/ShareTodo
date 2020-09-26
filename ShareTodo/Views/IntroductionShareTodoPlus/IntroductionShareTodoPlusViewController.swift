@@ -10,9 +10,16 @@ import UIKit
 
 final class IntroductionShareTodoPlusViewController: UIViewController {
     private var presenter: IntroductionShareTodoPlusViewPresenterProtocol!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        self.setupScrollView()
+    }
+    
+    func setupScrollView() {
+        self.scrollView.alwaysBounceVertical = true
     }
     
     func inject(with presenter: IntroductionShareTodoPlusViewPresenterProtocol) {

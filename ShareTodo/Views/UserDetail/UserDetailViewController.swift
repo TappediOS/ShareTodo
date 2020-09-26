@@ -21,7 +21,7 @@ final class UserDetailViewController: UIViewController {
     @IBOutlet weak var introductionButton: UIButton!
     
     
-    private let profileImageView = UIImageView()
+    internal let profileImageView = UIImageView()
     var activityIndicator = UIActivityIndicatorView()
     
     

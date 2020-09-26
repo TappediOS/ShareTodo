@@ -21,5 +21,6 @@ R.generated.swift
 # Carthage
 Carthage/Build/
 Carthage/Checkouts/
+Carthage/carthage_workaround_for_xcode12.xcconfig
 
 Pods/

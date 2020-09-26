@@ -15,6 +15,12 @@
 		BF020FC32510AA57006DC525 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF020FC22510AA57006DC525 /* UserRepository.swift */; };
 		BF020FC52510AA7D006DC525 /* UserDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF020FC42510AA7D006DC525 /* UserDataStore.swift */; };
 		BF28E41524FC886600269D82 /* GroupTodoViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */; };
+		BF38EF2D251CAD150024CD17 /* TodayTodoModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF2C251CAD150024CD17 /* TodayTodoModelTest.swift */; };
+		BF38EF44251DE6EC0024CD17 /* TodayTodoModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF43251DE6EC0024CD17 /* TodayTodoModelMock.swift */; };
+		BF38EF4A251DE6F70024CD17 /* ProfileViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF49251DE6F70024CD17 /* ProfileViewModelMock.swift */; };
+		BF38EF4E251DE7A20024CD17 /* UserDetailModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF4D251DE7A20024CD17 /* UserDetailModelMock.swift */; };
+		BF38EF52251DEA2B0024CD17 /* UserDetailModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF51251DEA2B0024CD17 /* UserDetailModelTests.swift */; };
+		BF38EF57251EEE3D0024CD17 /* UserDetailViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF56251EEE3D0024CD17 /* UserDetailViewTests.swift */; };
 		BF5CB6B02501CD9100EA1024 /* GroupDetailCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5CB6AE2501CD9100EA1024 /* GroupDetailCollectionReusableView.swift */; };
 		BF5CB6B12501CD9100EA1024 /* GroupDetailCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5CB6AF2501CD9100EA1024 /* GroupDetailCollectionReusableView.xib */; };
 		BF5CB6B42504AB8100EA1024 /* GroupDetailCollectionViewUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5CB6B22504AB8100EA1024 /* GroupDetailCollectionViewUserCell.swift */; };
@@ -143,6 +149,18 @@
 		BFD4366224CDC4B800B2E580 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD4365D24CDC4AD00B2E580 /* Nuke.framework */; };
 		BFD4366324CDC4B800B2E580 /* Nuke.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFD4365D24CDC4AD00B2E580 /* Nuke.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BFD4366624CE62C700B2E580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFD4366524CE62C700B2E580 /* Assets.xcassets */; };
+		BFD5DDDA251AFFE100E35F18 /* UserDetailViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5DDD9251AFFE100E35F18 /* UserDetailViewBuilder.swift */; };
+		BFD5DDDE251AFFE900E35F18 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5DDDD251AFFE900E35F18 /* UserDetailViewController.swift */; };
+		BFD5DDE2251AFFF900E35F18 /* UserDetailViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5DDE1251AFFF900E35F18 /* UserDetailViewPresenter.swift */; };
+		BFD5DDE6251AFFFD00E35F18 /* UserDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5DDE5251AFFFD00E35F18 /* UserDetailViewModel.swift */; };
+		BFD5DDEA251B007200E35F18 /* UserDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD5DDE9251B007200E35F18 /* UserDetail.storyboard */; };
+		BFD5DDEE251B0EE700E35F18 /* carthage.sh in Resources */ = {isa = PBXBuildFile; fileRef = BFD5DDED251B0EE700E35F18 /* carthage.sh */; };
+		BFD5DDF4251B0FE700E35F18 /* FSCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD5DDF3251B0FE700E35F18 /* FSCalendar.framework */; };
+		BFD5DDF5251B0FE800E35F18 /* FSCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFD5DDF3251B0FE700E35F18 /* FSCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BFD5DE00251B8CE400E35F18 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BFD5DDFF251B8CE300E35F18 /* .swiftlint.yml */; };
+		BFD5DE04251B8CFB00E35F18 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BFD5DE03251B8CFB00E35F18 /* .gitignore */; };
+		BFD5DE09251B8ED200E35F18 /* NavigationImageConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5DE08251B8ED200E35F18 /* NavigationImageConst.swift */; };
+		BFD5DE30251C893E00E35F18 /* ProfileViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5DE2F251C893E00E35F18 /* ProfileViewTest.swift */; };
 		BFFA616B2508882F00A1D2CE /* EditGroupViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFA616A2508882F00A1D2CE /* EditGroupViewBuilder.swift */; };
 		BFFA616D2508883400A1D2CE /* EditGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFA616C2508883400A1D2CE /* EditGroupViewController.swift */; };
 		BFFA616F2508883900A1D2CE /* EditGroupViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFA616E2508883900A1D2CE /* EditGroupViewPresenter.swift */; };
@@ -178,6 +196,7 @@
 				BFD435F824CD425B00B2E580 /* DZNEmptyDataSet.framework in Embed Frameworks */,
 				BFD4366324CDC4B800B2E580 /* Nuke.framework in Embed Frameworks */,
 				BFD435D024CD2EBD00B2E580 /* CropViewController.framework in Embed Frameworks */,
+				BFD5DDF5251B0FE800E35F18 /* FSCalendar.framework in Embed Frameworks */,
 				BFD435FA24CD425C00B2E580 /* SCLAlertView.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -198,7 +217,12 @@
 		BF020FC22510AA57006DC525 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		BF020FC42510AA7D006DC525 /* UserDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataStore.swift; sourceTree = "<group>"; };
 		BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTodoViewModelTests.swift; sourceTree = "<group>"; };
-		BF58FDD9251301FA0013F547 /* CarthageXcode12Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CarthageXcode12Config.xcconfig; sourceTree = "<group>"; };
+		BF38EF2C251CAD150024CD17 /* TodayTodoModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoModelTest.swift; sourceTree = "<group>"; };
+		BF38EF43251DE6EC0024CD17 /* TodayTodoModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoModelMock.swift; sourceTree = "<group>"; };
+		BF38EF49251DE6F70024CD17 /* ProfileViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelMock.swift; sourceTree = "<group>"; };
+		BF38EF4D251DE7A20024CD17 /* UserDetailModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailModelMock.swift; sourceTree = "<group>"; };
+		BF38EF51251DEA2B0024CD17 /* UserDetailModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailModelTests.swift; sourceTree = "<group>"; };
+		BF38EF56251EEE3D0024CD17 /* UserDetailViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewTests.swift; sourceTree = "<group>"; };
 		BF5CB6AE2501CD9100EA1024 /* GroupDetailCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailCollectionReusableView.swift; sourceTree = "<group>"; };
 		BF5CB6AF2501CD9100EA1024 /* GroupDetailCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupDetailCollectionReusableView.xib; sourceTree = "<group>"; };
 		BF5CB6B22504AB8100EA1024 /* GroupDetailCollectionViewUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailCollectionViewUserCell.swift; sourceTree = "<group>"; };
@@ -376,6 +400,17 @@
 		BFD4366024CDC4AD00B2E580 /* .DZNEmptyDataSet.version */ = {isa = PBXFileReference; lastKnownFileType = text; path = .DZNEmptyDataSet.version; sourceTree = "<group>"; };
 		BFD4366124CDC4AE00B2E580 /* .FirebaseAnalyticsBinary.version */ = {isa = PBXFileReference; lastKnownFileType = text; path = .FirebaseAnalyticsBinary.version; sourceTree = "<group>"; };
 		BFD4366524CE62C700B2E580 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BFD5DDD9251AFFE100E35F18 /* UserDetailViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewBuilder.swift; sourceTree = "<group>"; };
+		BFD5DDDD251AFFE900E35F18 /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		BFD5DDE1251AFFF900E35F18 /* UserDetailViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewPresenter.swift; sourceTree = "<group>"; };
+		BFD5DDE5251AFFFD00E35F18 /* UserDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewModel.swift; sourceTree = "<group>"; };
+		BFD5DDE9251B007200E35F18 /* UserDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserDetail.storyboard; sourceTree = "<group>"; };
+		BFD5DDED251B0EE700E35F18 /* carthage.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = carthage.sh; sourceTree = "<group>"; };
+		BFD5DDF3251B0FE700E35F18 /* FSCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FSCalendar.framework; path = Carthage/Build/iOS/FSCalendar.framework; sourceTree = "<group>"; };
+		BFD5DDFF251B8CE300E35F18 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		BFD5DE03251B8CFB00E35F18 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		BFD5DE08251B8ED200E35F18 /* NavigationImageConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationImageConst.swift; sourceTree = "<group>"; };
+		BFD5DE2F251C893E00E35F18 /* ProfileViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewTest.swift; sourceTree = "<group>"; };
 		BFFA616A2508882F00A1D2CE /* EditGroupViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupViewBuilder.swift; sourceTree = "<group>"; };
 		BFFA616C2508883400A1D2CE /* EditGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupViewController.swift; sourceTree = "<group>"; };
 		BFFA616E2508883900A1D2CE /* EditGroupViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupViewPresenter.swift; sourceTree = "<group>"; };
@@ -403,6 +438,7 @@
 				BF97249524CD24B10033BB50 /* gRPC-Core.framework in Frameworks */,
 				BF97248124CD24AE0033BB50 /* gRPC-C++.framework in Frameworks */,
 				BF97248324CD24AE0033BB50 /* PromisesObjC.framework in Frameworks */,
+				BFD5DDF4251B0FE700E35F18 /* FSCalendar.framework in Frameworks */,
 				BFD4366224CDC4B800B2E580 /* Nuke.framework in Frameworks */,
 				BF97246D24CD24AD0033BB50 /* leveldb-library.framework in Frameworks */,
 				BF97248F24CD24B00033BB50 /* FirebaseInstallations.framework in Frameworks */,
@@ -457,6 +493,26 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		BF38EF2B251CAD010024CD17 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */,
+				BF38EF2C251CAD150024CD17 /* TodayTodoModelTest.swift */,
+				BF38EF51251DEA2B0024CD17 /* UserDetailModelTests.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BF38EF42251DE6DB0024CD17 /* ModelMock */ = {
+			isa = PBXGroup;
+			children = (
+				BF38EF43251DE6EC0024CD17 /* TodayTodoModelMock.swift */,
+				BF38EF49251DE6F70024CD17 /* ProfileViewModelMock.swift */,
+				BF38EF4D251DE7A20024CD17 /* UserDetailModelMock.swift */,
+			);
+			path = ModelMock;
+			sourceTree = "<group>";
+		};
 		BF636F4E24FCDFB400F30F63 /* Autogenerated */ = {
 			isa = PBXGroup;
 			children = (
@@ -484,6 +540,7 @@
 		BF68711E2510508D00923A8B /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				BFD5DE07251B8EBD00E35F18 /* AppData */,
 				BF68711F2510509600923A8B /* Repository */,
 				BF68712925109E8B00923A8B /* DataStore */,
 			);
@@ -559,9 +616,10 @@
 		BF88D4A724CAA83600607D6A /* ShareTodoTests */ = {
 			isa = PBXGroup;
 			children = (
+				BF38EF42251DE6DB0024CD17 /* ModelMock */,
+				BF38EF2B251CAD010024CD17 /* Model */,
+				BFD5DE2E251C891600E35F18 /* View */,
 				BF88D4A824CAA83600607D6A /* ShareTodoTests.swift */,
-				BF95E78824DE4D3700FF562D /* TodayTodoViewTests.swift */,
-				BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */,
 				BF88D4AA24CAA83600607D6A /* Info.plist */,
 			);
 			path = ShareTodoTests;
@@ -638,6 +696,7 @@
 				BF88D4F624CAB97C00607D6A /* TodayTodo */,
 				BF88D4EB24CAB86300607D6A /* GroupTodo */,
 				BFA31F3824FF43FE00553F06 /* GroupDetail */,
+				BFD5DDD0251AFFAE00E35F18 /* UserDetail */,
 				BF88D4E024CAB65D00607D6A /* MainTabBarController */,
 				BF88D4C724CAA97A00607D6A /* Sample */,
 				BF88D4CA24CAA9C000607D6A /* Storyboards */,
@@ -686,6 +745,7 @@
 				BFD4362D24CDAD0000B2E580 /* RegisterUser.storyboard */,
 				BFA31F4324FF445200553F06 /* GroupDetail.storyboard */,
 				BFFA61722508884700A1D2CE /* EditGroup.storyboard */,
+				BFD5DDE9251B007200E35F18 /* UserDetail.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -750,6 +810,7 @@
 		BF97245724CD24AC0033BB50 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BFD5DDF3251B0FE700E35F18 /* FSCalendar.framework */,
 				BFD4363124CDC4AD00B2E580 /* Build */,
 				BFD435F524CD425B00B2E580 /* DZNEmptyDataSet.framework */,
 				BFD435F624CD425B00B2E580 /* SCLAlertView.framework */,
@@ -942,6 +1003,35 @@
 			path = Asset;
 			sourceTree = "<group>";
 		};
+		BFD5DDD0251AFFAE00E35F18 /* UserDetail */ = {
+			isa = PBXGroup;
+			children = (
+				BFD5DDD9251AFFE100E35F18 /* UserDetailViewBuilder.swift */,
+				BFD5DDDD251AFFE900E35F18 /* UserDetailViewController.swift */,
+				BFD5DDE1251AFFF900E35F18 /* UserDetailViewPresenter.swift */,
+				BFD5DDE5251AFFFD00E35F18 /* UserDetailViewModel.swift */,
+			);
+			path = UserDetail;
+			sourceTree = "<group>";
+		};
+		BFD5DE07251B8EBD00E35F18 /* AppData */ = {
+			isa = PBXGroup;
+			children = (
+				BFD5DE08251B8ED200E35F18 /* NavigationImageConst.swift */,
+			);
+			path = AppData;
+			sourceTree = "<group>";
+		};
+		BFD5DE2E251C891600E35F18 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BFD5DE2F251C893E00E35F18 /* ProfileViewTest.swift */,
+				BF95E78824DE4D3700FF562D /* TodayTodoViewTests.swift */,
+				BF38EF56251EEE3D0024CD17 /* UserDetailViewTests.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		BFFA61692508881800A1D2CE /* EditGroup */ = {
 			isa = PBXGroup;
 			children = (
@@ -956,10 +1046,12 @@
 		BFFF05C42519AD4C00FCFD5D /* Enviroment */ = {
 			isa = PBXGroup;
 			children = (
-				BF58FDD9251301FA0013F547 /* CarthageXcode12Config.xcconfig */,
+				BFD5DDED251B0EE700E35F18 /* carthage.sh */,
 				BFFF05C52519ADDB00FCFD5D /* README.md */,
 				BFFF05C62519ADEA00FCFD5D /* Podfile */,
 				BFFF05C72519ADF200FCFD5D /* Cartfile */,
+				BFD5DDFF251B8CE300E35F18 /* .swiftlint.yml */,
+				BFD5DE03251B8CFB00E35F18 /* .gitignore */,
 			);
 			name = Enviroment;
 			sourceTree = "<group>";
@@ -1078,6 +1170,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFD5DE04251B8CFB00E35F18 /* .gitignore in Resources */,
+				BFD5DDEA251B007200E35F18 /* UserDetail.storyboard in Resources */,
+				BFD5DE00251B8CE400E35F18 /* .swiftlint.yml in Resources */,
 				BF5CB6B12501CD9100EA1024 /* GroupDetailCollectionReusableView.xib in Resources */,
 				BF97245424CC6BD80033BB50 /* EditProfile.storyboard in Resources */,
 				BFA31F4424FF445200553F06 /* GroupDetail.storyboard in Resources */,
@@ -1090,6 +1185,7 @@
 				BFD4361D24CD504800B2E580 /* CreateNewGroupInfo.storyboard in Resources */,
 				BF88D51724CABD1000607D6A /* Profile.storyboard in Resources */,
 				BF88D50024CAB9F000607D6A /* TodayTodo.storyboard in Resources */,
+				BFD5DDEE251B0EE700E35F18 /* carthage.sh in Resources */,
 				BF88D4F524CAB8F300607D6A /* GroupTodo.storyboard in Resources */,
 				BFD4366624CE62C700B2E580 /* Assets.xcassets in Resources */,
 				BFFA61732508884700A1D2CE /* EditGroup.storyboard in Resources */,
@@ -1297,6 +1393,7 @@
 			files = (
 				BF88D4E824CAB6AA00607D6A /* MainTabBarBuilder.swift in Sources */,
 				BF88D4D224CAAA9300607D6A /* SampleViewBuilder.swift in Sources */,
+				BFD5DDE6251AFFFD00E35F18 /* UserDetailViewModel.swift in Sources */,
 				BF88D4FC24CAB9A100607D6A /* TodayTodoViewPresenter.swift in Sources */,
 				BF88D49224CAA83300607D6A /* AppDelegate.swift in Sources */,
 				BF020FC12510AA36006DC525 /* UserRepositoryProtocol.swift in Sources */,
@@ -1339,6 +1436,7 @@
 				BF88D4D024CAAA8D00607D6A /* SampleViewController.swift in Sources */,
 				BF68712B25109EA300923A8B /* GroupRepository.swift in Sources */,
 				BFD4361524CD4F5300B2E580 /* CreateNewGroupInfoViewBuilder.swift in Sources */,
+				BFD5DE09251B8ED200E35F18 /* NavigationImageConst.swift in Sources */,
 				BF88D4E624CAB6A200607D6A /* MainTabBarPresenter.swift in Sources */,
 				BFFA616B2508882F00A1D2CE /* EditGroupViewBuilder.swift in Sources */,
 				BFD4362824CDAC9D00B2E580 /* RegisterUserViewController.swift in Sources */,
@@ -1348,9 +1446,11 @@
 				BF88D4F324CAB89500607D6A /* GroupTodoViewModel.swift in Sources */,
 				BF88D4E424CAB69C00607D6A /* MainTabBarModel.swift in Sources */,
 				BFD4360D24CD49E200B2E580 /* SearchUserTableviewCell.swift in Sources */,
+				BFD5DDE2251AFFF900E35F18 /* UserDetailViewPresenter.swift in Sources */,
 				BF88D4ED24CAB88500607D6A /* GroupTodoViewBuilder.swift in Sources */,
 				BFD4360324CD44AE00B2E580 /* CreateNewGroupViewModel.swift in Sources */,
 				BFD435E524CD333D00B2E580 /* FieldValue+Encodable.swift in Sources */,
+				BFD5DDDE251AFFE900E35F18 /* UserDetailViewController.swift in Sources */,
 				BF88D51924CAC4D600607D6A /* GroupTableViewCell.swift in Sources */,
 				BF6468C12500F36100F1CB75 /* GroupDetailCollectionViewCell.swift in Sources */,
 				BF88D4EF24CAB88A00607D6A /* GroupTodoViewController.swift in Sources */,
@@ -1361,6 +1461,7 @@
 				BFD435E224CD333D00B2E580 /* CollectionReference+WriteEncodable.swift in Sources */,
 				BFD4362C24CDACA700B2E580 /* RegisterUserViewModel.swift in Sources */,
 				BF88D51B24CACEEC00607D6A /* TodayTodoCollectionViewCell.swift in Sources */,
+				BFD5DDDA251AFFE100E35F18 /* UserDetailViewBuilder.swift in Sources */,
 				BF88D4DC24CAAB5100607D6A /* ExUIView.swift in Sources */,
 				BFD435F424CD36F900B2E580 /* ExUIImageView.swift in Sources */,
 				BFD4362324CD659600B2E580 /* Group.swift in Sources */,
@@ -1390,9 +1491,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFD5DE30251C893E00E35F18 /* ProfileViewTest.swift in Sources */,
+				BF38EF4E251DE7A20024CD17 /* UserDetailModelMock.swift in Sources */,
+				BF38EF2D251CAD150024CD17 /* TodayTodoModelTest.swift in Sources */,
 				BF95E78924DE4D3700FF562D /* TodayTodoViewTests.swift in Sources */,
+				BF38EF57251EEE3D0024CD17 /* UserDetailViewTests.swift in Sources */,
 				BF88D4A924CAA83600607D6A /* ShareTodoTests.swift in Sources */,
+				BF38EF4A251DE6F70024CD17 /* ProfileViewModelMock.swift in Sources */,
 				BF28E41524FC886600269D82 /* GroupTodoViewModelTests.swift in Sources */,
+				BF38EF44251DE6EC0024CD17 /* TodayTodoModelMock.swift in Sources */,
+				BF38EF52251DEA2B0024CD17 /* UserDetailModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

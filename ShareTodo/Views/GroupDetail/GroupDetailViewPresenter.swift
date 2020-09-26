@@ -15,11 +15,13 @@ protocol GroupDetailViewPresenterProtocol {
     
     func didViewDidLoad()
     func didTapEditGroup()
+    func didTapGroupDetailCollectionViewuserCell(index: Int)
 }
 
 protocol GroupDetailViewPresenterOutput: class {
     func reloadGroupDetailCollectionView()
     func showEditGroupVC()
+    func segueUserDetailViewController(index: Int)
 }
 
 final class GroupDetailViewPresenter: GroupDetailViewPresenterProtocol, GroupDetailModelOutput {
@@ -50,6 +52,10 @@ final class GroupDetailViewPresenter: GroupDetailViewPresenterProtocol, GroupDet
     func didFinishedEditGroup() {
         guard let groupID = self.model.group.groupID else { return }
         repository.fetchGroup(groupID: groupID)
+    }
+    
+    func didTapGroupDetailCollectionViewuserCell(index: Int) {
+        self.view.segueUserDetailViewController(index: index)
     }
     
     func successFetchTodayTodo() {

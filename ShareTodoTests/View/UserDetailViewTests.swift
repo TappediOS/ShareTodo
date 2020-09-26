@@ -67,11 +67,12 @@ class UserDetailViewTests: XCTestCase {
                 //表示されたときはcontaintsされている
                 XCTAssertTrue(((self.view.navigationController?.navigationBar.subviews.contains(self.view.profileImageView)) != nil))
                 XCTAssertTrue(((parentVC.navigationController?.navigationBar.subviews.contains(self.view.profileImageView)) != nil))
+                XCTAssertEqual(self.view.profileImageView.alpha, 1)
                 self.view.navigationController?.popViewController(animated: false)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
                     //dismiss後は存在していない
-                    let exp: Bool = (parentVC.navigationController?.navigationBar.subviews.contains(self.view.profileImageView))!
-                    XCTAssertFalse(exp)
+                    XCTAssertFalse((parentVC.navigationController?.navigationBar.subviews.contains(self.view.profileImageView))!)
+                    XCTAssertEqual(self.view.profileImageView.alpha, 0)
                     expectation.fulfill()
                 })
             })

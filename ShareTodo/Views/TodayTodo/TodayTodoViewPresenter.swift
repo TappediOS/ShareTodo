@@ -78,7 +78,7 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
     }
     
     func didAllowNotification() {
-        
+        self.model.setFcmToken()
     }
     
     func isFinishedTodo(index: Int) -> Bool {

@@ -231,6 +231,7 @@
 		BF5CB6AF2501CD9100EA1024 /* GroupDetailCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupDetailCollectionReusableView.xib; sourceTree = "<group>"; };
 		BF5CB6B22504AB8100EA1024 /* GroupDetailCollectionViewUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailCollectionViewUserCell.swift; sourceTree = "<group>"; };
 		BF5CB6B32504AB8100EA1024 /* GroupDetailCollectionViewUserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupDetailCollectionViewUserCell.xib; sourceTree = "<group>"; };
+		BF5E21CC252D78520026AEDF /* ShareTodo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareTodo.entitlements; sourceTree = "<group>"; };
 		BF636F5024FCDFD700F30F63 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		BF6468BF2500F36100F1CB75 /* GroupDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		BF6468C02500F36100F1CB75 /* GroupDetailCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupDetailCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -1064,6 +1065,7 @@
 				BFFF05C72519ADF200FCFD5D /* Cartfile */,
 				BFD5DDFF251B8CE300E35F18 /* .swiftlint.yml */,
 				BFD5DE03251B8CFB00E35F18 /* .gitignore */,
+				BF5E21CC252D78520026AEDF /* ShareTodo.entitlements */,
 			);
 			name = Enviroment;
 			sourceTree = "<group>";
@@ -1659,6 +1661,7 @@
 			baseConfigurationReference = D8154F274295E699E436DBD1 /* Pods-ShareTodo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ShareTodo/ShareTodo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9R4W53MKG7;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1685,6 +1688,7 @@
 			baseConfigurationReference = 83B96B12A9F4876855708BD5 /* Pods-ShareTodo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ShareTodo/ShareTodo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9R4W53MKG7;
 				FRAMEWORK_SEARCH_PATHS = (

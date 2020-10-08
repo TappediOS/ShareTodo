@@ -176,7 +176,8 @@ extension UserDetailViewController: UserDetailViewPresenterOutput {
     }
     
     func segueIntroductionShareTodoPlusVC() {
-        //TODO:- 画面遷移を描くこと
+        let introductionShareTodoPlusVC = IntroductionShareTodoPlusViewBuilder.create()
+        self.navigationController?.pushViewController(introductionShareTodoPlusVC, animated: true)
     }
     
     func moveAndResizeImage(scale: Double, xTranslation: Double, yTranslation: Double) {

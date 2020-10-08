@@ -45,8 +45,12 @@ class SelectedUserCollectionViewCell: UICollectionViewCell {
         self.userNameLabel.text = user.name
         
         DispatchQueue.main.async {
+            guard let url = URL(string: user.profileImageURL ?? "") else {
+                self.profileImageView.image = R.image.defaultProfileImage()
+                return
+            }
             let options = ImageLoadingOptions(placeholder: R.image.placeholderImage(), transition: .fadeIn(duration: 0.25), failureImage: R.image.defaultProfileImage())
-            loadImage(with: URL(string: user.profileImageURL ?? "")!, options: options, into: self.profileImageView, progress: nil, completion: nil)
+            loadImage(with: url, options: options, into: self.profileImageView, progress: nil, completion: nil)
         }
     }
     

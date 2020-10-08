@@ -31,6 +31,10 @@ class TodayTodoModelMock: TodayTodoModelProtocol {
         self.presenter.successFetchTodayTodo()
     }
     
+    func setFcmToken() {
+        return
+    }
+    
     func isFirstOpen() -> Bool {
         return false
     }

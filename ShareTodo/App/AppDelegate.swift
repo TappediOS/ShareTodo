@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import FirebaseMessaging
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = Routes.decideRootViewController()
             window?.makeKeyAndVisible()
         }
+        
+        UNUserNotificationCenter.current().delegate = self
+        Messaging.messaging().delegate = self
+        
         return true
     }
 
@@ -35,5 +41,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    }
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    // ForeGround
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound, .badge])
+    }
+    
+    // response
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+    }
+}
+
+
+extension AppDelegate: MessagingDelegate {
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        if let uid = Auth.auth().currentUser?.uid {
+            print("fcmToken: \(fcmToken)")
+            self.setFcmToken(userID: uid, fcmToken: fcmToken)
+        }
+    }
+    
+    func setFcmToken(userID: String, fcmToken: String) {
+        let firestore = Firestore.firestore()
+        let settings = FirestoreSettings()
+        firestore.settings = settings
+        firestore.collection("todo/v1/users/").document(userID).updateData(["fcmToken": fcmToken]) { error in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+        }
     }
 }

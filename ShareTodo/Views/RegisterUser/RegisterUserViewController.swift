@@ -18,7 +18,7 @@ final class RegisterUserViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var registerButton: UIButton!
     
-    var profileImage = UIImage(named: "defaultProfileImage")
+    var profileImage = R.image.defaultProfileImage()
     
     var actionSheet = UIAlertController()
     let photoPickerVC = UIImagePickerController()
@@ -63,7 +63,7 @@ final class RegisterUserViewController: UIViewController {
     }
     
     func setupNameTextField() {
-        self.nameTextField.placeholder = "user name"
+        self.nameTextField.placeholder = R.string.localizable.userName()
         self.nameTextField.borderStyle = .none
         self.nameTextField.returnKeyType = .done
         self.nameTextField.delegate = self
@@ -88,16 +88,16 @@ final class RegisterUserViewController: UIViewController {
             self.actionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width / 2, y: screenSize.size.height, width: 0, height: 0)
         }
         
-        let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default, handler: { _ in
+        let takePhotoAction = UIAlertAction(title: R.string.localizable.takePhoto(), style: .default, handler: { _ in
             self.presenter.didTapTakePhotoAction()
         })
-        let selectPhotoAction = UIAlertAction(title: "Select Photo", style: .default, handler: { _ in
+        let selectPhotoAction = UIAlertAction(title: R.string.localizable.selectPhoto(), style: .default, handler: { _ in
             self.presenter.didTapSelectPhotoAction()
         })
-        let deletePhotoAction = UIAlertAction(title: "Delete Photo", style: .destructive, handler: { _ in
+        let deletePhotoAction = UIAlertAction(title: R.string.localizable.deletePhoto(), style: .destructive, handler: { _ in
             self.presenter.didTapDeletePhotoAction()
         })
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: nil)
         
         self.actionSheet.addAction(takePhotoAction)
         self.actionSheet.addAction(selectPhotoAction)
@@ -118,7 +118,7 @@ final class RegisterUserViewController: UIViewController {
         guard !userName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             self.nameTextField.text = String()
             let stringAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.systemRed.withAlphaComponent(0.5)]
-            self.nameTextField.attributedPlaceholder = NSAttributedString(string: "user name", attributes: stringAttributes)
+            self.nameTextField.attributedPlaceholder = NSAttributedString(string: R.string.localizable.userName(), attributes: stringAttributes)
             return
         }
         
@@ -149,7 +149,7 @@ extension RegisterUserViewController: RegisterUserViewPresenterOutput {
     
     func setDeleteAndSetDefaultImage() {
         DispatchQueue.main.async {
-            self.profileImage = UIImage(named: "defaultProfileImage")
+            self.profileImage = R.image.defaultProfileImage()
             self.profileImageButton.setImage(self.profileImage, for: .normal)
         }
     }
@@ -176,8 +176,8 @@ extension RegisterUserViewController: UINavigationControllerDelegate, UIImagePic
         cropController.aspectRatioPickerButtonHidden = true
         cropController.resetAspectRatioEnabled = false
         cropController.rotateButtonsHidden = false
-        cropController.cancelButtonTitle = NSLocalizedString("Cancel", comment: "")
-        cropController.doneButtonTitle = NSLocalizedString("Done", comment: "")
+        cropController.cancelButtonTitle = R.string.localizable.cancel()
+        cropController.doneButtonTitle = R.string.localizable.done()
         cropController.cropView.cropBoxResizeEnabled = false
         cropController.delegate = self
         

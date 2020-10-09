@@ -13,8 +13,10 @@
 "Cancel"       = "キャンセル";
 "Done"         = "完了";
 
-
 // EditGroupVC
 "EditGroup" = "グループ編集";
 "Group Name" = "グループ名";
 "Group Task" = "タスク";
+
+// RegisterUserVC
+"User Name" = "ユーザ名";

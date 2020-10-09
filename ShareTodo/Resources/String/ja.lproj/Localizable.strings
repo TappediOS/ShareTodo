@@ -45,3 +45,7 @@
 // GroupDetailVC
 "Today's progress" = "今日の進捗";
 "Progress to date" = "今日までの進捗";
+
+// UserDetailVC
+"Introduction"            = "ご紹介";
+"IntroductionDescription" = "1週間より過去のタスクを確認したい方に";

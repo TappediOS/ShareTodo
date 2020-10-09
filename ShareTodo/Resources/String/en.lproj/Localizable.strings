@@ -45,3 +45,7 @@
 // GroupDetailVC
 "Today's progress" = "Today's progress";
 "Progress to date" = "Progress to date";
+
+// UserDetailVC
+"Introduction"            = "Introduction";
+"IntroductionDescription" = "For those who want to check past tasks from one week";

@@ -5,3 +5,16 @@
   Created by jun on 2020/10/09.
   Copyright © 2020 jun. All rights reserved.
 */
+
+// ActionSheet
+"Take Photo"   = "写真を撮る";
+"Select Photo" = "写真を選択";
+"Delete Photo" = "写真を削除";
+"Cancel"       = "キャンセル";
+"Done"         = "完了";
+
+
+// EditGroupVC
+"EditGroup" = "グループ編集";
+"Group Name" = "グループ名";
+"Group Task" = "タスク";

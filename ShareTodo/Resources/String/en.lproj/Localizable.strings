@@ -5,3 +5,15 @@
   Created by jun on 2020/10/09.
   Copyright © 2020 jun. All rights reserved.
 */
+
+// ActionSheet
+"Take Photo"   = "Take Photo";
+"Select Photo" = "Select Photo";
+"Delete Photo" = "Delete Photo";
+"Cancel"       = "Cancel";
+"Done"         = "Done";
+
+// EditGroupVC
+"Edit Group" = "Edit Group";
+"Group Name" = "Group Name";
+"Group Task" = "Group Task";

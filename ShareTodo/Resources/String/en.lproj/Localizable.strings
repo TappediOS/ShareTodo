@@ -17,6 +17,11 @@
 "No Results" = "No results";
 "DZNEmptyDataSetDescription" = "It will be displayed when you search and find it.";
 
+// TabBarItem
+"Today" = "Today";
+"Group" = "Group";
+"Me" = "Me";
+
 // EditGroupVC
 "Edit Group" = "Edit Group";
 "Group Name" = "Group Name";
@@ -26,7 +31,6 @@
 "User Name" = "user name";
 
 // CreateNewGroupInfoVC
-"Group" = "Group";
 
 // CreateNewGroupVC
 "Choose Friends" = "Choose friends";
@@ -35,3 +39,5 @@
 // EditProfileVC
 "Edit Profile"        = "Edit Profile";
 "Chose Profile Photo" = "Chose Profile Photo";
+
+

@@ -17,6 +17,11 @@
 "No Results" = "結果なし";
 "DZNEmptyDataSetDescription" = "検索して見つかったユーザが表示されます";
 
+// TabBarItem
+"Today" = "今日";
+"Group" = "グループ";
+"Me" = "プロフィール";
+
 // EditGroupVC
 "EditGroup" = "グループ編集";
 "Group Name" = "グループ名";
@@ -26,7 +31,6 @@
 "User Name" = "ユーザ名";
 
 // CreateNewGroupInfoVC
-"Group" = "グループ";
 
 // CreateNewGroupVC
 "Choose Friends" = "フレンド選択";
@@ -35,3 +39,4 @@
 // EditProfileVC
 "Edit Profile"        = "プロフィール編集";
 "Chose Profile Photo" = "プロフィール写真を選択";
+

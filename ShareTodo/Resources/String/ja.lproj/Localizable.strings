@@ -13,6 +13,10 @@
 "Cancel"       = "キャンセル";
 "Done"         = "完了";
 
+// DZNEmptyDataSet
+"No Results" = "結果なし";
+"DZNEmptyDataSetDescription" = "検索して見つかったユーザが表示されます";
+
 // EditGroupVC
 "EditGroup" = "グループ編集";
 "Group Name" = "グループ名";
@@ -23,3 +27,7 @@
 
 // CreateNewGroupInfoVC
 "Group" = "グループ";
+
+// CreateNewGroupVC
+"Choose Friends" = "フレンド選択";
+"Search By Name" = "名前で検索";

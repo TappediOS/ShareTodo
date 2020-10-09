@@ -32,7 +32,7 @@ final class CreateNewGroupViewController: UIViewController {
     }
     
     private func setupNavigationItem() {
-        self.navigationItem.title = "Choose friends"
+        self.navigationItem.title = R.string.localizable.chooseFriends()
         let stopItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(tapStopCreateRoomButton))
         let saveItem = UIBarButtonItem(image: UIImage(systemName: "arrow.right") ?? UIImage(), style: .done, target: self, action: #selector(tapCreateRoomButton))
         self.navigationItem.leftBarButtonItem = stopItem
@@ -42,7 +42,7 @@ final class CreateNewGroupViewController: UIViewController {
     }
     
     private func setupUserSearchBar() {
-        self.userNameSearchBar.placeholder = "Search by name"
+        self.userNameSearchBar.placeholder = R.string.localizable.searchByName()
         self.userNameSearchBar.delegate = self
     }
     
@@ -231,13 +231,13 @@ extension CreateNewGroupViewController: UISearchBarDelegate {
 
 extension CreateNewGroupViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        let str = "No results"
+        let str = R.string.localizable.noResults()
         let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline)]
         return NSAttributedString(string: str, attributes: attrs)
     }
    
     func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        let str = "It will be displayed when you search and find it."
+        let str = R.string.localizable.dznEmptyDataSetDescription()
         let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)]
         return NSAttributedString(string: str, attributes: attrs)
     }

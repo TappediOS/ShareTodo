@@ -13,6 +13,10 @@
 "Cancel"       = "Cancel";
 "Done"         = "Done";
 
+// DZNEmptyDataSet
+"No Results" = "No results";
+"DZNEmptyDataSetDescription" = "It will be displayed when you search and find it.";
+
 // EditGroupVC
 "Edit Group" = "Edit Group";
 "Group Name" = "Group Name";
@@ -23,3 +27,7 @@
 
 // CreateNewGroupInfoVC
 "Group" = "Group";
+
+// CreateNewGroupVC
+"Choose Friends" = "Choose friends";
+"Search By Name" = "Search by name";

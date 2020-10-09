@@ -31,3 +31,7 @@
 // CreateNewGroupVC
 "Choose Friends" = "Choose friends";
 "Search By Name" = "Search by name";
+
+// EditProfileVC
+"Edit Profile"        = "Edit Profile";
+"Chose Profile Photo" = "Chose Profile Photo";

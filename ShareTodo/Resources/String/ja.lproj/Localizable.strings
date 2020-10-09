@@ -31,3 +31,7 @@
 // CreateNewGroupVC
 "Choose Friends" = "フレンド選択";
 "Search By Name" = "名前で検索";
+
+// EditProfileVC
+"Edit Profile"        = "プロフィール編集";
+"Chose Profile Photo" = "プロフィール写真を選択";

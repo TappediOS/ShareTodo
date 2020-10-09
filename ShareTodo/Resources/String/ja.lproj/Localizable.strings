@@ -42,3 +42,6 @@
 "Edit Profile"        = "プロフィール編集";
 "Chose Profile Photo" = "プロフィール写真を選択";
 
+// GroupDetailVC
+"Today's progress" = "今日の進捗";
+"Progress to date" = "今日までの進捗";

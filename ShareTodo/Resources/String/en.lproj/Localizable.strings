@@ -42,4 +42,6 @@
 "Edit Profile"        = "Edit Profile";
 "Chose Profile Photo" = "Chose Profile Photo";
 
-
+// GroupDetailVC
+"Today's progress" = "Today's progress";
+"Progress to date" = "Progress to date";

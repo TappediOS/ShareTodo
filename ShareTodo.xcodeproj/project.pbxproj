@@ -15,6 +15,7 @@
 		BF020FC32510AA57006DC525 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF020FC22510AA57006DC525 /* UserRepository.swift */; };
 		BF020FC52510AA7D006DC525 /* UserDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF020FC42510AA7D006DC525 /* UserDataStore.swift */; };
 		BF110025251F22CF0046376F /* IntroductionShareTodoPlus.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF110024251F22CF0046376F /* IntroductionShareTodoPlus.storyboard */; };
+		BF26FB772530618E00FDFC4A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF26FB792530618E00FDFC4A /* Localizable.strings */; };
 		BF28E41524FC886600269D82 /* GroupTodoViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */; };
 		BF38EF2D251CAD150024CD17 /* TodayTodoModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF2C251CAD150024CD17 /* TodayTodoModelTest.swift */; };
 		BF38EF44251DE6EC0024CD17 /* TodayTodoModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF43251DE6EC0024CD17 /* TodayTodoModelMock.swift */; };
@@ -220,6 +221,8 @@
 		BF020FC22510AA57006DC525 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		BF020FC42510AA7D006DC525 /* UserDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataStore.swift; sourceTree = "<group>"; };
 		BF110024251F22CF0046376F /* IntroductionShareTodoPlus.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IntroductionShareTodoPlus.storyboard; sourceTree = "<group>"; };
+		BF26FB782530618E00FDFC4A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BF26FB7C2530619100FDFC4A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTodoViewModelTests.swift; sourceTree = "<group>"; };
 		BF38EF2C251CAD150024CD17 /* TodayTodoModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoModelTest.swift; sourceTree = "<group>"; };
 		BF38EF43251DE6EC0024CD17 /* TodayTodoModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoModelMock.swift; sourceTree = "<group>"; };
@@ -514,6 +517,14 @@
 			path = IntroductionShareTodoPlus;
 			sourceTree = "<group>";
 		};
+		BF26FB702530616600FDFC4A /* String */ = {
+			isa = PBXGroup;
+			children = (
+				BF26FB792530618E00FDFC4A /* Localizable.strings */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
 		BF38EF2B251CAD010024CD17 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -659,6 +670,7 @@
 		BF88D4C124CAA8E800607D6A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BF26FB702530616600FDFC4A /* String */,
 				BFD4366424CE62B000B2E580 /* Asset */,
 				BF88D4C924CAA99B00607D6A /* GoogleInfo */,
 				BF88D4C824CAA99900607D6A /* Info */,
@@ -1166,6 +1178,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = BF88D48524CAA83300607D6A;
 			productRefGroup = BF88D48F24CAA83300607D6A /* Products */;
@@ -1194,6 +1207,7 @@
 				BFD4362E24CDAD0000B2E580 /* RegisterUser.storyboard in Resources */,
 				BF88D4EA24CAB76700607D6A /* MainTabBar.storyboard in Resources */,
 				BFD4360524CD450200B2E580 /* CreateNewGroup.storyboard in Resources */,
+				BF26FB772530618E00FDFC4A /* Localizable.strings in Resources */,
 				BF5CB6B52504AB8100EA1024 /* GroupDetailCollectionViewUserCell.xib in Resources */,
 				BFD4361D24CD504800B2E580 /* CreateNewGroupInfo.storyboard in Resources */,
 				BF88D51724CABD1000607D6A /* Profile.storyboard in Resources */,
@@ -1540,6 +1554,18 @@
 			targetProxy = BF88D4B024CAA83600607D6A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BF26FB792530618E00FDFC4A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF26FB782530618E00FDFC4A /* en */,
+				BF26FB7C2530619100FDFC4A /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		BF88D4B624CAA83600607D6A /* Debug */ = {

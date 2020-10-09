@@ -20,3 +20,6 @@
 
 // RegisterUserVC
 "User Name" = "user name";
+
+// CreateNewGroupInfoVC
+"Group" = "Group";

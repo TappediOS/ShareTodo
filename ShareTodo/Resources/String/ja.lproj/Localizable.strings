@@ -20,3 +20,6 @@
 
 // RegisterUserVC
 "User Name" = "ユーザ名";
+
+// CreateNewGroupInfoVC
+"Group" = "グループ";

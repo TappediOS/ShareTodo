@@ -32,7 +32,7 @@ final class TodayTodoViewController: UIViewController {
     }
     
     func setupNavigationBar() {
-        self.navigationItem.title = "Today"
+        self.navigationItem.title = R.string.localizable.today()
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
@@ -122,13 +122,13 @@ extension TodayTodoViewController: UICollectionViewDelegate, UICollectionViewDat
 
 extension TodayTodoViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        let str = "No Task"
+        let str = R.string.localizable.noTask()
         let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline)]
         return NSAttributedString(string: str, attributes: attrs)
     }
    
     func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        let str = "It will be displayed when you create New Group!"
+        let str = R.string.localizable.dznEmptyDataSetDescription_CreateGroup()
         let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)]
         return NSAttributedString(string: str, attributes: attrs)
     }

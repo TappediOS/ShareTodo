@@ -237,7 +237,7 @@ extension CreateNewGroupViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDe
     }
    
     func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        let str = R.string.localizable.dznEmptyDataSetDescription()
+        let str = R.string.localizable.dznEmptyDataSetDescription_SearchUser()
         let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)]
         return NSAttributedString(string: str, attributes: attrs)
     }

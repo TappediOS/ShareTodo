@@ -15,7 +15,9 @@
 
 // DZNEmptyDataSet
 "No Results" = "結果なし";
-"DZNEmptyDataSetDescription" = "検索して見つかったユーザが表示されます";
+"No Task" = "タスクなし";
+"DZNEmptyDataSetDescription_SearchUser" = "検索したユーザが表示されます";
+"DZNEmptyDataSetDescription_CreateGroup" = "グループを作成すると表示されます";
 
 // TabBarItem
 "Today" = "今日";

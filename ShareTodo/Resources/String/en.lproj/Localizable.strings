@@ -15,7 +15,9 @@
 
 // DZNEmptyDataSet
 "No Results" = "No results";
-"DZNEmptyDataSetDescription" = "It will be displayed when you search and find it.";
+"No Task" = "No Task";
+"DZNEmptyDataSetDescription_SearchUser" = "It will be displayed when you search and find it.";
+"DZNEmptyDataSetDescription_CreateGroup" = "It will be displayed when you create New Group!";
 
 // TabBarItem
 "Today" = "Today";

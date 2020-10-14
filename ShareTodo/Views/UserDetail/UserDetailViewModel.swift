@@ -58,6 +58,7 @@ final class UserDetailModel: UserDetailModelProtocol {
     }
     
     func fetchTodoList() {
+        //TODO:- Stringをまとめること
         guard let userID = self.user.id else { return }
         guard let groupID = self.group.groupID else { return }
         let collectionRef = "todo/v1/groups/" + groupID + "/todo"

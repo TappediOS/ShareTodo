@@ -53,7 +53,7 @@ final class EditProfileViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = saveItem
         self.navigationItem.leftBarButtonItem?.tintColor = .systemPink
         self.navigationItem.rightBarButtonItem?.tintColor = .systemGreen
-        self.navigationItem.title = "Edit Profile"
+        self.navigationItem.title = R.string.localizable.editProfile()
     }
     
     func setupProfileImageView() {
@@ -65,7 +65,7 @@ final class EditProfileViewController: UIViewController {
     }
     
     func setupChageProfileButton() {
-        self.chageProfileButton.setTitle("Chose Profile Photo", for: .normal)
+        self.chageProfileButton.setTitle(R.string.localizable.choseProfilePhoto(), for: .normal)
         self.chageProfileButton.titleLabel?.textColor = .systemBlue
         self.chageProfileButton.titleLabel?.adjustsFontSizeToFitWidth = true
         self.chageProfileButton.titleLabel?.minimumScaleFactor = 0.4
@@ -79,16 +79,16 @@ final class EditProfileViewController: UIViewController {
             self.actionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width / 2, y: screenSize.size.height, width: 0, height: 0)
         }
         
-        let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default, handler: { _ in
+        let takePhotoAction = UIAlertAction(title: R.string.localizable.takePhoto(), style: .default, handler: { _ in
             self.presenter.didTapTakePhotoAction()
         })
-        let selectPhotoAction = UIAlertAction(title: "Select Photo", style: .default, handler: { _ in
+        let selectPhotoAction = UIAlertAction(title: R.string.localizable.selectPhoto(), style: .default, handler: { _ in
             self.presenter.didTapSelectPhotoAction()
         })
-        let deletePhotoAction = UIAlertAction(title: "Delete Photo", style: .destructive, handler: { _ in
+        let deletePhotoAction = UIAlertAction(title: R.string.localizable.deletePhoto(), style: .destructive, handler: { _ in
             self.presenter.didTapDeletePhotoAction()
         })
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: nil)
         
         self.actionSheet.addAction(takePhotoAction)
         self.actionSheet.addAction(selectPhotoAction)
@@ -177,8 +177,8 @@ extension EditProfileViewController: UINavigationControllerDelegate, UIImagePick
         cropController.aspectRatioPickerButtonHidden = true
         cropController.resetAspectRatioEnabled = false
         cropController.rotateButtonsHidden = false
-        cropController.cancelButtonTitle = NSLocalizedString("Cancel", comment: "")
-        cropController.doneButtonTitle = NSLocalizedString("Done", comment: "")
+        cropController.cancelButtonTitle = R.string.localizable.cancel()
+        cropController.doneButtonTitle = R.string.localizable.done()
         cropController.cropView.cropBoxResizeEnabled = false
         cropController.delegate = self
 

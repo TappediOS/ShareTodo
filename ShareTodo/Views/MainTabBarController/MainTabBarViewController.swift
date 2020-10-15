@@ -38,9 +38,9 @@ final class MainTabBarViewController: UITabBarController {
         let profileTabBarItemImage = UIImage(systemName: "person.circle")
         let profileTabBarItemSelectedImage = UIImage(systemName: "person.circle.fill")
         
-        todayTodoVC.tabBarItem = UITabBarItem(title: "Today", image: todayTodoItemImage, selectedImage: todayTodoItemSelectedImage)
-        groupTodoVC.tabBarItem = UITabBarItem(title: "Group", image: groupTodoTabBarItemImage, selectedImage: groupTodoTabBarItemSelectedImage)
-        profileVC.tabBarItem = UITabBarItem(title: "Me", image: profileTabBarItemImage, selectedImage: profileTabBarItemSelectedImage)
+        todayTodoVC.tabBarItem = UITabBarItem(title: R.string.localizable.today(), image: todayTodoItemImage, selectedImage: todayTodoItemSelectedImage)
+        groupTodoVC.tabBarItem = UITabBarItem(title: R.string.localizable.group(), image: groupTodoTabBarItemImage, selectedImage: groupTodoTabBarItemSelectedImage)
+        profileVC.tabBarItem = UITabBarItem(title: R.string.localizable.me(), image: profileTabBarItemImage, selectedImage: profileTabBarItemSelectedImage)
         
         UITabBar.appearance().tintColor = .systemGreen
         self.viewControllers = [todayTodoNavigationController, groupTodoNavigationController, profileNavigationController]

@@ -1,0 +1,51 @@
+/* 
+  Localizable.strings
+  ShareTodo
+
+  Created by jun on 2020/10/09.
+  Copyright © 2020 jun. All rights reserved.
+*/
+
+// ActionSheet
+"Take Photo"   = "Take Photo";
+"Select Photo" = "Select Photo";
+"Delete Photo" = "Delete Photo";
+"Cancel"       = "Cancel";
+"Done"         = "Done";
+
+// DZNEmptyDataSet
+"No Results" = "No results";
+"No Task" = "No Task";
+"DZNEmptyDataSetDescription_SearchUser" = "It will be displayed when you search and find it.";
+"DZNEmptyDataSetDescription_CreateGroup" = "It will be displayed when you create New Group!";
+
+// TabBarItem
+"Today" = "Today";
+"Group" = "Group";
+"Me" = "Me";
+
+// EditGroupVC
+"Edit Group" = "Edit Group";
+"Group Name" = "Group Name";
+"Group Task" = "Group Task";
+
+// RegisterUserVC
+"User Name" = "user name";
+
+// CreateNewGroupInfoVC
+
+// CreateNewGroupVC
+"Choose Friends" = "Choose friends";
+"Search By Name" = "Search by name";
+
+// EditProfileVC
+"Edit Profile"        = "Edit Profile";
+"Chose Profile Photo" = "Chose Profile Photo";
+
+// GroupDetailVC
+"Today's progress" = "Today's progress";
+"Progress to date" = "Progress to date";
+
+// UserDetailVC
+"Introduction"            = "Introduction";
+"IntroductionDescription" = "For those who want to check past tasks from one week";

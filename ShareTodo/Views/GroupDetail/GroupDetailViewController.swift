@@ -14,7 +14,7 @@ final class GroupDetailViewController: UIViewController {
     @IBOutlet weak var groupDetailCollectionView: UICollectionView!
     var activityIndicator = UIActivityIndicatorView()
     
-    let sectionTitles = ["Today's progress", "Progress to date"]
+    let sectionTitles = [R.string.localizable.todaySProgress(), R.string.localizable.progressToDate()]
     
     var visualEffectView = UIVisualEffectView()
     

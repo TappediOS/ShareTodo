@@ -28,7 +28,7 @@ final class GroupTodoViewController: UIViewController {
     }
     
     func setupNavigationBar() {
-        self.navigationItem.title = "Group"
+        self.navigationItem.title = R.string.localizable.group()
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
@@ -129,7 +129,7 @@ extension GroupTodoViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegat
     }
    
     func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        let str = "It will be displayed when you create New Group!"
+        let str = R.string.localizable.dznEmptyDataSetDescription_CreateGroup()
         let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)]
         return NSAttributedString(string: str, attributes: attrs)
     }

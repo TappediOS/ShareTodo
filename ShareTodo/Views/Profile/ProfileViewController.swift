@@ -45,7 +45,7 @@ final class ProfileViewController: UIViewController {
     }
     
     func setupNavigationBar() {
-        self.navigationItem.title = "Me"
+        self.navigationItem.title = R.string.localizable.me()
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }

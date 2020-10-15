@@ -107,13 +107,14 @@ final class UserDetailViewController: UIViewController {
     }
     
     func setupIntroductionLabel() {
+        self.introductionLabel.text = R.string.localizable.introductionDescription()
         self.introductionLabel.adjustsFontSizeToFitWidth = true
         self.introductionLabel.minimumScaleFactor = 0.4
     }
     
     func setupIntroductionButton() {
         //TODO:- Stringを切り分けること
-        self.introductionButton.setTitle("ご紹介", for: .normal)
+        self.introductionButton.setTitle(R.string.localizable.introduction(), for: .normal)
         self.introductionButton.backgroundColor = .systemBlue
         self.introductionButton.tintColor = .white
         self.introductionButton.layer.cornerRadius = 8

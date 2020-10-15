@@ -1,0 +1,51 @@
+/* 
+  Localizable.strings
+  ShareTodo
+
+  Created by jun on 2020/10/09.
+  Copyright © 2020 jun. All rights reserved.
+*/
+
+// ActionSheet
+"Take Photo"   = "写真を撮る";
+"Select Photo" = "写真を選択";
+"Delete Photo" = "写真を削除";
+"Cancel"       = "キャンセル";
+"Done"         = "完了";
+
+// DZNEmptyDataSet
+"No Results" = "結果なし";
+"No Task" = "タスクなし";
+"DZNEmptyDataSetDescription_SearchUser" = "検索したユーザが表示されます";
+"DZNEmptyDataSetDescription_CreateGroup" = "グループを作成すると表示されます";
+
+// TabBarItem
+"Today" = "今日";
+"Group" = "グループ";
+"Me" = "プロフィール";
+
+// EditGroupVC
+"EditGroup" = "グループ編集";
+"Group Name" = "グループ名";
+"Group Task" = "タスク";
+
+// RegisterUserVC
+"User Name" = "ユーザ名";
+
+// CreateNewGroupInfoVC
+
+// CreateNewGroupVC
+"Choose Friends" = "フレンド選択";
+"Search By Name" = "名前で検索";
+
+// EditProfileVC
+"Edit Profile"        = "プロフィール編集";
+"Chose Profile Photo" = "プロフィール写真を選択";
+
+// GroupDetailVC
+"Today's progress" = "今日の進捗";
+"Progress to date" = "今日までの進捗";
+
+// UserDetailVC
+"Introduction"            = "ご紹介";
+"IntroductionDescription" = "1週間より過去のタスクを確認したい方に";

@@ -59,7 +59,7 @@ final class EditGroupViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = saveItem
         self.navigationItem.leftBarButtonItem?.tintColor = .systemPink
         self.navigationItem.rightBarButtonItem?.tintColor = .systemGreen
-        self.navigationItem.title = "Edit Group"
+        self.navigationItem.title = R.string.localizable.editGroup()
     }
     
     func setupGroupImageView() {
@@ -73,7 +73,7 @@ final class EditGroupViewController: UIViewController {
     }
     
     func setupGroupNameTextField() {
-        self.groupNameTextField.placeholder = "Group Name"
+        self.groupNameTextField.placeholder = R.string.localizable.groupName()
         self.groupNameTextField.borderStyle = .none
         self.groupNameTextField.returnKeyType = .done
         self.groupNameTextField.delegate = self
@@ -86,7 +86,7 @@ final class EditGroupViewController: UIViewController {
     }
     
     func setupTaskTextField() {
-        self.taskTextField.placeholder = "Group Task"
+        self.taskTextField.placeholder = R.string.localizable.groupTask()
         self.taskTextField.borderStyle = .none
         self.taskTextField.returnKeyType = .done
         self.taskTextField.delegate = self
@@ -117,16 +117,16 @@ final class EditGroupViewController: UIViewController {
             self.actionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width / 2, y: screenSize.size.height, width: 0, height: 0)
         }
         
-        let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default, handler: { _ in
+        let takePhotoAction = UIAlertAction(title: R.string.localizable.takePhoto(), style: .default, handler: { _ in
             self.presenter.didTapTakePhotoAction()
         })
-        let selectPhotoAction = UIAlertAction(title: "Select Photo", style: .default, handler: { _ in
+        let selectPhotoAction = UIAlertAction(title: R.string.localizable.selectPhoto(), style: .default, handler: { _ in
             self.presenter.didTapSelectPhotoAction()
         })
-        let deletePhotoAction = UIAlertAction(title: "Delete Photo", style: .destructive, handler: { _ in
+        let deletePhotoAction = UIAlertAction(title: R.string.localizable.deletePhoto(), style: .destructive, handler: { _ in
             self.presenter.didTapDeletePhotoAction()
         })
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: nil)
         
         self.actionSheet.addAction(takePhotoAction)
         self.actionSheet.addAction(selectPhotoAction)
@@ -197,8 +197,8 @@ extension EditGroupViewController: EditGroupViewPresenterOutput {
     func setRedColorPlaceholder() {
         let attributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.systemPink.withAlphaComponent(0.55),
                                                           .font: UIFont.boldSystemFont(ofSize: 14)]
-        self.taskTextField.attributedPlaceholder = NSAttributedString(string: "Group Task", attributes: attributes)
-        self.groupNameTextField.attributedPlaceholder = NSAttributedString(string: "Group Name", attributes: attributes)
+        self.taskTextField.attributedPlaceholder = NSAttributedString(string: R.string.localizable.groupTask(), attributes: attributes)
+        self.groupNameTextField.attributedPlaceholder = NSAttributedString(string: R.string.localizable.groupName(), attributes: attributes)
     }
     
     func dismissEditGroupVC() {
@@ -263,8 +263,8 @@ extension EditGroupViewController: UINavigationControllerDelegate, UIImagePicker
         cropController.aspectRatioPickerButtonHidden = true
         cropController.resetAspectRatioEnabled = false
         cropController.rotateButtonsHidden = false
-        cropController.cancelButtonTitle = NSLocalizedString("Cancel", comment: "")
-        cropController.doneButtonTitle = NSLocalizedString("Done", comment: "")
+        cropController.cancelButtonTitle = R.string.localizable.cancel()
+        cropController.doneButtonTitle = R.string.localizable.done()
         cropController.cropView.cropBoxResizeEnabled = false
         cropController.delegate = self
 

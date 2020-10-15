@@ -75,7 +75,8 @@ extension ProfileViewController: ProfileViewPresenterOutput {
         editProfileVC.userName = self.nameLabel.text
         
         let navigationController = UINavigationController(rootViewController: editProfileVC)
-        navigationController.modalPresentationStyle = .fullScreen
+        navigationController.modalPresentationStyle = .pageSheet
+        navigationController.presentationController?.delegate = self
         self.present(navigationController, animated: true, completion: nil)
     }
     
@@ -90,5 +91,13 @@ extension ProfileViewController: ProfileViewPresenterOutput {
                 self.navigationItem.rightBarButtonItem?.isEnabled = true
             })
         }
+    }
+}
+
+extension ProfileViewController: UIAdaptivePresentationControllerDelegate {
+    // このメソッドを実装
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        // Modal画面から戻った際の画面の更新処理を行う。 (collectionView.reloadDataなど。)
+        print("Hello world 😁")
     }
 }

@@ -16,7 +16,8 @@ final class EditProfileViewController: UIViewController {
     @IBOutlet weak var chageProfileButton: UIButton!
     @IBOutlet weak var nameTextField: UITextField!
     
-    var actionSheet = UIAlertController()
+    var editProfileActionSheet = UIAlertController()
+    var dismissVCActionSheet = UIAlertController()
     let photoPickerVC = UIImagePickerController()
     
     var profileImage = UIImage()
@@ -32,7 +33,8 @@ final class EditProfileViewController: UIViewController {
         self.setupProfileImageView()
         self.setupChageProfileButton()
         self.setupNameTextField()
-        self.setupActionSheet()
+        self.setupEditProfileActionSheet()
+        self.setupDismissVCActionSheet()
         self.setupPhotoPickerVC()
     }
     
@@ -71,12 +73,12 @@ final class EditProfileViewController: UIViewController {
         self.chageProfileButton.titleLabel?.minimumScaleFactor = 0.4
     }
     
-    func setupActionSheet() {
-        self.actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+    func setupEditProfileActionSheet() {
+        self.editProfileActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         if UIDevice.current.userInterfaceIdiom == .pad {
-            self.actionSheet.popoverPresentationController?.sourceView = self.view
+            self.editProfileActionSheet.popoverPresentationController?.sourceView = self.view
             let screenSize = UIScreen.main.bounds
-            self.actionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width / 2, y: screenSize.size.height, width: 0, height: 0)
+            self.editProfileActionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width / 2, y: screenSize.size.height, width: 0, height: 0)
         }
         
         let takePhotoAction = UIAlertAction(title: R.string.localizable.takePhoto(), style: .default, handler: { _ in
@@ -90,10 +92,33 @@ final class EditProfileViewController: UIViewController {
         })
         let cancelAction = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: nil)
         
-        self.actionSheet.addAction(takePhotoAction)
-        self.actionSheet.addAction(selectPhotoAction)
-        self.actionSheet.addAction(deletePhotoAction)
-        self.actionSheet.addAction(cancelAction)
+        self.editProfileActionSheet.addAction(takePhotoAction)
+        self.editProfileActionSheet.addAction(selectPhotoAction)
+        self.editProfileActionSheet.addAction(deletePhotoAction)
+        self.editProfileActionSheet.addAction(cancelAction)
+    }
+    
+    func setupDismissVCActionSheet() {
+        self.dismissVCActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            self.dismissVCActionSheet.popoverPresentationController?.sourceView = self.view
+            let screenSize = UIScreen.main.bounds
+            self.dismissVCActionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width / 2, y: screenSize.size.height, width: 0, height: 0)
+        }
+        
+        let saveAction = UIAlertAction(title: R.string.localizable.takePhoto(), style: .default, handler: { _ in
+            
+        })
+
+        let discardChangesAction = UIAlertAction(title: R.string.localizable.deletePhoto(), style: .destructive, handler: { _ in
+            
+        })
+        
+        let cancelAction = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: nil)
+        
+        self.dismissVCActionSheet.addAction(saveAction)
+        self.dismissVCActionSheet.addAction(discardChangesAction)
+        self.dismissVCActionSheet.addAction(cancelAction)
     }
     
     func setupPhotoPickerVC() {
@@ -146,7 +171,7 @@ extension EditProfileViewController: EditProfileViewPresenterOutput {
     }
     
     func presentActionSheet() {
-        self.present(self.actionSheet, animated: true, completion: nil)
+        self.present(self.editProfileActionSheet, animated: true, completion: nil)
     }
     
     func showUIImagePickerControllerAsCamera() {

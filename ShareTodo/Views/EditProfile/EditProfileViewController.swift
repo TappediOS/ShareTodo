@@ -106,11 +106,11 @@ final class EditProfileViewController: UIViewController {
             self.dismissVCActionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width / 2, y: screenSize.size.height, width: 0, height: 0)
         }
         
-        let saveAction = UIAlertAction(title: R.string.localizable.takePhoto(), style: .default, handler: { _ in
+        let saveAction = UIAlertAction(title: R.string.localizable.save(), style: .default, handler: { _ in
             
         })
 
-        let discardChangesAction = UIAlertAction(title: R.string.localizable.deletePhoto(), style: .destructive, handler: { _ in
+        let discardChangesAction = UIAlertAction(title: R.string.localizable.disCardChanges(), style: .destructive, handler: { _ in
             
         })
         

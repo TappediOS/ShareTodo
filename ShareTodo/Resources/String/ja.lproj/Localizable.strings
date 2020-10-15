@@ -7,11 +7,13 @@
 */
 
 // ActionSheet
-"Take Photo"   = "写真を撮る";
-"Select Photo" = "写真を選択";
-"Delete Photo" = "写真を削除";
-"Cancel"       = "キャンセル";
-"Done"         = "完了";
+"Take Photo"      = "写真を撮る";
+"Select Photo"    = "写真を選択";
+"Delete Photo"    = "写真を削除";
+"Cancel"          = "キャンセル";
+"Done"            = "完了";
+"Save"            = "保存";
+"DisCard Changes" = "変更を破棄";
 
 // DZNEmptyDataSet
 "No Results" = "結果なし";

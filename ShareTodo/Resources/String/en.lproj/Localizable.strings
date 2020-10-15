@@ -7,11 +7,13 @@
 */
 
 // ActionSheet
-"Take Photo"   = "Take Photo";
-"Select Photo" = "Select Photo";
-"Delete Photo" = "Delete Photo";
-"Cancel"       = "Cancel";
-"Done"         = "Done";
+"Take Photo"      = "Take Photo";
+"Select Photo"    = "Select Photo";
+"Delete Photo"    = "Delete Photo";
+"Cancel"          = "Cancel";
+"Done"            = "Done";
+"Save"            = "Save";
+"DisCard Changes" = "DisCard Changes";
 
 // DZNEmptyDataSet
 "No Results" = "No results";

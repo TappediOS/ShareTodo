@@ -76,7 +76,10 @@ extension ProfileViewController: ProfileViewPresenterOutput {
         
         let navigationController = UINavigationController(rootViewController: editProfileVC)
         navigationController.modalPresentationStyle = .pageSheet
-        navigationController.presentationController?.delegate = self
+        
+        navigationController.presentationController?.delegate = editProfileVC
+        editProfileVC.delegate = self
+        
         self.present(navigationController, animated: true, completion: nil)
     }
     
@@ -94,10 +97,16 @@ extension ProfileViewController: ProfileViewPresenterOutput {
     }
 }
 
-extension ProfileViewController: UIAdaptivePresentationControllerDelegate {
-    // このメソッドを実装
-    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
-        // Modal画面から戻った際の画面の更新処理を行う。 (collectionView.reloadDataなど。)
-        print("Hello world 😁")
+extension ProfileViewController: EditProfileViewControllerDelegate {
+    func editViewControllerDidCancel(_ editProfileViewController: EditProfileViewController) {
+        print("cancel")
+        self.dismiss(animated: true, completion: nil)
     }
+    
+    func editViewControllerDidFinish(_ editProfileViewController: EditProfileViewController) {
+        print("didFinish")
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+        
 }

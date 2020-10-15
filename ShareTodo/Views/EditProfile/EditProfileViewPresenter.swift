@@ -18,6 +18,8 @@ protocol EditProfileViewPresenterProtocol {
     func didTapTakePhotoAction()
     func didTapSelectPhotoAction()
     func didTapDeletePhotoAction()
+    func didTapSaveAction()
+    func didTapDiscardChangesAction()
 }
 
 protocol EditProfileViewPresenterOutput: class {
@@ -59,6 +61,14 @@ final class EditProfileViewPresenter: EditProfileViewPresenterProtocol, EditProf
     
     func didTapDeletePhotoAction() {
         self.view.setDeleteAndSetDefaultImage()
+    }
+    
+    func didTapSaveAction() {
+        // TODO:- 保存する処理を書くこと
+    }
+    
+    func didTapDiscardChangesAction() {
+        self.view.dismissEditProfileVC()
     }
     
     func successSaveUser() {

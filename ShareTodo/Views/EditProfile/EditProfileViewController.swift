@@ -9,6 +9,11 @@
 import UIKit
 import CropViewController
 
+protocol EditProfileViewControllerDelegate: class {
+    func editViewControllerDidCancel(_ editProfileViewController: EditProfileViewController)
+    func editViewControllerDidFinish(_ editProfileViewController: EditProfileViewController)
+}
+
 final class EditProfileViewController: UIViewController {
     private var presenter: EditProfileViewPresenterProtocol!
     
@@ -26,9 +31,12 @@ final class EditProfileViewController: UIViewController {
     let maxTextfieldLength = 15
     let usersImageViewWide: CGFloat = 100
     
+    // MARK:- Delegate
+    weak var delegate: EditProfileViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.setupView()
         self.setupNavigationItem()
         self.setupProfileImageView()
         self.setupChageProfileButton()
@@ -46,6 +54,11 @@ final class EditProfileViewController: UIViewController {
     
     deinit {
        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func setupView() {
+        self.isModalInPresentation = false
+        self.presentationController?.delegate = self
     }
     
     func setupNavigationItem() {
@@ -107,11 +120,11 @@ final class EditProfileViewController: UIViewController {
         }
         
         let saveAction = UIAlertAction(title: R.string.localizable.save(), style: .default, handler: { _ in
-            
+            self.presenter.didTapSaveAction()
         })
 
         let discardChangesAction = UIAlertAction(title: R.string.localizable.disCardChanges(), style: .destructive, handler: { _ in
-            
+            self.presenter.didTapDiscardChangesAction()
         })
         
         let cancelAction = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: nil)
@@ -167,7 +180,8 @@ final class EditProfileViewController: UIViewController {
 
 extension EditProfileViewController: EditProfileViewPresenterOutput {
     func dismissEditProfileVC() {
-        self.dismiss(animated: true, completion: nil)
+       // self.dismiss(animated: true, completion: nil)
+        self.delegate?.editViewControllerDidCancel(self)
     }
     
     func presentActionSheet() {
@@ -186,6 +200,12 @@ extension EditProfileViewController: EditProfileViewPresenterOutput {
     
     func setDeleteAndSetDefaultImage() {
         DispatchQueue.main.async { self.profileImageView.image = R.image.defaultProfileImage() }
+    }
+}
+
+extension EditProfileViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
+        self.present(self.dismissVCActionSheet, animated: true, completion: nil)
     }
 }
 

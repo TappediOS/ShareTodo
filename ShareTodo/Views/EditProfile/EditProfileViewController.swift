@@ -235,13 +235,20 @@ extension EditProfileViewController: UINavigationControllerDelegate, UIImagePick
 
 extension EditProfileViewController: CropViewControllerDelegate {
     func cropViewController(_ cropViewController: CropViewController, didFinishCancelled cancelled: Bool) {
-        cropViewController.dismiss(animated: true, completion: nil)
+        //NOTE:- pageSheetにおいてcropVCを使用する際は以下の様にしてdismissする必要がある。
+        //       fullScreenで使用する際は`cropViewController.dismiss()`でok
+        let cropVC = cropViewController.children.first!
+        cropVC.modalTransitionStyle = .coverVertical
+        cropVC.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     func cropViewController(_ cropViewController: CropViewController, didCropToCircularImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
         let resizeImage = image.resizeUIImage(width: self.usersImageViewWide, height: self.usersImageViewWide)
         self.profileImageView.image = resizeImage
-        cropViewController.dismiss(animated: true, completion: nil)
+        
+        let cropVC = cropViewController.children.first!
+        cropVC.modalTransitionStyle = .coverVertical
+        cropVC.presentingViewController?.dismiss(animated: true, completion: nil)
     }
 }
 

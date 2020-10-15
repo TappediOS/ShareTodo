@@ -111,7 +111,7 @@ final class EditProfileViewController: UIViewController {
         })
 
         let discardChangesAction = UIAlertAction(title: R.string.localizable.deletePhoto(), style: .destructive, handler: { _ in
-            
+            
         })
         
         let cancelAction = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: nil)

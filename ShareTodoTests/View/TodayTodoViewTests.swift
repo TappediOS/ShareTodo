@@ -56,17 +56,17 @@ class TodayTodoViewTests: XCTestCase {
         guard let cell3 = cell_3 as? TodayTodoCollectionViewCell else { return }
         
         XCTContext.runActivity(named: "1つ目のcellの情報が正しいこと") { _ in
-            XCTAssertEqual(cell1.groupNameLabel.text, "Group: Apple")
+            XCTAssertEqual(cell1.groupNameLabel.text, R.string.localizable.group_Colon() + "Apple")
             XCTAssertEqual(cell1.taskLabel.text, "Pie")
             XCTAssertNil(cell1.groupImageView.image)
         }
         XCTContext.runActivity(named: "2つ目のcellの情報が正しいこと") { _ in
-            XCTAssertEqual(cell2.groupNameLabel.text, "Group: Banana")
+            XCTAssertEqual(cell2.groupNameLabel.text, R.string.localizable.group_Colon() + "Banana")
             XCTAssertEqual(cell2.taskLabel.text, "Juice")
             XCTAssertNil(cell2.groupImageView.image)
         }
         XCTContext.runActivity(named: "3つ目のcellの情報が正しいこと") { _ in
-            XCTAssertEqual(cell3.groupNameLabel.text, "Group: Grape")
+            XCTAssertEqual(cell3.groupNameLabel.text, R.string.localizable.group_Colon() + "Grape")
             XCTAssertEqual(cell3.taskLabel.text, "Jelly")
             XCTAssertNil(cell3.groupImageView.image)
         }

@@ -26,6 +26,9 @@
 "Group" = "グループ";
 "Me" = "プロフィール";
 
+// TodayTodoVC
+"Group_Colon:" = "グループ: ";
+
 // EditGroupVC
 "EditGroup" = "グループ編集";
 "Group Name" = "グループ名";

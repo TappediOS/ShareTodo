@@ -26,6 +26,9 @@
 "Group" = "Group";
 "Me" = "Me";
 
+// TodayTodoVC
+"Group_Colon:" = "Group: ";
+
 // EditGroupVC
 "Edit Group" = "Edit Group";
 "Group Name" = "Group Name";

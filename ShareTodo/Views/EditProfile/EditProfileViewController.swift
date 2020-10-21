@@ -31,7 +31,7 @@ final class EditProfileViewController: UIViewController {
     let maxTextfieldLength = 15
     let usersImageViewWide: CGFloat = 100
     
-    // MARK:- Delegate
+    // MARK: - Delegate
     weak var delegate: EditProfileViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -44,6 +44,7 @@ final class EditProfileViewController: UIViewController {
         self.setupEditProfileActionSheet()
         self.setupDismissVCActionSheet()
         self.setupPhotoPickerVC()
+        self.setupNotificationCenter()
     }
     
     override func viewDidLayoutSubviews() {
@@ -120,7 +121,7 @@ final class EditProfileViewController: UIViewController {
         }
         
         let saveAction = UIAlertAction(title: R.string.localizable.save(), style: .default, handler: { _ in
-            self.presenter.didTapSaveAction()
+            self.tapSaveEditProfileButton()
         })
 
         let discardChangesAction = UIAlertAction(title: R.string.localizable.disCardChanges(), style: .destructive, handler: { _ in
@@ -180,7 +181,6 @@ final class EditProfileViewController: UIViewController {
 
 extension EditProfileViewController: EditProfileViewPresenterOutput {
     func dismissEditProfileVC() {
-       // self.dismiss(animated: true, completion: nil)
         self.delegate?.editViewControllerDidCancel(self)
     }
     
@@ -200,6 +200,18 @@ extension EditProfileViewController: EditProfileViewPresenterOutput {
     
     func setDeleteAndSetDefaultImage() {
         DispatchQueue.main.async { self.profileImageView.image = R.image.defaultProfileImage() }
+    }
+    
+    func turnOnIsModalInPresentation() {
+        self.isModalInPresentation = true
+    }
+    
+    func turnOnNavigationBarRightItem() {
+        self.navigationItem.rightBarButtonItem?.isEnabled = true
+    }
+    
+    func turnOffNavigationBarRightItem() {
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
     }
 }
 
@@ -246,6 +258,8 @@ extension EditProfileViewController: CropViewControllerDelegate {
         let resizeImage = image.resizeUIImage(width: self.usersImageViewWide, height: self.usersImageViewWide)
         self.profileImageView.image = resizeImage
         
+        self.presenter.didCropedProfileImageView()
+        
         let cropVC = cropViewController.children.first!
         cropVC.modalTransitionStyle = .coverVertical
         cropVC.presentingViewController?.dismiss(animated: true, completion: nil)
@@ -256,6 +270,14 @@ extension EditProfileViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.nameTextField.resignFirstResponder()
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.presenter.didBeginTextFieldEditing()
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.presenter.didEndTextFieldEditing()
     }
     
     @objc func textFieldDidChange(notification: NSNotification) {

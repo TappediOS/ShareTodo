@@ -20,6 +20,9 @@ protocol EditProfileViewPresenterProtocol {
     func didTapDeletePhotoAction()
     func didTapSaveAction()
     func didTapDiscardChangesAction()
+    func didCropedProfileImageView()
+    func didBeginTextFieldEditing()
+    func didEndTextFieldEditing()
 }
 
 protocol EditProfileViewPresenterOutput: class {
@@ -28,6 +31,9 @@ protocol EditProfileViewPresenterOutput: class {
     func showUIImagePickerControllerAsCamera()
     func showUIImagePickerControllerAsLibrary()
     func setDeleteAndSetDefaultImage()
+    func turnOnIsModalInPresentation()
+    func turnOnNavigationBarRightItem()
+    func turnOffNavigationBarRightItem()
 }
 
 final class EditProfileViewPresenter: EditProfileViewPresenterProtocol, EditProfileModelOutput {
@@ -60,6 +66,7 @@ final class EditProfileViewPresenter: EditProfileViewPresenterProtocol, EditProf
     }
     
     func didTapDeletePhotoAction() {
+        self.view.turnOnIsModalInPresentation()
         self.view.setDeleteAndSetDefaultImage()
     }
     
@@ -69,6 +76,19 @@ final class EditProfileViewPresenter: EditProfileViewPresenterProtocol, EditProf
     
     func didTapDiscardChangesAction() {
         self.view.dismissEditProfileVC()
+    }
+    
+    func didCropedProfileImageView() {
+        self.view.turnOnIsModalInPresentation()
+    }
+    
+    func didBeginTextFieldEditing() {
+        self.view.turnOffNavigationBarRightItem()
+    }
+    
+    func didEndTextFieldEditing() {
+        self.view.turnOnNavigationBarRightItem()
+        self.view.turnOnIsModalInPresentation()
     }
     
     func successSaveUser() {

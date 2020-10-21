@@ -53,10 +53,6 @@ final class EditProfileViewController: UIViewController {
         self.nameTextField.addBorderBottom(borderWidth: 1, color: .systemGray)
     }
     
-    deinit {
-       NotificationCenter.default.removeObserver(self)
-    }
-    
     func setupView() {
         self.isModalInPresentation = false
         self.presentationController?.delegate = self

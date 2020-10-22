@@ -9,6 +9,11 @@
 import UIKit
 import CropViewController
 
+protocol EditProfileViewControllerDelegate: class {
+    func editViewControllerDidCancel(_ editProfileViewController: EditProfileViewController)
+    func editViewControllerDidFinish(_ editProfileViewController: EditProfileViewController)
+}
+
 final class EditProfileViewController: UIViewController {
     private var presenter: EditProfileViewPresenterProtocol!
     
@@ -16,7 +21,8 @@ final class EditProfileViewController: UIViewController {
     @IBOutlet weak var chageProfileButton: UIButton!
     @IBOutlet weak var nameTextField: UITextField!
     
-    var actionSheet = UIAlertController()
+    var editProfileActionSheet = UIAlertController()
+    var dismissVCActionSheet = UIAlertController()
     let photoPickerVC = UIImagePickerController()
     
     var profileImage = UIImage()
@@ -25,15 +31,20 @@ final class EditProfileViewController: UIViewController {
     let maxTextfieldLength = 15
     let usersImageViewWide: CGFloat = 100
     
+    // MARK: - Delegate
+    weak var delegate: EditProfileViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.setupView()
         self.setupNavigationItem()
         self.setupProfileImageView()
         self.setupChageProfileButton()
         self.setupNameTextField()
-        self.setupActionSheet()
+        self.setupEditProfileActionSheet()
+        self.setupDismissVCActionSheet()
         self.setupPhotoPickerVC()
+        self.setupNotificationCenter()
     }
     
     override func viewDidLayoutSubviews() {
@@ -42,8 +53,9 @@ final class EditProfileViewController: UIViewController {
         self.nameTextField.addBorderBottom(borderWidth: 1, color: .systemGray)
     }
     
-    deinit {
-       NotificationCenter.default.removeObserver(self)
+    func setupView() {
+        self.isModalInPresentation = false
+        self.presentationController?.delegate = self
     }
     
     func setupNavigationItem() {
@@ -71,12 +83,12 @@ final class EditProfileViewController: UIViewController {
         self.chageProfileButton.titleLabel?.minimumScaleFactor = 0.4
     }
     
-    func setupActionSheet() {
-        self.actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+    func setupEditProfileActionSheet() {
+        self.editProfileActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         if UIDevice.current.userInterfaceIdiom == .pad {
-            self.actionSheet.popoverPresentationController?.sourceView = self.view
+            self.editProfileActionSheet.popoverPresentationController?.sourceView = self.view
             let screenSize = UIScreen.main.bounds
-            self.actionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width / 2, y: screenSize.size.height, width: 0, height: 0)
+            self.editProfileActionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width / 2, y: screenSize.size.height, width: 0, height: 0)
         }
         
         let takePhotoAction = UIAlertAction(title: R.string.localizable.takePhoto(), style: .default, handler: { _ in
@@ -90,10 +102,33 @@ final class EditProfileViewController: UIViewController {
         })
         let cancelAction = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: nil)
         
-        self.actionSheet.addAction(takePhotoAction)
-        self.actionSheet.addAction(selectPhotoAction)
-        self.actionSheet.addAction(deletePhotoAction)
-        self.actionSheet.addAction(cancelAction)
+        self.editProfileActionSheet.addAction(takePhotoAction)
+        self.editProfileActionSheet.addAction(selectPhotoAction)
+        self.editProfileActionSheet.addAction(deletePhotoAction)
+        self.editProfileActionSheet.addAction(cancelAction)
+    }
+    
+    func setupDismissVCActionSheet() {
+        self.dismissVCActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            self.dismissVCActionSheet.popoverPresentationController?.sourceView = self.view
+            let screenSize = UIScreen.main.bounds
+            self.dismissVCActionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width / 2, y: screenSize.size.height, width: 0, height: 0)
+        }
+        
+        let saveAction = UIAlertAction(title: R.string.localizable.save(), style: .default, handler: { _ in
+            self.tapSaveEditProfileButton()
+        })
+
+        let discardChangesAction = UIAlertAction(title: R.string.localizable.disCardChanges(), style: .destructive, handler: { _ in
+            self.presenter.didTapDiscardChangesAction()
+        })
+        
+        let cancelAction = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: nil)
+        
+        self.dismissVCActionSheet.addAction(saveAction)
+        self.dismissVCActionSheet.addAction(discardChangesAction)
+        self.dismissVCActionSheet.addAction(cancelAction)
     }
     
     func setupPhotoPickerVC() {
@@ -142,11 +177,11 @@ final class EditProfileViewController: UIViewController {
 
 extension EditProfileViewController: EditProfileViewPresenterOutput {
     func dismissEditProfileVC() {
-        self.dismiss(animated: true, completion: nil)
+        self.delegate?.editViewControllerDidCancel(self)
     }
     
     func presentActionSheet() {
-        self.present(self.actionSheet, animated: true, completion: nil)
+        self.present(self.editProfileActionSheet, animated: true, completion: nil)
     }
     
     func showUIImagePickerControllerAsCamera() {
@@ -161,6 +196,24 @@ extension EditProfileViewController: EditProfileViewPresenterOutput {
     
     func setDeleteAndSetDefaultImage() {
         DispatchQueue.main.async { self.profileImageView.image = R.image.defaultProfileImage() }
+    }
+    
+    func turnOnIsModalInPresentation() {
+        self.isModalInPresentation = true
+    }
+    
+    func turnOnNavigationBarRightItem() {
+        self.navigationItem.rightBarButtonItem?.isEnabled = true
+    }
+    
+    func turnOffNavigationBarRightItem() {
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
+    }
+}
+
+extension EditProfileViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
+        self.present(self.dismissVCActionSheet, animated: true, completion: nil)
     }
 }
 
@@ -190,13 +243,22 @@ extension EditProfileViewController: UINavigationControllerDelegate, UIImagePick
 
 extension EditProfileViewController: CropViewControllerDelegate {
     func cropViewController(_ cropViewController: CropViewController, didFinishCancelled cancelled: Bool) {
-        cropViewController.dismiss(animated: true, completion: nil)
+        //NOTE:- pageSheetにおいてcropVCを使用する際は以下の様にしてdismissする必要がある。
+        //       fullScreenで使用する際は`cropViewController.dismiss()`でok
+        let cropVC = cropViewController.children.first!
+        cropVC.modalTransitionStyle = .coverVertical
+        cropVC.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     func cropViewController(_ cropViewController: CropViewController, didCropToCircularImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
         let resizeImage = image.resizeUIImage(width: self.usersImageViewWide, height: self.usersImageViewWide)
         self.profileImageView.image = resizeImage
-        cropViewController.dismiss(animated: true, completion: nil)
+        
+        self.presenter.didCropedProfileImageView()
+        
+        let cropVC = cropViewController.children.first!
+        cropVC.modalTransitionStyle = .coverVertical
+        cropVC.presentingViewController?.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -204,6 +266,14 @@ extension EditProfileViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.nameTextField.resignFirstResponder()
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.presenter.didBeginTextFieldEditing()
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.presenter.didEndTextFieldEditing()
     }
     
     @objc func textFieldDidChange(notification: NSNotification) {

@@ -75,7 +75,11 @@ extension ProfileViewController: ProfileViewPresenterOutput {
         editProfileVC.userName = self.nameLabel.text
         
         let navigationController = UINavigationController(rootViewController: editProfileVC)
-        navigationController.modalPresentationStyle = .fullScreen
+        navigationController.modalPresentationStyle = .pageSheet
+        
+        navigationController.presentationController?.delegate = editProfileVC
+        editProfileVC.delegate = self
+        
         self.present(navigationController, animated: true, completion: nil)
     }
     
@@ -91,4 +95,18 @@ extension ProfileViewController: ProfileViewPresenterOutput {
             })
         }
     }
+}
+
+extension ProfileViewController: EditProfileViewControllerDelegate {
+    func editViewControllerDidCancel(_ editProfileViewController: EditProfileViewController) {
+        print("cancel")
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func editViewControllerDidFinish(_ editProfileViewController: EditProfileViewController) {
+        print("didFinish")
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+        
 }

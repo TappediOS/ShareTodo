@@ -51,7 +51,7 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
         
         self.taskLabel.text = group.task
         //TODO:- StringFileで抜き出すこと
-        self.groupNameLabel.text = "Group: " + group.name
+        self.groupNameLabel.text = R.string.localizable.group_Colon() + group.name
         self.radioButton.setImage(radioButtonImage, for: .normal)
         
         guard let url = URL(string: group.profileImageURL ?? "") else { return }

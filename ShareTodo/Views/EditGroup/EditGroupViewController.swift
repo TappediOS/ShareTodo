@@ -300,6 +300,9 @@ extension EditGroupViewController: EditGroupViewPresenterOutput {
         self.present(self.leaveGroupActionSheet, animated: true, completion: nil)
     }
     
+    func showLeaveUserAleartView() {
+        self.present(self.leaveUserActionSheet, animated: true, completion: nil)
+    }
 }
 
 extension EditGroupViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -311,6 +314,10 @@ extension EditGroupViewController: UICollectionViewDelegate, UICollectionViewDat
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: selectedUsersAndMeCollectionViewCellId, for: indexPath) as! SelectedUsersAndMeCollectionViewCell
 
         cell.configure(with: self.presenter.groupUsers[indexPath.item])
+        cell.tapSelectedUsersAndMeCellAction = { [weak self] in
+            guard let self = self else { return }
+            self.presenter.tapSelectedUsersAndMeProfileImage(index: indexPath.item)
+        }
         return cell
     }
     

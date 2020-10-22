@@ -25,6 +25,8 @@ protocol EditGroupViewPresenterProtocol {
     func didTapTakePhotoAction()
     func didTapSelectPhotoAction()
     func didTapDeletePhotoAction()
+    
+    func tapSelectedUsersAndMeProfileImage(index: Int)
 }
 
 protocol EditGroupViewPresenterOutput: class {
@@ -39,6 +41,7 @@ protocol EditGroupViewPresenterOutput: class {
     func setDeleteAndSetDefaultImage()
     func showSelectInviteUsersVC()
     func showLeaveGroupAleartView()
+    func showLeaveUserAleartView()
 }
 
 final class EditGroupViewPresenter: EditGroupViewPresenterProtocol, EditGroupModelOutput {
@@ -103,6 +106,13 @@ final class EditGroupViewPresenter: EditGroupViewPresenterProtocol, EditGroupMod
     
     func didTapDeletePhotoAction() {
         self.view.setDeleteAndSetDefaultImage()
+    }
+    
+    func tapSelectedUsersAndMeProfileImage(index: Int) {
+        guard model.selectedUserEqualMe(index: index) == false else { return }
+        guard let selectedUser = model.getSelectedUsersUID(index: index) else { return }
+        self.model.setMayRemoveUserUID(uid: selectedUser)
+        self.view.showLeaveUserAleartView()
     }
     
     func successSaveGroup() {

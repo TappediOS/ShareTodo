@@ -13,8 +13,13 @@ protocol EditGroupModelProtocol {
     var presenter: EditGroupModelOutput! { get set }
     var group: Group { get set }
     var groupUsers: [User] { get set }
+    var mayRemoveUserUID: String? { get }
     
     func updateGroup(selectedUsers: [User], groupName: String, groupTask: String, groupImageData: Data)
+    
+    func selectedUserEqualMe(index: Int) -> Bool
+    func getSelectedUsersUID(index: Int) -> String?
+    func setMayRemoveUserUID(uid: String)
 }
 
 protocol EditGroupModelOutput: class {
@@ -25,6 +30,7 @@ final class EditGroupModel: EditGroupModelProtocol {
     weak var presenter: EditGroupModelOutput!
     var group: Group
     var groupUsers: [User]
+    var mayRemoveUserUID: String?
     private var firestore: Firestore!
     
     init(group: Group, groupUsers: [User]) {
@@ -106,5 +112,22 @@ final class EditGroupModel: EditGroupModelProtocol {
             
             self.presenter.successSaveGroup()
         }
+    }
+    
+    func selectedUserEqualMe(index: Int) -> Bool {
+        guard let user = Auth.auth().currentUser else { return true }
+        guard let selectedUsersUID = self.groupUsers[index].id else { return true }
+        
+        if user.uid == selectedUsersUID { return true }
+        return false
+    }
+    
+    func getSelectedUsersUID(index: Int) -> String? {
+        guard let selectedUsersUID = self.groupUsers[index].id else { return nil }
+        return selectedUsersUID
+    }
+    
+    func setMayRemoveUserUID(uid: String) {
+        self.mayRemoveUserUID = uid
     }
 }

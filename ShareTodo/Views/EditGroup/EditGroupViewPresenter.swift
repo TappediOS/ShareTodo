@@ -37,7 +37,7 @@ protocol EditGroupViewPresenterOutput: class {
     func showUIImagePickerControllerAsCamera()
     func showUIImagePickerControllerAsLibrary()
     func setDeleteAndSetDefaultImage()
-    func showSlectInviteUsersVC()
+    func showSelectInviteUsersVC()
     func showLeaveGroupAleartView()
 }
 
@@ -86,7 +86,7 @@ final class EditGroupViewPresenter: EditGroupViewPresenterProtocol, EditGroupMod
     }
     
     func didTapInviteUsersButton() {
-        self.view.showSlectInviteUsersVC()
+        self.view.showSelectInviteUsersVC()
     }
     
     func didTapLeaveGroupButton() {

@@ -292,7 +292,7 @@ extension EditGroupViewController: EditGroupViewPresenterOutput {
         DispatchQueue.main.async { self.groupImageView.image = R.image.groupDefaultImage() }
     }
     
-    func showSlectInviteUsersVC() {
+    func showSelectInviteUsersVC() {
         
     }
     

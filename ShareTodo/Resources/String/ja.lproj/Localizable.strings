@@ -57,6 +57,7 @@
 "Remove user" = "ユーザ削除";
 "Remove User Message" = "このユーザをグループから脱退させますか？";
 "Remove" = "削除";
+"Remove_colon" = "削除: ";
 
 // UserDetailVC
 "Introduction"            = "ご紹介";

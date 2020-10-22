@@ -29,7 +29,7 @@ final class EditGroupViewController: UIViewController {
     
     var editProfileActionSheet = UIAlertController()
     var leaveGroupActionSheet = UIAlertController()
-    var leaveUserActionSheet = UIAlertController()
+    var removeUserActionSheet = UIAlertController()
     let photoPickerVC = UIImagePickerController()
     
     let selectedUsersAndMeCollectionViewCellId = "SelectedUsersAndMeCollectionViewCell"
@@ -170,11 +170,11 @@ final class EditGroupViewController: UIViewController {
     }
     
     func setupLeaveUserActionSheet() {
-        self.leaveUserActionSheet = UIAlertController(title: R.string.localizable.removeUser(), message: R.string.localizable.removeUserMessage(), preferredStyle: .alert)
+        self.removeUserActionSheet = UIAlertController(title: R.string.localizable.removeUser(), message: R.string.localizable.removeUserMessage(), preferredStyle: .alert)
         if UIDevice.current.userInterfaceIdiom == .pad {
-            self.leaveUserActionSheet.popoverPresentationController?.sourceView = self.view
+            self.removeUserActionSheet.popoverPresentationController?.sourceView = self.view
             let screenSize = UIScreen.main.bounds
-            self.leaveUserActionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width / 2, y: screenSize.size.height, width: 0, height: 0)
+            self.removeUserActionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width / 2, y: screenSize.size.height, width: 0, height: 0)
         }
         
         let removeAction = UIAlertAction(title: R.string.localizable.remove(), style: .destructive, handler: { _ in
@@ -185,8 +185,8 @@ final class EditGroupViewController: UIViewController {
             self.presenter.didTapCancelRemoveUser()
         })
         
-        self.leaveUserActionSheet.addAction(removeAction)
-        self.leaveUserActionSheet.addAction(cancelAction)
+        self.removeUserActionSheet.addAction(removeAction)
+        self.removeUserActionSheet.addAction(cancelAction)
     }
     
     func setupPhotoPickerVC() {
@@ -320,8 +320,9 @@ extension EditGroupViewController: EditGroupViewPresenterOutput {
         self.present(self.leaveGroupActionSheet, animated: true, completion: nil)
     }
     
-    func showLeaveUserAleartView() {
-        self.present(self.leaveUserActionSheet, animated: true, completion: nil)
+    func showRemoveUserAleartView(mayRemoveUserName: String) {
+        self.removeUserActionSheet.title = R.string.localizable.remove_colon() + mayRemoveUserName
+        self.present(self.removeUserActionSheet, animated: true, completion: nil)
     }
 }
 

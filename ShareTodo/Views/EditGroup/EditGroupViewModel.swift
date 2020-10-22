@@ -18,7 +18,7 @@ protocol EditGroupModelProtocol {
     func updateGroup(selectedUsers: [User], groupName: String, groupTask: String, groupImageData: Data)
     
     func selectedUserEqualMe(index: Int) -> Bool
-    func getSelectedUsersUID(index: Int) -> String?
+    func getSelectedUser(index: Int) -> User?
     func setMayRemoveUserUID(uid: String)
     func resetMayRemoveUserUID()
     
@@ -129,9 +129,9 @@ final class EditGroupModel: EditGroupModelProtocol {
         return false
     }
     
-    func getSelectedUsersUID(index: Int) -> String? {
-        guard let selectedUsersUID = self.groupUsers[index].id else { return nil }
-        return selectedUsersUID
+    func getSelectedUser(index: Int) -> User? {
+        guard index >= 0 && index < self.groupUsers.count else { return nil }
+        return self.groupUsers[index]
     }
     
     func setMayRemoveUserUID(uid: String) {

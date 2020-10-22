@@ -97,6 +97,11 @@ extension GroupDetailViewController: GroupDetailViewPresenterOutput {
         }
     }
     
+    func setNavigationBarTitle() {
+        let title = self.presenter.group.name
+        self.navigationItem.title = title
+    }
+    
     func showEditGroupVC() {
         guard let editGroupVC = EditGroupViewBuilder.create(group: self.presenter.group, groupUsers: self.presenter.groupUsers) as? EditGroupViewController else { return }
         let navigationController = UINavigationController(rootViewController: editGroupVC)
@@ -203,7 +208,8 @@ extension GroupDetailViewController: EditGroupViewControllerDelegate {
         })
     }
     
-    func editGroupViewControllerDidFinish(_ editprofileViewController: EditGroupViewController) {
+    func editGroupViewControllerDidFinish(group: Group, groupUsers: [User]) {
         self.dismiss(animated: true, completion: nil)
+        self.presenter.didFinishedEditGroup(group: group, groupUsers: groupUsers)
     }
 }

@@ -12,7 +12,7 @@ import Nuke
 
 protocol EditGroupViewControllerDelegate: class {
     func reaveGroupFinished(_ editprofileViewController: EditGroupViewController)
-    func editGroupViewControllerDidFinish(_ editprofileViewController: EditGroupViewController)
+    func editGroupViewControllerDidFinish(group: Group, groupUsers: [User])
 }
 
 final class EditGroupViewController: UIViewController {
@@ -287,7 +287,7 @@ extension EditGroupViewController: EditGroupViewPresenterOutput {
     }
     
     func dismissEditGroupVC() {
-        self.delegate?.editGroupViewControllerDidFinish(self)
+        self.delegate?.editGroupViewControllerDidFinish(group: self.presenter.group, groupUsers: self.presenter.groupUsers)
     }
     
     func dismissEditGroupVC_Delegate() {

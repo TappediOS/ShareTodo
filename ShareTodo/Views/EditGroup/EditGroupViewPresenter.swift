@@ -137,7 +137,7 @@ final class EditGroupViewPresenter: EditGroupViewPresenterProtocol, EditGroupMod
     }
     
     func successRemoveUser() {
-        self.view.dismissEditGroupVC_Delegate()
+        self.view.reloadSelectedUsersAndMeCollectionView()
     }
     
     func successLeaveGroup() {

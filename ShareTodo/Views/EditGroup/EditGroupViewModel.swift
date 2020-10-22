@@ -81,6 +81,7 @@ final class EditGroupModel: EditGroupModelProtocol {
                 return
             }
             
+            self.group = updatedGroup
         }
         
         self.registerGroupImageFireStorage(uid: groupUid, imageData: groupImageData)

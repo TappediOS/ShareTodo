@@ -20,10 +20,16 @@ protocol EditGroupModelProtocol {
     func selectedUserEqualMe(index: Int) -> Bool
     func getSelectedUsersUID(index: Int) -> String?
     func setMayRemoveUserUID(uid: String)
+    func resetMayRemoveUserUID()
+    
+    func removeUser()
+    func leaveGroup()
 }
 
 protocol EditGroupModelOutput: class {
     func successSaveGroup()
+    func successRemoveUser()
+    func successLeaveGroup()
 }
 
 final class EditGroupModel: EditGroupModelProtocol {
@@ -129,5 +135,43 @@ final class EditGroupModel: EditGroupModelProtocol {
     
     func setMayRemoveUserUID(uid: String) {
         self.mayRemoveUserUID = uid
+    }
+    
+    func resetMayRemoveUserUID() {
+        self.mayRemoveUserUID = nil
+    }
+    
+    func removeUser() {
+        guard let removeUserUID = self.mayRemoveUserUID else { return }
+        guard let groupID = self.group.groupID else { return }
+        
+        let docPath = "todo/v1/groups/" + groupID
+        let newGroupUsers = self.groupUsers.filter { $0.id != removeUserUID }.compactMap { $0.id }
+        
+        self.firestore.document(docPath).setData(["members": newGroupUsers], merge: true) { error in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+        }
+        
+        self.presenter.successRemoveUser()
+    }
+        
+    func leaveGroup() {
+        guard let user = Auth.auth().currentUser else { return }
+        guard let groupID = self.group.groupID else { return }
+        
+        let docPath = "todo/v1/groups/" + groupID
+        let newGroupUsers = self.groupUsers.filter { $0.id != user.uid }.compactMap { $0.id }
+        
+        self.firestore.document(docPath).setData(["members": newGroupUsers], merge: true) { error in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+        }
+        
+        self.presenter.successLeaveGroup()
     }
 }

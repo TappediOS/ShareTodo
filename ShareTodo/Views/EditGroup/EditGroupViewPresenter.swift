@@ -25,6 +25,9 @@ protocol EditGroupViewPresenterProtocol {
     func didTapTakePhotoAction()
     func didTapSelectPhotoAction()
     func didTapDeletePhotoAction()
+    func didTapLeaveGroupAction()
+    func didTapRemoveUserAction()
+    func didTapCancelRemoveUser()
     
     func tapSelectedUsersAndMeProfileImage(index: Int)
 }
@@ -35,6 +38,7 @@ protocol EditGroupViewPresenterOutput: class {
     func setGroupTask()
     func setRedColorPlaceholder()
     func dismissEditGroupVC()
+    func dismissEditGroupVC_Delegate()
     func presentActionSheet()
     func showUIImagePickerControllerAsCamera()
     func showUIImagePickerControllerAsLibrary()
@@ -108,6 +112,18 @@ final class EditGroupViewPresenter: EditGroupViewPresenterProtocol, EditGroupMod
         self.view.setDeleteAndSetDefaultImage()
     }
     
+    func didTapLeaveGroupAction() {
+        self.model.leaveGroup()
+    }
+    
+    func didTapRemoveUserAction() {
+        self.model.removeUser()
+    }
+    
+    func didTapCancelRemoveUser() {
+        self.model.resetMayRemoveUserUID()
+    }
+
     func tapSelectedUsersAndMeProfileImage(index: Int) {
         guard model.selectedUserEqualMe(index: index) == false else { return }
         guard let selectedUser = model.getSelectedUsersUID(index: index) else { return }
@@ -117,5 +133,13 @@ final class EditGroupViewPresenter: EditGroupViewPresenterProtocol, EditGroupMod
     
     func successSaveGroup() {
         self.view.dismissEditGroupVC()
+    }
+    
+    func successRemoveUser() {
+        //NOET:- ユーザ削除したときの処理。特に何かする必要はない。
+    }
+    
+    func successLeaveGroup() {
+        self.view.dismissEditGroupVC_Delegate()
     }
 }

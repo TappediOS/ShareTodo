@@ -98,9 +98,10 @@ extension GroupDetailViewController: GroupDetailViewPresenterOutput {
     }
     
     func showEditGroupVC() {
-        let editGroupVC = EditGroupViewBuilder.create(group: self.presenter.group, groupUsers: self.presenter.groupUsers)
+        guard let editGroupVC = EditGroupViewBuilder.create(group: self.presenter.group, groupUsers: self.presenter.groupUsers) as? EditGroupViewController else { return }
         let navigationController = UINavigationController(rootViewController: editGroupVC)
         navigationController.modalPresentationStyle = .fullScreen
+        editGroupVC.delegate = self
         self.present(navigationController, animated: true, completion: nil)
     }
     
@@ -192,5 +193,17 @@ extension GroupDetailViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+}
+
+extension GroupDetailViewController: EditGroupViewControllerDelegate {
+    func reaveGroupFinished(_ editprofileViewController: EditGroupViewController) {
+        self.dismiss(animated: true, completion: {
+            self.navigationController?.popToRootViewController(animated: true)
+        })
+    }
+    
+    func editGroupViewControllerDidFinish(_ editprofileViewController: EditGroupViewController) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

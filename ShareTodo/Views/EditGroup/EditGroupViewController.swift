@@ -10,6 +10,11 @@ import UIKit
 import CropViewController
 import Nuke
 
+protocol EditGroupViewControllerDelegate: class {
+    func reaveGroupFinished(_ editprofileViewController: EditGroupViewController)
+    func editGroupViewControllerDidFinish(_ editprofileViewController: EditGroupViewController)
+}
+
 final class EditGroupViewController: UIViewController {
     private var presenter: EditGroupViewPresenterProtocol!
     @IBOutlet weak var groupImageView: UIImageView!
@@ -31,6 +36,9 @@ final class EditGroupViewController: UIViewController {
     
     let maxTextfieldLength = 40
     let usersImageViewWide: CGFloat = 100
+    
+    // MARK: - Delegate
+    weak var delegate: EditGroupViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -152,7 +160,7 @@ final class EditGroupViewController: UIViewController {
         }
         
         let reaveAction = UIAlertAction(title: R.string.localizable.leave(), style: .destructive, handler: { _ in
-            
+            self.presenter.didTapLeaveGroupAction()
         })
         
         let cancelAction = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: nil)
@@ -170,10 +178,12 @@ final class EditGroupViewController: UIViewController {
         }
         
         let removeAction = UIAlertAction(title: R.string.localizable.remove(), style: .destructive, handler: { _ in
-            self.presenter.didTapTakePhotoAction()
+            self.presenter.didTapRemoveUserAction()
         })
         
-        let cancelAction = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: { _ in
+            self.presenter.didTapCancelRemoveUser()
+        })
         
         self.leaveUserActionSheet.addAction(removeAction)
         self.leaveUserActionSheet.addAction(cancelAction)
@@ -271,7 +281,11 @@ extension EditGroupViewController: EditGroupViewPresenterOutput {
     }
     
     func dismissEditGroupVC() {
-        self.dismiss(animated: true, completion: nil)
+        self.delegate?.editGroupViewControllerDidFinish(self)
+    }
+    
+    func dismissEditGroupVC_Delegate() {
+        self.delegate?.reaveGroupFinished(self)
     }
     
     func presentActionSheet() {

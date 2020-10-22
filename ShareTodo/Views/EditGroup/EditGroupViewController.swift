@@ -313,7 +313,11 @@ extension EditGroupViewController: EditGroupViewPresenterOutput {
     }
     
     func showSelectInviteUsersVC() {
-        
+        guard let createNewGroupVC = CreateNewGroupViewBuilder.create(searchUsersType: .inviteUsers) as? CreateNewGroupViewController else { return }
+        let navigationController = UINavigationController(rootViewController: createNewGroupVC)
+        navigationController.modalPresentationStyle = .fullScreen
+        createNewGroupVC.delegate = self
+        self.present(navigationController, animated: true, completion: nil)
     }
     
     func showLeaveGroupAleartView() {
@@ -352,6 +356,13 @@ extension EditGroupViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0.0, left: 10.0, bottom: 0.0, right: 10)
+    }
+}
+
+extension EditGroupViewController: CreateNewGroupViewControllerDelegate {
+    func inviteUserDidFinish(inviteUsers: [User]) {
+        self.dismiss(animated: true, completion: nil)
+        self.presenter.didSelectedInviteUsers(inviteUsers: inviteUsers)
     }
 }
 

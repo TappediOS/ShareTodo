@@ -9,6 +9,10 @@
 import UIKit
 import DZNEmptyDataSet
 
+protocol CreateNewGroupViewControllerDelegate: class {
+    func inviteUserDidFinish(inviteUsers: [User])
+}
+
 final class CreateNewGroupViewController: UIViewController {
     private var presenter: CreateNewGroupViewPresenterProtocol!
     @IBOutlet weak var userNameSearchBar: UISearchBar!
@@ -19,6 +23,9 @@ final class CreateNewGroupViewController: UIViewController {
     var activityIndicator = UIActivityIndicatorView()
     private let searchedUsersCellID = "SearchUserTableviewCell"
     private let selectedUsersCellID = "SelectedUserCollectionViewCell"
+    
+    // MARK: - Delegate
+    weak var delegate: CreateNewGroupViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +41,19 @@ final class CreateNewGroupViewController: UIViewController {
     private func setupNavigationItem() {
         self.navigationItem.title = R.string.localizable.chooseFriends()
         let stopItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(tapStopCreateRoomButton))
-        let saveItem = UIBarButtonItem(image: UIImage(systemName: "arrow.right") ?? UIImage(), style: .done, target: self, action: #selector(tapCreateRoomButton))
-        self.navigationItem.leftBarButtonItem = stopItem
         
-        saveItem.tintColor = .systemGreen
-        self.navigationItem.rightBarButtonItem = saveItem
+        var rightItem = UIBarButtonItem()
+        switch self.presenter.searchUsersType {
+        case .createGroup:
+            rightItem = UIBarButtonItem(image: UIImage(systemName: "arrow.right") ?? UIImage(), style: .done, target: self, action: #selector(tapCreateRoomButton))
+        case .inviteUsers:
+            rightItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(tapInviteUsersDoneButton))
+        }
+        
+        stopItem.tintColor = .systemPink
+        rightItem.tintColor = .systemGreen
+        self.navigationItem.leftBarButtonItem = stopItem
+        self.navigationItem.rightBarButtonItem = rightItem
     }
     
     private func setupUserSearchBar() {
@@ -98,6 +113,10 @@ final class CreateNewGroupViewController: UIViewController {
         self.presenter.didTapCreateRoomutton()
     }
     
+    @objc func tapInviteUsersDoneButton() {
+        self.presenter.didTapInviteUsersDoneButton()
+    }
+    
     func inject(with presenter: CreateNewGroupViewPresenterProtocol) {
         self.presenter = presenter
         self.presenter.view = self
@@ -131,6 +150,11 @@ extension CreateNewGroupViewController: CreateNewGroupViewPresenterOutput {
     
     func dismissCreateChatRoomVC() {
         DispatchQueue.main.async { self.dismiss(animated: true, completion: nil) }
+    }
+    
+    func dismissCreateChatRoomVC_delegate() {
+        guard let delegate = self.delegate else { return }
+        delegate.inviteUserDidFinish(inviteUsers: self.presenter.selectedUsers)
     }
     
     func clearSearchUserTableView() {

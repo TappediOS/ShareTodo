@@ -12,6 +12,7 @@ protocol CreateNewGroupModelProtocol {
     var presenter: CreateNewGroupModelOutput! { get set }
     var selectedUsersArray: [User] { get set }
     var searchedUsersArray: [User] { get set }
+    var searchUsersType: SearchUsersType { get set}
     
     func isContaintsUser(user: User) -> Bool
     func searchUser(searchText: String)
@@ -32,8 +33,11 @@ final class CreateNewGroupModel: CreateNewGroupModelProtocol {
     private var firestore: Firestore!
     var selectedUsersArray: [User] = Array()
     var searchedUsersArray: [User] = Array()
+    var searchUsersType: SearchUsersType
+
     
-    init() {
+    init(searchUsersType: SearchUsersType) {
+        self.searchUsersType = searchUsersType
         self.firestore = Firestore.firestore()
         let settings = FirestoreSettings()
         self.firestore.settings = settings

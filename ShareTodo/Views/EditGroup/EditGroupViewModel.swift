@@ -17,6 +17,8 @@ protocol EditGroupModelProtocol {
     
     func updateGroup(selectedUsers: [User], groupName: String, groupTask: String, groupImageData: Data)
     
+    func inviteUsers(inviteUsers: [User])
+    
     func selectedUserEqualMe(index: Int) -> Bool
     func getSelectedUser(index: Int) -> User?
     func setMayRemoveUserUID(uid: String)
@@ -30,6 +32,7 @@ protocol EditGroupModelOutput: class {
     func successSaveGroup()
     func successRemoveUser()
     func successLeaveGroup()
+    func successInviteUsers()
 }
 
 final class EditGroupModel: EditGroupModelProtocol {
@@ -119,6 +122,19 @@ final class EditGroupModel: EditGroupModelProtocol {
             
             self.presenter.successSaveGroup()
         }
+    }
+    
+    func inviteUsers(inviteUsers: [User]) {
+        var newGroupUsersUID = self.groupUsers.compactMap { $0.id }
+        var newGroupUsers = self.groupUsers
+        for user in inviteUsers {
+            if newGroupUsersUID.contains(user.id ?? "") == true { continue }
+            newGroupUsersUID.append(user.id ?? "")
+            newGroupUsers.append(user)
+        }
+        self.groupUsers = newGroupUsers
+       
+        self.presenter.successInviteUsers()
     }
     
     func selectedUserEqualMe(index: Int) -> Bool {

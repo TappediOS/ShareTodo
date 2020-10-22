@@ -29,6 +29,8 @@ protocol EditGroupViewPresenterProtocol {
     func didTapRemoveUserAction()
     func didTapCancelRemoveUser()
     
+    func didSelectedInviteUsers(inviteUsers: [User])
+    
     func tapSelectedUsersAndMeProfileImage(index: Int)
 }
 
@@ -124,6 +126,10 @@ final class EditGroupViewPresenter: EditGroupViewPresenterProtocol, EditGroupMod
     func didTapCancelRemoveUser() {
         self.model.resetMayRemoveUserUID()
     }
+    
+    func didSelectedInviteUsers(inviteUsers: [User]) {
+        self.model.inviteUsers(inviteUsers: inviteUsers)
+    }
 
     func tapSelectedUsersAndMeProfileImage(index: Int) {
         guard model.selectedUserEqualMe(index: index) == false else { return }
@@ -143,5 +149,9 @@ final class EditGroupViewPresenter: EditGroupViewPresenterProtocol, EditGroupMod
     
     func successLeaveGroup() {
         self.view.dismissEditGroupVC_Delegate()
+    }
+    
+    func successInviteUsers() {
+        self.view.reloadSelectedUsersAndMeCollectionView()
     }
 }

@@ -297,7 +297,7 @@ extension EditGroupViewController: EditGroupViewPresenterOutput {
     }
     
     func showLeaveGroupAleartView() {
-        
+        self.present(self.leaveGroupActionSheet, animated: true, completion: nil)
     }
     
 }

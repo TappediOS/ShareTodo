@@ -13,6 +13,8 @@ class SelectedUsersAndMeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
+    var tapSelectedUsersAndMeCellAction: (() -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -25,6 +27,12 @@ class SelectedUsersAndMeCollectionViewCell: UICollectionViewCell {
         self.profileImageView.layer.borderColor = UIColor.systemGray4.cgColor
         self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width / 2
         self.profileImageView.layer.masksToBounds = true
+        self.profileImageView.isUserInteractionEnabled = true
+        
+        let tapProfileImageViewGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapProfileImageView(_:)))
+        
+        tapProfileImageViewGesture.delegate = self
+        self.profileImageView.addGestureRecognizer(tapProfileImageViewGesture)
     }
     
     private func setupUserNameLabel() {
@@ -43,5 +51,14 @@ class SelectedUsersAndMeCollectionViewCell: UICollectionViewCell {
             let options = ImageLoadingOptions(placeholder: R.image.placeholderImage(), transition: .fadeIn(duration: 0.25), failureImage: R.image.defaultProfileImage())
             loadImage(with: url, options: options, into: self.profileImageView, progress: nil, completion: nil)
         }
+    }
+}
+
+extension SelectedUsersAndMeCollectionViewCell: UIGestureRecognizerDelegate {
+    @objc func tapProfileImageView(_ sender: UITapGestureRecognizer) {
+        guard sender.state == .ended else { return }
+        // actionが設定されていなければ`return`
+        guard let action = tapSelectedUsersAndMeCellAction?() else { return }
+        action
     }
 }

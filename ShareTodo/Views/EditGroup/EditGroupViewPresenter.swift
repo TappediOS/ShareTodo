@@ -37,6 +37,7 @@ protocol EditGroupViewPresenterOutput: class {
     func setGroupName()
     func setGroupTask()
     func setRedColorPlaceholder()
+    func reloadSelectedUsersAndMeCollectionView()
     func dismissEditGroupVC()
     func dismissEditGroupVC_Delegate()
     func presentActionSheet()
@@ -136,7 +137,7 @@ final class EditGroupViewPresenter: EditGroupViewPresenterProtocol, EditGroupMod
     }
     
     func successRemoveUser() {
-        //NOET:- ユーザ削除したときの処理。特に何かする必要はない。
+        self.view.dismissEditGroupVC_Delegate()
     }
     
     func successLeaveGroup() {

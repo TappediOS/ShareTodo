@@ -280,6 +280,12 @@ extension EditGroupViewController: EditGroupViewPresenterOutput {
         self.groupNameTextField.attributedPlaceholder = NSAttributedString(string: R.string.localizable.groupName(), attributes: attributes)
     }
     
+    func reloadSelectedUsersAndMeCollectionView() {
+        DispatchQueue.main.async {
+            self.selectedUsersAndMeCollectionView.reloadData()
+        }
+    }
+    
     func dismissEditGroupVC() {
         self.delegate?.editGroupViewControllerDidFinish(self)
     }

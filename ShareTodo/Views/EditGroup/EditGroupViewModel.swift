@@ -147,6 +147,7 @@ final class EditGroupModel: EditGroupModelProtocol {
         
         let docPath = "todo/v1/groups/" + groupID
         let newGroupUsers = self.groupUsers.filter { $0.id != removeUserUID }.compactMap { $0.id }
+        self.groupUsers = self.groupUsers.filter { $0.id != removeUserUID }
         
         self.firestore.document(docPath).setData(["members": newGroupUsers], merge: true) { error in
             if let error = error {

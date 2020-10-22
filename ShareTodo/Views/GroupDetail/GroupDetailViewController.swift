@@ -97,8 +97,7 @@ extension GroupDetailViewController: GroupDetailViewPresenterOutput {
         }
     }
     
-    func setNavigationBarTitle() {
-        let title = self.presenter.group.name
+    func setNavigationBarTitle(title: String) {
         self.navigationItem.title = title
     }
     

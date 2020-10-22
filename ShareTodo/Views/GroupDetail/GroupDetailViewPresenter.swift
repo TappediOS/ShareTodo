@@ -21,7 +21,7 @@ protocol GroupDetailViewPresenterProtocol {
 
 protocol GroupDetailViewPresenterOutput: class {
     func reloadGroupDetailCollectionView()
-    func setNavigationBarTitle()
+    func setNavigationBarTitle(title: String)
     func showEditGroupVC()
     func segueUserDetailViewController(index: Int)
 }
@@ -52,9 +52,8 @@ final class GroupDetailViewPresenter: GroupDetailViewPresenterProtocol, GroupDet
     }
     
     func didFinishedEditGroup(group: Group, groupUsers: [User]) {
-        self.model.group = group
         self.model.groupUsers = groupUsers
-        self.view.setNavigationBarTitle()
+        self.view.setNavigationBarTitle(title: group.name)
         self.view.reloadGroupDetailCollectionView()
     }
     

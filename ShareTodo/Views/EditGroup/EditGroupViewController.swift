@@ -18,6 +18,11 @@ final class EditGroupViewController: UIViewController {
     @IBOutlet weak var taskTextField: UITextField!
     @IBOutlet weak var selectedUsersAndMeCollectionView: UICollectionView!
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var inviteUsersButton: UIButton!
+    @IBOutlet weak var leaveGroupButton: UIButton!
+    @IBOutlet weak var leaveGroupButtonButtomConstraint: NSLayoutConstraint!
+    
+    
     
     var actionSheet = UIAlertController()
     let photoPickerVC = UIImagePickerController()
@@ -39,6 +44,8 @@ final class EditGroupViewController: UIViewController {
         self.setupSelectedUsersCollectionView()
         self.setupActionSheet()
         self.setupPhotoPickerVC()
+        self.setupInviteUsersButton()
+        self.setupLeaveGroupButton()
         
         self.presenter.didViewDidLoad()
     }
@@ -138,6 +145,22 @@ final class EditGroupViewController: UIViewController {
         self.photoPickerVC.delegate = self
     }
     
+    func setupInviteUsersButton() {
+        self.inviteUsersButton.setTitle(R.string.localizable.inviteUser(), for: .normal)
+        self.inviteUsersButton.backgroundColor = .systemGreen
+        self.inviteUsersButton.tintColor = .white
+        self.inviteUsersButton.layer.cornerRadius = 8
+        self.inviteUsersButton.layer.masksToBounds = true
+    }
+    
+    func setupLeaveGroupButton() {
+        self.leaveGroupButton.setTitle(R.string.localizable.leaveGroup(), for: .normal)
+        self.leaveGroupButton.backgroundColor = .systemRed
+        self.leaveGroupButton.tintColor = .white
+        self.leaveGroupButton.layer.cornerRadius = 8
+        self.leaveGroupButton.layer.masksToBounds = true
+    }
+    
     @objc func tapStopEditGroupButton() {
         self.presenter.didTapStopEditGroupButton()
     }
@@ -160,6 +183,14 @@ final class EditGroupViewController: UIViewController {
     
     @objc func tapGroupImageView(_ sender: UITapGestureRecognizer) {
         self.presenter.didTapGroupImageView()
+    }
+    
+    @IBAction func tapInviteUsersButton(_ sender: Any) {
+        
+    }
+    
+    @IBAction func tapLeaveGroupButton(_ sender: Any) {
+        
     }
     
     func inject(with presenter: EditGroupViewPresenterProtocol) {

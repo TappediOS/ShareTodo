@@ -50,6 +50,8 @@
 // GroupDetailVC
 "Today's progress" = "Today's progress";
 "Progress to date" = "Progress to date";
+"Invite user" = "Invite user";
+"Leave group" = "Leave group";
 
 // UserDetailVC
 "Introduction"            = "Introduction";

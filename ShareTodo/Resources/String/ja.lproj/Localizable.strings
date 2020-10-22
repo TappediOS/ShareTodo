@@ -50,6 +50,8 @@
 // GroupDetailVC
 "Today's progress" = "今日の進捗";
 "Progress to date" = "今日までの進捗";
+"Invite user" = "ユーザの追加";
+"Leave group" = "グループ脱退";
 
 // UserDetailVC
 "Introduction"            = "ご紹介";

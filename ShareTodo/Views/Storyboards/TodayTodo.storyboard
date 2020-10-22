@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -43,8 +44,9 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <color key="tintColor" systemColor="systemGreenColor"/>
-                                                    <state key="normal" image="checkmark.circle" catalog="system">
-                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="33" scale="large" weight="semibold"/>
+                                                    <state key="normal">
+                                                        <imageReference key="image" image="checkmark.circle" catalog="system" symbolScale="medium"/>
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="36" scale="default" weight="regular"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="tapRadioButton:" destination="Y4d-9a-7Jk" eventType="touchUpInside" id="7EU-Gg-57T"/>

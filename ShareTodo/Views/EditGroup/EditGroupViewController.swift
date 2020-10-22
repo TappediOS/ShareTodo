@@ -22,9 +22,9 @@ final class EditGroupViewController: UIViewController {
     @IBOutlet weak var leaveGroupButton: UIButton!
     @IBOutlet weak var leaveGroupButtonButtomConstraint: NSLayoutConstraint!
     
-    
-    
-    var actionSheet = UIAlertController()
+    var editProfileActionSheet = UIAlertController()
+    var leaveGroupActionSheet = UIAlertController()
+    var leaveUserActionSheet = UIAlertController()
     let photoPickerVC = UIImagePickerController()
     
     let selectedUsersAndMeCollectionViewCellId = "SelectedUsersAndMeCollectionViewCell"
@@ -42,7 +42,9 @@ final class EditGroupViewController: UIViewController {
         self.setupTaskTextField()
         self.setupPhotoImageView()
         self.setupSelectedUsersCollectionView()
-        self.setupActionSheet()
+        self.setupEditProfileActionSheet()
+        self.setupLeaveGroupActionSheet()
+        self.setupLeaveUserActionSheet()
         self.setupPhotoPickerVC()
         self.setupInviteUsersButton()
         self.setupLeaveGroupButton()
@@ -116,12 +118,12 @@ final class EditGroupViewController: UIViewController {
         self.selectedUsersAndMeCollectionView.dataSource = self
     }
     
-    func setupActionSheet() {
-        self.actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+    func setupEditProfileActionSheet() {
+        self.editProfileActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         if UIDevice.current.userInterfaceIdiom == .pad {
-            self.actionSheet.popoverPresentationController?.sourceView = self.view
+            self.editProfileActionSheet.popoverPresentationController?.sourceView = self.view
             let screenSize = UIScreen.main.bounds
-            self.actionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width / 2, y: screenSize.size.height, width: 0, height: 0)
+            self.editProfileActionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width / 2, y: screenSize.size.height, width: 0, height: 0)
         }
         
         let takePhotoAction = UIAlertAction(title: R.string.localizable.takePhoto(), style: .default, handler: { _ in
@@ -135,10 +137,46 @@ final class EditGroupViewController: UIViewController {
         })
         let cancelAction = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: nil)
         
-        self.actionSheet.addAction(takePhotoAction)
-        self.actionSheet.addAction(selectPhotoAction)
-        self.actionSheet.addAction(deletePhotoAction)
-        self.actionSheet.addAction(cancelAction)
+        self.editProfileActionSheet.addAction(takePhotoAction)
+        self.editProfileActionSheet.addAction(selectPhotoAction)
+        self.editProfileActionSheet.addAction(deletePhotoAction)
+        self.editProfileActionSheet.addAction(cancelAction)
+    }
+    
+    func setupLeaveGroupActionSheet() {
+        self.leaveGroupActionSheet = UIAlertController(title: R.string.localizable.leaveGroup(), message: R.string.localizable.leaveGroupMessage(), preferredStyle: .alert)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            self.leaveGroupActionSheet.popoverPresentationController?.sourceView = self.view
+            let screenSize = UIScreen.main.bounds
+            self.leaveGroupActionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width / 2, y: screenSize.size.height, width: 0, height: 0)
+        }
+        
+        let reaveAction = UIAlertAction(title: R.string.localizable.leave(), style: .destructive, handler: { _ in
+            
+        })
+        
+        let cancelAction = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: nil)
+        
+        self.leaveGroupActionSheet.addAction(reaveAction)
+        self.leaveGroupActionSheet.addAction(cancelAction)
+    }
+    
+    func setupLeaveUserActionSheet() {
+        self.leaveUserActionSheet = UIAlertController(title: R.string.localizable.removeUser(), message: R.string.localizable.removeUserMessage(), preferredStyle: .alert)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            self.leaveUserActionSheet.popoverPresentationController?.sourceView = self.view
+            let screenSize = UIScreen.main.bounds
+            self.leaveUserActionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width / 2, y: screenSize.size.height, width: 0, height: 0)
+        }
+        
+        let removeAction = UIAlertAction(title: R.string.localizable.remove(), style: .destructive, handler: { _ in
+            self.presenter.didTapTakePhotoAction()
+        })
+        
+        let cancelAction = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: nil)
+        
+        self.leaveUserActionSheet.addAction(removeAction)
+        self.leaveUserActionSheet.addAction(cancelAction)
     }
     
     func setupPhotoPickerVC() {
@@ -186,11 +224,11 @@ final class EditGroupViewController: UIViewController {
     }
     
     @IBAction func tapInviteUsersButton(_ sender: Any) {
-        
+        self.presenter.didTapInviteUsersButton()
     }
     
     @IBAction func tapLeaveGroupButton(_ sender: Any) {
-        
+        self.presenter.didTapLeaveGroupButton()
     }
     
     func inject(with presenter: EditGroupViewPresenterProtocol) {
@@ -237,7 +275,7 @@ extension EditGroupViewController: EditGroupViewPresenterOutput {
     }
     
     func presentActionSheet() {
-        self.present(self.actionSheet, animated: true, completion: nil)
+        self.present(self.editProfileActionSheet, animated: true, completion: nil)
     }
     
     func showUIImagePickerControllerAsCamera() {
@@ -252,6 +290,14 @@ extension EditGroupViewController: EditGroupViewPresenterOutput {
     
     func setDeleteAndSetDefaultImage() {
         DispatchQueue.main.async { self.groupImageView.image = R.image.groupDefaultImage() }
+    }
+    
+    func showSlectInviteUsersVC() {
+        
+    }
+    
+    func showLeaveGroupAleartView() {
+        
     }
     
 }

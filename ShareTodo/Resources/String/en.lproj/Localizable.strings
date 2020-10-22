@@ -52,6 +52,11 @@
 "Progress to date" = "Progress to date";
 "Invite user" = "Invite user";
 "Leave group" = "Leave group";
+"Leave Group Message" = "Do you want to leave the group?\nThis operation is irrevocable.";
+"Leave" = "Leave";
+"Remove user" = "Remove user";
+"Remove User Message" = "Would you like to remove this user from the group?";
+"Remove" = "Remove";
 
 // UserDetailVC
 "Introduction"            = "Introduction";

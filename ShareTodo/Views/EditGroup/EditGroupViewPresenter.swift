@@ -19,6 +19,8 @@ protocol EditGroupViewPresenterProtocol {
     func didTapSaveEditGroupButton(isEmptyTextField: Bool)
     func didTapChangeGroupButton()
     func didTapGroupImageView()
+    func didTapInviteUsersButton()
+    func didTapLeaveGroupButton()
     
     func didTapTakePhotoAction()
     func didTapSelectPhotoAction()
@@ -35,6 +37,8 @@ protocol EditGroupViewPresenterOutput: class {
     func showUIImagePickerControllerAsCamera()
     func showUIImagePickerControllerAsLibrary()
     func setDeleteAndSetDefaultImage()
+    func showSlectInviteUsersVC()
+    func showLeaveGroupAleartView()
 }
 
 final class EditGroupViewPresenter: EditGroupViewPresenterProtocol, EditGroupModelOutput {
@@ -79,6 +83,14 @@ final class EditGroupViewPresenter: EditGroupViewPresenterProtocol, EditGroupMod
     
     func didTapGroupImageView() {
         self.view.presentActionSheet()
+    }
+    
+    func didTapInviteUsersButton() {
+        self.view.showSlectInviteUsersVC()
+    }
+    
+    func didTapLeaveGroupButton() {
+        self.view.showLeaveGroupAleartView()
     }
     
     func didTapTakePhotoAction() {

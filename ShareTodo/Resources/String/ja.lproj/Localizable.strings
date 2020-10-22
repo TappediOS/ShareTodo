@@ -52,6 +52,11 @@
 "Progress to date" = "今日までの進捗";
 "Invite user" = "ユーザの追加";
 "Leave group" = "グループ脱退";
+"Leave Group Message" = "グループを脱退しますか？\nこの操作は取り消せません。";
+"Leave" = "脱退";
+"Remove user" = "ユーザ削除";
+"Remove User Message" = "このユーザをグループから脱退させますか？";
+"Remove" = "削除";
 
 // UserDetailVC
 "Introduction"            = "ご紹介";

@@ -171,4 +171,58 @@ class EditGroupTests: XCTestCase {
         XCTAssertTrue(presenter.groupUsers.contains(inviteUser.first!))
         XCTAssertEqual(presenter.groupUsers.count, groupCount + 1)
     }
+    
+    func test_ユーザを複数招待したとき() {
+        let model = EditGroupModelMock()
+        let presenter = EditGroupViewPresenter(model: model)
+        view.inject(with: presenter)
+        view.loadViewIfNeeded()
+        view.view.layoutIfNeeded()
+        
+        let inviteUser = [User(id: "id7", name: "user7", profileImageURL: "u7"), User(id: "id8", name: "user8", profileImageURL: "u7")]
+        let groupCount = presenter.groupUsers.count
+        
+        presenter.didSelectedInviteUsers(inviteUsers: inviteUser)
+        XCTAssertTrue(presenter.groupUsers.contains(inviteUser.first!))
+        XCTAssertTrue(presenter.groupUsers.contains(inviteUser.last!))
+        XCTAssertEqual(presenter.groupUsers.count, groupCount + 2)
+    }
+    
+    func test_すでに存在してるユーザを1人追加したとき() {
+        let model = EditGroupModelMock()
+        let presenter = EditGroupViewPresenter(model: model)
+        view.inject(with: presenter)
+        view.loadViewIfNeeded()
+        view.view.layoutIfNeeded()
+        
+        let inviteUser = [User(id: "id3", name: "user3", profileImageURL: "u3")]
+        let groupCount = presenter.groupUsers.count
+        
+        presenter.didSelectedInviteUsers(inviteUsers: inviteUser)
+        XCTAssertTrue(presenter.groupUsers.contains(inviteUser.first!))
+        XCTAssertEqual(presenter.groupUsers.count, groupCount)  //配列の総数は変わらない
+    }
+    
+    func test_すでに存在してるユーザを複数追加したとき() {
+        let model = EditGroupModelMock()
+        let presenter = EditGroupViewPresenter(model: model)
+        view.inject(with: presenter)
+        view.loadViewIfNeeded()
+        view.view.layoutIfNeeded()
+        
+        let inviteUser1 = User(id: "id3", name: "user3", profileImageURL: "u3")
+        let inviteUser2 = User(id: "id4", name: "user4", profileImageURL: "u4")
+        let inviteUser3 = User(id: "id7", name: "user7", profileImageURL: "u7")
+        let inviteUser4 = User(id: "id8", name: "user8", profileImageURL: "u8")
+        
+        
+        var inviteUsers = [inviteUser1, inviteUser2, inviteUser3, inviteUser4]
+        inviteUsers.shuffle()
+        let groupCount = presenter.groupUsers.count
+        
+        presenter.didSelectedInviteUsers(inviteUsers: inviteUsers)
+        XCTAssertTrue(presenter.groupUsers.contains(inviteUser3))
+        XCTAssertTrue(presenter.groupUsers.contains(inviteUser4))
+        XCTAssertEqual(presenter.groupUsers.count, groupCount + 2)
+    }
 }

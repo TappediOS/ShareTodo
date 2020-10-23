@@ -30,7 +30,7 @@
 "Group_Colon:" = "グループ: ";
 
 // EditGroupVC
-"EditGroup" = "グループ編集";
+"Edit Group" = "グループ編集";
 "Group Name" = "グループ名";
 "Group Task" = "タスク";
 

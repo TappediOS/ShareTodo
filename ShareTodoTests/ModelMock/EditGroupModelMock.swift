@@ -25,8 +25,7 @@ class EditGroupModelMock: EditGroupModelProtocol {
         let user4 = User(id: "id4", name: "user4", profileImageURL: "u4")
         let user5 = User(id: "id5", name: "user5", profileImageURL: "u5")
         let user6 = User(id: "id6", name: "user6", profileImageURL: "u6")
-        var membersID: [String] = [user1.id!, user2.id!, user3.id!, user4.id!, user5.id!, user6.id!]
-        membersID.shuffle()
+        let membersID: [String] = [user1.id!, user2.id!, user3.id!, user4.id!, user5.id!, user6.id!]
         self.groupUsers = [user1, user2, user3, user4, user5, user6]
         
         self.group = Group(groupID: "group1", name: "Apple", task: "Pie", members: membersID, profileImageURL: nil)

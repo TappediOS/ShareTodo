@@ -215,7 +215,6 @@ class EditGroupTests: XCTestCase {
         let inviteUser3 = User(id: "id7", name: "user7", profileImageURL: "u7")
         let inviteUser4 = User(id: "id8", name: "user8", profileImageURL: "u8")
         
-        
         var inviteUsers = [inviteUser1, inviteUser2, inviteUser3, inviteUser4]
         inviteUsers.shuffle()
         let groupCount = presenter.groupUsers.count
@@ -237,7 +236,6 @@ class EditGroupTests: XCTestCase {
         let inviteUser2 = User(id: "id4", name: "user4", profileImageURL: "u4")
         let inviteUser3 = User(id: "id5", name: "user5", profileImageURL: "u5")
         let inviteUser4 = User(id: "id6", name: "user6", profileImageURL: "u6")
-        
         
         var inviteUsers = [inviteUser1, inviteUser2, inviteUser3, inviteUser4]
         inviteUsers.shuffle()

@@ -10,6 +10,11 @@ import UIKit
 import CropViewController
 import Nuke
 
+protocol EditGroupViewControllerDelegate: class {
+    func reaveGroupFinished(_ editprofileViewController: EditGroupViewController)
+    func editGroupViewControllerDidFinish(group: Group, groupUsers: [User])
+}
+
 final class EditGroupViewController: UIViewController {
     private var presenter: EditGroupViewPresenterProtocol!
     @IBOutlet weak var groupImageView: UIImageView!
@@ -18,14 +23,22 @@ final class EditGroupViewController: UIViewController {
     @IBOutlet weak var taskTextField: UITextField!
     @IBOutlet weak var selectedUsersAndMeCollectionView: UICollectionView!
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var inviteUsersButton: UIButton!
+    @IBOutlet weak var leaveGroupButton: UIButton!
+    @IBOutlet weak var leaveGroupButtonButtomConstraint: NSLayoutConstraint!
     
-    var actionSheet = UIAlertController()
+    var editProfileActionSheet = UIAlertController()
+    var leaveGroupActionSheet = UIAlertController()
+    var removeUserActionSheet = UIAlertController()
     let photoPickerVC = UIImagePickerController()
     
     let selectedUsersAndMeCollectionViewCellId = "SelectedUsersAndMeCollectionViewCell"
     
     let maxTextfieldLength = 40
     let usersImageViewWide: CGFloat = 100
+    
+    // MARK: - Delegate
+    weak var delegate: EditGroupViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,8 +50,12 @@ final class EditGroupViewController: UIViewController {
         self.setupTaskTextField()
         self.setupPhotoImageView()
         self.setupSelectedUsersCollectionView()
-        self.setupActionSheet()
+        self.setupEditProfileActionSheet()
+        self.setupLeaveGroupActionSheet()
+        self.setupLeaveUserActionSheet()
         self.setupPhotoPickerVC()
+        self.setupInviteUsersButton()
+        self.setupLeaveGroupButton()
         
         self.presenter.didViewDidLoad()
     }
@@ -109,12 +126,12 @@ final class EditGroupViewController: UIViewController {
         self.selectedUsersAndMeCollectionView.dataSource = self
     }
     
-    func setupActionSheet() {
-        self.actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+    func setupEditProfileActionSheet() {
+        self.editProfileActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         if UIDevice.current.userInterfaceIdiom == .pad {
-            self.actionSheet.popoverPresentationController?.sourceView = self.view
+            self.editProfileActionSheet.popoverPresentationController?.sourceView = self.view
             let screenSize = UIScreen.main.bounds
-            self.actionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width / 2, y: screenSize.size.height, width: 0, height: 0)
+            self.editProfileActionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width / 2, y: screenSize.size.height, width: 0, height: 0)
         }
         
         let takePhotoAction = UIAlertAction(title: R.string.localizable.takePhoto(), style: .default, handler: { _ in
@@ -128,14 +145,68 @@ final class EditGroupViewController: UIViewController {
         })
         let cancelAction = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: nil)
         
-        self.actionSheet.addAction(takePhotoAction)
-        self.actionSheet.addAction(selectPhotoAction)
-        self.actionSheet.addAction(deletePhotoAction)
-        self.actionSheet.addAction(cancelAction)
+        self.editProfileActionSheet.addAction(takePhotoAction)
+        self.editProfileActionSheet.addAction(selectPhotoAction)
+        self.editProfileActionSheet.addAction(deletePhotoAction)
+        self.editProfileActionSheet.addAction(cancelAction)
+    }
+    
+    func setupLeaveGroupActionSheet() {
+        self.leaveGroupActionSheet = UIAlertController(title: R.string.localizable.leaveGroup(), message: R.string.localizable.leaveGroupMessage(), preferredStyle: .alert)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            self.leaveGroupActionSheet.popoverPresentationController?.sourceView = self.view
+            let screenSize = UIScreen.main.bounds
+            self.leaveGroupActionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width / 2, y: screenSize.size.height, width: 0, height: 0)
+        }
+        
+        let reaveAction = UIAlertAction(title: R.string.localizable.leave(), style: .destructive, handler: { _ in
+            self.presenter.didTapLeaveGroupAction()
+        })
+        
+        let cancelAction = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: nil)
+        
+        self.leaveGroupActionSheet.addAction(reaveAction)
+        self.leaveGroupActionSheet.addAction(cancelAction)
+    }
+    
+    func setupLeaveUserActionSheet() {
+        self.removeUserActionSheet = UIAlertController(title: R.string.localizable.removeUser(), message: R.string.localizable.removeUserMessage(), preferredStyle: .alert)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            self.removeUserActionSheet.popoverPresentationController?.sourceView = self.view
+            let screenSize = UIScreen.main.bounds
+            self.removeUserActionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width / 2, y: screenSize.size.height, width: 0, height: 0)
+        }
+        
+        let removeAction = UIAlertAction(title: R.string.localizable.remove(), style: .destructive, handler: { _ in
+            self.presenter.didTapRemoveUserAction()
+        })
+        
+        let cancelAction = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: { _ in
+            self.presenter.didTapCancelRemoveUser()
+        })
+        
+        self.removeUserActionSheet.addAction(removeAction)
+        self.removeUserActionSheet.addAction(cancelAction)
     }
     
     func setupPhotoPickerVC() {
         self.photoPickerVC.delegate = self
+    }
+    
+    func setupInviteUsersButton() {
+        self.inviteUsersButton.setTitle(R.string.localizable.inviteUser(), for: .normal)
+        self.inviteUsersButton.backgroundColor = .systemGreen
+        self.inviteUsersButton.tintColor = .white
+        self.inviteUsersButton.layer.cornerRadius = 8
+        self.inviteUsersButton.layer.masksToBounds = true
+    }
+    
+    func setupLeaveGroupButton() {
+        self.leaveGroupButton.setTitle(R.string.localizable.leaveGroup(), for: .normal)
+        self.leaveGroupButton.backgroundColor = .systemRed
+        self.leaveGroupButton.tintColor = .white
+        self.leaveGroupButton.layer.cornerRadius = 8
+        self.leaveGroupButton.layer.masksToBounds = true
     }
     
     @objc func tapStopEditGroupButton() {
@@ -160,6 +231,14 @@ final class EditGroupViewController: UIViewController {
     
     @objc func tapGroupImageView(_ sender: UITapGestureRecognizer) {
         self.presenter.didTapGroupImageView()
+    }
+    
+    @IBAction func tapInviteUsersButton(_ sender: Any) {
+        self.presenter.didTapInviteUsersButton()
+    }
+    
+    @IBAction func tapLeaveGroupButton(_ sender: Any) {
+        self.presenter.didTapLeaveGroupButton()
     }
     
     func inject(with presenter: EditGroupViewPresenterProtocol) {
@@ -201,12 +280,22 @@ extension EditGroupViewController: EditGroupViewPresenterOutput {
         self.groupNameTextField.attributedPlaceholder = NSAttributedString(string: R.string.localizable.groupName(), attributes: attributes)
     }
     
+    func reloadSelectedUsersAndMeCollectionView() {
+        DispatchQueue.main.async {
+            self.selectedUsersAndMeCollectionView.reloadData()
+        }
+    }
+    
     func dismissEditGroupVC() {
-        self.dismiss(animated: true, completion: nil)
+        self.delegate?.editGroupViewControllerDidFinish(group: self.presenter.group, groupUsers: self.presenter.groupUsers)
+    }
+    
+    func dismissEditGroupVC_Delegate() {
+        self.delegate?.reaveGroupFinished(self)
     }
     
     func presentActionSheet() {
-        self.present(self.actionSheet, animated: true, completion: nil)
+        self.present(self.editProfileActionSheet, animated: true, completion: nil)
     }
     
     func showUIImagePickerControllerAsCamera() {
@@ -223,6 +312,22 @@ extension EditGroupViewController: EditGroupViewPresenterOutput {
         DispatchQueue.main.async { self.groupImageView.image = R.image.groupDefaultImage() }
     }
     
+    func showSelectInviteUsersVC() {
+        guard let createNewGroupVC = CreateNewGroupViewBuilder.create(searchUsersType: .inviteUsers) as? CreateNewGroupViewController else { return }
+        let navigationController = UINavigationController(rootViewController: createNewGroupVC)
+        navigationController.modalPresentationStyle = .fullScreen
+        createNewGroupVC.delegate = self
+        self.present(navigationController, animated: true, completion: nil)
+    }
+    
+    func showLeaveGroupAleartView() {
+        self.present(self.leaveGroupActionSheet, animated: true, completion: nil)
+    }
+    
+    func showRemoveUserAleartView(mayRemoveUserName: String) {
+        self.removeUserActionSheet.title = R.string.localizable.remove_colon() + mayRemoveUserName
+        self.present(self.removeUserActionSheet, animated: true, completion: nil)
+    }
 }
 
 extension EditGroupViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -234,6 +339,10 @@ extension EditGroupViewController: UICollectionViewDelegate, UICollectionViewDat
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: selectedUsersAndMeCollectionViewCellId, for: indexPath) as! SelectedUsersAndMeCollectionViewCell
 
         cell.configure(with: self.presenter.groupUsers[indexPath.item])
+        cell.tapSelectedUsersAndMeCellAction = { [weak self] in
+            guard let self = self else { return }
+            self.presenter.tapSelectedUsersAndMeProfileImage(index: indexPath.item)
+        }
         return cell
     }
     
@@ -247,6 +356,13 @@ extension EditGroupViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0.0, left: 10.0, bottom: 0.0, right: 10)
+    }
+}
+
+extension EditGroupViewController: CreateNewGroupViewControllerDelegate {
+    func inviteUserDidFinish(inviteUsers: [User]) {
+        self.dismiss(animated: true, completion: nil)
+        self.presenter.didSelectedInviteUsers(inviteUsers: inviteUsers)
     }
 }
 

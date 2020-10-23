@@ -19,10 +19,19 @@ protocol EditGroupViewPresenterProtocol {
     func didTapSaveEditGroupButton(isEmptyTextField: Bool)
     func didTapChangeGroupButton()
     func didTapGroupImageView()
+    func didTapInviteUsersButton()
+    func didTapLeaveGroupButton()
     
     func didTapTakePhotoAction()
     func didTapSelectPhotoAction()
     func didTapDeletePhotoAction()
+    func didTapLeaveGroupAction()
+    func didTapRemoveUserAction()
+    func didTapCancelRemoveUser()
+    
+    func didSelectedInviteUsers(inviteUsers: [User])
+    
+    func tapSelectedUsersAndMeProfileImage(index: Int)
 }
 
 protocol EditGroupViewPresenterOutput: class {
@@ -30,11 +39,16 @@ protocol EditGroupViewPresenterOutput: class {
     func setGroupName()
     func setGroupTask()
     func setRedColorPlaceholder()
+    func reloadSelectedUsersAndMeCollectionView()
     func dismissEditGroupVC()
+    func dismissEditGroupVC_Delegate()
     func presentActionSheet()
     func showUIImagePickerControllerAsCamera()
     func showUIImagePickerControllerAsLibrary()
     func setDeleteAndSetDefaultImage()
+    func showSelectInviteUsersVC()
+    func showLeaveGroupAleartView()
+    func showRemoveUserAleartView(mayRemoveUserName: String)
 }
 
 final class EditGroupViewPresenter: EditGroupViewPresenterProtocol, EditGroupModelOutput {
@@ -81,6 +95,14 @@ final class EditGroupViewPresenter: EditGroupViewPresenterProtocol, EditGroupMod
         self.view.presentActionSheet()
     }
     
+    func didTapInviteUsersButton() {
+        self.view.showSelectInviteUsersVC()
+    }
+    
+    func didTapLeaveGroupButton() {
+        self.view.showLeaveGroupAleartView()
+    }
+    
     func didTapTakePhotoAction() {
         self.view.showUIImagePickerControllerAsCamera()
     }
@@ -93,7 +115,43 @@ final class EditGroupViewPresenter: EditGroupViewPresenterProtocol, EditGroupMod
         self.view.setDeleteAndSetDefaultImage()
     }
     
+    func didTapLeaveGroupAction() {
+        self.model.leaveGroup()
+    }
+    
+    func didTapRemoveUserAction() {
+        self.model.removeUser()
+    }
+    
+    func didTapCancelRemoveUser() {
+        self.model.resetMayRemoveUserUID()
+    }
+    
+    func didSelectedInviteUsers(inviteUsers: [User]) {
+        self.model.inviteUsers(inviteUsers: inviteUsers)
+    }
+
+    func tapSelectedUsersAndMeProfileImage(index: Int) {
+        guard model.selectedUserEqualMe(index: index) == false else { return }
+        guard let selectedUser = model.getSelectedUser(index: index) else { return }
+        guard let selectedUsersUID = selectedUser.id else { return }
+        self.model.setMayRemoveUserUID(uid: selectedUsersUID)
+        self.view.showRemoveUserAleartView(mayRemoveUserName: selectedUser.name)
+    }
+    
     func successSaveGroup() {
         self.view.dismissEditGroupVC()
+    }
+    
+    func successRemoveUser() {
+        self.view.reloadSelectedUsersAndMeCollectionView()
+    }
+    
+    func successLeaveGroup() {
+        self.view.dismissEditGroupVC_Delegate()
+    }
+    
+    func successInviteUsers() {
+        self.view.reloadSelectedUsersAndMeCollectionView()
     }
 }

@@ -83,7 +83,7 @@ extension GroupTodoViewController: GroupTodoViewPresenterOutput {
     }
     
     func showCreateNewGroupVC() {
-        guard let createNewGroupVC = CreateNewGroupViewBuilder.create() as? CreateNewGroupViewController else { return }
+        guard let createNewGroupVC = CreateNewGroupViewBuilder.create(searchUsersType: .createGroup) as? CreateNewGroupViewController else { return }
         let navigationController = UINavigationController(rootViewController: createNewGroupVC)
         navigationController.modalPresentationStyle = .fullScreen
         self.present(navigationController, animated: true, completion: nil)

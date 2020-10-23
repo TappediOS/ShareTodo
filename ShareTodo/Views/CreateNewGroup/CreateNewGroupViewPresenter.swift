@@ -12,6 +12,7 @@ protocol CreateNewGroupViewPresenterProtocol {
     var numberOfSelectedUsers: Int { get }
     var searchedUsers: [User] { get }
     var selectedUsers: [User] { get }
+    var searchUsersType: SearchUsersType { get }
     
     func isSelected(user: User) -> Bool
     
@@ -20,6 +21,7 @@ protocol CreateNewGroupViewPresenterProtocol {
     
     func didTapStopCreateRoomButton()
     func didTapCreateRoomutton()
+    func didTapInviteUsersDoneButton()
     
     func didSearchBarSearchButtonClicked(searchText: String)
 }
@@ -30,6 +32,7 @@ protocol CreateNewGroupViewPresenterOutput: class {
     
     func hiddenSelectedUsersCollectionView()
     func dismissCreateChatRoomVC()
+    func dismissCreateChatRoomVC_delegate()
     func clearSearchUserTableView()
     
     func startActivityIndicator()
@@ -56,6 +59,10 @@ final class CreateNewGroupViewPresenter: CreateNewGroupViewPresenterProtocol, Cr
     
     var selectedUsers: [User] {
         return model.selectedUsersArray
+    }
+    
+    var searchUsersType: SearchUsersType {
+        return model.searchUsersType
     }
     
     init(model: CreateNewGroupModelProtocol) {
@@ -87,6 +94,11 @@ final class CreateNewGroupViewPresenter: CreateNewGroupViewPresenterProtocol, Cr
         guard !self.selectedUsers.isEmpty else { return }
         
         self.view.presentCreateNewGropuInfoVC()
+    }
+    
+    func didTapInviteUsersDoneButton() {
+        guard !self.selectedUsers.isEmpty else { return }
+        self.view.dismissCreateChatRoomVC_delegate()
     }
     
     func didSearchBarSearchButtonClicked(searchText: String) {

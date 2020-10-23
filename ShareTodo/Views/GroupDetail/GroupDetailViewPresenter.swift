@@ -11,7 +11,8 @@ protocol GroupDetailViewPresenterProtocol {
     var group: Group { get }
     var groupUsers: [User] { get }
     var isFinishedUsersIDs: [String] { get }
-    func didFinishedEditGroup()
+    
+    func didFinishedEditGroup(group: Group, groupUsers: [User])
     
     func didViewDidLoad()
     func didTapEditGroup()
@@ -20,6 +21,7 @@ protocol GroupDetailViewPresenterProtocol {
 
 protocol GroupDetailViewPresenterOutput: class {
     func reloadGroupDetailCollectionView()
+    func setNavigationBarTitle(title: String)
     func showEditGroupVC()
     func segueUserDetailViewController(index: Int)
 }
@@ -49,9 +51,10 @@ final class GroupDetailViewPresenter: GroupDetailViewPresenterProtocol, GroupDet
         self.view.showEditGroupVC()
     }
     
-    func didFinishedEditGroup() {
-        guard let groupID = self.model.group.groupID else { return }
-        repository.fetchGroup(groupID: groupID)
+    func didFinishedEditGroup(group: Group, groupUsers: [User]) {
+        self.model.groupUsers = groupUsers
+        self.view.setNavigationBarTitle(title: group.name)
+        self.view.reloadGroupDetailCollectionView()
     }
     
     func didTapGroupDetailCollectionViewuserCell(index: Int) {

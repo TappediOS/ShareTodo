@@ -110,4 +110,49 @@ class EditGroupTests: XCTestCase {
         XCTAssertEqual(presenter.groupUsers.count, groupUsersCount - 1)
         XCTAssertFalse(presenter.groupUsers.contains(removeUser))
     }
+    
+    func test_自分以外のユーザ全てを順に削除するとき() {
+        let model = EditGroupModelMock()
+        let presenter = EditGroupViewPresenter(model: model)
+        view.inject(with: presenter)
+        view.loadViewIfNeeded()
+        view.view.layoutIfNeeded()
+        
+        for tmp in (1 ..< presenter.groupUsers.count).reversed() {
+            let randomNum = Int.random(in: 1 ... tmp) // 1からtmpまでどのユーザをタップするかを決める。なお0番目は自分だからタップしない
+            let removeUser = presenter.groupUsers[randomNum]
+            presenter.tapSelectedUsersAndMeProfileImage(index: randomNum)
+            presenter.didTapRemoveUserAction()
+            
+            XCTAssertEqual(presenter.groupUsers.count, tmp)
+            XCTAssertFalse(presenter.groupUsers.contains(removeUser))
+        }
+    }
+    
+    func test_2人目のユーザの削除をキャンセルするとき() {
+        let model = EditGroupModelMock()
+        let presenter = EditGroupViewPresenter(model: model)
+        view.inject(with: presenter)
+        view.loadViewIfNeeded()
+        view.view.layoutIfNeeded()
+        
+        let removeUser = User(id: "id4", name: "user4", profileImageURL: "u4")
+        let groupUsersCount = presenter.groupUsers.count
+        
+        presenter.tapSelectedUsersAndMeProfileImage(index: 3)
+        XCTAssertEqual(model.mayRemoveUserUID, "id4")
+        presenter.didTapRemoveUserAction()
+        XCTAssertEqual(presenter.groupUsers.count, groupUsersCount - 1)
+        XCTAssertFalse(presenter.groupUsers.contains(removeUser))
+        
+        let DontRemoveUser = User(id: "id2", name: "user2", profileImageURL: "u2")
+        
+        presenter.tapSelectedUsersAndMeProfileImage(index: 1)
+        XCTAssertEqual(model.mayRemoveUserUID, "id2")
+        presenter.didTapCancelRemoveUser()
+        XCTAssertNil(model.mayRemoveUserUID)
+        XCTAssertEqual(presenter.groupUsers.count, groupUsersCount - 1)
+        XCTAssertFalse(presenter.groupUsers.contains(removeUser))
+        XCTAssertTrue(presenter.groupUsers.contains(DontRemoveUser))
+    }
 }

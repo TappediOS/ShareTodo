@@ -93,4 +93,19 @@ class EditGroupTests: XCTestCase {
             }
         }
     }
+    
+    func test_1人のユーザをremoveするとき() {
+        let model = EditGroupModelMock()
+        let presenter = EditGroupViewPresenter(model: model)
+        view.inject(with: presenter)
+        view.loadViewIfNeeded()
+        view.view.layoutIfNeeded()
+        let removeUser = User(id: "id3", name: "user3", profileImageURL: "u3")
+        let groupUsersCount = presenter.groupUsers.count
+        
+        presenter.tapSelectedUsersAndMeProfileImage(index: 2)
+        presenter.didTapRemoveUserAction()
+        XCTAssertEqual(presenter.groupUsers.count, groupUsersCount - 1)
+        XCTAssertFalse(presenter.groupUsers.contains(removeUser))
+    }
 }

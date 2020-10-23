@@ -18,6 +18,18 @@ class EditGroupModelTests: XCTestCase {
     override func tearDownWithError() throws {
 
     }
+    
+    func test_selectedUserEqualMe() {
+        let model = EditGroupModelMock()
+        
+        for tmp in 0 ... 5 {
+            tmp == 0 ? XCTAssertTrue(model.selectedUserEqualMe(index: tmp)): XCTAssertFalse(model.selectedUserEqualMe(index: tmp))
+        }
+    }
+    
+    func test_getSelectedUser() {
+        
+    }
 
     func test_setMayRemoveUserUID() {
         let model = EditGroupModelMock()

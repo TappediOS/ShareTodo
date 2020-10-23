@@ -39,6 +39,25 @@ class EditGroupTests: XCTestCase {
     }
     
     func test_VC表示時にMembersCollectionViewにMemberが表示されること() {
+        let cell_1 = view.collectionView(view.selectedUsersAndMeCollectionView, cellForItemAt: IndexPath(row: 0, section: 1))
+        let cell_2 = view.collectionView(view.selectedUsersAndMeCollectionView, cellForItemAt: IndexPath(row: 1, section: 1))
+        let cell_3 = view.collectionView(view.selectedUsersAndMeCollectionView, cellForItemAt: IndexPath(row: 2, section: 1))
+        let cell_4 = view.collectionView(view.selectedUsersAndMeCollectionView, cellForItemAt: IndexPath(row: 3, section: 1))
+        let cell_5 = view.collectionView(view.selectedUsersAndMeCollectionView, cellForItemAt: IndexPath(row: 4, section: 1))
+        let cell_6 = view.collectionView(view.selectedUsersAndMeCollectionView, cellForItemAt: IndexPath(row: 5, section: 1))
         
+        guard let cell1 = cell_1 as? SelectedUsersAndMeCollectionViewCell else { return }
+        guard let cell2 = cell_2 as? SelectedUsersAndMeCollectionViewCell else { return }
+        guard let cell3 = cell_3 as? SelectedUsersAndMeCollectionViewCell else { return }
+        guard let cell4 = cell_4 as? SelectedUsersAndMeCollectionViewCell else { return }
+        guard let cell5 = cell_5 as? SelectedUsersAndMeCollectionViewCell else { return }
+        guard let cell6 = cell_6 as? SelectedUsersAndMeCollectionViewCell else { return }
+        
+        XCTAssertEqual(cell1.nameLabel.text, "user1")
+        XCTAssertEqual(cell2.nameLabel.text, "user2")
+        XCTAssertEqual(cell3.nameLabel.text, "user3")
+        XCTAssertEqual(cell4.nameLabel.text, "user4")
+        XCTAssertEqual(cell5.nameLabel.text, "user5")
+        XCTAssertEqual(cell6.nameLabel.text, "user6")
     }
 }

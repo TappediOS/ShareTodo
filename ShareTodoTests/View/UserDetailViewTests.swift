@@ -18,7 +18,7 @@ class UserDetailViewTests: XCTestCase {
     }
     
     override func tearDownWithError() throws {
-        
+        view = nil
     }
     
     func test_表示時に変数の値が正しいこと() {

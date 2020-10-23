@@ -155,4 +155,20 @@ class EditGroupTests: XCTestCase {
         XCTAssertFalse(presenter.groupUsers.contains(removeUser))
         XCTAssertTrue(presenter.groupUsers.contains(DontRemoveUser))
     }
+    
+    // NOTE: 保存ボタンを押さないとFirestoreには反映されない
+    func test_ユーザを1人招待したとき() {
+        let model = EditGroupModelMock()
+        let presenter = EditGroupViewPresenter(model: model)
+        view.inject(with: presenter)
+        view.loadViewIfNeeded()
+        view.view.layoutIfNeeded()
+        
+        let inviteUser = [User(id: "id7", name: "user7", profileImageURL: "u2")]
+        let groupCount = presenter.groupUsers.count
+        
+        presenter.didSelectedInviteUsers(inviteUsers: inviteUser)
+        XCTAssertTrue(presenter.groupUsers.contains(inviteUser.first!))
+        XCTAssertEqual(presenter.groupUsers.count, groupCount + 1)
+    }
 }

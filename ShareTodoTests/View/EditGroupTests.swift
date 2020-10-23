@@ -16,6 +16,10 @@ class EditGroupTests: XCTestCase {
         view = R.storyboard.editGroup().instantiateInitialViewController() as? EditGroupViewController
         guard self.view != nil else { return }
         
+        let presenter = EditGroupViewPresenter(model: EditGroupModelMock())
+        view.inject(with: presenter)
+        view.loadViewIfNeeded()
+        view.view.layoutIfNeeded()
     }
     
     override func tearDownWithError() throws {
@@ -24,10 +28,7 @@ class EditGroupTests: XCTestCase {
     
     func test_VC表示時にTextFieldの文字が正しいこと() {
         let expectation = self.expectation(description: "expectation")
-        let presenter = EditGroupViewPresenter(model: EditGroupModelMock())
-        view.inject(with: presenter)
-        view.loadViewIfNeeded()
-        view.view.layoutIfNeeded()
+        
         DispatchQueue.main.async {
             XCTAssertEqual(self.view.groupNameTextField.text, "Apple")
             XCTAssertEqual(self.view.taskTextField.text, "Pie")
@@ -37,4 +38,7 @@ class EditGroupTests: XCTestCase {
         wait(for: [expectation], timeout: 5)
     }
     
+    func test_VC表示時にMembersCollectionViewにMemberが表示されること() {
+        
+    }
 }

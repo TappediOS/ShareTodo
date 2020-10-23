@@ -225,4 +225,25 @@ class EditGroupTests: XCTestCase {
         XCTAssertTrue(presenter.groupUsers.contains(inviteUser4))
         XCTAssertEqual(presenter.groupUsers.count, groupCount + 2)
     }
+    
+    func test_すでに存在してるユーザを全て追加したとき() {
+        let model = EditGroupModelMock()
+        let presenter = EditGroupViewPresenter(model: model)
+        view.inject(with: presenter)
+        view.loadViewIfNeeded()
+        view.view.layoutIfNeeded()
+        
+        let inviteUser1 = User(id: "id3", name: "user3", profileImageURL: "u3")
+        let inviteUser2 = User(id: "id4", name: "user4", profileImageURL: "u4")
+        let inviteUser3 = User(id: "id5", name: "user5", profileImageURL: "u5")
+        let inviteUser4 = User(id: "id6", name: "user6", profileImageURL: "u6")
+        
+        
+        var inviteUsers = [inviteUser1, inviteUser2, inviteUser3, inviteUser4]
+        inviteUsers.shuffle()
+        let groupCount = presenter.groupUsers.count
+        
+        presenter.didSelectedInviteUsers(inviteUsers: inviteUsers)
+        XCTAssertEqual(presenter.groupUsers.count, groupCount)
+    }
 }

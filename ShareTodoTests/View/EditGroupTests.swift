@@ -91,6 +91,8 @@ class EditGroupTests: XCTestCase {
             XCTContext.runActivity(named: "todosの状態が正しいこと") { _ in
                 XCTAssertNotNil(model.mayRemoveUserUID)
             }
+            presenter.didTapCancelRemoveUser()
+            XCTAssertNil(model.mayRemoveUserUID)
         }
     }
     

@@ -7,7 +7,7 @@ target 'ShareTodo' do
 
   # Pods for ShareTodo
   pod 'R.swift'
-
+  pod 'LicensePlist'
 
   target 'ShareTodoTests' do
     inherit! :search_paths

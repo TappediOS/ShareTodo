@@ -34,7 +34,7 @@ name: Nuke, nameSpecified: , owner: kean, version: 9.1.2
 
 name: SCLAlertView-Swift, nameSpecified: , owner: vikmeup, version: f08ec93
 
-name: TOCropViewController, nameSpecified: , owner: TimOliver, version: 2.5.4
+name: TOCropViewController, nameSpecified: , owner: TimOliver, version: 2.5.5
 
 add-version-numbers: false
 

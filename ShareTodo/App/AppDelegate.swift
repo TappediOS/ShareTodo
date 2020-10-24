@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        //TODO:- iOS14以上はIDFAを要求すること
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
         if #available(iOS 13, *) {
         } else {
             window = UIWindow(frame: UIScreen.main.bounds)

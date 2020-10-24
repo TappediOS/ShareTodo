@@ -110,6 +110,7 @@
 		BFA792AD25242C03003FE6D0 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA792A925242C03003FE6D0 /* FirebaseInstanceID.framework */; };
 		BFA792AF25242C03003FE6D0 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA792AA25242C03003FE6D0 /* Protobuf.framework */; };
 		BFB24B662544181A00166D88 /* FirebaseCrashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB24B652544181A00166D88 /* FirebaseCrashlytics.framework */; };
+		BFB24BF525441C1A00166D88 /* SharedString.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFB24BF425441C1A00166D88 /* SharedString.strings */; };
 		BFD435CF24CD2EBC00B2E580 /* CropViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97246524CD24AD0033BB50 /* CropViewController.framework */; };
 		BFD435D024CD2EBD00B2E580 /* CropViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF97246524CD24AD0033BB50 /* CropViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BFD435E124CD333D00B2E580 /* ExplicitNull.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD435D324CD333C00B2E580 /* ExplicitNull.swift */; };
@@ -337,6 +338,7 @@
 		BFA792A925242C03003FE6D0 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Carthage/Build/iOS/FirebaseInstanceID.framework; sourceTree = "<group>"; };
 		BFA792AA25242C03003FE6D0 /* Protobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Protobuf.framework; path = Carthage/Build/iOS/Protobuf.framework; sourceTree = "<group>"; };
 		BFB24B652544181A00166D88 /* FirebaseCrashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCrashlytics.framework; path = Carthage/Build/iOS/FirebaseCrashlytics.framework; sourceTree = "<group>"; };
+		BFB24BF425441C1A00166D88 /* SharedString.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = SharedString.strings; sourceTree = "<group>"; };
 		BFD435D324CD333C00B2E580 /* ExplicitNull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplicitNull.swift; sourceTree = "<group>"; };
 		BFD435D424CD333C00B2E580 /* CollectionReference+WriteEncodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionReference+WriteEncodable.swift"; sourceTree = "<group>"; };
 		BFD435D524CD333C00B2E580 /* CodablePassThroughTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodablePassThroughTypes.swift; sourceTree = "<group>"; };
@@ -549,6 +551,7 @@
 		BF26FB702530616600FDFC4A /* String */ = {
 			isa = PBXGroup;
 			children = (
+				BFB24BF425441C1A00166D88 /* SharedString.strings */,
 				BF26FB792530618E00FDFC4A /* Localizable.strings */,
 			);
 			path = String;
@@ -1264,6 +1267,7 @@
 				BFD5DDEE251B0EE700E35F18 /* carthage.sh in Resources */,
 				BF88D4F524CAB8F300607D6A /* GroupTodo.storyboard in Resources */,
 				BF110025251F22CF0046376F /* IntroductionShareTodoPlus.storyboard in Resources */,
+				BFB24BF525441C1A00166D88 /* SharedString.strings in Resources */,
 				BFD4366624CE62C700B2E580 /* Assets.xcassets in Resources */,
 				BFFA61732508884700A1D2CE /* EditGroup.storyboard in Resources */,
 				BF5120F125441303003AC823 /* Settings.bundle in Resources */,

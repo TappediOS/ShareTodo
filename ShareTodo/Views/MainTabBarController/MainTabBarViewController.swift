@@ -7,14 +7,65 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 final class MainTabBarViewController: UITabBarController {
     private var presenter: MainTabBarViewPresenterProtocol!
     
+    private let shareTodoTabBarBannerView = GADBannerView()
+    private let BANNER_VIEW_TEST_ID = R.string.sharedString.banner_VIEW_TEST_ID()
+    private let BANNER_VIEW_ID = R.string.sharedString.banner_VIEW_ID()
+    private var BANNER_VIEW_HIGHT: CGFloat = 50
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //TODO:- 課金の有無でこの関数は呼ばないこと
+        self.initBannerView()
+        
         self.selectedIndex = 0
+    }
+    
+    //safeArea取得するために必要。
+    override func viewDidLayoutSubviews() {
+       super.viewDidLayoutSubviews()
+        //TODO:- 課金の有無でこの関数は呼ばないこと
+        self.setupBannerViewSize()
+    }
+    
+    private func setupBannerViewSize() {
+        shareTodoTabBarBannerView.heightAnchor.constraint(equalToConstant: self.BANNER_VIEW_HIGHT).isActive = true
+        shareTodoTabBarBannerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0).isActive = true
+        shareTodoTabBarBannerView.widthAnchor.constraint(equalToConstant: self.view.bounds.width).isActive = true
+        shareTodoTabBarBannerView.bottomAnchor.constraint(equalTo: self.tabBar.topAnchor, constant: 0).isActive = true
+    }
+    
+    private func initBannerView() {
+        print("\n\n--------INFO ADMOB--------------\n")
+        print("Google Mobile ads SDK Versioin -> " + GADMobileAds.sharedInstance().sdkVersion + "\n")
+        #if DEBUG
+        self.shareTodoTabBarBannerView.adUnitID = BANNER_VIEW_TEST_ID
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["9747b2df917295aa9c8c5a0325953f4e"]
+        print("バナー広告：テスト環境\n\n")
+        #else
+        self.shareTodoTabBarBannerView.adUnitID = BANNER_VIEW_ID
+        print("バナー広告：本番環境")
+        #endif
+        
+        self.shareTodoTabBarBannerView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(shareTodoTabBarBannerView)
+        self.view.bringSubviewToFront(shareTodoTabBarBannerView)
+        
+        self.shareTodoTabBarBannerView.rootViewController = self
+        self.shareTodoTabBarBannerView.delegate = self
+        
+        let frame = { () -> CGRect in
+           return view.frame.inset( by: view.safeAreaInsets)
+        }()
+        let adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(frame.size.width)
+        self.BANNER_VIEW_HIGHT = adSize.size.height
+        self.shareTodoTabBarBannerView.adSize = adSize
+        self.shareTodoTabBarBannerView.load(GADRequest())
     }
     
     required init?(coder: NSCoder) {
@@ -54,4 +105,42 @@ final class MainTabBarViewController: UITabBarController {
 
 extension MainTabBarViewController: MainTabBarViewPresenterOutput {
     
+}
+
+extension MainTabBarViewController: GADBannerViewDelegate {
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+       print("広告(banner)のロードが完了しました。")
+       self.shareTodoTabBarBannerView.alpha = 0
+       UIView.animate(withDuration: 1, animations: {
+          self.shareTodoTabBarBannerView.alpha = 1
+       })
+    }
+    
+    /// Tells the delegate an ad request failed.
+    func adView(_ bannerView: GADBannerView,
+                didFailToReceiveAdWithError error: GADRequestError) {
+       print("広告(banner)のロードに失敗しました。: \(error.localizedDescription)")
+    }
+    
+    /// Tells the delegate that a full-screen view will be presented in response
+    /// to the user clicking on an ad.
+    func adViewWillPresentScreen(_ bannerView: GADBannerView) {
+       print("adViewWillPresentScreen")
+    }
+    
+    /// Tells the delegate that the full-screen view will be dismissed.
+    func adViewWillDismissScreen(_ bannerView: GADBannerView) {
+       print("adViewWillDismissScreen")
+    }
+    
+    /// Tells the delegate that the full-screen view has been dismissed.
+    func adViewDidDismissScreen(_ bannerView: GADBannerView) {
+       print("adViewDidDismissScreen")
+    }
+    
+    /// Tells the delegate that a user click will open another app (such as
+    /// the App Store), backgrounding the current app.
+    func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
+       print("adViewWillLeaveApplication")
+    }
 }

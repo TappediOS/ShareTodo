@@ -5,6 +5,12 @@ binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseStorageBinary.jso
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseMessagingBinary.json"
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseProtobufBinary.json"
 
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseABTestingBinary.json"
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAdMobBinary.json"
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseCrashlyticsBinary.json"
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebasePerformanceBinary.json"
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseRemoteConfigBinary.json"
+
 github "TimOliver/TOCropViewController"
 github "vikmeup/SCLAlertView-Swift" "master"
 github "dzenbot/DZNEmptyDataSet"

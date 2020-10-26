@@ -109,11 +109,10 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SfA-1g-skh">
-                                                        <rect key="frame" x="92" y="53" width="230" height="50"/>
+                                                        <rect key="frame" x="16" y="53" width="382" height="50"/>
                                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="DWC-Fp-EVi"/>
-                                                            <constraint firstAttribute="width" constant="230" id="VWt-UA-2WZ"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                         <state key="normal" title="Button">
@@ -129,7 +128,9 @@
                                                     <constraint firstItem="SfA-1g-skh" firstAttribute="centerX" secondItem="E02-D3-RAc" secondAttribute="centerX" id="9dA-1E-mg7"/>
                                                     <constraint firstAttribute="height" constant="150" id="EQw-ss-DGe"/>
                                                     <constraint firstItem="SfA-1g-skh" firstAttribute="top" secondItem="YP0-5q-OKa" secondAttribute="bottom" constant="16" id="G9g-DS-eYJ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="SfA-1g-skh" secondAttribute="trailing" constant="16" id="JNI-d1-N4m"/>
                                                     <constraint firstItem="YP0-5q-OKa" firstAttribute="top" secondItem="E02-D3-RAc" secondAttribute="top" constant="16" id="M0p-8V-psu"/>
+                                                    <constraint firstItem="SfA-1g-skh" firstAttribute="leading" secondItem="E02-D3-RAc" secondAttribute="leading" constant="16" id="R3P-4b-5N5"/>
                                                     <constraint firstItem="YP0-5q-OKa" firstAttribute="leading" secondItem="E02-D3-RAc" secondAttribute="leading" constant="8" id="dmg-6h-3im"/>
                                                     <constraint firstAttribute="trailing" secondItem="YP0-5q-OKa" secondAttribute="trailing" constant="8" id="l17-7X-5HK"/>
                                                 </constraints>

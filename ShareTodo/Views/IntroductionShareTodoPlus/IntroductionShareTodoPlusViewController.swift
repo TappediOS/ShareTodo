@@ -15,11 +15,24 @@ final class IntroductionShareTodoPlusViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        self.setupView()
         self.setupScrollView()
+        self.setupNavigationBar()
+    }
+    
+    func setupView() {
+        self.view.backgroundColor = .secondarySystemBackground
     }
     
     func setupScrollView() {
         self.scrollView.alwaysBounceVertical = true
+    }
+    
+    func setupNavigationBar() {
+        //TODO:- ローカライズ
+        self.navigationItem.title = "ShareTodo Plus"
+        self.navigationItem.largeTitleDisplayMode = .always
+        self.navigationController?.navigationBar.tintColor = .systemGreen
     }
     
     func inject(with presenter: IntroductionShareTodoPlusViewPresenterProtocol) {

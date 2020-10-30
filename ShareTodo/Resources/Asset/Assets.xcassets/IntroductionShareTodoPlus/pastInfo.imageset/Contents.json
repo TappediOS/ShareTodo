@@ -17,7 +17,6 @@
       "scale" : "1x"
     },
     {
-      "filename" : "pastInfo_en_light_2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -28,7 +27,6 @@
           "value" : "dark"
         }
       ],
-      "filename" : "pastInfo_en_dark_2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -65,7 +63,6 @@
       "scale" : "1x"
     },
     {
-      "filename" : "pastInfo_en_light_2-1.png",
       "idiom" : "universal",
       "locale" : "en",
       "scale" : "2x"
@@ -77,7 +74,6 @@
           "value" : "dark"
         }
       ],
-      "filename" : "pastInfo_en_dark_2-1.png",
       "idiom" : "universal",
       "locale" : "en",
       "scale" : "2x"
@@ -117,7 +113,6 @@
       "scale" : "1x"
     },
     {
-      "filename" : "pastInfo_ja_light_2.png",
       "idiom" : "universal",
       "locale" : "ja",
       "scale" : "2x"
@@ -129,7 +124,6 @@
           "value" : "dark"
         }
       ],
-      "filename" : "pastInfo_ja_dark_2.png",
       "idiom" : "universal",
       "locale" : "ja",
       "scale" : "2x"

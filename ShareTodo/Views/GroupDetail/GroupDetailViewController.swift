@@ -211,4 +211,8 @@ extension GroupDetailViewController: EditGroupViewControllerDelegate {
         self.dismiss(animated: true, completion: nil)
         self.presenter.didFinishedEditGroup(group: group, groupUsers: groupUsers)
     }
+    
+    func editGroupViewControllerDidCanceled(_ editprofileViewController: EditGroupViewController) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

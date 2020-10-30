@@ -218,6 +218,11 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="NEv-XH-4t2" secondAttribute="height" multiplier="3:2" id="pBr-hg-qlR"/>
                                                                 </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="4"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="過去の状態を確認" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Obd-Ox-tvz">
                                                                 <rect key="frame" x="56" y="17.5" width="318" height="21"/>

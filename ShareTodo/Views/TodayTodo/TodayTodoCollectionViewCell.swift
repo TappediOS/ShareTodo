@@ -50,7 +50,6 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
         let radioButtonImage = isFinished ? UIImage(systemName: "checkmark.circle.fill") : UIImage(systemName: "checkmark.circle")
         
         self.taskLabel.text = group.task
-        //TODO:- StringFileで抜き出すこと
         self.groupNameLabel.text = R.string.localizable.group_Colon() + group.name
         self.radioButton.setImage(radioButtonImage, for: .normal)
         

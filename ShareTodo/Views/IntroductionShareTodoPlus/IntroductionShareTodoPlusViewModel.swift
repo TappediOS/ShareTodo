@@ -17,4 +17,3 @@ protocol IntroductionShareTodoPlusModelOutput: class {
 final class IntroductionShareTodoPlusModel: IntroductionShareTodoPlusModelProtocol {
     weak var presenter: IntroductionShareTodoPlusModelOutput!
 }
-

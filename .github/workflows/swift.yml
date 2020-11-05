@@ -32,7 +32,7 @@ jobs:
 
 
     - name: Carthage
-      run: carthage bootstrap --platform iOS --cache-builds
+      run: sh carthage.sh bootstrap --platform iOS --cache-builds
     - name: CocoaPods
       run: pod install
 

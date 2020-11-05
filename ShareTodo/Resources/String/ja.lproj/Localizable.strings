@@ -62,3 +62,38 @@
 // UserDetailVC
 "Introduction"            = "ご紹介";
 "IntroductionDescription" = "1週間より過去のタスクを確認したい方に";
+
+// IntroductionVC
+"Premium Features" = "プレミアム機能";
+"No Ads" = "広告なし";
+"Check Past Tasks" = "過去のタスクの確認";
+"Add Message To Task" = "タスクにメッセージを追加";
+"No Ads!" = "広告なし！";
+"No Ads Description" = "広告が削除されます。\nすっきりした画面で見やすくなります！";
+"Check Past Tasks Description" = "1週間より過去のタスクを見れるようになります。";
+"Add Message To Task!" = "タスクにメッセージを追加！";
+"Add Message To Task Description" = "タスク完了次にメッセージを追加できるようになります！\n\nメッセージはグループのユーザが確認できるので，ちょっとした一言を追加してメンバーに見てもらうことができます！";
+
+"Apply At N Month" = "/月で申し込む";
+
+
+
+"Explanation Of Subscription Notes" = "
+・お申込日から1ヶ月後に自動反映されます。
+
+・自動継続課金は期間の期限が切れる24時間以上前に自動更新をオフにしない限り自動更新されます。
+
+・自動継続課金はお客様自身で管理することができ，いつでもキャンセルすることができます。
+
+・定期購入の確認と解約は「設定アプリ」→「iTunes Store」→「Apple ID」→「Apple IDを表示」→「登録」から行うことが可能です。キャンセルをするとご利用中の契約期間終了をもって定期購読は終了し更新は行われなくなります。
+
+・プレミアム機能の解約は上記以外の方法で行うことはできません。
+
+・プレミアム機能はお客様がお使いのApple IDに課金されます。
+
+・プライバシーポリシー
+　https://example.com
+
+・利用規約
+　https://example.com
+";

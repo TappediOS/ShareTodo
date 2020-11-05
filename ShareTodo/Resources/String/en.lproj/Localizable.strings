@@ -62,3 +62,38 @@
 // UserDetailVC
 "Introduction"            = "Introduction";
 "IntroductionDescription" = "For those who want to check past tasks from one week";
+
+// IntroductionVC
+"Premium Features" = "Premium features";
+"No Ads" = "No ads";
+"Check Past Tasks" = "Check past tasks";
+"Add Message To Task" = "Add message to task";
+"No Ads!" = "No ads!";
+"No Ads Description" = "The ad will be removed.\nThe clean screen makes it easier to see!";
+"Check Past Tasks Description" = "You will be able to see past tasks for more than a week.";
+"Add Message To Task!" = "Add message to task!";
+"Add Message To Task Description" = "Task complete Then you will be able to add messages!\n\nThe message can be viewed by the users of the group, so you can add a few words and let the members see it!";
+
+"Apply At N Month" = "Apply at $2. month";
+
+
+
+"Explanation Of Subscription Notes" = "
+・It will be automatically reflected one month after the application date.
+
+・Auto-renewal billing will renew automatically unless you turn off auto-renewal at least 24 hours before the expiration date.
+
+・Automatic renewal billing can be managed by the customer and can be canceled at any time.
+
+・You can check and cancel your subscription from [Settings app] → [iTunes Store] → [Apple ID] → [Display Apple ID] → [Register]. If you cancel, the subscription will end and the renewal will not be performed when the contract period you are using ends.
+
+・You cannot cancel the premium function by any method other than the above.
+
+・Premium features will be charged to your Apple ID.
+
+・privacy policy
+  https://example.com
+
+・Terms of service
+  https://example.com
+";

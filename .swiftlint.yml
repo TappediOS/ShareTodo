@@ -1,4 +1,5 @@
 excluded:
+  - Pods/
   - Carthage/
   - eventgen-viewer/App/
   - ShareTodo/FirebaseFirestoreSwift/

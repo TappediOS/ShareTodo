@@ -186,7 +186,7 @@ extension GroupDetailViewController: UICollectionViewDelegateFlowLayout {
         
         switch section {
         case 0: return UIEdgeInsets(top: 4, left: 16, bottom: 24, right: 16)
-        case 1: return UIEdgeInsets(top: 4, left: 16, bottom: 24, right: 16)
+        case 1: return UIEdgeInsets(top: 4, left: 16, bottom: 78, right: 16)
         default: return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         }
     }
@@ -210,5 +210,9 @@ extension GroupDetailViewController: EditGroupViewControllerDelegate {
     func editGroupViewControllerDidFinish(group: Group, groupUsers: [User]) {
         self.dismiss(animated: true, completion: nil)
         self.presenter.didFinishedEditGroup(group: group, groupUsers: groupUsers)
+    }
+    
+    func editGroupViewControllerDidCanceled(_ editprofileViewController: EditGroupViewController) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

@@ -40,8 +40,9 @@ protocol EditGroupViewPresenterOutput: class {
     func setGroupTask()
     func setRedColorPlaceholder()
     func reloadSelectedUsersAndMeCollectionView()
-    func dismissEditGroupVC()
-    func dismissEditGroupVC_Delegate()
+    func dismissEditGroupVC_Delegate_Leaved()
+    func dismissEditGroupVC_Delegate_Finished()
+    func dismissEditGroupVC_Delegate_Canceled()
     func presentActionSheet()
     func showUIImagePickerControllerAsCamera()
     func showUIImagePickerControllerAsLibrary()
@@ -70,7 +71,7 @@ final class EditGroupViewPresenter: EditGroupViewPresenterProtocol, EditGroupMod
     }
     
     func didTapStopEditGroupButton() {
-        self.view.dismissEditGroupVC()
+        self.view.dismissEditGroupVC_Delegate_Canceled()
     }
     
     func didTapSaveEditGroupButton(selectedUsers: [User], groupName: String, groupTask: String, groupImageData: Data) {
@@ -140,7 +141,7 @@ final class EditGroupViewPresenter: EditGroupViewPresenterProtocol, EditGroupMod
     }
     
     func successSaveGroup() {
-        self.view.dismissEditGroupVC()
+        self.view.dismissEditGroupVC_Delegate_Finished()
     }
     
     func successRemoveUser() {
@@ -148,7 +149,7 @@ final class EditGroupViewPresenter: EditGroupViewPresenterProtocol, EditGroupMod
     }
     
     func successLeaveGroup() {
-        self.view.dismissEditGroupVC_Delegate()
+        self.view.dismissEditGroupVC_Delegate_Leaved()
     }
     
     func successInviteUsers() {

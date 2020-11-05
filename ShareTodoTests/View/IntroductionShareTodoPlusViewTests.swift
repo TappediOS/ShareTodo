@@ -21,5 +21,10 @@ class IntroductionShareTodoPlusViewTests: XCTestCase {
         view = nil
     }
 
+    //TODO:- 課金の処理を書いたらそのロジックに対してテストを追加すること
+    func testExample() throws {
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    }
 
 }

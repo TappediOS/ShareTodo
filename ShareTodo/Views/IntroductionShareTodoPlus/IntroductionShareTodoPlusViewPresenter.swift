@@ -11,7 +11,8 @@ protocol IntroductionShareTodoPlusViewPresenterProtocol {
 }
 
 protocol IntroductionShareTodoPlusViewPresenterOutput: class {
-    
+    func startActivityIndicator()
+    func stopActivityIndicator()
 }
 
 final class IntroductionShareTodoPlusViewPresenter: IntroductionShareTodoPlusViewPresenterProtocol, IntroductionShareTodoPlusModelOutput {

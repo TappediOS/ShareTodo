@@ -24,6 +24,8 @@ final class IntroductionShareTodoPlusViewController: UIViewController {
     @IBOutlet weak var applySubscriptionButton: UIButton!
     @IBOutlet weak var subscriptionNotesLabel: UILabel!
     
+    var activityIndicator = UIActivityIndicatorView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -43,6 +45,8 @@ final class IntroductionShareTodoPlusViewController: UIViewController {
         self.setupLabelInfomation(addMessageLabel)
         self.setupLabelInfomation(addMessageDescrioptionLabel)
         self.setupLabelInfomation(subscriptionNotesLabel)
+        
+        self.setupActivityIndicator()
         
     }
     
@@ -81,6 +85,13 @@ final class IntroductionShareTodoPlusViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = .systemGreen
     }
     
+    func setupActivityIndicator() {
+        self.activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        self.activityIndicator.center = self.view.center
+        self.activityIndicator.hidesWhenStopped = true
+        self.view.addSubview(self.activityIndicator)
+    }
+    
     func inject(with presenter: IntroductionShareTodoPlusViewPresenterProtocol) {
         self.presenter = presenter
         self.presenter.view = self
@@ -88,5 +99,11 @@ final class IntroductionShareTodoPlusViewController: UIViewController {
 }
 
 extension IntroductionShareTodoPlusViewController: IntroductionShareTodoPlusViewPresenterOutput {
+    func startActivityIndicator() {
+        DispatchQueue.main.async { self.activityIndicator.startAnimating() }
+    }
     
+    func stopActivityIndicator() {
+        DispatchQueue.main.async { self.activityIndicator.stopAnimating() }
+    }
 }

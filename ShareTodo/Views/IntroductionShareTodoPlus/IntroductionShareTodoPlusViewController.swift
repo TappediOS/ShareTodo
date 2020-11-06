@@ -33,6 +33,8 @@ final class IntroductionShareTodoPlusViewController: UIViewController {
         self.setupScrollView()
         self.setupNavigationBar()
         
+        self.setupApplySubscriptionButton()
+        
         self.setupLabelText()
         self.setupLabelInfomation(premiumFeatureLabel)
         self.setupLabelInfomation(noAdsImageLabel)
@@ -58,6 +60,18 @@ final class IntroductionShareTodoPlusViewController: UIViewController {
         self.scrollView.alwaysBounceVertical = true
     }
     
+    func setupNavigationBar() {
+        //TODO:- ローカライズ
+        self.navigationItem.title = "ShareTodo Plus"
+        self.navigationItem.largeTitleDisplayMode = .always
+        self.navigationController?.navigationBar.tintColor = .systemGreen
+    }
+    
+    func setupApplySubscriptionButton() {
+        //TODO:- ローカライズすること
+        self.applySubscriptionButton.setTitle("¥300/月で申し込む", for: .normal)
+    }
+    
     func setupLabelInfomation(_ label: UILabel) {
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.4
@@ -75,14 +89,6 @@ final class IntroductionShareTodoPlusViewController: UIViewController {
         addMessageLabel.text             = R.string.localizable.addMessageToTaskExMark()
         addMessageDescrioptionLabel.text = R.string.localizable.addMessageToTaskDescription()
         subscriptionNotesLabel.text      = R.string.localizable.explanationOfSubscriptionNotes()
-    }
-    
-    
-    func setupNavigationBar() {
-        //TODO:- ローカライズ
-        self.navigationItem.title = "ShareTodo Plus"
-        self.navigationItem.largeTitleDisplayMode = .always
-        self.navigationController?.navigationBar.tintColor = .systemGreen
     }
     
     func setupActivityIndicator() {

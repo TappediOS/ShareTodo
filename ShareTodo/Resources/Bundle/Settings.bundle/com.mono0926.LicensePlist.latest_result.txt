@@ -2,13 +2,13 @@ name: LicensePlist, nameSpecified:
 body: MIT License
 
 Copyrig…
-version: 2.15.1
+version: 3.0.5
 
 name: LicensePlist, nameSpecified: 
 body: MIT License
 
 Copyrig…
-version: 2.15.1
+version: 3.0.5
 
 name: R.swift, nameSpecified: 
 body: The MIT License (MIT…
@@ -28,6 +28,10 @@ version: 5.2.0
 
 name: DZNEmptyDataSet, nameSpecified: , owner: dzenbot, version: v1.8.1
 
+name: firebase-ios-sdk, nameSpecified: Firebase, owner: firebase, version: 7.0.0
+
+name: firebase-ios-sdk, nameSpecified: Firebase, owner: firebase, version: 7.0.0
+
 name: FSCalendar, nameSpecified: , owner: WenchaoD, version: 2.8.1
 
 name: Nuke, nameSpecified: , owner: kean, version: 9.1.2
@@ -36,6 +40,8 @@ name: SCLAlertView-Swift, nameSpecified: , owner: vikmeup, version: f08ec93
 
 name: TOCropViewController, nameSpecified: , owner: TimOliver, version: 2.5.5
 
+name: firebase-ios-sdk, nameSpecified: Firebase, owner: firebase, version: 7.0.0
+
 add-version-numbers: false
 
-LicensePlist Version: 2.15.0
+LicensePlist Version: 3.0.5

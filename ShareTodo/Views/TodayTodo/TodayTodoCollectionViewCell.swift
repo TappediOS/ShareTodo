@@ -58,6 +58,7 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
     func configure(with group: Group, isFinished: Bool) {
         let radioButtonImage = isFinished ? UIImage(systemName: "checkmark.circle.fill") : UIImage(systemName: "checkmark.circle")
         
+        //TODO:- messageロジックを別途追加すること
         let writeMessageButtonImage = isFinished ? UIImage(systemName: "pencil.circle") : UIImage(systemName: "pencil.circle.fill")
         
         

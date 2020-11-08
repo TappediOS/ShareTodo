@@ -100,7 +100,7 @@
                                                             </constraints>
                                                             <color key="tintColor" systemColor="systemGreenColor"/>
                                                             <state key="normal" image="pencil.circle" catalog="system">
-                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="27" weight="light"/>
                                                             </state>
                                                         </button>
                                                     </subviews>
@@ -122,10 +122,12 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="398" height="95"/>
                                         <connections>
+                                            <outlet property="buttonStackView" destination="AUp-qM-4qY" id="Mma-hK-VPP"/>
                                             <outlet property="groupImageView" destination="p4k-YR-jRL" id="kAv-OA-ZfZ"/>
                                             <outlet property="groupNameLabel" destination="mqI-3S-kBg" id="xMN-mB-u1C"/>
                                             <outlet property="radioButton" destination="uBo-mg-J4c" id="rab-l4-q5f"/>
                                             <outlet property="taskLabel" destination="7By-Nk-JDs" id="P6h-jb-cN7"/>
+                                            <outlet property="writeMessageButton" destination="fYy-Ey-5Bb" id="liP-fV-iLP"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

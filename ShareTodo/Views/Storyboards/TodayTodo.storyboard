@@ -102,6 +102,9 @@
                                                             <state key="normal" image="pencil.circle" catalog="system">
                                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="27" weight="light"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="tapWriteMessageButton:" destination="Y4d-9a-7Jk" eventType="touchUpInside" id="J5m-IN-6hh"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <constraints>

@@ -14,6 +14,7 @@ protocol TodayTodoViewPresenterProtocol {
     
     func didViewDidLoad()
     func didTapRadioButton(index: Int)
+    func didTapWriteMessageButtonAction(index: Int)
     func didAllowNotification()
     
     func isFinishedTodo(index: Int) -> Bool
@@ -75,6 +76,10 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
         }
         
         self.model.finishedTodo(index: index)
+    }
+    
+    func didTapWriteMessageButtonAction(index: Int) {
+        
     }
     
     func didAllowNotification() {

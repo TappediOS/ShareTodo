@@ -18,6 +18,7 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var buttonStackView: UIStackView!
     
     var radioButtonAction: (() -> Void)?
+    var writeMessageButtonAction: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -80,4 +81,7 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
         self.radioButtonAction?()
     }
     
+    @IBAction func tapWriteMessageButton(_ sender: Any) {
+        self.writeMessageButtonAction?()
+    }
 }

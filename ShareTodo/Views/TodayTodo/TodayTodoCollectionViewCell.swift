@@ -56,12 +56,9 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
         self.writeMessageButton.isHidden = true
     }
     
-    func configure(with group: Group, isFinished: Bool) {
+    func configure(with group: Group, isFinished: Bool, isWrittenMessage: Bool) {
         let radioButtonImage = isFinished ? UIImage(systemName: "checkmark.circle.fill") : UIImage(systemName: "checkmark.circle")
-        
-        //TODO:- messageロジックを別途追加すること
-        let writeMessageButtonImage = isFinished ? UIImage(systemName: "pencil.circle") : UIImage(systemName: "pencil.circle.fill")
-        
+        let writeMessageButtonImage = isWrittenMessage ? UIImage(systemName: "pencil.circle.fill") : UIImage(systemName: "pencil.circle")
         
         self.taskLabel.text = group.task
         self.groupNameLabel.text = R.string.localizable.group_Colon() + group.name

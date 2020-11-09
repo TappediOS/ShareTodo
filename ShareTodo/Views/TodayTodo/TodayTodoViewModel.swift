@@ -19,6 +19,7 @@ protocol TodayTodoModelProtocol {
     
     func isFirstOpen() -> Bool
     func isFinishedTodo(index: Int) -> Bool
+    func isWrittenMessage(index: Int) -> Bool
     
     func unfinishedTodo(index: Int)
     func finishedTodo(index: Int)
@@ -144,6 +145,14 @@ final class TodayTodoModel: TodayTodoModelProtocol {
         }
     }
     
+    func isWrittenMessage(index: Int) -> Bool {
+        guard isContainsTodoInGroups(index: index) else { return false }
+        let todo = todos.filter({ $0.groupID == groups[index].groupID ?? ""}).first
+        
+        if let todo = todo, let message = todo.message, !message.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { return true }
+        return false
+    }
+    
     func getFinishedTodoIndex(groupIndex: Int) -> Int? {
         for tmp in 0 ..< todos.count {
             if self.todos[tmp].groupID == self.groups[groupIndex].groupID ?? "" { return tmp }
@@ -157,6 +166,7 @@ final class TodayTodoModel: TodayTodoModelProtocol {
         guard let finishedTodoIndex = getFinishedTodoIndex(groupIndex: index) else { return }
         
         finishedTodo.isFinished = false
+        finishedTodo.message = String()
         let todayFormat = getTodayFormat()
         
         let documentRef = "todo/v1/groups/" + finishedTodo.groupID + "/todo/" + finishedTodo.userID + "_" + todayFormat
@@ -169,6 +179,7 @@ final class TodayTodoModel: TodayTodoModelProtocol {
                 }
                 
                 self?.todos[finishedTodoIndex].isFinished = false
+                self?.todos[finishedTodoIndex].message = nil
                 self?.presenter.successUnfinishedTodo()
             }
         } catch let error {

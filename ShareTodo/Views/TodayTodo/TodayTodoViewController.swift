@@ -105,7 +105,10 @@ extension TodayTodoViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: todayTodoCollectionViewCellId, for: indexPath) as! TodayTodoCollectionViewCell
-        cell.configure(with: self.presenter.groups[indexPath.item], isFinished: self.presenter.isFinishedTodo(index: indexPath.item))
+        
+        let isFinished = self.presenter.isFinishedTodo(index: indexPath.item)
+        let isWrittenMessage = self.presenter.isWrittenMessage(index: indexPath.item)
+        cell.configure(with: self.presenter.groups[indexPath.item], isFinished: isFinished, isWrittenMessage: isWrittenMessage)
         
         cell.radioButtonAction = { [weak self] in
             guard let self = self else { return }

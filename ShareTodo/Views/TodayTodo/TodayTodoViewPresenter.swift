@@ -18,6 +18,7 @@ protocol TodayTodoViewPresenterProtocol {
     func didAllowNotification()
     
     func isFinishedTodo(index: Int) -> Bool
+    func isWrittenMessage(index: Int) -> Bool
 }
 
 protocol TodayTodoViewPresenterOutput: class {
@@ -90,5 +91,9 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
     
     func isFinishedTodo(index: Int) -> Bool {
         return self.model.isFinishedTodo(index: index)
+    }
+    
+    func isWrittenMessage(index: Int) -> Bool {
+        return self.model.isWrittenMessage(index: index)
     }
 }

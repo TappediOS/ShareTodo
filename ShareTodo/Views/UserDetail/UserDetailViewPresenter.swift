@@ -20,6 +20,8 @@ protocol UserDetailViewPresenterProtocol {
     
     func getTheDayIsAWeekAgo(date: Date) -> Bool
     func getContaintFinishedDate(date: Date) -> Bool
+    
+    func getMinimumDate() -> Date
 }
 
 protocol UserDetailViewPresenterOutput: class {
@@ -71,6 +73,10 @@ final class UserDetailViewPresenter: UserDetailViewPresenterProtocol, UserDetail
     
     func getContaintFinishedDate(date: Date) -> Bool {
         return self.model.getContaintFinishedDate(date: date)
+    }
+    
+    func getMinimumDate() -> Date {
+        return self.model.getMinimumDate()
     }
     
     func successFetchTodoList() {

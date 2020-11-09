@@ -19,6 +19,8 @@ protocol UserDetailModelProtocol {
     func isTheDayAWeekAgo(date: Date) -> Bool
     func getContaintFinishedDate(date: Date) -> Bool
     func calculateForNavigationImage(height: Double) -> (scale: Double, xTranslation: Double, yTranslation: Double)
+
+    func getMinimumDate() -> Date
 }
 
 protocol UserDetailModelOutput: class {
@@ -127,5 +129,23 @@ final class UserDetailModel: UserDetailModelProtocol {
         let xTranslation = max(0, sizeDiff - coeff * sizeDiff)
         
         return (scale, xTranslation, yTranslation)
+    }
+    
+    func getMinimumDate() -> Date {
+        guard let groupCreatedDate = self.group.createdAt?.dateValue() else {
+            // `groupCreatedDate`が`nil`ならば，Todosの中から一番古い日を取得する
+            let list: [Date] = self.todos.filter { $0.isFinished }.reduce([Date]()) { list, todo in
+                var list = list
+                guard todo.isFinished else { return list }
+                guard let createdAt = todo.createdAt?.dateValue() else { return list }
+                list.append(createdAt)
+                return list
+            }.sorted()
+            
+            guard let first = list.first else { return Date(timeIntervalSinceNow: -60 * 60 * 24 * 30) }
+            return first
+        }
+        
+        return groupCreatedDate
     }
 }

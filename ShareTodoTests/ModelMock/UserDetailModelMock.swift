@@ -13,7 +13,7 @@ import FirebaseFirestore
 class UserDetailModelMock: UserDetailModelProtocol {
     var presenter: UserDetailModelOutput!
     var group: Group = Group(groupID: "group1", name: "Apple", task: "Pie", members: ["user1", "user2"], profileImageURL: nil)
-    var user: User = User(id: "user1", name: "Joe", profileImageURL: nil)
+    var user: User = User(id: "user1", name: "Joe", profileImageURL: nil, fcmToken: nil, thumbnailImageURL: nil, biography: nil)
     var todos: [Todo] = Array()
     let dateFormatter = DateFormatter()
     
@@ -69,5 +69,22 @@ class UserDetailModelMock: UserDetailModelProtocol {
         return (0.0, 0.0, 0.0)
     }
     
+    func getMinimumDate() -> Date {
+        guard let groupCreatedDate = self.group.createdAt?.dateValue() else {
+            // `groupCreatedDate`が`nil`ならば，Todosの中から一番古い日を取得する
+            let list: [Date] = self.todos.filter { $0.isFinished }.reduce([Date]()) { list, todo in
+                var list = list
+                guard todo.isFinished else { return list }
+                guard let createdAt = todo.createdAt?.dateValue() else { return list }
+                list.append(createdAt)
+                return list
+            }.sorted()
+            
+            guard let first = list.first else { return Date(timeIntervalSinceNow: -60 * 60 * 24 * 30) }
+            return first
+        }
+        
+        return groupCreatedDate
+    }
     
 }

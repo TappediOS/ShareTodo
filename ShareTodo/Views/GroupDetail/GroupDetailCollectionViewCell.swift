@@ -13,6 +13,7 @@ class GroupDetailCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var radioImageView: UIImageView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var messageLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,7 +22,7 @@ class GroupDetailCollectionViewCell: UICollectionViewCell {
         self.setupRadioButton()
         self.setupProfileImageView()
         self.setupNameLabel()
-        
+        self.setupMessageLabel()
     }
     
     private func setupCell() {
@@ -46,6 +47,12 @@ class GroupDetailCollectionViewCell: UICollectionViewCell {
     private func setupNameLabel() {
         self.nameLabel.adjustsFontSizeToFitWidth = true
         self.nameLabel.minimumScaleFactor = 0.4
+    }
+    
+    private func setupMessageLabel() {
+        self.messageLabel.adjustsFontSizeToFitWidth = true
+        self.messageLabel.minimumScaleFactor = 0.4
+        self.messageLabel.isHidden = true
     }
     
     func isFinishedUser(user: User, isFinishedUsersIDs: [String]) -> Bool {

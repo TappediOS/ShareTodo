@@ -22,6 +22,8 @@ protocol TodayTodoViewPresenterProtocol {
 }
 
 protocol TodayTodoViewPresenterOutput: class {
+    func showAddMessageEditView(index: Int)
+    
     func reloadTodayTodoCollectionView()
     func showRequestAllowNotificationView()
     
@@ -82,7 +84,7 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
     //TODO:- メッセージボタンを押した時のmodelの処理をかく
     //NOTE:- すでにmessageが追加されてるかどうかで分けること
     func didTapWriteMessageButtonAction(index: Int) {
-        
+        self.view.showAddMessageEditView(index: index)
     }
     
     func didAllowNotification() {

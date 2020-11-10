@@ -8,6 +8,7 @@
 
 import UIKit
 import DZNEmptyDataSet
+import SCLAlertView
 
 final class TodayTodoViewController: UIViewController {
     private var presenter: TodayTodoViewPresenterProtocol!
@@ -15,6 +16,8 @@ final class TodayTodoViewController: UIViewController {
     var activityIndicator = UIActivityIndicatorView()
     
     private let todayTodoCollectionViewCellId = "TodayTodoCollectionViewCell"
+    
+    let maxTextfieldLength = 40
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +75,25 @@ extension TodayTodoViewController: TodayTodoViewPresenterOutput {
         DispatchQueue.main.async { self.todayTodoCollectionView.reloadData() }
     }
     
+    func showAddMessageEditView(index: Int) {
+        let alert = SCLAlertView()
+        let textField: UITextField = alert.addTextField(R.string.localizable.exampleMessage())
+        textField.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(notification:)),
+                                               name: UITextField.textDidChangeNotification, object: textField)
+        alert.addButton(R.string.localizable.send()) {
+            //TODO:- presenterに処理を伝える
+            print("Text value: \(String(describing: textField.text))")
+            print("index     : \(index)")
+            
+        }
+        
+        let title = R.string.localizable.addMessage()
+        let subTitle = R.string.localizable.addMessageSub()
+        let cancelStr = R.string.localizable.cancel()
+        alert.showEdit(title, subTitle: subTitle, closeButtonTitle: cancelStr, colorStyle: 0x34C759)
+    }
+    
     func startActivityIndicator() {
         DispatchQueue.main.async { self.activityIndicator.startAnimating() }
     }
@@ -127,6 +149,20 @@ extension TodayTodoViewController: UICollectionViewDelegate, UICollectionViewDat
         return 1
     }
 
+}
+
+extension TodayTodoViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @objc func textFieldDidChange(notification: NSNotification) {
+        guard let textField = notification.object as? UITextField, let text = textField.text else { return }
+        if textField.markedTextRange == nil && text.count > maxTextfieldLength {
+            textField.text = text.prefix(self.maxTextfieldLength).description
+        }
+    }
 }
 
 extension TodayTodoViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {

@@ -17,6 +17,8 @@ protocol TodayTodoViewPresenterProtocol {
     func didTapWriteMessageButtonAction(index: Int)
     func didAllowNotification()
     
+    func didEndAddMessage(message: String?, index: Int)
+    
     func isFinishedTodo(index: Int) -> Bool
     func isWrittenMessage(index: Int) -> Bool
 }
@@ -84,11 +86,31 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
     //TODO:- メッセージボタンを押した時のmodelの処理をかく
     //NOTE:- すでにmessageが追加されてるかどうかで分けること
     func didTapWriteMessageButtonAction(index: Int) {
-        self.view.showAddMessageEditView(index: index)
+        guard self.model.isWrittenMessage(index: index) else {
+            self.view.showAddMessageEditView(index: index)
+            return
+        }
+        
+        self.model.cancelMessage(index: index)
     }
     
     func didAllowNotification() {
         self.model.setFcmToken()
+    }
+    
+    func didEndAddMessage(message: String?, index: Int) {
+        guard let message = message else { return }
+        guard !message.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
+        
+        self.model.writeMessage(message: message, index: index)
+    }
+    
+    func successWriteMessage() {
+        self.view.reloadTodayTodoCollectionView()
+    }
+    
+    func successCancelMessage() {
+        self.view.reloadTodayTodoCollectionView()
     }
     
     func isFinishedTodo(index: Int) -> Bool {

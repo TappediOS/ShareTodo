@@ -82,10 +82,7 @@ extension TodayTodoViewController: TodayTodoViewPresenterOutput {
         NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(notification:)),
                                                name: UITextField.textDidChangeNotification, object: textField)
         alert.addButton(R.string.localizable.send()) {
-            //TODO:- presenterに処理を伝える
-            print("Text value: \(String(describing: textField.text))")
-            print("index     : \(index)")
-            
+            self.presenter.didEndAddMessage(message: textField.text, index: index)
         }
         
         let title = R.string.localizable.addMessage()

@@ -60,12 +60,20 @@ class GroupDetailCollectionViewCell: UICollectionViewCell {
         return isFinishedUsersIDs.contains(userId)
     }
     
-    func configure(with user: User, isFinishedUsersIDs: [String]) {
+    func configure(with user: User, isFinishedUsersIDs: [String], messageDictionary: [String: String]) {
         let isFinished = isFinishedUser(user: user, isFinishedUsersIDs: isFinishedUsersIDs)
         let radioButtonImage = isFinished ? UIImage(systemName: "checkmark.circle.fill") : UIImage(systemName: "checkmark.circle")
         
         self.nameLabel.text = user.name
         self.radioImageView.image = radioButtonImage
+        
+        if let userId = user.id, let message = messageDictionary[userId] {
+            self.messageLabel.text = R.string.localizable.message_colon() + message
+            self.messageLabel.isHidden = false
+            self.messageLabel.sizeToFit()
+        } else {
+            self.messageLabel.isHidden = true
+        }
         
         guard let url = URL(string: user.profileImageURL ?? "") else { return }
         DispatchQueue.main.async {

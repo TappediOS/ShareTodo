@@ -131,7 +131,10 @@ extension GroupDetailViewController: UICollectionViewDelegate, UICollectionViewD
                 return UICollectionViewCell()
             }
             
-            cell.configure(with: self.presenter.groupUsers[indexPath.item], isFinishedUsersIDs: self.presenter.isFinishedUsersIDs)
+            let user = self.presenter.groupUsers[indexPath.item]
+            let isFinishedUserIDs = self.presenter.isFinishedUsersIDs
+            let messageDictionary = self.presenter.messageDictionary
+            cell.configure(with: user, isFinishedUsersIDs: isFinishedUserIDs, messageDictionary: messageDictionary)
             return cell
         }
         

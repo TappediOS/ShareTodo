@@ -62,6 +62,7 @@
 "Remove User Message" = "Would you like to remove this user from the group?";
 "Remove" = "Remove";
 "Remove_colon" = "Remove: ";
+"Message_colon" = "Message: ";
 
 // UserDetailVC
 "Introduction"            = "Introduction";

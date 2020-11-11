@@ -13,7 +13,7 @@ protocol GroupDetailModelProtocol {
     var group: Group { get set }
     var groupUsers: [User] { get set }
     var isFinishedUsersIDs: [String] { get set }
-    
+    var messageDictionary: [String: String] { get set }
     func fetchTodayTodo()
 }
 
@@ -26,6 +26,7 @@ final class GroupDetailModel: GroupDetailModelProtocol {
     var group: Group
     var groupUsers: [User]
     var isFinishedUsersIDs: [String] = Array()
+    var messageDictionary = [String: String]()
     private var firestore: Firestore!
     private var listener: ListenerRegistration?
     
@@ -69,11 +70,18 @@ final class GroupDetailModel: GroupDetailModelProtocol {
                 return
             }
             
-            let result = documents.compactMap { queryDocumentSnapshot -> Todo? in
+            let results = documents.compactMap { queryDocumentSnapshot -> Todo? in
                 return try? queryDocumentSnapshot.data(as: Todo.self)
             }
+            
+            self.messageDictionary.removeAll()
+            for result in results {
+                // nil もしくは空文字であればcontinue
+                if let message = result.message, message.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { continue }
+                self.messageDictionary[result.userID] = result.message ?? ""
+            }
                         
-            self.isFinishedUsersIDs = result.map { $0.userID }
+            self.isFinishedUsersIDs = results.map { $0.userID }
             self.presenter.successFetchTodayTodo()
         }
     }

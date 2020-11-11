@@ -11,6 +11,7 @@ protocol GroupDetailViewPresenterProtocol {
     var group: Group { get }
     var groupUsers: [User] { get }
     var isFinishedUsersIDs: [String] { get }
+    var messageDictionary: [String: String] { get }
     
     func didFinishedEditGroup(group: Group, groupUsers: [User])
     
@@ -35,6 +36,7 @@ final class GroupDetailViewPresenter: GroupDetailViewPresenterProtocol, GroupDet
     var group: Group { return self.model.group }
     var groupUsers: [User] { return self.model.groupUsers }
     var isFinishedUsersIDs: [String] { return self.model.isFinishedUsersIDs }
+    var messageDictionary: [String: String] { return self.model.messageDictionary }
     var numberOfGroupUsers: Int { return self.model.groupUsers.count }
     
     init(model: GroupDetailModelProtocol) {

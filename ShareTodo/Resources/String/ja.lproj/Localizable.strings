@@ -31,7 +31,7 @@
 "Add Message"     = "メッセージ追加";
 "Add Message Sub" = "ちょっとしたメッセージを送信できます";
 "Example Message" = "例：今日は早く終わった⭐️";
-"Send"            = "Send";
+"Send"            = "送信";
 
 // EditGroupVC
 "Edit Group" = "グループ編集";

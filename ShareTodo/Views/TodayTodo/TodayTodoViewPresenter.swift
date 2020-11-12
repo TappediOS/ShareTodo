@@ -83,8 +83,6 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
         self.model.finishedTodo(index: index)
     }
     
-    //TODO:- メッセージボタンを押した時のmodelの処理をかく
-    //NOTE:- すでにmessageが追加されてるかどうかで分けること
     func didTapWriteMessageButtonAction(index: Int) {
         guard self.model.isWrittenMessage(index: index) else {
             self.view.showAddMessageEditView(index: index)

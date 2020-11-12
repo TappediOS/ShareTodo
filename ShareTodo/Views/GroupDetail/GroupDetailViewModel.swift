@@ -76,9 +76,10 @@ final class GroupDetailModel: GroupDetailModelProtocol {
             
             self.messageDictionary.removeAll()
             for result in results {
-                // nil もしくは空文字であればcontinue
-                if let message = result.message, message.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { continue }
-                self.messageDictionary[result.userID] = result.message ?? ""
+                // nil もしくは空文字でなければ代入する
+                if let message = result.message, !message.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                    self.messageDictionary[result.userID] = message
+                }
             }
                         
             self.isFinishedUsersIDs = results.map { $0.userID }

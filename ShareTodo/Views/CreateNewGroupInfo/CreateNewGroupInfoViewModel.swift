@@ -60,7 +60,7 @@ final class CreateNewGroupInfoModel: CreateNewGroupInfoModelProtocol {
         let memberIDs = selectedUsers.compactMap { $0.id }
         let groupUid: String = UUID().uuidString
         
-        let group = Group(name: groupName, task: groupTask, members: memberIDs, profileImageURL: nil)
+        let group = Group(name: groupName, task: groupTask, members: memberIDs, profileImageURL: nil, createdAt: Timestamp())
         let groupData: [String: Any]
         
         let groupReference = self.firestore.collection("todo").document("v1").collection("groups").document(groupUid)

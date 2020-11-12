@@ -14,5 +14,6 @@ struct Group: Codable {
     let task: String
     let members: [String]
     let profileImageURL: String?
-    @ServerTimestamp var createdAt: Timestamp?
+    let createdAt: Timestamp?
+    @ServerTimestamp var updatedAt: Timestamp?
 }

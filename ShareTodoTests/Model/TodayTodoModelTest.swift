@@ -189,4 +189,26 @@ class TodayTodoModelTests: XCTestCase {
             XCTAssertNil(model.getFinishedTodoIndex(groupIndex: 2))
         }
     }
+    
+    func test_isWrittenMessage() {
+        let model = TodayTodoModelMock()
+        let group1 = Group(groupID: "group1", name: "Apple", task: "Pie", members: ["user1", "user2"], profileImageURL: nil)
+        let group2 = Group(groupID: "group2", name: "Banana", task: "Juice", members: ["user1", "user3"], profileImageURL: nil)
+        let group3 = Group(groupID: "group3", name: "Grape", task: "Jelly", members: ["user2", "user3", "user4"], profileImageURL: nil)
+        let group4 = Group(groupID: "group4", name: "Candle", task: "Patty", members: ["user2", "user1", "user4"], profileImageURL: nil)
+        let todo1 = Todo(isFinished: false, message: nil, userID: "user1", groupID: "group1", createdAt: Timestamp(date: Date()))
+        let todo2 = Todo(isFinished: true, message: "Hello", userID: "user1", groupID: "group2", createdAt: Timestamp(date: Date()))
+        let todo3 = Todo(isFinished: true, message: nil, userID: "user1", groupID: "group3", createdAt: Timestamp(date: Date()))
+        let todo4 = Todo(isFinished: false, message: "", userID: "user1", groupID: "group4", createdAt: Timestamp(date: Date()))
+        model.groups = [group1, group2, group3, group4]
+        
+        model.todos = [todo1, todo2, todo3, todo4]
+        
+        XCTContext.runActivity(named: "関数の返り値が正しいこと") { _ in
+            XCTAssertFalse(model.isWrittenMessage(index: 0))
+            XCTAssertTrue(model.isWrittenMessage(index: 1))
+            XCTAssertFalse(model.isWrittenMessage(index: 2))
+            XCTAssertFalse(model.isWrittenMessage(index: 3))
+        }
+    }
 }

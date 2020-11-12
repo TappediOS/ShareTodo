@@ -24,8 +24,8 @@ class TodayTodoModelMock: TodayTodoModelProtocol {
     }
     
     func fetchTodayTodo(groupDocuments: [QueryDocumentSnapshot], userID: String) {
-        let todo1 = Todo(isFinished: false, userID: "user1", groupID: "group1", createdAt: Timestamp(date: Date()))
-        let todo2 = Todo(isFinished: true, userID: "user1", groupID: "group2", createdAt: Timestamp(date: Date()))
+        let todo1 = Todo(isFinished: false, message: nil, userID: "user1", groupID: "group1", createdAt: Timestamp(date: Date()))
+        let todo2 = Todo(isFinished: true, message: "Hello World", userID: "user1", groupID: "group2", createdAt: Timestamp(date: Date()))
         
         self.todos = [todo1, todo2]
         self.presenter.successFetchTodayTodo()
@@ -63,14 +63,34 @@ class TodayTodoModelMock: TodayTodoModelProtocol {
     func unfinishedTodo(index: Int) {
         guard let finishedTodoIndex = getFinishedTodoIndex(groupIndex: index) else { return }
         self.todos[finishedTodoIndex].isFinished = false
+        self.todos[finishedTodoIndex].message = nil
         self.presenter.successUnfinishedTodo()
     }
     
     func finishedTodo(index: Int) {
         if index == 2 {
-            self.todos.append(Todo(isFinished: true, userID: "user1", groupID: "group3", createdAt: Timestamp(date: Date())))
+            self.todos.append(Todo(isFinished: true, message: nil, userID: "user1", groupID: "group3", createdAt: Timestamp(date: Date())))
             return
         }
         self.todos[index].isFinished = true
+    }
+    
+    func isWrittenMessage(index: Int) -> Bool {
+        guard isContainsTodoInGroups(index: index) else { return false }
+        let todo = todos.filter({ $0.groupID == groups[index].groupID ?? ""}).first
+        
+        if let todo = todo, let message = todo.message, !message.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { return true }
+        return false
+    }
+    
+    func writeMessage(message: String, index: Int) {
+        self.todos[index].message = message
+        self.presenter.successWriteMessage()
+    }
+    
+    func cancelMessage(index: Int) {
+        guard let cancelMessageIndex = getFinishedTodoIndex(groupIndex: index) else { return }
+        self.todos[cancelMessageIndex].message = nil
+        self.presenter.successCancelMessage()
     }
 }

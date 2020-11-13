@@ -12,7 +12,7 @@ import FirebaseFirestore
 
 class UserDetailModelMock: UserDetailModelProtocol {
     var presenter: UserDetailModelOutput!
-    var group: Group = Group(groupID: "group1", name: "Apple", task: "Pie", members: ["user1", "user2"], profileImageURL: nil)
+    var group: Group = Group(groupID: "group1", name: "Apple", task: "Pie", members: ["user1", "user2"], profileImageURL: nil, createdAt: nil)
     var user: User = User(id: "user1", name: "Joe", profileImageURL: nil, fcmToken: nil, thumbnailImageURL: nil, biography: nil)
     var todos: [Todo] = Array()
     let dateFormatter = DateFormatter()

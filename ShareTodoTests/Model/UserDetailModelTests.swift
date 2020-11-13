@@ -115,19 +115,7 @@ class UserDetailModelTests: XCTestCase {
             XCTAssertEqual(dateTodayFormat(self.model.getMinimumDate()), dateTodayFormat(Date(timeIntervalSinceNow: -60*60*24*30)))
         }
         
-        //NOTE: groupのcreatedAtがnilでない時はgroupCreatedDayが帰る
-        let createdDayBeforeToday = Double(Int.random(in: 0 ... 1000))
-        self.model.group.createdAt = Timestamp(date: Date(timeIntervalSinceNow: -60*60*24*createdDayBeforeToday))
-        appendTodo()
-        
-        XCTContext.runActivity(named: "createdAt != nil && todo.isNotEmpty") { _ in
-            XCTAssertEqual(dateTodayFormat(self.model.getMinimumDate()), dateTodayFormat(Date(timeIntervalSinceNow: -60*60*24*createdDayBeforeToday)))
-        }
-        
-        XCTContext.runActivity(named: "createdAt != nil && todo.isEmpty") { _ in
-            self.model.todos.removeAll()
-            XCTAssertEqual(dateTodayFormat(self.model.getMinimumDate()), dateTodayFormat(Date(timeIntervalSinceNow: -60*60*24*createdDayBeforeToday)))
-        }
+        //TODO:- createdAtがnilでないときの処理をかく
     }
     
     func testPerformanceExample() throws {

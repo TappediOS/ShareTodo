@@ -15,9 +15,9 @@ class TodayTodoModelMock: TodayTodoModelProtocol {
     var todos: [Todo] = Array()
     
     func fetchGroups() {
-        let group1 = Group(groupID: "group1", name: "Apple", task: "Pie", members: ["user1", "user2"], profileImageURL: nil)
-        let group2 = Group(groupID: "group2", name: "Banana", task: "Juice", members: ["user1", "user3"], profileImageURL: nil)
-        let group3 = Group(groupID: "group3", name: "Grape", task: "Jelly", members: ["user2", "user3", "user4"], profileImageURL: nil)
+        let group1 = Group(groupID: "group1", name: "Apple", task: "Pie", members: ["user1", "user2"], profileImageURL: nil, createdAt: nil)
+        let group2 = Group(groupID: "group2", name: "Banana", task: "Juice", members: ["user1", "user3"], profileImageURL: nil, createdAt: nil)
+        let group3 = Group(groupID: "group3", name: "Grape", task: "Jelly", members: ["user2", "user3", "user4"], profileImageURL: nil, createdAt: nil)
         
         self.groups = [group1, group2, group3]
         self.fetchTodayTodo(groupDocuments: [], userID: "user1")

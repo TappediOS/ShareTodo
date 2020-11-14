@@ -59,8 +59,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
 
 extension AppDelegate: MessagingDelegate {
-    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-        if let uid = Auth.auth().currentUser?.uid {
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        if let uid = Auth.auth().currentUser?.uid, let fcmToken = fcmToken {
             print("fcmToken: \(fcmToken)")
             self.setFcmToken(userID: uid, fcmToken: fcmToken)
         }

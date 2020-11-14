@@ -36,34 +36,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="398" height="95"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBo-mg-J4c">
-                                                    <rect key="frame" x="8" y="22.5" width="50" height="50"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="50" id="dyf-hY-6I1"/>
-                                                        <constraint firstAttribute="height" constant="50" id="f4w-fn-cIf"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                    <color key="tintColor" systemColor="systemGreenColor"/>
-                                                    <state key="normal">
-                                                        <imageReference key="image" image="checkmark.circle" catalog="system" symbolScale="medium"/>
-                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="36" scale="default" weight="regular"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="tapRadioButton:" destination="Y4d-9a-7Jk" eventType="touchUpInside" id="7EU-Gg-57T"/>
-                                                    </connections>
-                                                </button>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p4k-YR-jRL">
-                                                    <rect key="frame" x="66" y="22.5" width="50" height="50"/>
+                                                    <rect key="frame" x="58" y="22.5" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="SEa-Ip-010"/>
                                                         <constraint firstAttribute="width" constant="50" id="V1C-lo-wCD"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="TvR-ab-4Xk">
-                                                    <rect key="frame" x="124" y="24.5" width="266" height="46.5"/>
+                                                    <rect key="frame" x="116" y="24.5" width="274" height="46.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7By-Nk-JDs">
-                                                            <rect key="frame" x="0.0" y="0.0" width="266" height="24"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="274" height="24"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="24" id="zQS-dw-Aeg"/>
                                                             </constraints>
@@ -72,7 +56,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mqI-3S-kBg">
-                                                            <rect key="frame" x="0.0" y="32" width="266" height="14.5"/>
+                                                            <rect key="frame" x="0.0" y="32" width="274" height="14.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                             <color key="textColor" systemColor="systemGray2Color"/>
                                                             <nil key="highlightedColor"/>
@@ -89,23 +73,64 @@
                                                         <constraint firstAttribute="height" constant="46.5" id="xh8-ok-3mH"/>
                                                     </constraints>
                                                 </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="AUp-qM-4qY">
+                                                    <rect key="frame" x="8" y="8" width="42" height="79"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBo-mg-J4c">
+                                                            <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="42" id="CCe-Tp-6X7"/>
+                                                                <constraint firstAttribute="width" secondItem="uBo-mg-J4c" secondAttribute="height" multiplier="1:1" id="HKN-eE-qrN"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                            <color key="tintColor" systemColor="systemGreenColor"/>
+                                                            <state key="normal">
+                                                                <imageReference key="image" image="checkmark.circle" catalog="system" symbolScale="medium"/>
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="36" scale="default" weight="regular"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="tapRadioButton:" destination="Y4d-9a-7Jk" eventType="touchUpInside" id="7EU-Gg-57T"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYy-Ey-5Bb">
+                                                            <rect key="frame" x="5" y="46" width="32" height="33"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="32" id="AAJ-FY-PpF"/>
+                                                                <constraint firstAttribute="width" secondItem="fYy-Ey-5Bb" secondAttribute="height" multiplier="1:1" id="LTk-lN-9wT"/>
+                                                            </constraints>
+                                                            <color key="tintColor" systemColor="systemGreenColor"/>
+                                                            <state key="normal" image="pencil.circle" catalog="system">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="27" weight="light"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="tapWriteMessageButton:" destination="Y4d-9a-7Jk" eventType="touchUpInside" id="J5m-IN-6hh"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="42" id="cge-fF-m0N"/>
+                                                    </constraints>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="p4k-YR-jRL" firstAttribute="leading" secondItem="uBo-mg-J4c" secondAttribute="trailing" constant="8" id="1XQ-L9-XcH"/>
                                                 <constraint firstItem="TvR-ab-4Xk" firstAttribute="leading" secondItem="p4k-YR-jRL" secondAttribute="trailing" constant="8" symbolic="YES" id="6zi-Rg-QgO"/>
                                                 <constraint firstItem="TvR-ab-4Xk" firstAttribute="centerY" secondItem="mgw-D7-RYP" secondAttribute="centerY" id="ATO-sF-ArC"/>
+                                                <constraint firstItem="AUp-qM-4qY" firstAttribute="centerY" secondItem="mgw-D7-RYP" secondAttribute="centerY" id="Be6-v2-kS3"/>
+                                                <constraint firstItem="AUp-qM-4qY" firstAttribute="leading" secondItem="mgw-D7-RYP" secondAttribute="leading" constant="8" id="IF5-rI-eGE"/>
+                                                <constraint firstItem="AUp-qM-4qY" firstAttribute="top" secondItem="mgw-D7-RYP" secondAttribute="top" constant="8" id="JSJ-ic-JY0"/>
                                                 <constraint firstAttribute="trailing" secondItem="TvR-ab-4Xk" secondAttribute="trailing" constant="8" id="P7U-qG-esa"/>
                                                 <constraint firstItem="p4k-YR-jRL" firstAttribute="centerY" secondItem="mgw-D7-RYP" secondAttribute="centerY" id="jio-pg-dgP"/>
-                                                <constraint firstItem="uBo-mg-J4c" firstAttribute="leading" secondItem="mgw-D7-RYP" secondAttribute="leading" constant="8" id="p2T-aR-vrb"/>
-                                                <constraint firstItem="uBo-mg-J4c" firstAttribute="centerY" secondItem="mgw-D7-RYP" secondAttribute="centerY" id="rdE-iz-bWk"/>
+                                                <constraint firstItem="p4k-YR-jRL" firstAttribute="leading" secondItem="AUp-qM-4qY" secondAttribute="trailing" constant="8" id="v4q-4y-Dqk"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="398" height="95"/>
                                         <connections>
+                                            <outlet property="buttonStackView" destination="AUp-qM-4qY" id="Mma-hK-VPP"/>
                                             <outlet property="groupImageView" destination="p4k-YR-jRL" id="kAv-OA-ZfZ"/>
                                             <outlet property="groupNameLabel" destination="mqI-3S-kBg" id="xMN-mB-u1C"/>
                                             <outlet property="radioButton" destination="uBo-mg-J4c" id="rab-l4-q5f"/>
                                             <outlet property="taskLabel" destination="7By-Nk-JDs" id="P6h-jb-cN7"/>
+                                            <outlet property="writeMessageButton" destination="fYy-Ey-5Bb" id="liP-fV-iLP"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -131,6 +156,7 @@
     </scenes>
     <resources>
         <image name="checkmark.circle" catalog="system" width="128" height="121"/>
+        <image name="pencil.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

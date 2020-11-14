@@ -10,4 +10,7 @@ struct User: Codable, Equatable {
     @DocumentID var id: String?
     let name: String
     let profileImageURL: String?
+    var fcmToken: String?
+    var thumbnailImageURL: String?
+    var biography: String?
 }

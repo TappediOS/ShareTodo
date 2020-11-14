@@ -27,7 +27,11 @@
 "Me" = "Me";
 
 // TodayTodoVC
-"Group_Colon:" = "Group: ";
+"Group_Colon:"    = "Group: ";
+"Add Message"     = "Add message";
+"Add Message Sub" = "You can send a little message";
+"Example Message" = "E.g. It ended early ⭐️";
+"Send"            = "Send";
 
 // EditGroupVC
 "Edit Group" = "Edit Group";
@@ -58,6 +62,7 @@
 "Remove User Message" = "Would you like to remove this user from the group?";
 "Remove" = "Remove";
 "Remove_colon" = "Remove: ";
+"Message_colon" = "Message: ";
 
 // UserDetailVC
 "Introduction"            = "Introduction";

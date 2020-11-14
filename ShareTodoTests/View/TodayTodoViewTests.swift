@@ -9,7 +9,6 @@
 import XCTest
 @testable import ShareTodo
 
-
 class TodayTodoViewTests: XCTestCase {
     var view: TodayTodoViewController!
     
@@ -18,26 +17,45 @@ class TodayTodoViewTests: XCTestCase {
         guard view != nil else { return }
     }
 
-    override func tearDownWithError() throws {
-        
-    }
+    override func tearDownWithError() throws { }
     
-    func test_起動時の変数の値が正しいこと() {
+    func test_起動時のcollectionViewのsettionとrawが正しいこと() {
         let presenter = TodayTodoViewPresenter(model: TodayTodoModelMock())
         view.inject(with: presenter)
         view.loadViewIfNeeded()
         view.view.layoutIfNeeded()
         
-        XCTContext.runActivity(named: "todosの状態が正しいこと") { _ in
-            XCTAssertEqual(presenter.todos.count, 2)
-            XCTAssertFalse(presenter.todos[0].isFinished)
-            XCTAssertTrue(presenter.todos[1].isFinished)
-        }
         XCTContext.runActivity(named: "sectionとrowの数が正しいこと") { _ in
             let sectionNum = view.numberOfSections(in: view.todayTodoCollectionView)
             XCTAssertEqual(sectionNum, 1)
             let rowNum = view.collectionView(view.todayTodoCollectionView, numberOfItemsInSection: 0)
             XCTAssertEqual(rowNum, presenter.numberOfGroups)
+        }
+    }
+    
+    func test_起動時のisFinishedの値が正しいこと() {
+        let presenter = TodayTodoViewPresenter(model: TodayTodoModelMock())
+        view.inject(with: presenter)
+        view.loadViewIfNeeded()
+        view.view.layoutIfNeeded()
+        
+        XCTContext.runActivity(named: "isFinishedの状態が正しいこと") { _ in
+            XCTAssertEqual(presenter.todos.count, 2)
+            XCTAssertFalse(presenter.todos[0].isFinished)
+            XCTAssertTrue(presenter.todos[1].isFinished)
+        }
+    }
+    
+    func test_起動時のmessageの値が正しいこと() {
+        let presenter = TodayTodoViewPresenter(model: TodayTodoModelMock())
+        view.inject(with: presenter)
+        view.loadViewIfNeeded()
+        view.view.layoutIfNeeded()
+        
+        XCTContext.runActivity(named: "messageの状態が正しいこと") { _ in
+            XCTAssertEqual(presenter.todos.count, 2)
+            XCTAssertNil(presenter.todos[0].message)
+            XCTAssertEqual(presenter.todos[1].message, "Hello World")
         }
     }
     
@@ -59,20 +77,23 @@ class TodayTodoViewTests: XCTestCase {
             XCTAssertEqual(cell1.groupNameLabel.text, R.string.localizable.group_Colon() + "Apple")
             XCTAssertEqual(cell1.taskLabel.text, "Pie")
             XCTAssertNil(cell1.groupImageView.image)
+            XCTAssertTrue(cell1.writeMessageButton.isHidden)
         }
         XCTContext.runActivity(named: "2つ目のcellの情報が正しいこと") { _ in
             XCTAssertEqual(cell2.groupNameLabel.text, R.string.localizable.group_Colon() + "Banana")
             XCTAssertEqual(cell2.taskLabel.text, "Juice")
             XCTAssertNil(cell2.groupImageView.image)
+            XCTAssertFalse(cell2.writeMessageButton.isHidden)
         }
         XCTContext.runActivity(named: "3つ目のcellの情報が正しいこと") { _ in
             XCTAssertEqual(cell3.groupNameLabel.text, R.string.localizable.group_Colon() + "Grape")
             XCTAssertEqual(cell3.taskLabel.text, "Jelly")
             XCTAssertNil(cell3.groupImageView.image)
+            XCTAssertTrue(cell3.writeMessageButton.isHidden)
         }
     }
     
-    func test_起動後に1つ目のcellをタップしたときのテスト() {
+    func test_起動後に1つ目のcellのradioButtonをタップしたときのテスト() {
         let presenter = TodayTodoViewPresenter(model: TodayTodoModelMock())
         view.inject(with: presenter)
         view.loadViewIfNeeded()
@@ -85,9 +106,16 @@ class TodayTodoViewTests: XCTestCase {
             XCTAssertTrue(presenter.todos[0].isFinished)
             XCTAssertTrue(presenter.todos[1].isFinished)
         }
+        
+        let cell_1 = view.collectionView(view.todayTodoCollectionView, cellForItemAt: IndexPath(row: 0, section: 1))
+        guard let cell1 = cell_1 as? TodayTodoCollectionViewCell else { return }
+        
+        XCTContext.runActivity(named: "1つ目のwriteMessageButtonが推せるかどうか") { _ in
+            XCTAssertFalse(cell1.writeMessageButton.isHidden)
+        }
     }
     
-    func test_起動後に2つ目のcellをタップしたときのテスト() {
+    func test_起動後に2つ目のcellのradioButtonをタップしたときのテスト() {
         let presenter = TodayTodoViewPresenter(model: TodayTodoModelMock())
         view.inject(with: presenter)
         view.loadViewIfNeeded()
@@ -102,7 +130,7 @@ class TodayTodoViewTests: XCTestCase {
         }
     }
     
-    func test_起動後に3つ目のcellをタップしたときのテスト() {
+    func test_起動後に3つ目のcellのradioButtonをタップしたときのテスト() {
         let presenter = TodayTodoViewPresenter(model: TodayTodoModelMock())
         view.inject(with: presenter)
         view.loadViewIfNeeded()
@@ -118,7 +146,7 @@ class TodayTodoViewTests: XCTestCase {
         }
     }
     
-    func test_起動後に複数のcellをタップしたときのテスト() {
+    func test_起動後に複数のcellのradioButtonをタップしたときのテスト() {
         let presenter = TodayTodoViewPresenter(model: TodayTodoModelMock())
         view.inject(with: presenter)
         view.loadViewIfNeeded()
@@ -142,6 +170,84 @@ class TodayTodoViewTests: XCTestCase {
             XCTAssertFalse(presenter.todos[0].isFinished)
             XCTAssertFalse(presenter.todos[1].isFinished)
             XCTAssertFalse(presenter.todos[2].isFinished)
+        }
+    }
+    
+    // NOTE:- 1つ目のmessageはnilであるので先にRadioButtonをタップする
+    func test_起動後に1つ目のcellのwriteMessageButtonをタップしたときのテスト() {
+        let presenter = TodayTodoViewPresenter(model: TodayTodoModelMock())
+        view.inject(with: presenter)
+        view.loadViewIfNeeded()
+        view.view.layoutIfNeeded()
+        
+        presenter.didTapRadioButton(index: 0)
+        presenter.didEndAddMessage(message: "nil to i am apple!", index: 0)
+        
+        let cell_1 = view.collectionView(view.todayTodoCollectionView, cellForItemAt: IndexPath(row: 0, section: 1))
+        guard let cell1 = cell_1 as? TodayTodoCollectionViewCell else { return }
+        
+        XCTContext.runActivity(named: "writeMessageButtonが推せるかどうか") { _ in
+            XCTAssertTrue(presenter.isWrittenMessage(index: 0))
+            XCTAssertTrue(presenter.isWrittenMessage(index: 1))
+            XCTAssertFalse(cell1.writeMessageButton.isHidden)
+            XCTAssertEqual(presenter.todos[0].message, "nil to i am apple!")
+        }
+    }
+    
+    func test_起動後に2つ目のcellのwriteMessageButtonをタップしたときのテスト() {
+        let presenter = TodayTodoViewPresenter(model: TodayTodoModelMock())
+        view.inject(with: presenter)
+        view.loadViewIfNeeded()
+        view.view.layoutIfNeeded()
+        
+        presenter.didEndAddMessage(message: "Hello World to My World", index: 1)
+        
+        let cell_2 = view.collectionView(view.todayTodoCollectionView, cellForItemAt: IndexPath(row: 1, section: 1))
+        guard let cell2 = cell_2 as? TodayTodoCollectionViewCell else { return }
+        
+        XCTContext.runActivity(named: "writeMessageButtonが推せるかどうか") { _ in
+            XCTAssertFalse(presenter.isWrittenMessage(index: 0))
+            XCTAssertTrue(presenter.isWrittenMessage(index: 1))
+            XCTAssertFalse(cell2.writeMessageButton.isHidden)
+            XCTAssertEqual(presenter.todos[1].message, "Hello World to My World")
+        }
+    }
+    
+    func test_起動後に2つ目のcellのwriteMessageButtonをタップして，もう一回そのボタンを押したたときのテスト() {
+        let presenter = TodayTodoViewPresenter(model: TodayTodoModelMock())
+        view.inject(with: presenter)
+        view.loadViewIfNeeded()
+        view.view.layoutIfNeeded()
+        
+        presenter.didEndAddMessage(message: "Hello World to My World", index: 1)
+        presenter.didTapWriteMessageButtonAction(index: 1)
+        
+        let cell_2 = view.collectionView(view.todayTodoCollectionView, cellForItemAt: IndexPath(row: 1, section: 1))
+        guard let cell2 = cell_2 as? TodayTodoCollectionViewCell else { return }
+        
+        XCTContext.runActivity(named: "radioはtrue, messageのisHiddenはfalse, messageはnil") { _ in
+            XCTAssertTrue(presenter.todos[1].isFinished)
+            XCTAssertFalse(cell2.writeMessageButton.isHidden)
+            XCTAssertEqual(presenter.todos[1].message, nil)
+        }
+    }
+    
+   func test_起動後に2つ目のcellのwriteMessageButtonをタップして，その後にradioButtonを押したたときのテスト() {
+        let presenter = TodayTodoViewPresenter(model: TodayTodoModelMock())
+        view.inject(with: presenter)
+        view.loadViewIfNeeded()
+        view.view.layoutIfNeeded()
+        
+        presenter.didEndAddMessage(message: "Hello World to My World", index: 1)
+        presenter.didTapRadioButton(index: 1)
+        
+        let cell_2 = view.collectionView(view.todayTodoCollectionView, cellForItemAt: IndexPath(row: 1, section: 1))
+        guard let cell2 = cell_2 as? TodayTodoCollectionViewCell else { return }
+        
+        XCTContext.runActivity(named: "radioはfalse, messageのisHiddenはtrue, messageはnil") { _ in
+            XCTAssertFalse(presenter.todos[1].isFinished)
+            XCTAssertTrue(cell2.writeMessageButton.isHidden)
+            XCTAssertEqual(presenter.todos[1].message, nil)
         }
     }
     

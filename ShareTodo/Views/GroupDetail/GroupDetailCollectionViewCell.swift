@@ -13,6 +13,7 @@ class GroupDetailCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var radioImageView: UIImageView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var messageLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,7 +22,7 @@ class GroupDetailCollectionViewCell: UICollectionViewCell {
         self.setupRadioButton()
         self.setupProfileImageView()
         self.setupNameLabel()
-        
+        self.setupMessageLabel()
     }
     
     private func setupCell() {
@@ -48,17 +49,31 @@ class GroupDetailCollectionViewCell: UICollectionViewCell {
         self.nameLabel.minimumScaleFactor = 0.4
     }
     
+    private func setupMessageLabel() {
+        self.messageLabel.adjustsFontSizeToFitWidth = true
+        self.messageLabel.minimumScaleFactor = 0.4
+        self.messageLabel.isHidden = true
+    }
+    
     func isFinishedUser(user: User, isFinishedUsersIDs: [String]) -> Bool {
         guard let userId = user.id else { return false }
         return isFinishedUsersIDs.contains(userId)
     }
     
-    func configure(with user: User, isFinishedUsersIDs: [String]) {
+    func configure(with user: User, isFinishedUsersIDs: [String], messageDictionary: [String: String]) {
         let isFinished = isFinishedUser(user: user, isFinishedUsersIDs: isFinishedUsersIDs)
         let radioButtonImage = isFinished ? UIImage(systemName: "checkmark.circle.fill") : UIImage(systemName: "checkmark.circle")
         
         self.nameLabel.text = user.name
         self.radioImageView.image = radioButtonImage
+        
+        if let userId = user.id, let message = messageDictionary[userId] {
+            self.messageLabel.text = R.string.localizable.message_colon() + message
+            self.messageLabel.isHidden = false
+            self.messageLabel.sizeToFit()
+        } else {
+            self.messageLabel.isHidden = true
+        }
         
         guard let url = URL(string: user.profileImageURL ?? "") else { return }
         DispatchQueue.main.async {

@@ -28,6 +28,10 @@
 
 // TodayTodoVC
 "Group_Colon:" = "グループ: ";
+"Add Message"     = "メッセージ追加";
+"Add Message Sub" = "ちょっとしたメッセージを送信できます";
+"Example Message" = "例：今日は早く終わった⭐️";
+"Send"            = "送信";
 
 // EditGroupVC
 "Edit Group" = "グループ編集";
@@ -58,6 +62,7 @@
 "Remove User Message" = "このユーザをグループから脱退させますか？";
 "Remove" = "削除";
 "Remove_colon" = "削除: ";
+"Message_colon" = "メッセージ: ";
 
 // UserDetailVC
 "Introduction"            = "ご紹介";

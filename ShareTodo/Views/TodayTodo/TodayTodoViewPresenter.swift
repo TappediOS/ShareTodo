@@ -14,12 +14,18 @@ protocol TodayTodoViewPresenterProtocol {
     
     func didViewDidLoad()
     func didTapRadioButton(index: Int)
+    func didTapWriteMessageButtonAction(index: Int)
     func didAllowNotification()
     
+    func didEndAddMessage(message: String?, index: Int)
+    
     func isFinishedTodo(index: Int) -> Bool
+    func isWrittenMessage(index: Int) -> Bool
 }
 
 protocol TodayTodoViewPresenterOutput: class {
+    func showAddMessageEditView(index: Int)
+    
     func reloadTodayTodoCollectionView()
     func showRequestAllowNotificationView()
     
@@ -77,11 +83,39 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
         self.model.finishedTodo(index: index)
     }
     
+    func didTapWriteMessageButtonAction(index: Int) {
+        guard self.model.isWrittenMessage(index: index) else {
+            self.view.showAddMessageEditView(index: index)
+            return
+        }
+        
+        self.model.cancelMessage(index: index)
+    }
+    
     func didAllowNotification() {
         self.model.setFcmToken()
     }
     
+    func didEndAddMessage(message: String?, index: Int) {
+        guard let message = message else { return }
+        guard !message.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
+        
+        self.model.writeMessage(message: message, index: index)
+    }
+    
+    func successWriteMessage() {
+        self.view.reloadTodayTodoCollectionView()
+    }
+    
+    func successCancelMessage() {
+        self.view.reloadTodayTodoCollectionView()
+    }
+    
     func isFinishedTodo(index: Int) -> Bool {
         return self.model.isFinishedTodo(index: index)
+    }
+    
+    func isWrittenMessage(index: Int) -> Bool {
+        return self.model.isWrittenMessage(index: index)
     }
 }

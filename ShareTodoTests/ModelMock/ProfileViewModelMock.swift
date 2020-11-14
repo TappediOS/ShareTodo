@@ -16,4 +16,3 @@ class ProfileViewModelMock: ProfileModelProtocol {
         self.presenter.successFetchUser(user: result)
     }
 }
-

@@ -58,8 +58,9 @@ final class EditGroupModel: EditGroupModelProtocol {
         let memberIDs = selectedUsers.compactMap { $0.id }
         guard let groupUid = self.group.groupID else { return }
         guard let profileImageURL = self.group.profileImageURL else { return }
+        guard let createdAt = self.group.createdAt else { return }
         
-        let updatedGroup = Group(name: groupName, task: groupTask, members: memberIDs, profileImageURL: profileImageURL)
+        let updatedGroup = Group(name: groupName, task: groupTask, members: memberIDs, profileImageURL: profileImageURL, createdAt: createdAt)
         let groupData: [String: Any]
         
         let groupReference = self.firestore.collection("todo").document("v1").collection("groups").document(groupUid)

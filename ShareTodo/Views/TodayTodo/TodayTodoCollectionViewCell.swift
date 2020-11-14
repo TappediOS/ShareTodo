@@ -14,8 +14,11 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var taskLabel: UILabel!
     @IBOutlet weak var groupNameLabel: UILabel!
     @IBOutlet weak var radioButton: UIButton!
+    @IBOutlet weak var writeMessageButton: UIButton!
+    @IBOutlet weak var buttonStackView: UIStackView!
     
     var radioButtonAction: (() -> Void)?
+    var writeMessageButtonAction: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,6 +29,7 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
         self.setupGroupImageView()
         self.setupTaskLabel()
         self.setupRadioButton()
+        self.setupWriteMessageButton()
     }
     
     func setupGroupImageView() {
@@ -46,12 +50,22 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
         self.radioButton.tintColor = .systemGreen
     }
     
-    func configure(with group: Group, isFinished: Bool) {
+    func setupWriteMessageButton() {
+        self.writeMessageButton.layer.masksToBounds = true
+        self.writeMessageButton.tintColor = .systemGreen
+        self.writeMessageButton.isHidden = true
+    }
+    
+    func configure(with group: Group, isFinished: Bool, isWrittenMessage: Bool) {
         let radioButtonImage = isFinished ? UIImage(systemName: "checkmark.circle.fill") : UIImage(systemName: "checkmark.circle")
+        let writeMessageButtonImage = isWrittenMessage ? UIImage(systemName: "pencil.circle.fill") : UIImage(systemName: "pencil.circle")
         
         self.taskLabel.text = group.task
         self.groupNameLabel.text = R.string.localizable.group_Colon() + group.name
         self.radioButton.setImage(radioButtonImage, for: .normal)
+        
+        self.writeMessageButton.isHidden = !isFinished
+        self.writeMessageButton.setImage(writeMessageButtonImage, for: .normal)
         
         guard let url = URL(string: group.profileImageURL ?? "") else { return }
         DispatchQueue.main.async {
@@ -64,4 +78,7 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
         self.radioButtonAction?()
     }
     
+    @IBAction func tapWriteMessageButton(_ sender: Any) {
+        self.writeMessageButtonAction?()
+    }
 }

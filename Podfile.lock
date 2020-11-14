@@ -1,5 +1,5 @@
 PODS:
-  - LicensePlist (2.15.1)
+  - LicensePlist (3.0.5)
   - R.swift (5.2.2):
     - R.swift.Library (~> 5.2.0)
   - R.swift.Library (5.2.0)
@@ -15,7 +15,7 @@ SPEC REPOS:
     - R.swift.Library
 
 SPEC CHECKSUMS:
-  LicensePlist: 9fb7c521b431f94ea665046c15ed5f392583afbd
+  LicensePlist: 11c638fa9dc22ddb5771cdf910242ae1ba2684da
   R.swift: 7c52cdc57a66840ffe6cbd8a823d732059d42a32
   R.swift.Library: 5ba4f1631300caf9a4d890186930da85d540769d
 

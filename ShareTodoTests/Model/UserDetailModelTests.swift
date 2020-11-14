@@ -89,6 +89,35 @@ class UserDetailModelTests: XCTestCase {
         }
     }
     
+    //今日の日付を取り出す関数
+    func dateTodayFormat(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .none
+        return formatter.string(from: date)
+     }
+    
+    func test_getMinimumDate() {
+        XCTContext.runActivity(named: "groupのcreatedAtがnilの時で，かつ，todoListが空でない時はcalenderの最小値がtodoのisFinishedがtrueである最初の日付であること") { _ in
+            XCTAssertEqual(dateTodayFormat(self.model.getMinimumDate()), dateTodayFormat(Date(timeIntervalSinceNow: -60*60*24*7)))
+            
+            var todo = Todo(isFinished: true, message: nil, userID: "user1", groupID: "group1", createdAt: Timestamp(date: Date(timeIntervalSinceNow: -60*60*24*20)))
+            self.model.todos.append(todo)
+            XCTAssertEqual(dateTodayFormat(self.model.getMinimumDate()), dateTodayFormat(Date(timeIntervalSinceNow: -60*60*24*20)))
+            
+            todo = Todo(isFinished: true, message: nil, userID: "user1", groupID: "group1", createdAt: Timestamp(date: Date(timeIntervalSinceNow: -60*60*24*1)))
+            self.model.todos.append(todo)
+            XCTAssertEqual(dateTodayFormat(self.model.getMinimumDate()), dateTodayFormat(Date(timeIntervalSinceNow: -60*60*24*20)))
+        }
+        
+        XCTContext.runActivity(named: "groupのcreatedAtがnilの時で，かつ，todoListがからの時時はcalenderの最小値がtodoのisFinishedがtrueである最初の日付であること") { _ in
+            self.model.todos.removeAll()
+            XCTAssertEqual(dateTodayFormat(self.model.getMinimumDate()), dateTodayFormat(Date(timeIntervalSinceNow: -60*60*24*30)))
+        }
+        
+        //TODO:- createdAtがnilでないときの処理をかく
+    }
+    
     func testPerformanceExample() throws {
         self.measure {
             for tmp in 0 ... 10000 {

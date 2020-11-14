@@ -28,7 +28,7 @@ class EditGroupModelMock: EditGroupModelProtocol {
         let membersID: [String] = [user1.id!, user2.id!, user3.id!, user4.id!, user5.id!, user6.id!]
         self.groupUsers = [user1, user2, user3, user4, user5, user6]
         
-        self.group = Group(groupID: "group1", name: "Apple", task: "Pie", members: membersID, profileImageURL: nil)
+        self.group = Group(groupID: "group1", name: "Apple", task: "Pie", members: membersID, profileImageURL: nil, createdAt: nil)
     }
     
     func updateGroup(selectedUsers: [User], groupName: String, groupTask: String, groupImageData: Data) {

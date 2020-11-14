@@ -8,7 +8,8 @@
 
 protocol IntroductionShareTodoPlusViewPresenterProtocol {
     var view: IntroductionShareTodoPlusViewPresenterOutput! { get set }
-
+    
+    func didViewDidLoad()
     func didTapApplyAMonthSubscriptionButton()
     func didTapApplyAYearSubscriptionButton()
 }
@@ -16,6 +17,9 @@ protocol IntroductionShareTodoPlusViewPresenterProtocol {
 protocol IntroductionShareTodoPlusViewPresenterOutput: class {
     func startActivityIndicator()
     func stopActivityIndicator()
+    
+    func setMonthApplySubsctiontionButtonTitle(price: String)
+    func setAnnualApplySubsctiontionButtonTitle(price: String)
 }
 
 final class IntroductionShareTodoPlusViewPresenter: IntroductionShareTodoPlusViewPresenterProtocol, IntroductionShareTodoPlusModelOutput {
@@ -27,11 +31,23 @@ final class IntroductionShareTodoPlusViewPresenter: IntroductionShareTodoPlusVie
         self.model.presenter = self
     }
     
+    func didViewDidLoad() {
+        self.model.fetchAvailableProducts()
+    }
+    
     func didTapApplyAMonthSubscriptionButton() {
         
     }
     
     func didTapApplyAYearSubscriptionButton() {
         
+    }
+    
+    func successFetchMonthSubscriptionPrise(price: String) {
+        self.view.setMonthApplySubsctiontionButtonTitle(price: price)
+    }
+    
+    func successFetchAnnualSubscriptionPrise(price: String) {
+        self.view.setAnnualApplySubsctiontionButtonTitle(price: price)
     }
 }

@@ -79,8 +79,9 @@
 "Add Message To Task Ex Mark" = "タスクにメッセージを追加！";
 "Add Message To Task Description" = "タスク完了次にメッセージを追加できるようになります！\n\nメッセージはグループのユーザが確認できるので，ちょっとした一言を追加してメンバーに見てもらうことができます！";
 
-"Apply At N Month" = "/月で申し込む";
-
+"Apply At N" = "%@%@で申し込む";
+"slash_Month" = "/月";
+"slash_Year" = "/年";
 
 //TODO:- Privacy Policyと利用規約のURLを添付すること
 "Explanation Of Subscription Notes" = "

@@ -22,7 +22,7 @@ final class IntroductionShareTodoPlusViewController: UIViewController {
     @IBOutlet weak var checkPastDescriptionLabel: UILabel!
     @IBOutlet weak var addMessageLabel: UILabel!
     @IBOutlet weak var addMessageDescrioptionLabel: UILabel!
-    @IBOutlet weak var applySubscriptionButton: UIButton!
+    @IBOutlet weak var applyMonthSubscriptionButton: UIButton!
     @IBOutlet weak var subscriptionNotesLabel: UILabel!
     
     var activityIndicator = UIActivityIndicatorView()
@@ -51,6 +51,7 @@ final class IntroductionShareTodoPlusViewController: UIViewController {
         
         self.setupActivityIndicator()
         
+        self.presenter.didViewDidLoad()
     }
     
     func setupView() {
@@ -70,7 +71,7 @@ final class IntroductionShareTodoPlusViewController: UIViewController {
     
     func setupApplySubscriptionButton() {
         //TODO:- ローカライズすること
-        self.applySubscriptionButton.setTitle("¥300/月で申し込む", for: .normal)
+        self.applyMonthSubscriptionButton.setTitle("¥300/月で申し込む", for: .normal)
     }
     
     func setupLabelInfomation(_ label: UILabel) {
@@ -118,5 +119,15 @@ extension IntroductionShareTodoPlusViewController: IntroductionShareTodoPlusView
     
     func stopActivityIndicator() {
         DispatchQueue.main.async { self.activityIndicator.stopAnimating() }
+    }
+    
+    func setMonthApplySubsctiontionButtonTitle(price: String) {
+        let title = R.string.localizable.applyAtN(price, R.string.localizable.slash_Month())
+        DispatchQueue.main.async { self.applyMonthSubscriptionButton.setTitle(title, for: .normal) }
+    }
+    
+    func setAnnualApplySubsctiontionButtonTitle(price: String) {
+        //TODO:- titleを代入すること
+        let title = R.string.localizable.applyAtN(price, R.string.localizable.slash_Year())
     }
 }

@@ -426,7 +426,7 @@ ZS5jb20KCuODu+WIqeeUqOimj+e0hArjgIBodHRwczovL2V4YW1wbGUuY29tA
                         <outlet property="addMessageDescrioptionLabel" destination="N2o-Kc-gq9" id="FDx-6t-aGT"/>
                         <outlet property="addMessageImageLabel" destination="OPD-nP-Xvm" id="WP9-Sx-laH"/>
                         <outlet property="addMessageLabel" destination="pcU-gx-mNW" id="04l-oc-P2h"/>
-                        <outlet property="applySubscriptionButton" destination="pY1-FT-v9G" id="tuT-ZK-5EV"/>
+                        <outlet property="applyMonthSubscriptionButton" destination="pY1-FT-v9G" id="tuT-ZK-5EV"/>
                         <outlet property="checkPastDescriptionLabel" destination="Xek-nm-o6c" id="dZT-rz-sDO"/>
                         <outlet property="checkPastImageLabel" destination="OkL-wT-aMy" id="cnP-EE-1Ou"/>
                         <outlet property="checkPastLabel" destination="Obd-Ox-tvz" id="ERN-el-71O"/>

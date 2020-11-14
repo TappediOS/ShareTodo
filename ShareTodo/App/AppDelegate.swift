@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseMessaging
 import UserNotifications
+import Purchases
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = Routes.decideRootViewController()
             window?.makeKeyAndVisible()
         }
+        
+        Purchases.debugLogsEnabled = true
+        Purchases.configure(withAPIKey: R.string.sharedString.revenueCatShreTodoPublicSDKKey())
         
         UNUserNotificationCenter.current().delegate = self
         Messaging.messaging().delegate = self

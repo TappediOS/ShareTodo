@@ -23,6 +23,8 @@ final class IntroductionShareTodoPlusViewController: UIViewController {
     @IBOutlet weak var addMessageLabel: UILabel!
     @IBOutlet weak var addMessageDescrioptionLabel: UILabel!
     @IBOutlet weak var applyMonthSubscriptionButton: UIButton!
+    @IBOutlet weak var applyAnnualSubscrioptionButton: UIButton!
+    @IBOutlet weak var goodValueLabel: UILabel!
     @IBOutlet weak var subscriptionNotesLabel: UILabel!
     
     var activityIndicator = UIActivityIndicatorView()
@@ -33,9 +35,7 @@ final class IntroductionShareTodoPlusViewController: UIViewController {
         self.setupView()
         self.setupScrollView()
         self.setupNavigationBar()
-        
-        self.setupApplySubscriptionButton()
-        
+                
         self.setupLabelText()
         self.setupLabelInfomation(premiumFeatureLabel)
         self.setupLabelInfomation(noAdsImageLabel)
@@ -47,6 +47,7 @@ final class IntroductionShareTodoPlusViewController: UIViewController {
         self.setupLabelInfomation(checkPastDescriptionLabel)
         self.setupLabelInfomation(addMessageLabel)
         self.setupLabelInfomation(addMessageDescrioptionLabel)
+        self.setupLabelInfomation(goodValueLabel)
         self.setupLabelInfomation(subscriptionNotesLabel)
         
         self.setupActivityIndicator()
@@ -69,11 +70,6 @@ final class IntroductionShareTodoPlusViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = .systemGreen
     }
     
-    func setupApplySubscriptionButton() {
-        //TODO:- ローカライズすること
-        self.applyMonthSubscriptionButton.setTitle("¥300/月で申し込む", for: .normal)
-    }
-    
     func setupLabelInfomation(_ label: UILabel) {
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.4
@@ -90,6 +86,7 @@ final class IntroductionShareTodoPlusViewController: UIViewController {
         checkPastDescriptionLabel.text   = R.string.localizable.checkPastTasksDescription()
         addMessageLabel.text             = R.string.localizable.addMessageToTaskExMark()
         addMessageDescrioptionLabel.text = R.string.localizable.addMessageToTaskDescription()
+        goodValueLabel.text              = R.string.localizable.goodValue()
         subscriptionNotesLabel.text      = R.string.localizable.explanationOfSubscriptionNotes()
     }
     
@@ -104,6 +101,10 @@ final class IntroductionShareTodoPlusViewController: UIViewController {
     
     @IBAction func tapApplyAMonthSubscriptionButton(_ sender: Any) {
         self.presenter.didTapApplyAMonthSubscriptionButton()
+    }
+    
+    @IBAction func tapApplyAnnualSubscriptionButton(_ sender: Any) {
+        self.presenter.didTapApplyAYearSubscriptionButton()
     }
     
     func inject(with presenter: IntroductionShareTodoPlusViewPresenterProtocol) {
@@ -129,5 +130,6 @@ extension IntroductionShareTodoPlusViewController: IntroductionShareTodoPlusView
     func setAnnualApplySubsctiontionButtonTitle(price: String) {
         //TODO:- titleを代入すること
         let title = R.string.localizable.applyAtN(price, R.string.localizable.slash_Year())
+        DispatchQueue.main.async { self.applyAnnualSubscrioptionButton.setTitle(title, for: .normal) }
     }
 }

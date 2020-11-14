@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pKt-hv-Ith">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pKt-hv-Ith">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -346,6 +346,9 @@
                                                                 <integer key="value" value="8"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="tapApplyAMonthSubscriptionButton:" destination="pKt-hv-Ith" eventType="touchUpInside" id="z8D-Fr-1rA"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
@@ -361,7 +364,7 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghQ-dP-ZeB">
                                                         <rect key="frame" x="8" y="8" width="398" height="284"/>
-                                                        <mutableString key="text" base64-UTF8="YES">
+                                                        <string key="text" base64-UTF8="YES">
 44O744GK55Sz6L685pel44GL44KJMeODtuaciOW+jOOBq+iHquWLleWPjeaYoOOBleOCjOOBvuOBmeOA
 ggoK44O76Ieq5YuV57aZ57aa6Kqy6YeR44Gv5pyf6ZaT44Gu5pyf6ZmQ44GM5YiH44KM44KLMjTmmYLp
 lpPku6XkuIrliY3jgavoh6rli5Xmm7TmlrDjgpLjgqrjg5XjgavjgZfjgarjgZHjgozjgbDvvIzoh6rl
@@ -375,7 +378,7 @@ s+OCu+ODq+OCkuOBmeOCi+OBqOOBlOWIqeeUqOS4reOBruWlkee0hOacn+mWk+e1guS6huOCkuOCguOB
 o+OBpuWumuacn+izvOiqreOBr+e1guS6huOBl+abtOaWsOOBr+ihjOOCj+OCjOOBquOBj+OBquOCiuOB
 vuOBmeOAggoK44O744OX44Op44Kk44OQ44K344O844Od44Oq44K344O8CuOAgGh0dHBzOi8vZXhhbXBs
 ZS5jb20KCuODu+WIqeeUqOimj+e0hArjgIBodHRwczovL2V4YW1wbGUuY29tA
-</mutableString>
+</string>
                                                         <fontDescription key="fontDescription" name="HiraginoSans-W2" family="Hiragino Sans" pointSize="12"/>
                                                         <color key="textColor" systemColor="placeholderTextColor"/>
                                                         <nil key="highlightedColor"/>

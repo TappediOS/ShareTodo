@@ -8,6 +8,9 @@
 
 protocol IntroductionShareTodoPlusViewPresenterProtocol {
     var view: IntroductionShareTodoPlusViewPresenterOutput! { get set }
+
+    func didTapApplyAMonthSubscriptionButton()
+    func didTapApplyAYearSubscriptionButton()
 }
 
 protocol IntroductionShareTodoPlusViewPresenterOutput: class {
@@ -22,5 +25,13 @@ final class IntroductionShareTodoPlusViewPresenter: IntroductionShareTodoPlusVie
     init(model: IntroductionShareTodoPlusModelProtocol) {
         self.model = model
         self.model.presenter = self
+    }
+    
+    func didTapApplyAMonthSubscriptionButton() {
+        
+    }
+    
+    func didTapApplyAYearSubscriptionButton() {
+        
     }
 }

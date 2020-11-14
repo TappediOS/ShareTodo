@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Purchases
 
 final class IntroductionShareTodoPlusViewController: UIViewController {
     private var presenter: IntroductionShareTodoPlusViewPresenterProtocol!
@@ -96,6 +97,12 @@ final class IntroductionShareTodoPlusViewController: UIViewController {
         self.activityIndicator.center = self.view.center
         self.activityIndicator.hidesWhenStopped = true
         self.view.addSubview(self.activityIndicator)
+    }
+    
+    
+    
+    @IBAction func tapApplyAMonthSubscriptionButton(_ sender: Any) {
+        self.presenter.didTapApplyAMonthSubscriptionButton()
     }
     
     func inject(with presenter: IntroductionShareTodoPlusViewPresenterProtocol) {

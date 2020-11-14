@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         Purchases.debugLogsEnabled = true
-        Purchases.configure(withAPIKey: R.string.sharedString.revenueCatShreTodoPublicSDKKey())
+        Purchases.configure(withAPIKey: R.string.sharedString.revenueCatShareTodoPublicSDKKey())
         
         UNUserNotificationCenter.current().delegate = self
         Messaging.messaging().delegate = self

@@ -36,11 +36,13 @@ final class IntroductionShareTodoPlusViewPresenter: IntroductionShareTodoPlusVie
     }
     
     func didTapApplyAMonthSubscriptionButton() {
-        
+        self.view.startActivityIndicator()
+        self.model.makeMonthSubscriptionPurchase()
     }
     
     func didTapApplyAYearSubscriptionButton() {
-        
+        self.view.startActivityIndicator()
+        self.model.makeAnnualSubscriptioinPurhase()
     }
     
     func successFetchMonthSubscriptionPrise(price: String) {
@@ -49,5 +51,22 @@ final class IntroductionShareTodoPlusViewPresenter: IntroductionShareTodoPlusVie
     
     func successFetchAnnualSubscriptionPrise(price: String) {
         self.view.setAnnualApplySubsctiontionButtonTitle(price: price)
+    }
+    
+    func successPurchaseMonthSubscription() {
+        self.view.stopActivityIndicator()
+    }
+    
+    func successPurchaseAnnualSubscription() {
+        self.view.stopActivityIndicator()
+    }
+    
+    
+    func successRestoreMonthSubscription() {
+        self.view.stopActivityIndicator()
+    }
+    
+    func successRestoreAnnualSubscription() {
+        self.view.stopActivityIndicator()
     }
 }

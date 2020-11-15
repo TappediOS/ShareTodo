@@ -114,6 +114,20 @@ final class IntroductionShareTodoPlusModel: IntroductionShareTodoPlusModelProtoc
     func makeAnnualSubscriptioinPurhase() {
         guard let package = self.annualAvailablePackage else { return }
         
-        
+        Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let purchaserInfo = purchaserInfo else {
+                print("purchaserInfo = nil")
+                return
+            }
+            
+            if purchaserInfo.entitlements[R.string.sharedString.revenueCatShareTodoEntitlementsID()]?.isActive == true {
+                self.presenter.successPurchaseMonthSubscription()
+            }
+        }
     }
 }

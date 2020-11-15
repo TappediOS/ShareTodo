@@ -67,13 +67,13 @@ final class IntroductionShareTodoPlusModel: IntroductionShareTodoPlusModelProtoc
                 
                 switch subsctiptionPeriod.unit {
                 case .month:
-                    guard let prise = prise else { continue }
                     self.monthAvailablePackage = package
+                    guard let prise = prise else { continue }
                     self.presenter.successFetchMonthSubscriptionPrise(price: prise)
                     duration = "month"
                 case .year:
-                    guard let prise = prise else { continue }
                     self.annualAvailablePackage = package
+                    guard let prise = prise else { continue }
                     self.presenter.successFetchAnnualSubscriptionPrise(price: prise)
                     duration = "year"
                 default:

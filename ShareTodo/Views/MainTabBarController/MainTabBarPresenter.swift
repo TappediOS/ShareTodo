@@ -8,10 +8,14 @@
 
 protocol MainTabBarViewPresenterProtocol {
     var view: MainTabBarViewPresenterOutput! { get set }
+    
+    func didViewDidAppear()
 }
 
 protocol MainTabBarViewPresenterOutput: class {
-    
+    func initBannerAds()
+    func showBannerAds()
+    func dismissBannerAds()
 }
 
 final class MainTabBarViewPresenter: MainTabBarViewPresenterProtocol, MainTabBarModelOutput {
@@ -21,5 +25,19 @@ final class MainTabBarViewPresenter: MainTabBarViewPresenterProtocol, MainTabBar
     init(model: MainTabBarModelProtocol) {
         self.model = model
         self.model.presenter = self
+    }
+    
+    func didViewDidAppear() {
+        self.model.checkingIfAUserSubscribed()
+    }
+    
+    
+    func userSubscribed() {
+        self.view.dismissBannerAds()
+    }
+    
+    func userDontSubscribed() {
+        self.view.initBannerAds()
+        self.view.showBannerAds()
     }
 }

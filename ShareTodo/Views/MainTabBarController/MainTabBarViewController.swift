@@ -19,28 +19,17 @@ final class MainTabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //TODO:- 課金の有無でこの関数は呼ばないこと
-        self.initBannerView()
-        
+            
         self.selectedIndex = 0
     }
     
-    //safeArea取得するために必要。
-    override func viewDidLayoutSubviews() {
-       super.viewDidLayoutSubviews()
-        //TODO:- 課金の有無でこの関数は呼ばないこと
-        self.setupBannerViewSize()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.presenter.didViewDidAppear()
     }
     
-    private func setupBannerViewSize() {
-        shareTodoTabBarBannerView.heightAnchor.constraint(equalToConstant: self.BANNER_VIEW_HIGHT).isActive = true
-        shareTodoTabBarBannerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0).isActive = true
-        shareTodoTabBarBannerView.widthAnchor.constraint(equalToConstant: self.view.bounds.width).isActive = true
-        shareTodoTabBarBannerView.bottomAnchor.constraint(equalTo: self.tabBar.topAnchor, constant: 0).isActive = true
-    }
-    
-    private func initBannerView() {
+    func initBannerView() {
         print("\n\n--------INFO ADMOB--------------\n")
         print("Google Mobile ads SDK Versioin -> " + GADMobileAds.sharedInstance().sdkVersion + "\n")
         #if DEBUG
@@ -66,6 +55,14 @@ final class MainTabBarViewController: UITabBarController {
         self.BANNER_VIEW_HIGHT = adSize.size.height
         self.shareTodoTabBarBannerView.adSize = adSize
         self.shareTodoTabBarBannerView.load(GADRequest())
+        self.setupBannarViewAnchor()
+    }
+    
+    func setupBannarViewAnchor() {
+        shareTodoTabBarBannerView.heightAnchor.constraint(equalToConstant: self.BANNER_VIEW_HIGHT).isActive = true
+        shareTodoTabBarBannerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0).isActive = true
+        shareTodoTabBarBannerView.widthAnchor.constraint(equalToConstant: self.view.bounds.width).isActive = true
+        shareTodoTabBarBannerView.bottomAnchor.constraint(equalTo: self.tabBar.topAnchor, constant: 0).isActive = true
     }
     
     required init?(coder: NSCoder) {
@@ -104,7 +101,17 @@ final class MainTabBarViewController: UITabBarController {
 }
 
 extension MainTabBarViewController: MainTabBarViewPresenterOutput {
-    
+    func initBannerAds() {
+        self.initBannerView()
+    }
+    func showBannerAds() {
+        
+    }
+    func dismissBannerAds() {
+        DispatchQueue.main.async {
+            self.shareTodoTabBarBannerView.removeFromSuperview()
+        }
+    }
 }
 
 extension MainTabBarViewController: GADBannerViewDelegate {

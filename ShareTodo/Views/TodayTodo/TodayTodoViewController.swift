@@ -30,6 +30,11 @@ final class TodayTodoViewController: UIViewController {
         self.presenter.didViewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.presenter.didViewWillAppear()
+    }
+    
     func setupView() {
         self.view.backgroundColor = .secondarySystemBackground
     }

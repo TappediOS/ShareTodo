@@ -14,6 +14,7 @@ protocol TodayTodoViewPresenterProtocol {
     var isUserSubscribed: Bool { get }
     
     func didViewDidLoad()
+    func didViewWillAppear()
     func didTapRadioButton(index: Int)
     func didTapWriteMessageButtonAction(index: Int)
     func didAllowNotification()

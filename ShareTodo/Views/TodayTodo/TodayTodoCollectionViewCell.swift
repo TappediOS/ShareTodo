@@ -68,7 +68,7 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
         self.writeMessageButton.setImage(writeMessageButtonImage, for: .normal)
         
         
-        // MARK:- サブスクが`false`なら，isHiddenを`true`にして表示させなくする
+        // MARK: - サブスクが`false`なら，isHiddenを`true`にして表示させなくする
         if isSubscribed == false {
             self.writeMessageButton.isHidden = true
         }

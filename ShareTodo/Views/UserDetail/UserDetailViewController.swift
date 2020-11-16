@@ -42,6 +42,12 @@ final class UserDetailViewController: UIViewController {
         self.presenter.didViewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.presenter.didViewWillAppear()
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.showNavigationImage(false)
@@ -209,7 +215,7 @@ extension UserDetailViewController: FSCalendarDelegate, FSCalendarDataSource {
     
     func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
         guard calenderView.maximumDate >= date else { return nil } //最小の日(今日)以降はnil
-        guard calenderView.minimumDate <= date else { return nil } //最後の日和前はnil
+        guard calenderView.minimumDate <= date else { return nil } //最後の日よりも前はnil
         
         //今日から1週間までは記録をする
         if self.presenter.getTheDayIsAWeekAgo(date: date) {
@@ -219,7 +225,15 @@ extension UserDetailViewController: FSCalendarDelegate, FSCalendarDataSource {
             return UIImage(systemName: "xmark.seal.fill")?.withTintColor(.systemRed).withRenderingMode(.alwaysOriginal)
         }
         
-        //1週間より前はロック状態によって変化させる
+        // サブスクしてたら表示する
+        if self.presenter.isUserSubscribed {
+            if self.presenter.getContaintFinishedDate(date: date) {
+                return UIImage(systemName: "checkmark.seal.fill")?.withTintColor(.systemGreen).withRenderingMode(.alwaysOriginal)
+            }
+            return UIImage(systemName: "xmark.seal.fill")?.withTintColor(.systemRed).withRenderingMode(.alwaysOriginal)
+        }
+        
+        // Subscriptionしてない場合はロックする
         return UIImage(systemName: "lock.fill")?.withTintColor(.systemOrange).withRenderingMode(.alwaysOriginal)
     }
 }

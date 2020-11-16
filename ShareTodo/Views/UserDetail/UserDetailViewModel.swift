@@ -8,12 +8,14 @@
 
 import Foundation
 import Firebase
+import Purchases
 
 protocol UserDetailModelProtocol {
     var presenter: UserDetailModelOutput! { get set }
     var group: Group { get set }
     var user: User { get set }
     var todos: [Todo] { get set }
+    var isUserSubscribed: Bool { get set }
     
     func fetchTodoList()
     func isTheDayAWeekAgo(date: Date) -> Bool
@@ -21,10 +23,17 @@ protocol UserDetailModelProtocol {
     func calculateForNavigationImage(height: Double) -> (scale: Double, xTranslation: Double, yTranslation: Double)
 
     func getMinimumDate() -> Date
+    
+    func checkingIfAUserSubscribed()
 }
 
 protocol UserDetailModelOutput: class {
     func successFetchTodoList()
+    
+    func userSubscribed()
+    
+    func userStartSubscribed()
+    func userEndSubscribed()
 }
 
 final class UserDetailModel: UserDetailModelProtocol {
@@ -32,6 +41,7 @@ final class UserDetailModel: UserDetailModelProtocol {
     var group: Group
     var user: User
     var todos: [Todo] = Array()
+    var isUserSubscribed: Bool = false
     private var firestore: Firestore!
     private var listener: ListenerRegistration?
     let dateFormatter = DateFormatter()
@@ -42,6 +52,7 @@ final class UserDetailModel: UserDetailModelProtocol {
         self.user = user
         self.setUpFirestore()
         self.setupDataFormatter()
+        self.setupNotificationCenter()
     }
     
     deinit {
@@ -59,8 +70,12 @@ final class UserDetailModel: UserDetailModelProtocol {
         dateFormatter.dateFormat = "yyyy/MM/dd"
     }
     
+    private func setupNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(startSubscribed), name: .startSubscribedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(endSubscribed), name: .endSubscribedNotification, object: nil)
+    }
+    
     func fetchTodoList() {
-        //TODO:- Stringをまとめること
         guard let userID = self.user.id else { return }
         guard let groupID = self.group.groupID else { return }
         let collectionRef = "todo/v1/groups/" + groupID + "/todo"
@@ -147,5 +162,43 @@ final class UserDetailModel: UserDetailModelProtocol {
         }
         
         return groupCreatedDate
+    }
+    
+    func checkingIfAUserSubscribed() {
+        Purchases.shared.purchaserInfo { (purchaserInfo, error) in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let purchaserInfo = purchaserInfo else {
+                print("purchaserInfo = nil")
+                self.isUserSubscribed = false
+                return
+            }
+            
+            guard let entitlement = purchaserInfo.entitlements[R.string.sharedString.revenueCatShareTodoEntitlementsID()] else {
+                print("entitlement = nil")
+                self.isUserSubscribed = false
+                return
+            }
+            
+            guard entitlement.isActive == true else {
+                self.isUserSubscribed = false
+                return
+            }
+            
+            self.isUserSubscribed = true
+            // subscがtrueの時のみpresenterに通知し，calendarのreload処理を行う
+            self.presenter.userSubscribed()
+        }
+    }
+    
+    @objc func startSubscribed() {
+        self.presenter.userStartSubscribed()
+    }
+    
+    @objc func endSubscribed() {
+        self.presenter.userEndSubscribed()
     }
 }

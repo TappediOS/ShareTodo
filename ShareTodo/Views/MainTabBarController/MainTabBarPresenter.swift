@@ -40,4 +40,13 @@ final class MainTabBarViewPresenter: MainTabBarViewPresenterProtocol, MainTabBar
         self.view.initBannerAds()
         self.view.showBannerAds()
     }
+    
+    func userStartSubscribed() {
+        self.view.dismissBannerAds()
+    }
+    
+    func userEndSubscribed() {
+        self.view.initBannerAds()
+        self.view.showBannerAds()
+    }
 }

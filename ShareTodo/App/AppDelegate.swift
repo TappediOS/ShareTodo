@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Purchases.debugLogsEnabled = true
         Purchases.configure(withAPIKey: R.string.sharedString.revenueCatShareTodoPublicSDKKey())
+        Purchases.shared.delegate = self
         
         UNUserNotificationCenter.current().delegate = self
         Messaging.messaging().delegate = self
@@ -47,6 +48,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    }
+}
+
+extension AppDelegate: PurchasesDelegate {
+    func purchases(_ purchases: Purchases, didReceiveUpdated purchaserInfo: Purchases.PurchaserInfo) {        
+        guard let entitlemant = purchaserInfo.entitlements[R.string.sharedString.revenueCatShareTodoEntitlementsID()] else {
+            print("entitlement is nil")
+            return
+        }
+        
+        if entitlemant.isActive == true {
+            NotificationCenter.default.post(name: .startSubscribedNotification, object: nil)
+        } else {
+            NotificationCenter.default.post(name: .endSubscribedNotification, object: nil)
+        }
     }
 }
 

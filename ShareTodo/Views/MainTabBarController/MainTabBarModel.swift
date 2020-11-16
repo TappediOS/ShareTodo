@@ -17,10 +17,22 @@ protocol MainTabBarModelProtocol {
 protocol MainTabBarModelOutput: class {
     func userSubscribed()
     func userDontSubscribed()
+    
+    func userStartSubscribed()
+    func userEndSubscribed()
 }
 
 final class MainTabBarModel: MainTabBarModelProtocol {
     weak var presenter: MainTabBarModelOutput!
+    
+    init() {
+        self.setupNotificationCenter()
+    }
+    
+    private func setupNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(startSubscribed), name: .startSubscribedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(endSubscribed), name: .endSubscribedNotification, object: nil)
+    }
     
     func checkingIfAUserSubscribed() {
         Purchases.shared.purchaserInfo { (purchaserInfo, error) in
@@ -46,5 +58,14 @@ final class MainTabBarModel: MainTabBarModelProtocol {
             
             self.presenter.userSubscribed()
         }
+    }
+    
+    
+    @objc func startSubscribed() {
+        self.presenter.userStartSubscribed()
+    }
+    
+    @objc func endSubscribed() {
+        self.presenter.userEndSubscribed()
     }
 }

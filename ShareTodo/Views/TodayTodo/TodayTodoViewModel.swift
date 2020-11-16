@@ -8,11 +8,13 @@
 
 import Firebase
 import FirebaseMessaging
+import Purchases
 
 protocol TodayTodoModelProtocol {
     var presenter: TodayTodoModelOutput! { get set }
     var groups: [Group] { get set }
     var todos: [Todo] { get set }
+    var isUserSubscribed: Bool { get set }
     
     func fetchGroups()
     func fetchTodayTodo(groupDocuments: [QueryDocumentSnapshot], userID: String)
@@ -28,6 +30,8 @@ protocol TodayTodoModelProtocol {
     func cancelMessage(index: Int)
     
     func setFcmToken()
+    
+    func checkingIfAUserSubscribed()
 }
 
 protocol TodayTodoModelOutput: class {
@@ -36,17 +40,23 @@ protocol TodayTodoModelOutput: class {
     func successFinishedTodo()
     func successWriteMessage()
     func successCancelMessage()
+    
+    func userSubscribed()
+    func userStartSubscribed()
+    func userEndSubscribed()
 }
 
 final class TodayTodoModel: TodayTodoModelProtocol {
     weak var presenter: TodayTodoModelOutput!
     var groups: [Group] = Array()
     var todos: [Todo] = Array()
+    var isUserSubscribed: Bool = false
     private var firestore: Firestore!
     private var listener: ListenerRegistration?
     
     init() {
         self.setUpFirestore()
+        self.setupNotificationCenter()
     }
     
     deinit {
@@ -57,6 +67,11 @@ final class TodayTodoModel: TodayTodoModelProtocol {
         self.firestore = Firestore.firestore()
         let settings = FirestoreSettings()
         self.firestore.settings = settings
+    }
+    
+    private func setupNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(startSubscribed), name: .startSubscribedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(endSubscribed), name: .endSubscribedNotification, object: nil)
     }
     
     func fetchGroups() {
@@ -277,6 +292,44 @@ final class TodayTodoModel: TodayTodoModelProtocol {
                 return
             }
         }
+    }
+    
+    func checkingIfAUserSubscribed() {
+        Purchases.shared.purchaserInfo { (purchaserInfo, error) in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let purchaserInfo = purchaserInfo else {
+                print("purchaserInfo = nil")
+                self.isUserSubscribed = false
+                return
+            }
+            
+            guard let entitlement = purchaserInfo.entitlements[R.string.sharedString.revenueCatShareTodoEntitlementsID()] else {
+                print("entitlement = nil")
+                self.isUserSubscribed = false
+                return
+            }
+            
+            guard entitlement.isActive == true else {
+                self.isUserSubscribed = false
+                return
+            }
+            
+            self.isUserSubscribed = true
+            // subscがtrueの時のみpresenterに通知し，calendarのreload処理を行う
+            self.presenter.userSubscribed()
+        }
+    }
+    
+    @objc func startSubscribed() {
+        self.presenter.userStartSubscribed()
+    }
+    
+    @objc func endSubscribed() {
+        self.presenter.userEndSubscribed()
     }
     
     func isFirstOpen() -> Bool {

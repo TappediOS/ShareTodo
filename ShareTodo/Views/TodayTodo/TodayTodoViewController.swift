@@ -127,7 +127,8 @@ extension TodayTodoViewController: UICollectionViewDelegate, UICollectionViewDat
         
         let isFinished = self.presenter.isFinishedTodo(index: indexPath.item)
         let isWrittenMessage = self.presenter.isWrittenMessage(index: indexPath.item)
-        cell.configure(with: self.presenter.groups[indexPath.item], isFinished: isFinished, isWrittenMessage: isWrittenMessage)
+        let isSubscribed = self.presenter.isUserSubscribed
+        cell.configure(with: self.presenter.groups[indexPath.item], isFinished: isFinished, isWrittenMessage: isWrittenMessage, isSubscribed: isSubscribed)
         
         cell.radioButtonAction = { [weak self] in
             guard let self = self else { return }

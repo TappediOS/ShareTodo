@@ -56,7 +56,7 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
         self.writeMessageButton.isHidden = true
     }
     
-    func configure(with group: Group, isFinished: Bool, isWrittenMessage: Bool) {
+    func configure(with group: Group, isFinished: Bool, isWrittenMessage: Bool, isSubscribed: Bool) {
         let radioButtonImage = isFinished ? UIImage(systemName: "checkmark.circle.fill") : UIImage(systemName: "checkmark.circle")
         let writeMessageButtonImage = isWrittenMessage ? UIImage(systemName: "pencil.circle.fill") : UIImage(systemName: "pencil.circle")
         
@@ -66,6 +66,12 @@ class TodayTodoCollectionViewCell: UICollectionViewCell {
         
         self.writeMessageButton.isHidden = !isFinished
         self.writeMessageButton.setImage(writeMessageButtonImage, for: .normal)
+        
+        
+        // MARK:- サブスクが`false`なら，isHiddenを`true`にして表示させなくする
+        if isSubscribed == false {
+            self.writeMessageButton.isHidden = true
+        }
         
         guard let url = URL(string: group.profileImageURL ?? "") else { return }
         DispatchQueue.main.async {

@@ -77,23 +77,27 @@ class TodayTodoViewTests: XCTestCase {
         guard let cell3 = cell_3 as? TodayTodoCollectionViewCell else { return }
         
         // NOTE:- サブスク登録して`いる`ことに注意して`writeMessageButton.isHidden`をAssertする
+        //        todo1.isFinished = false, todo2.isFinished = true, todo3.isFinished = false
         XCTContext.runActivity(named: "1つ目のcellの情報が正しいこと") { _ in
             XCTAssertEqual(cell1.groupNameLabel.text, R.string.localizable.group_Colon() + "Apple")
             XCTAssertEqual(cell1.taskLabel.text, "Pie")
             XCTAssertNil(cell1.groupImageView.image)
             XCTAssertTrue(cell1.writeMessageButton.isHidden)
+            XCTAssertEqual(cell1.radioButton.imageView?.image, self.checkmarkNotFillImage)
         }
         XCTContext.runActivity(named: "2つ目のcellの情報が正しいこと") { _ in
             XCTAssertEqual(cell2.groupNameLabel.text, R.string.localizable.group_Colon() + "Banana")
             XCTAssertEqual(cell2.taskLabel.text, "Juice")
             XCTAssertNil(cell2.groupImageView.image)
             XCTAssertFalse(cell2.writeMessageButton.isHidden)
+            XCTAssertEqual(cell2.radioButton.imageView?.image, self.checkmarkFillImage)
         }
         XCTContext.runActivity(named: "3つ目のcellの情報が正しいこと") { _ in
             XCTAssertEqual(cell3.groupNameLabel.text, R.string.localizable.group_Colon() + "Grape")
             XCTAssertEqual(cell3.taskLabel.text, "Jelly")
             XCTAssertNil(cell3.groupImageView.image)
             XCTAssertTrue(cell3.writeMessageButton.isHidden)
+            XCTAssertEqual(cell3.radioButton.imageView?.image, self.checkmarkNotFillImage)
         }
     }
     
@@ -121,18 +125,21 @@ class TodayTodoViewTests: XCTestCase {
             XCTAssertEqual(cell1.taskLabel.text, "Pie")
             XCTAssertNil(cell1.groupImageView.image)
             XCTAssertTrue(cell1.writeMessageButton.isHidden)
+            XCTAssertEqual(cell1.radioButton.imageView?.image, self.checkmarkNotFillImage)
         }
         XCTContext.runActivity(named: "2つ目のcellの情報が正しいこと") { _ in
             XCTAssertEqual(cell2.groupNameLabel.text, R.string.localizable.group_Colon() + "Banana")
             XCTAssertEqual(cell2.taskLabel.text, "Juice")
             XCTAssertNil(cell2.groupImageView.image)
             XCTAssertTrue(cell2.writeMessageButton.isHidden)
+            XCTAssertEqual(cell2.radioButton.imageView?.image, self.checkmarkFillImage)
         }
         XCTContext.runActivity(named: "3つ目のcellの情報が正しいこと") { _ in
             XCTAssertEqual(cell3.groupNameLabel.text, R.string.localizable.group_Colon() + "Grape")
             XCTAssertEqual(cell3.taskLabel.text, "Jelly")
             XCTAssertNil(cell3.groupImageView.image)
             XCTAssertTrue(cell3.writeMessageButton.isHidden)
+            XCTAssertEqual(cell3.radioButton.imageView?.image, self.checkmarkNotFillImage)
         }
     }
     
@@ -153,8 +160,12 @@ class TodayTodoViewTests: XCTestCase {
         let cell_1 = view.collectionView(view.todayTodoCollectionView, cellForItemAt: IndexPath(row: 0, section: 1))
         guard let cell1 = cell_1 as? TodayTodoCollectionViewCell else { return }
         
-        XCTContext.runActivity(named: "1つ目のwriteMessageButtonが推せるかどうか") { _ in
+        XCTContext.runActivity(named: "1つ目のwriteMessageButtonが表示されているかどうか") { _ in
             XCTAssertFalse(cell1.writeMessageButton.isHidden)
+        }
+        
+        XCTContext.runActivity(named: "1つ目のcellのradioButtonがcheckmarkFillになってるかどうか") { _ in
+            XCTAssertEqual(cell1.radioButton.imageView?.image, self.checkmarkFillImage)
         }
     }
     
@@ -229,10 +240,11 @@ class TodayTodoViewTests: XCTestCase {
         let cell_1 = view.collectionView(view.todayTodoCollectionView, cellForItemAt: IndexPath(row: 0, section: 1))
         guard let cell1 = cell_1 as? TodayTodoCollectionViewCell else { return }
         
-        XCTContext.runActivity(named: "writeMessageButtonが推せるかどうか") { _ in
+        XCTContext.runActivity(named: "writeMessageButtonが表示されてるかどうか") { _ in
             XCTAssertTrue(presenter.isWrittenMessage(index: 0))
             XCTAssertTrue(presenter.isWrittenMessage(index: 1))
             XCTAssertFalse(cell1.writeMessageButton.isHidden)
+            XCTAssertEqual(cell1.radioButton.imageView?.image, self.checkmarkFillImage)
             XCTAssertEqual(presenter.todos[0].message, "nil to i am apple!")
         }
     }
@@ -248,10 +260,11 @@ class TodayTodoViewTests: XCTestCase {
         let cell_2 = view.collectionView(view.todayTodoCollectionView, cellForItemAt: IndexPath(row: 1, section: 1))
         guard let cell2 = cell_2 as? TodayTodoCollectionViewCell else { return }
         
-        XCTContext.runActivity(named: "writeMessageButtonが推せるかどうか") { _ in
+        XCTContext.runActivity(named: "writeMessageButtonが表示されてるかどうか") { _ in
             XCTAssertFalse(presenter.isWrittenMessage(index: 0))
             XCTAssertTrue(presenter.isWrittenMessage(index: 1))
             XCTAssertFalse(cell2.writeMessageButton.isHidden)
+            XCTAssertEqual(cell2.radioButton.imageView?.image, self.checkmarkFillImage)
             XCTAssertEqual(presenter.todos[1].message, "Hello World to My World")
         }
     }
@@ -268,9 +281,10 @@ class TodayTodoViewTests: XCTestCase {
         let cell_2 = view.collectionView(view.todayTodoCollectionView, cellForItemAt: IndexPath(row: 1, section: 1))
         guard let cell2 = cell_2 as? TodayTodoCollectionViewCell else { return }
         
-        XCTContext.runActivity(named: "radioはtrue, messageのisHiddenはfalse, messageはnil") { _ in
+        XCTContext.runActivity(named: "radioはtrue, messageのisHiddenはfalse, radioButton.imageはFill, messageはnil") { _ in
             XCTAssertTrue(presenter.todos[1].isFinished)
             XCTAssertFalse(cell2.writeMessageButton.isHidden)
+            XCTAssertEqual(cell2.radioButton.imageView?.image, self.checkmarkFillImage)
             XCTAssertEqual(presenter.todos[1].message, nil)
         }
     }
@@ -287,9 +301,10 @@ class TodayTodoViewTests: XCTestCase {
         let cell_2 = view.collectionView(view.todayTodoCollectionView, cellForItemAt: IndexPath(row: 1, section: 1))
         guard let cell2 = cell_2 as? TodayTodoCollectionViewCell else { return }
         
-        XCTContext.runActivity(named: "radioはfalse, messageのisHiddenはtrue, messageはnil") { _ in
+        XCTContext.runActivity(named: "radioはfalse, messageのisHiddenはtrue, radioButton.imageはNotFill, messageはnil") { _ in
             XCTAssertFalse(presenter.todos[1].isFinished)
             XCTAssertTrue(cell2.writeMessageButton.isHidden)
+            XCTAssertEqual(cell2.radioButton.imageView?.image, self.checkmarkNotFillImage)
             XCTAssertEqual(presenter.todos[1].message, nil)
         }
     }

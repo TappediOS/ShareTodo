@@ -14,6 +14,8 @@ class TodayTodoViewTests: XCTestCase {
     
     private let checkmarkNotFillImage = UIImage(systemName: "checkmark.circle")
     private let checkmarkFillImage = UIImage(systemName: "checkmark.circle.fill")
+    private let pencilFillImage = UIImage(systemName: "pencil.circle.fill")
+    private let pencilNotFillImage = UIImage(systemName: "pencil.circle")
     
     override func setUpWithError() throws {
         view = R.storyboard.todayTodo().instantiateInitialViewController() as? TodayTodoViewController
@@ -318,8 +320,8 @@ class TodayTodoViewTests: XCTestCase {
         
         model.changeUserSubscribedIsFalse()
         
-        presenter.didTapRadioButton(index: 0)
         // cell1.isFinished = true, cell1.isFinished = true, cell3.isFinished = false
+        presenter.didTapRadioButton(index: 0)
         
         let cell_1 = view.collectionView(view.todayTodoCollectionView, cellForItemAt: IndexPath(row: 0, section: 1))
         let cell_2 = view.collectionView(view.todayTodoCollectionView, cellForItemAt: IndexPath(row: 1, section: 1))
@@ -332,6 +334,52 @@ class TodayTodoViewTests: XCTestCase {
             XCTAssertTrue(cell1.writeMessageButton.isHidden)
             XCTAssertTrue(cell2.writeMessageButton.isHidden)
             XCTAssertTrue(cell3.writeMessageButton.isHidden)
+            
+            XCTAssertEqual(cell1.radioButton.imageView?.image, self.checkmarkFillImage)
+            XCTAssertEqual(cell2.radioButton.imageView?.image, self.checkmarkFillImage)
+            XCTAssertEqual(cell3.radioButton.imageView?.image, self.checkmarkNotFillImage)
+        }
+    }
+    
+    func test_サブスク登録の登録が開始された場合にwriteMessageButtonが表示されること() {
+        let model = TodayTodoModelMock()
+        let presenter = TodayTodoViewPresenter(model: model)
+        view.inject(with: presenter)
+        view.loadViewIfNeeded()
+        view.view.layoutIfNeeded()
+        
+        // サブスクはfalseで始める
+        model.changeUserSubscribedIsFalse()
+        
+        // 0番目のセルをタップした時点で以下のようになる
+        // cell1.isFinished = true, cell1.isFinished = true, cell3.isFinished = false
+        presenter.didTapRadioButton(index: 0)
+        
+        //ここでサブスク登録した通知を発行する
+        model.startSubscribed()
+        
+        
+        let cell_1 = view.collectionView(view.todayTodoCollectionView, cellForItemAt: IndexPath(row: 0, section: 1))
+        let cell_2 = view.collectionView(view.todayTodoCollectionView, cellForItemAt: IndexPath(row: 1, section: 1))
+        let cell_3 = view.collectionView(view.todayTodoCollectionView, cellForItemAt: IndexPath(row: 2, section: 1))
+        guard let cell1 = cell_1 as? TodayTodoCollectionViewCell else { return }
+        guard let cell2 = cell_2 as? TodayTodoCollectionViewCell else { return }
+        guard let cell3 = cell_3 as? TodayTodoCollectionViewCell else { return }
+        
+        XCTContext.runActivity(named: "writeMessageButtonのisHiddenはfalseである") { _ in
+            XCTAssertFalse(cell1.writeMessageButton.isHidden)
+            XCTAssertFalse(cell2.writeMessageButton.isHidden)
+            XCTAssertTrue(cell3.writeMessageButton.isHidden) // 3つ目のcellのisFinishedはfalseなのでwriteMessageButtonは表示されない
+            
+            XCTAssertEqual(cell1.radioButton.imageView?.image, self.checkmarkFillImage)
+            XCTAssertEqual(cell2.radioButton.imageView?.image, self.checkmarkFillImage)
+            XCTAssertEqual(cell3.radioButton.imageView?.image, self.checkmarkNotFillImage)
+        }
+        
+        XCTContext.runActivity(named: "writeMessageButtonとradioButtonに正しい画像がセットされている") { _ in
+            XCTAssertEqual(cell1.writeMessageButton.imageView?.image, self.pencilNotFillImage)
+            XCTAssertEqual(cell2.writeMessageButton.imageView?.image, self.pencilFillImage) // この子だけすでにmessage登録されてるからfillImage
+            XCTAssertEqual(cell3.writeMessageButton.imageView?.image, self.pencilNotFillImage)
             
             XCTAssertEqual(cell1.radioButton.imageView?.image, self.checkmarkFillImage)
             XCTAssertEqual(cell2.radioButton.imageView?.image, self.checkmarkFillImage)

@@ -12,6 +12,9 @@ import XCTest
 class TodayTodoViewTests: XCTestCase {
     var view: TodayTodoViewController!
     
+    private let checkmarkNotFillImage = UIImage(systemName: "checkmark.circle")
+    private let checkmarkFillImage = UIImage(systemName: "checkmark.circle.fill")
+    
     override func setUpWithError() throws {
         view = R.storyboard.todayTodo().instantiateInitialViewController() as? TodayTodoViewController
         guard view != nil else { return }
@@ -59,7 +62,7 @@ class TodayTodoViewTests: XCTestCase {
         }
     }
     
-    func test_起動時のCellの値が正しいこと() {
+    func test_起動時のCellの値が正しいこと_サブスク登録している場合() {
         let presenter = TodayTodoViewPresenter(model: TodayTodoModelMock())
         view.inject(with: presenter)
         view.loadViewIfNeeded()
@@ -73,6 +76,7 @@ class TodayTodoViewTests: XCTestCase {
         guard let cell2 = cell_2 as? TodayTodoCollectionViewCell else { return }
         guard let cell3 = cell_3 as? TodayTodoCollectionViewCell else { return }
         
+        // NOTE:- サブスク登録して`いる`ことに注意して`writeMessageButton.isHidden`をAssertする
         XCTContext.runActivity(named: "1つ目のcellの情報が正しいこと") { _ in
             XCTAssertEqual(cell1.groupNameLabel.text, R.string.localizable.group_Colon() + "Apple")
             XCTAssertEqual(cell1.taskLabel.text, "Pie")
@@ -84,6 +88,45 @@ class TodayTodoViewTests: XCTestCase {
             XCTAssertEqual(cell2.taskLabel.text, "Juice")
             XCTAssertNil(cell2.groupImageView.image)
             XCTAssertFalse(cell2.writeMessageButton.isHidden)
+        }
+        XCTContext.runActivity(named: "3つ目のcellの情報が正しいこと") { _ in
+            XCTAssertEqual(cell3.groupNameLabel.text, R.string.localizable.group_Colon() + "Grape")
+            XCTAssertEqual(cell3.taskLabel.text, "Jelly")
+            XCTAssertNil(cell3.groupImageView.image)
+            XCTAssertTrue(cell3.writeMessageButton.isHidden)
+        }
+    }
+    
+    func test_起動時のCellの値が正しいこと_サブスク登録していない場合() {
+        let model = TodayTodoModelMock()
+        let presenter = TodayTodoViewPresenter(model: model)
+        view.inject(with: presenter)
+        view.loadViewIfNeeded()
+        view.view.layoutIfNeeded()
+        
+        // サブスクをfalseにする
+        model.changeUserSubscribedIsFalse()
+
+        let cell_1 = view.collectionView(view.todayTodoCollectionView, cellForItemAt: IndexPath(row: 0, section: 1))
+        let cell_2 = view.collectionView(view.todayTodoCollectionView, cellForItemAt: IndexPath(row: 1, section: 1))
+        let cell_3 = view.collectionView(view.todayTodoCollectionView, cellForItemAt: IndexPath(row: 2, section: 1))
+        
+        guard let cell1 = cell_1 as? TodayTodoCollectionViewCell else { return }
+        guard let cell2 = cell_2 as? TodayTodoCollectionViewCell else { return }
+        guard let cell3 = cell_3 as? TodayTodoCollectionViewCell else { return }
+        
+        // NOTE:- サブスク登録して`いない`ことに注意して`writeMessageButton.isHidden`をAssertする
+        XCTContext.runActivity(named: "1つ目のcellの情報が正しいこと") { _ in
+            XCTAssertEqual(cell1.groupNameLabel.text, R.string.localizable.group_Colon() + "Apple")
+            XCTAssertEqual(cell1.taskLabel.text, "Pie")
+            XCTAssertNil(cell1.groupImageView.image)
+            XCTAssertTrue(cell1.writeMessageButton.isHidden)
+        }
+        XCTContext.runActivity(named: "2つ目のcellの情報が正しいこと") { _ in
+            XCTAssertEqual(cell2.groupNameLabel.text, R.string.localizable.group_Colon() + "Banana")
+            XCTAssertEqual(cell2.taskLabel.text, "Juice")
+            XCTAssertNil(cell2.groupImageView.image)
+            XCTAssertTrue(cell2.writeMessageButton.isHidden)
         }
         XCTContext.runActivity(named: "3つ目のcellの情報が正しいこと") { _ in
             XCTAssertEqual(cell3.groupNameLabel.text, R.string.localizable.group_Colon() + "Grape")
@@ -248,6 +291,36 @@ class TodayTodoViewTests: XCTestCase {
             XCTAssertFalse(presenter.todos[1].isFinished)
             XCTAssertTrue(cell2.writeMessageButton.isHidden)
             XCTAssertEqual(presenter.todos[1].message, nil)
+        }
+    }
+    
+    func test_サブスク登録してない場合はradioButtonを押してTodo完了させてもwriteMessageButtonが表示されないこと() {
+        let model = TodayTodoModelMock()
+        let presenter = TodayTodoViewPresenter(model: model)
+        view.inject(with: presenter)
+        view.loadViewIfNeeded()
+        view.view.layoutIfNeeded()
+        
+        model.changeUserSubscribedIsFalse()
+        
+        presenter.didTapRadioButton(index: 0)
+        // cell1.isFinished = true, cell1.isFinished = true, cell3.isFinished = false
+        
+        let cell_1 = view.collectionView(view.todayTodoCollectionView, cellForItemAt: IndexPath(row: 0, section: 1))
+        let cell_2 = view.collectionView(view.todayTodoCollectionView, cellForItemAt: IndexPath(row: 1, section: 1))
+        let cell_3 = view.collectionView(view.todayTodoCollectionView, cellForItemAt: IndexPath(row: 2, section: 1))
+        guard let cell1 = cell_1 as? TodayTodoCollectionViewCell else { return }
+        guard let cell2 = cell_2 as? TodayTodoCollectionViewCell else { return }
+        guard let cell3 = cell_3 as? TodayTodoCollectionViewCell else { return }
+        
+        XCTContext.runActivity(named: "writeMessageButtonのisHiddenはtrueである") { _ in
+            XCTAssertTrue(cell1.writeMessageButton.isHidden)
+            XCTAssertTrue(cell2.writeMessageButton.isHidden)
+            XCTAssertTrue(cell3.writeMessageButton.isHidden)
+            
+            XCTAssertEqual(cell1.radioButton.imageView?.image, self.checkmarkFillImage)
+            XCTAssertEqual(cell2.radioButton.imageView?.image, self.checkmarkFillImage)
+            XCTAssertEqual(cell3.radioButton.imageView?.image, self.checkmarkNotFillImage)
         }
     }
     

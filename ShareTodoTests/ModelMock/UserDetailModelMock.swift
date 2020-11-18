@@ -15,15 +15,22 @@ class UserDetailModelMock: UserDetailModelProtocol {
     var group: Group = Group(groupID: "group1", name: "Apple", task: "Pie", members: ["user1", "user2"], profileImageURL: nil, createdAt: nil)
     var user: User = User(id: "user1", name: "Joe", profileImageURL: nil, fcmToken: nil, thumbnailImageURL: nil, biography: nil)
     var todos: [Todo] = Array()
+    var isUserSubscribed: Bool = false
     let dateFormatter = DateFormatter()
     
     init() {
         self.setupDataFormatter()
+        self.setupNotificationCenter()
     }
     
     func setupDataFormatter() {
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "yyyy/MM/dd"
+    }
+    
+    private func setupNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(startSubscribed), name: .startSubscribedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(endSubscribed), name: .endSubscribedNotification, object: nil)
     }
     
     func fetchTodoList() {
@@ -85,6 +92,20 @@ class UserDetailModelMock: UserDetailModelProtocol {
         }
         
         return groupCreatedDate
+    }
+    
+    // サブスクはtrueに設定する。もしfalseにしたければ関数`changeUserSubscribedIsFalse()`を呼ぶ
+    func checkingIfAUserSubscribed() {
+        self.isUserSubscribed = true
+        self.presenter.userSubscribed()
+    }
+    
+    @objc func startSubscribed() {
+        self.presenter.userStartSubscribed()
+    }
+    
+    @objc func endSubscribed() {
+        self.presenter.userEndSubscribed()
     }
     
 }

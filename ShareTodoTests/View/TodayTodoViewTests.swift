@@ -86,6 +86,7 @@ class TodayTodoViewTests: XCTestCase {
             XCTAssertNil(cell1.groupImageView.image)
             XCTAssertTrue(cell1.writeMessageButton.isHidden)
             XCTAssertEqual(cell1.radioButton.imageView?.image, self.checkmarkNotFillImage)
+            XCTAssertEqual(cell1.writeMessageButton.imageView?.image, self.pencilNotFillImage)
         }
         XCTContext.runActivity(named: "2つ目のcellの情報が正しいこと") { _ in
             XCTAssertEqual(cell2.groupNameLabel.text, R.string.localizable.group_Colon() + "Banana")
@@ -93,6 +94,7 @@ class TodayTodoViewTests: XCTestCase {
             XCTAssertNil(cell2.groupImageView.image)
             XCTAssertFalse(cell2.writeMessageButton.isHidden)
             XCTAssertEqual(cell2.radioButton.imageView?.image, self.checkmarkFillImage)
+            XCTAssertEqual(cell2.writeMessageButton.imageView?.image, self.pencilFillImage)
         }
         XCTContext.runActivity(named: "3つ目のcellの情報が正しいこと") { _ in
             XCTAssertEqual(cell3.groupNameLabel.text, R.string.localizable.group_Colon() + "Grape")
@@ -100,6 +102,7 @@ class TodayTodoViewTests: XCTestCase {
             XCTAssertNil(cell3.groupImageView.image)
             XCTAssertTrue(cell3.writeMessageButton.isHidden)
             XCTAssertEqual(cell3.radioButton.imageView?.image, self.checkmarkNotFillImage)
+            XCTAssertEqual(cell3.writeMessageButton.imageView?.image, self.pencilNotFillImage)
         }
     }
     
@@ -165,9 +168,11 @@ class TodayTodoViewTests: XCTestCase {
         XCTContext.runActivity(named: "1つ目のwriteMessageButtonが表示されているかどうか") { _ in
             XCTAssertFalse(cell1.writeMessageButton.isHidden)
         }
-        
         XCTContext.runActivity(named: "1つ目のcellのradioButtonがcheckmarkFillになってるかどうか") { _ in
             XCTAssertEqual(cell1.radioButton.imageView?.image, self.checkmarkFillImage)
+        }
+        XCTContext.runActivity(named: "1つ目のcellのwriteMessageButtonがpenceilNotFillであるかどうか") { _ in
+            XCTAssertEqual(cell1.writeMessageButton.imageView?.image, self.pencilNotFillImage)
         }
     }
     
@@ -247,6 +252,7 @@ class TodayTodoViewTests: XCTestCase {
             XCTAssertTrue(presenter.isWrittenMessage(index: 1))
             XCTAssertFalse(cell1.writeMessageButton.isHidden)
             XCTAssertEqual(cell1.radioButton.imageView?.image, self.checkmarkFillImage)
+            XCTAssertEqual(cell1.writeMessageButton.imageView?.image, self.pencilFillImage)
             XCTAssertEqual(presenter.todos[0].message, "nil to i am apple!")
         }
     }
@@ -267,6 +273,7 @@ class TodayTodoViewTests: XCTestCase {
             XCTAssertTrue(presenter.isWrittenMessage(index: 1))
             XCTAssertFalse(cell2.writeMessageButton.isHidden)
             XCTAssertEqual(cell2.radioButton.imageView?.image, self.checkmarkFillImage)
+            XCTAssertEqual(cell2.writeMessageButton.imageView?.image, self.pencilFillImage)
             XCTAssertEqual(presenter.todos[1].message, "Hello World to My World")
         }
     }
@@ -287,6 +294,7 @@ class TodayTodoViewTests: XCTestCase {
             XCTAssertTrue(presenter.todos[1].isFinished)
             XCTAssertFalse(cell2.writeMessageButton.isHidden)
             XCTAssertEqual(cell2.radioButton.imageView?.image, self.checkmarkFillImage)
+            XCTAssertEqual(cell2.writeMessageButton.imageView?.image, self.pencilNotFillImage)
             XCTAssertEqual(presenter.todos[1].message, nil)
         }
     }
@@ -307,6 +315,7 @@ class TodayTodoViewTests: XCTestCase {
             XCTAssertFalse(presenter.todos[1].isFinished)
             XCTAssertTrue(cell2.writeMessageButton.isHidden)
             XCTAssertEqual(cell2.radioButton.imageView?.image, self.checkmarkNotFillImage)
+            XCTAssertEqual(cell2.writeMessageButton.imageView?.image, self.pencilNotFillImage)
             XCTAssertEqual(presenter.todos[1].message, nil)
         }
     }

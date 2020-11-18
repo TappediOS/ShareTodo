@@ -9,6 +9,8 @@
 import XCTest
 @testable import ShareTodo
 
+// swiftlint:disable type_body_length
+// swiftlint:disable file_length
 class TodayTodoViewTests: XCTestCase {
     var view: TodayTodoViewController!
     
@@ -433,3 +435,5 @@ class TodayTodoViewTests: XCTestCase {
     }
 
 }
+// swiftlint:enable type_body_length
+// swiftlint:enable file_length

@@ -31,6 +31,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Purchases.configure(withAPIKey: R.string.sharedString.revenueCatShareTodoPublicSDKKey())
         Purchases.shared.delegate = self
         
+        // ログイン状態が変化するたびに呼び出され，revenueCatにIDを登録する
+        Auth.auth().addStateDidChangeListener { (_, user) in
+            guard let uid = user?.uid else { return }
+            Purchases.shared.identify(uid, { (_, error) in
+                if let error = error {
+                    print("Error: \(error.localizedDescription)")
+                    return
+                }
+                
+                print("User \(uid) signed in")
+            })
+        }
+        
         UNUserNotificationCenter.current().delegate = self
         Messaging.messaging().delegate = self
         
@@ -52,7 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate: PurchasesDelegate {
-    func purchases(_ purchases: Purchases, didReceiveUpdated purchaserInfo: Purchases.PurchaserInfo) {        
+    func purchases(_ purchases: Purchases, didReceiveUpdated purchaserInfo: Purchases.PurchaserInfo) {
         guard let entitlemant = purchaserInfo.entitlements[R.string.sharedString.revenueCatShareTodoEntitlementsID()] else {
             print("entitlement is nil")
             return

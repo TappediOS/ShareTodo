@@ -30,7 +30,7 @@ final class RegisterUserModel: RegisterUserModelProtocol {
     }
     
     func registerUser(userName: String, profileImageData: Data) {
-        Auth.auth().signInAnonymously() { (authResult, error) in
+        Auth.auth().signInAnonymously { (authResult, error) in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
                 return
@@ -63,7 +63,7 @@ final class RegisterUserModel: RegisterUserModelProtocol {
         let storage = Storage.storage()
         let profileImagesRef = storage.reference().child("userProfileImage/" + uid + ".png")
         
-        _ = profileImagesRef.putData(imageData as Data, metadata: nil) { (metadata, error) in
+        _ = profileImagesRef.putData(imageData as Data, metadata: nil) { (_, error) in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
                 return

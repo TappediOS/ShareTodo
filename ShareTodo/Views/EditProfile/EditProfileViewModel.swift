@@ -49,7 +49,7 @@ final class EditProfileModel: EditProfileModelProtocol {
         let storage = Storage.storage()
         let profileImagesRef = storage.reference().child("userProfileImage/" + uid + ".png")
         
-        _ = profileImagesRef.putData(imageData as Data, metadata: nil) { (metadata, error) in
+        _ = profileImagesRef.putData(imageData as Data, metadata: nil) { (_, error) in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
                 return

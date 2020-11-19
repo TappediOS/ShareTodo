@@ -121,6 +121,7 @@ final class UserDetailModel: UserDetailModelProtocol {
         return list.contains(self.dateFormatter.string(from: date))
     }
     
+    //swiftlint:disable:next large_tuple
     func calculateForNavigationImage(height: Double) -> (scale: Double, xTranslation: Double, yTranslation: Double) {
         let coeff: Double = {
             let delta = height - Double(NavigationImageConst.NavBarHeightSmallState)

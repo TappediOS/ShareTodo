@@ -65,7 +65,7 @@
 "Message_colon" = "メッセージ: ";
 
 // UserDetailVC
-"Introduction"            = "シェアTodo プラスのご紹介";
+"Introduction"            = "「シェアTodo プラス」のご紹介";
 "IntroductionDescription" = "1週間より過去のタスクを確認したい方に";
 
 // IntroductionVC

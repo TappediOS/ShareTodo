@@ -65,7 +65,7 @@
 "Message_colon" = "Message: ";
 
 // UserDetailVC
-"Introduction"            = "Introducing ShareTodo Plus";
+"Introduction"            = "Introducing \"ShareTodo Plus\"";
 "IntroductionDescription" = "For those who want to check past tasks from one week";
 
 // IntroductionVC

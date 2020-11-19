@@ -120,7 +120,7 @@ final class UserDetailViewController: UIViewController {
     
     func setupIntroductionButton() {
         self.introductionButton.setTitle(R.string.localizable.introduction(), for: .normal)
-        self.introductionButton.backgroundColor = .systemBlue
+        self.introductionButton.backgroundColor = .systemGreen
         self.introductionButton.tintColor = .white
         self.introductionButton.layer.cornerRadius = 8
         self.introductionButton.layer.masksToBounds = true

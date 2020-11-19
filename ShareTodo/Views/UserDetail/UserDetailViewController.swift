@@ -119,12 +119,13 @@ final class UserDetailViewController: UIViewController {
     }
     
     func setupIntroductionButton() {
-        //TODO:- Stringを切り分けること
         self.introductionButton.setTitle(R.string.localizable.introduction(), for: .normal)
         self.introductionButton.backgroundColor = .systemBlue
         self.introductionButton.tintColor = .white
         self.introductionButton.layer.cornerRadius = 8
         self.introductionButton.layer.masksToBounds = true
+        self.introductionButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        self.introductionButton.titleLabel?.minimumScaleFactor = 0.4
     }
     
     func setupActivityIndicator() {

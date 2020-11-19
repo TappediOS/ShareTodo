@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Purchases
 
 final class IntroductionShareTodoPlusViewController: UIViewController {
     private var presenter: IntroductionShareTodoPlusViewPresenterProtocol!
@@ -21,7 +22,9 @@ final class IntroductionShareTodoPlusViewController: UIViewController {
     @IBOutlet weak var checkPastDescriptionLabel: UILabel!
     @IBOutlet weak var addMessageLabel: UILabel!
     @IBOutlet weak var addMessageDescrioptionLabel: UILabel!
-    @IBOutlet weak var applySubscriptionButton: UIButton!
+    @IBOutlet weak var applyMonthSubscriptionButton: UIButton!
+    @IBOutlet weak var applyAnnualSubscrioptionButton: UIButton!
+    @IBOutlet weak var goodValueLabel: UILabel!
     @IBOutlet weak var subscriptionNotesLabel: UILabel!
     
     var activityIndicator = UIActivityIndicatorView()
@@ -32,9 +35,7 @@ final class IntroductionShareTodoPlusViewController: UIViewController {
         self.setupView()
         self.setupScrollView()
         self.setupNavigationBar()
-        
-        self.setupApplySubscriptionButton()
-        
+                
         self.setupLabelText()
         self.setupLabelInfomation(premiumFeatureLabel)
         self.setupLabelInfomation(noAdsImageLabel)
@@ -46,10 +47,12 @@ final class IntroductionShareTodoPlusViewController: UIViewController {
         self.setupLabelInfomation(checkPastDescriptionLabel)
         self.setupLabelInfomation(addMessageLabel)
         self.setupLabelInfomation(addMessageDescrioptionLabel)
+        self.setupLabelInfomation(goodValueLabel)
         self.setupLabelInfomation(subscriptionNotesLabel)
         
         self.setupActivityIndicator()
         
+        self.presenter.didViewDidLoad()
     }
     
     func setupView() {
@@ -61,15 +64,9 @@ final class IntroductionShareTodoPlusViewController: UIViewController {
     }
     
     func setupNavigationBar() {
-        //TODO:- ローカライズ
-        self.navigationItem.title = "ShareTodo Plus"
+        self.navigationItem.title = R.string.localizable.shareTodoPlus()
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.tintColor = .systemGreen
-    }
-    
-    func setupApplySubscriptionButton() {
-        //TODO:- ローカライズすること
-        self.applySubscriptionButton.setTitle("¥300/月で申し込む", for: .normal)
     }
     
     func setupLabelInfomation(_ label: UILabel) {
@@ -88,14 +85,25 @@ final class IntroductionShareTodoPlusViewController: UIViewController {
         checkPastDescriptionLabel.text   = R.string.localizable.checkPastTasksDescription()
         addMessageLabel.text             = R.string.localizable.addMessageToTaskExMark()
         addMessageDescrioptionLabel.text = R.string.localizable.addMessageToTaskDescription()
+        goodValueLabel.text              = R.string.localizable.goodValue()
         subscriptionNotesLabel.text      = R.string.localizable.explanationOfSubscriptionNotes()
     }
     
     func setupActivityIndicator() {
-        self.activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         self.activityIndicator.center = self.view.center
+        self.activityIndicator.style = .large
         self.activityIndicator.hidesWhenStopped = true
         self.view.addSubview(self.activityIndicator)
+    }
+    
+    
+    
+    @IBAction func tapApplyAMonthSubscriptionButton(_ sender: Any) {
+        self.presenter.didTapApplyAMonthSubscriptionButton()
+    }
+    
+    @IBAction func tapApplyAnnualSubscriptionButton(_ sender: Any) {
+        self.presenter.didTapApplyAYearSubscriptionButton()
     }
     
     func inject(with presenter: IntroductionShareTodoPlusViewPresenterProtocol) {
@@ -111,5 +119,19 @@ extension IntroductionShareTodoPlusViewController: IntroductionShareTodoPlusView
     
     func stopActivityIndicator() {
         DispatchQueue.main.async { self.activityIndicator.stopAnimating() }
+    }
+    
+    func popIntroductionVC() {
+        DispatchQueue.main.async { self.navigationController?.popViewController(animated: true) }
+    }
+    
+    func setMonthApplySubsctiontionButtonTitle(price: String) {
+        let title = R.string.localizable.applyAtN(price, R.string.localizable.slash_Month())
+        DispatchQueue.main.async { self.applyMonthSubscriptionButton.setTitle(title, for: .normal) }
+    }
+    
+    func setAnnualApplySubsctiontionButtonTitle(price: String) {
+        let title = R.string.localizable.applyAtN(price, R.string.localizable.slash_Year())
+        DispatchQueue.main.async { self.applyAnnualSubscrioptionButton.setTitle(title, for: .normal) }
     }
 }

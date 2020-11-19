@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseMessaging
 import UserNotifications
+import Purchases
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +25,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window = UIWindow(frame: UIScreen.main.bounds)
             window?.rootViewController = Routes.decideRootViewController()
             window?.makeKeyAndVisible()
+        }
+        
+        Purchases.debugLogsEnabled = true
+        Purchases.configure(withAPIKey: R.string.sharedString.revenueCatShareTodoPublicSDKKey())
+        Purchases.shared.delegate = self
+        
+        // ログイン状態が変化するたびに呼び出され，revenueCatにIDを登録する
+        Auth.auth().addStateDidChangeListener { (_, user) in
+            guard let uid = user?.uid else { return }
+            Purchases.shared.identify(uid, { (_, error) in
+                if let error = error {
+                    print("Error: \(error.localizedDescription)")
+                    return
+                }
+                
+                print("User \(uid) signed in")
+            })
         }
         
         UNUserNotificationCenter.current().delegate = self
@@ -43,6 +61,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    }
+}
+
+extension AppDelegate: PurchasesDelegate {
+    func purchases(_ purchases: Purchases, didReceiveUpdated purchaserInfo: Purchases.PurchaserInfo) {
+        guard let entitlemant = purchaserInfo.entitlements[R.string.sharedString.revenueCatShareTodoEntitlementsID()] else {
+            print("entitlement is nil")
+            return
+        }
+        
+        if entitlemant.isActive == true {
+            NotificationCenter.default.post(name: .startSubscribedNotification, object: nil)
+        } else {
+            NotificationCenter.default.post(name: .endSubscribedNotification, object: nil)
+        }
     }
 }
 

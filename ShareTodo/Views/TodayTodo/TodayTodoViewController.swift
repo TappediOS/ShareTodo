@@ -30,6 +30,11 @@ final class TodayTodoViewController: UIViewController {
         self.presenter.didViewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.presenter.didViewWillAppear()
+    }
+    
     func setupView() {
         self.view.backgroundColor = .secondarySystemBackground
     }
@@ -58,8 +63,8 @@ final class TodayTodoViewController: UIViewController {
     }
     
     func setupActivityIndicator() {
-        self.activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         self.activityIndicator.center = self.view.center
+        self.activityIndicator.style = .large
         self.activityIndicator.hidesWhenStopped = true
         self.view.addSubview(self.activityIndicator)
     }
@@ -127,7 +132,8 @@ extension TodayTodoViewController: UICollectionViewDelegate, UICollectionViewDat
         
         let isFinished = self.presenter.isFinishedTodo(index: indexPath.item)
         let isWrittenMessage = self.presenter.isWrittenMessage(index: indexPath.item)
-        cell.configure(with: self.presenter.groups[indexPath.item], isFinished: isFinished, isWrittenMessage: isWrittenMessage)
+        let isSubscribed = self.presenter.isUserSubscribed
+        cell.configure(with: self.presenter.groups[indexPath.item], isFinished: isFinished, isWrittenMessage: isWrittenMessage, isSubscribed: isSubscribed)
         
         cell.radioButtonAction = { [weak self] in
             guard let self = self else { return }

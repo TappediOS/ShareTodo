@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pKt-hv-Ith">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pKt-hv-Ith">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="2500"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="O00-yI-NZd">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1749"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1863"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qir-aM-Mxl">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="37"/>
@@ -328,17 +328,24 @@
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="220" id="sSF-fb-oAf"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rum-qF-RiB">
+                                                <rect key="frame" x="0.0" y="1297" width="414" height="16"/>
+                                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="16" id="lar-ss-fvT"/>
+                                                </constraints>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hLW-ra-xZG">
-                                                <rect key="frame" x="0.0" y="1297" width="414" height="88"/>
+                                                <rect key="frame" x="0.0" y="1315" width="414" height="72"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pY1-FT-v9G">
-                                                        <rect key="frame" x="16" y="16" width="382" height="56"/>
+                                                        <rect key="frame" x="16" y="8" width="382" height="56"/>
                                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="yDb-p3-Jf9"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                        <state key="normal" title="¥300/月で申し込む">
+                                                        <state key="normal" title="¥280/月で申し込む">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
@@ -346,22 +353,68 @@
                                                                 <integer key="value" value="8"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="tapApplyAMonthSubscriptionButton:" destination="pKt-hv-Ith" eventType="touchUpInside" id="z8D-Fr-1rA"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstItem="pY1-FT-v9G" firstAttribute="centerY" secondItem="hLW-ra-xZG" secondAttribute="centerY" id="BMx-eR-f9r"/>
-                                                    <constraint firstAttribute="height" constant="88" id="JDz-hE-99s"/>
+                                                    <constraint firstAttribute="height" constant="72" id="JDz-hE-99s"/>
                                                     <constraint firstItem="pY1-FT-v9G" firstAttribute="leading" secondItem="hLW-ra-xZG" secondAttribute="leading" constant="16" id="RhQ-3Z-ZTg"/>
                                                     <constraint firstAttribute="trailing" secondItem="pY1-FT-v9G" secondAttribute="trailing" constant="16" id="y4v-pN-gLL"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pYr-zW-5Tn">
+                                                <rect key="frame" x="0.0" y="1389" width="414" height="110"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJ9-Ui-VPb">
+                                                        <rect key="frame" x="16" y="8" width="382" height="56"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="56" id="zQY-7x-EkI"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                        <state key="normal" title="¥2700/月で申し込む">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="tapApplyAnnualSubscriptionButton:" destination="pKt-hv-Ith" eventType="touchUpInside" id="NoE-Ue-jXJ"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="約2ヶ月分お得！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SbE-aq-tH0">
+                                                        <rect key="frame" x="16" y="72" width="382" height="21"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="21" id="fWA-Fc-eXr"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="cJ9-Ui-VPb" firstAttribute="leading" secondItem="pYr-zW-5Tn" secondAttribute="leading" constant="16" id="7cB-YQ-b69"/>
+                                                    <constraint firstAttribute="trailing" secondItem="SbE-aq-tH0" secondAttribute="trailing" constant="16" id="cBg-VK-s6n"/>
+                                                    <constraint firstItem="SbE-aq-tH0" firstAttribute="leading" secondItem="pYr-zW-5Tn" secondAttribute="leading" constant="16" id="dBM-Ji-4I8"/>
+                                                    <constraint firstItem="cJ9-Ui-VPb" firstAttribute="top" secondItem="pYr-zW-5Tn" secondAttribute="top" constant="8" id="i8K-Ga-dif"/>
+                                                    <constraint firstAttribute="height" constant="110" id="kiX-2t-bq1"/>
+                                                    <constraint firstAttribute="trailing" secondItem="cJ9-Ui-VPb" secondAttribute="trailing" constant="16" id="rtB-jJ-sTa"/>
+                                                    <constraint firstItem="SbE-aq-tH0" firstAttribute="top" secondItem="cJ9-Ui-VPb" secondAttribute="bottom" constant="8" symbolic="YES" id="shr-Ci-0Hu"/>
+                                                </constraints>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UYF-pU-sG7">
-                                                <rect key="frame" x="0.0" y="1387" width="414" height="300"/>
+                                                <rect key="frame" x="0.0" y="1501" width="414" height="300"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghQ-dP-ZeB">
                                                         <rect key="frame" x="8" y="8" width="398" height="284"/>
-                                                        <mutableString key="text" base64-UTF8="YES">
+                                                        <string key="text" base64-UTF8="YES">
 44O744GK55Sz6L685pel44GL44KJMeODtuaciOW+jOOBq+iHquWLleWPjeaYoOOBleOCjOOBvuOBmeOA
 ggoK44O76Ieq5YuV57aZ57aa6Kqy6YeR44Gv5pyf6ZaT44Gu5pyf6ZmQ44GM5YiH44KM44KLMjTmmYLp
 lpPku6XkuIrliY3jgavoh6rli5Xmm7TmlrDjgpLjgqrjg5XjgavjgZfjgarjgZHjgozjgbDvvIzoh6rl
@@ -375,7 +428,7 @@ s+OCu+ODq+OCkuOBmeOCi+OBqOOBlOWIqeeUqOS4reOBruWlkee0hOacn+mWk+e1guS6huOCkuOCguOB
 o+OBpuWumuacn+izvOiqreOBr+e1guS6huOBl+abtOaWsOOBr+ihjOOCj+OCjOOBquOBj+OBquOCiuOB
 vuOBmeOAggoK44O744OX44Op44Kk44OQ44K344O844Od44Oq44K344O8CuOAgGh0dHBzOi8vZXhhbXBs
 ZS5jb20KCuODu+WIqeeUqOimj+e0hArjgIBodHRwczovL2V4YW1wbGUuY29tA
-</mutableString>
+</string>
                                                         <fontDescription key="fontDescription" name="HiraginoSans-W2" family="Hiragino Sans" pointSize="12"/>
                                                         <color key="textColor" systemColor="placeholderTextColor"/>
                                                         <nil key="highlightedColor"/>
@@ -391,7 +444,7 @@ ZS5jb20KCuODu+WIqeeUqOimj+e0hArjgIBodHRwczovL2V4YW1wbGUuY29tA
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N0U-BU-jsO">
-                                                <rect key="frame" x="0.0" y="1689" width="414" height="60"/>
+                                                <rect key="frame" x="0.0" y="1803" width="414" height="60"/>
                                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="EIJ-O6-bvw"/>
@@ -423,10 +476,12 @@ ZS5jb20KCuODu+WIqeeUqOimj+e0hArjgIBodHRwczovL2V4YW1wbGUuY29tA
                         <outlet property="addMessageDescrioptionLabel" destination="N2o-Kc-gq9" id="FDx-6t-aGT"/>
                         <outlet property="addMessageImageLabel" destination="OPD-nP-Xvm" id="WP9-Sx-laH"/>
                         <outlet property="addMessageLabel" destination="pcU-gx-mNW" id="04l-oc-P2h"/>
-                        <outlet property="applySubscriptionButton" destination="pY1-FT-v9G" id="tuT-ZK-5EV"/>
+                        <outlet property="applyAnnualSubscrioptionButton" destination="cJ9-Ui-VPb" id="30F-Ng-1eW"/>
+                        <outlet property="applyMonthSubscriptionButton" destination="pY1-FT-v9G" id="tuT-ZK-5EV"/>
                         <outlet property="checkPastDescriptionLabel" destination="Xek-nm-o6c" id="dZT-rz-sDO"/>
                         <outlet property="checkPastImageLabel" destination="OkL-wT-aMy" id="cnP-EE-1Ou"/>
                         <outlet property="checkPastLabel" destination="Obd-Ox-tvz" id="ERN-el-71O"/>
+                        <outlet property="goodValueLabel" destination="SbE-aq-tH0" id="ctV-pc-WfP"/>
                         <outlet property="noAdsDescriptionLabel" destination="s52-R3-GOS" id="5mX-5C-KJH"/>
                         <outlet property="noAdsImageLabel" destination="Y2H-Sk-c5W" id="OED-IO-ShE"/>
                         <outlet property="noAdsLabel" destination="hWi-Jt-ZQw" id="MdT-Wq-bd1"/>

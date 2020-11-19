@@ -13,6 +13,16 @@ class TodayTodoModelMock: TodayTodoModelProtocol {
     var presenter: TodayTodoModelOutput!
     var groups: [Group] = Array()
     var todos: [Todo] = Array()
+    var isUserSubscribed: Bool = false
+    
+    init() {
+        self.setupNotificationCenter()
+    }
+    
+    private func setupNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(startSubscribed), name: .startSubscribedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(endSubscribed), name: .endSubscribedNotification, object: nil)
+    }
     
     func fetchGroups() {
         let group1 = Group(groupID: "group1", name: "Apple", task: "Pie", members: ["user1", "user2"], profileImageURL: nil, createdAt: nil)
@@ -92,5 +102,23 @@ class TodayTodoModelMock: TodayTodoModelProtocol {
         guard let cancelMessageIndex = getFinishedTodoIndex(groupIndex: index) else { return }
         self.todos[cancelMessageIndex].message = nil
         self.presenter.successCancelMessage()
+    }
+    
+    // サブスクはtrueに設定する。もしfalseにしたければ関数`changeUserSubscribedIsFalse()`を呼ぶ
+    func checkingIfAUserSubscribed() {
+        self.isUserSubscribed = true
+        self.presenter.userSubscribed()
+    }
+    
+    public func changeUserSubscribedIsFalse() {
+        self.isUserSubscribed = false
+    }
+    
+    @objc func startSubscribed() {
+        self.presenter.userStartSubscribed()
+    }
+    
+    @objc func endSubscribed() {
+        self.presenter.userEndSubscribed()
     }
 }

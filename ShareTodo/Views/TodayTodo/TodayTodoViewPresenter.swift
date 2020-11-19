@@ -11,8 +11,10 @@ protocol TodayTodoViewPresenterProtocol {
     var numberOfGroups: Int { get }
     var groups: [Group] { get }
     var todos: [Todo] { get }
+    var isUserSubscribed: Bool { get }
     
     func didViewDidLoad()
+    func didViewWillAppear()
     func didTapRadioButton(index: Int)
     func didTapWriteMessageButtonAction(index: Int)
     func didAllowNotification()
@@ -37,17 +39,10 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
     weak var view: TodayTodoViewPresenterOutput!
     private var model: TodayTodoModelProtocol
     
-    var numberOfGroups: Int {
-        return self.model.groups.count
-    }
-    
-    var groups: [Group] {
-        return self.model.groups
-    }
-    
-    var todos: [Todo] {
-        return self.model.todos
-    }
+    var numberOfGroups: Int { return self.model.groups.count }
+    var groups: [Group] { return self.model.groups }
+    var todos: [Todo] { return self.model.todos }
+    var isUserSubscribed: Bool { return self.model.isUserSubscribed }
     
     init(model: TodayTodoModelProtocol) {
         self.model = model
@@ -58,6 +53,12 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
         if self.model.isFirstOpen() { self.view.showRequestAllowNotificationView() }
         self.view.startActivityIndicator()
         self.model.fetchGroups()
+        self.model.checkingIfAUserSubscribed()
+    }
+    
+    func didViewWillAppear() {
+        // viewWillAppearが呼ばれるときはsubscをcheckする
+        self.model.checkingIfAUserSubscribed()
     }
     
     func successFetchTodayTodo() {
@@ -117,5 +118,17 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
     
     func isWrittenMessage(index: Int) -> Bool {
         return self.model.isWrittenMessage(index: index)
+    }
+    
+    func userSubscribed() {
+        self.view.reloadTodayTodoCollectionView()
+    }
+    
+    func userStartSubscribed() {
+        self.model.checkingIfAUserSubscribed()
+    }
+    
+    func userEndSubscribed() {
+        self.view.reloadTodayTodoCollectionView()
     }
 }

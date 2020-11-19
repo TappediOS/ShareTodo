@@ -65,10 +65,11 @@
 "Message_colon" = "メッセージ: ";
 
 // UserDetailVC
-"Introduction"            = "ご紹介";
+"Introduction"            = "「シェアTodo プラス」のご紹介";
 "IntroductionDescription" = "1週間より過去のタスクを確認したい方に";
 
 // IntroductionVC
+"ShareTodo Plus" = "シェアTodo プラス";
 "Premium Features" = "プレミアム機能";
 "No Ads" = "広告なし";
 "Check Past Tasks" = "過去のタスクの確認";
@@ -79,8 +80,10 @@
 "Add Message To Task Ex Mark" = "タスクにメッセージを追加！";
 "Add Message To Task Description" = "タスク完了次にメッセージを追加できるようになります！\n\nメッセージはグループのユーザが確認できるので，ちょっとした一言を追加してメンバーに見てもらうことができます！";
 
-"Apply At N Month" = "/月で申し込む";
-
+"Good Value" = "2ヶ月分以上お得！";
+"Apply At N" = "%@%@で申し込む";
+"slash_Month" = "/月";
+"slash_Year" = "/年";
 
 //TODO:- Privacy Policyと利用規約のURLを添付すること
 "Explanation Of Subscription Notes" = "

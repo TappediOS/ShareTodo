@@ -13,8 +13,10 @@ protocol UserDetailViewPresenterProtocol {
     var group: Group { get }
     var user: User { get }
     var todoList: [Todo] { get }
+    var isUserSubscribed: Bool { get }
     
     func didViewDidLoad()
+    func didViewWillAppear()
     func didTapIntroductionButton()
     func didScrollViewDidScroll(height: Double)
     
@@ -44,6 +46,8 @@ final class UserDetailViewPresenter: UserDetailViewPresenterProtocol, UserDetail
     var user: User { return self.model.user }
     var todoList: [Todo] { return self.model.todos }
     
+    var isUserSubscribed: Bool { return self.model.isUserSubscribed }
+    
     init(model: UserDetailModelProtocol) {
         self.model = model
         self.model.presenter = self
@@ -51,11 +55,17 @@ final class UserDetailViewPresenter: UserDetailViewPresenterProtocol, UserDetail
     
     func didViewDidLoad() {
         self.model.fetchTodoList()
+        self.model.checkingIfAUserSubscribed()
         self.view.setGroupName()
         self.view.setGroupTask()
         if let profileImageURL = URL(string: self.user.profileImageURL ?? "") { self.view.setProfileImage(profileImageURL) }
         if let groupImageURL = URL(string: self.group.profileImageURL ?? "") { self.view.setGroupImage(groupImageURL) }
         
+    }
+    
+    func didViewWillAppear() {
+        // viewWillAppearが呼ばれるときはsubscをcheckする
+        self.model.checkingIfAUserSubscribed()
     }
     
     func didTapIntroductionButton() {
@@ -81,5 +91,17 @@ final class UserDetailViewPresenter: UserDetailViewPresenterProtocol, UserDetail
     
     func successFetchTodoList() {
         self.view.reloadCalenderView()
+    }
+    
+    func userSubscribed() {
+        self.view.reloadCalenderView()
+    }
+    
+    func userStartSubscribed() {
+        self.model.checkingIfAUserSubscribed()
+    }
+    
+    func userEndSubscribed() {
+        self.model.checkingIfAUserSubscribed()
     }
 }

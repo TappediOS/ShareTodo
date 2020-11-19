@@ -1,4 +1,5 @@
 
+github "revenuecat/purchases-ios" "3.7.3"
 github "TimOliver/TOCropViewController"
 github "vikmeup/SCLAlertView-Swift" "master"
 github "dzenbot/DZNEmptyDataSet"

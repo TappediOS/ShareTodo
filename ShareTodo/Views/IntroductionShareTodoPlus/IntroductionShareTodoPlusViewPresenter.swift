@@ -8,11 +8,20 @@
 
 protocol IntroductionShareTodoPlusViewPresenterProtocol {
     var view: IntroductionShareTodoPlusViewPresenterOutput! { get set }
+    
+    func didViewDidLoad()
+    func didTapApplyAMonthSubscriptionButton()
+    func didTapApplyAYearSubscriptionButton()
 }
 
 protocol IntroductionShareTodoPlusViewPresenterOutput: class {
     func startActivityIndicator()
     func stopActivityIndicator()
+    
+    func popIntroductionVC()
+    
+    func setMonthApplySubsctiontionButtonTitle(price: String)
+    func setAnnualApplySubsctiontionButtonTitle(price: String)
 }
 
 final class IntroductionShareTodoPlusViewPresenter: IntroductionShareTodoPlusViewPresenterProtocol, IntroductionShareTodoPlusModelOutput {
@@ -22,5 +31,46 @@ final class IntroductionShareTodoPlusViewPresenter: IntroductionShareTodoPlusVie
     init(model: IntroductionShareTodoPlusModelProtocol) {
         self.model = model
         self.model.presenter = self
+    }
+    
+    func didViewDidLoad() {
+        self.model.fetchAvailableProducts()
+    }
+    
+    func didTapApplyAMonthSubscriptionButton() {
+        self.view.startActivityIndicator()
+        self.model.makeMonthSubscriptionPurchase()
+    }
+    
+    func didTapApplyAYearSubscriptionButton() {
+        self.view.startActivityIndicator()
+        self.model.makeAnnualSubscriptioinPurhase()
+    }
+    
+    func successFetchMonthSubscriptionPrise(price: String) {
+        self.view.setMonthApplySubsctiontionButtonTitle(price: price)
+    }
+    
+    func successFetchAnnualSubscriptionPrise(price: String) {
+        self.view.setAnnualApplySubsctiontionButtonTitle(price: price)
+    }
+    
+    func successPurchaseMonthSubscription() {
+        self.view.stopActivityIndicator()
+        self.view.popIntroductionVC()
+    }
+    
+    func successPurchaseAnnualSubscription() {
+        self.view.stopActivityIndicator()
+        self.view.popIntroductionVC()
+    }
+    
+    
+    func successRestoreMonthSubscription() {
+        self.view.stopActivityIndicator()
+    }
+    
+    func successRestoreAnnualSubscription() {
+        self.view.stopActivityIndicator()
     }
 }

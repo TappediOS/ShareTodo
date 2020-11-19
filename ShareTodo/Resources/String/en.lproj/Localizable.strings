@@ -65,10 +65,11 @@
 "Message_colon" = "Message: ";
 
 // UserDetailVC
-"Introduction"            = "Introduction";
+"Introduction"            = "Introducing \"ShareTodo Plus\"";
 "IntroductionDescription" = "For those who want to check past tasks from one week";
 
 // IntroductionVC
+"ShareTodo Plus" = "ShareTodo Plus";
 "Premium Features" = "Premium features";
 "No Ads" = "No ads";
 "Check Past Tasks" = "Check past tasks";
@@ -79,7 +80,10 @@
 "Add Message To Task Ex Mark" = "Add message to task!";
 "Add Message To Task Description" = "Task complete Then you will be able to add messages!\n\nThe message can be viewed by the users of the group, so you can add a few words and let the members see it!";
 
-"Apply At N Month" = "Apply at $2. month";
+"Good Value" = "Save over 2 months' worth!";
+"Apply At N" = "Apply at %@%@";
+"slash_Month" = "/Month";
+"slash_Year" = "/Year";
 
 
 //TODO:- Privacy Policyと利用規約のURLを添付すること

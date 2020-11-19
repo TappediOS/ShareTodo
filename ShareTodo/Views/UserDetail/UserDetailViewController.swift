@@ -42,6 +42,12 @@ final class UserDetailViewController: UIViewController {
         self.presenter.didViewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.presenter.didViewWillAppear()
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.showNavigationImage(false)
@@ -113,17 +119,18 @@ final class UserDetailViewController: UIViewController {
     }
     
     func setupIntroductionButton() {
-        //TODO:- Stringを切り分けること
         self.introductionButton.setTitle(R.string.localizable.introduction(), for: .normal)
-        self.introductionButton.backgroundColor = .systemBlue
+        self.introductionButton.backgroundColor = .systemGreen
         self.introductionButton.tintColor = .white
         self.introductionButton.layer.cornerRadius = 8
         self.introductionButton.layer.masksToBounds = true
+        self.introductionButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        self.introductionButton.titleLabel?.minimumScaleFactor = 0.4
     }
     
     func setupActivityIndicator() {
-        self.activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         self.activityIndicator.center = self.view.center
+        self.activityIndicator.style = .large
         self.activityIndicator.hidesWhenStopped = true
         self.view.addSubview(self.activityIndicator)
     }
@@ -209,7 +216,7 @@ extension UserDetailViewController: FSCalendarDelegate, FSCalendarDataSource {
     
     func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
         guard calenderView.maximumDate >= date else { return nil } //最小の日(今日)以降はnil
-        guard calenderView.minimumDate <= date else { return nil } //最後の日和前はnil
+        guard calenderView.minimumDate <= date else { return nil } //最後の日よりも前はnil
         
         //今日から1週間までは記録をする
         if self.presenter.getTheDayIsAWeekAgo(date: date) {
@@ -219,7 +226,15 @@ extension UserDetailViewController: FSCalendarDelegate, FSCalendarDataSource {
             return UIImage(systemName: "xmark.seal.fill")?.withTintColor(.systemRed).withRenderingMode(.alwaysOriginal)
         }
         
-        //1週間より前はロック状態によって変化させる
+        // サブスクしてたら表示する
+        if self.presenter.isUserSubscribed {
+            if self.presenter.getContaintFinishedDate(date: date) {
+                return UIImage(systemName: "checkmark.seal.fill")?.withTintColor(.systemGreen).withRenderingMode(.alwaysOriginal)
+            }
+            return UIImage(systemName: "xmark.seal.fill")?.withTintColor(.systemRed).withRenderingMode(.alwaysOriginal)
+        }
+        
+        // Subscriptionしてない場合はロックする
         return UIImage(systemName: "lock.fill")?.withTintColor(.systemOrange).withRenderingMode(.alwaysOriginal)
     }
 }

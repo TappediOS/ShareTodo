@@ -29,6 +29,10 @@
 		BF3E0A2B254417A0002D04A0 /* FirebaseABTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3E0A222544179F002D04A0 /* FirebaseABTesting.framework */; };
 		BF3E0A2D254417A0002D04A0 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3E0A232544179F002D04A0 /* GoogleMobileAds.framework */; };
 		BF3E0A2F254417A0002D04A0 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3E0A242544179F002D04A0 /* GoogleToolboxForMac.framework */; };
+		BF4D2850255FBF5300A2493D /* Purchases.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF4D284F255FBF5300A2493D /* Purchases.framework */; };
+		BF4D2851255FBF5300A2493D /* Purchases.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF4D284F255FBF5300A2493D /* Purchases.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BF4D285B255FC8C500A2493D /* ExStoreKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D285A255FC8C500A2493D /* ExStoreKit.swift */; };
+		BF4D28772560EA6100A2493D /* ExNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D28762560EA6100A2493D /* ExNotificationCenter.swift */; };
 		BF5120F125441303003AC823 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BF5120F025441303003AC823 /* Settings.bundle */; };
 		BF5CB6B02501CD9100EA1024 /* GroupDetailCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5CB6AE2501CD9100EA1024 /* GroupDetailCollectionReusableView.swift */; };
 		BF5CB6B12501CD9100EA1024 /* GroupDetailCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5CB6AF2501CD9100EA1024 /* GroupDetailCollectionReusableView.xib */; };
@@ -215,6 +219,7 @@
 				BFD435D024CD2EBD00B2E580 /* CropViewController.framework in Embed Frameworks */,
 				BFD5DDF5251B0FE800E35F18 /* FSCalendar.framework in Embed Frameworks */,
 				BFD435FA24CD425C00B2E580 /* SCLAlertView.framework in Embed Frameworks */,
+				BF4D2851255FBF5300A2493D /* Purchases.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,6 +254,9 @@
 		BF3E0A222544179F002D04A0 /* FirebaseABTesting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseABTesting.framework; path = Carthage/Build/iOS/FirebaseABTesting.framework; sourceTree = "<group>"; };
 		BF3E0A232544179F002D04A0 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = Carthage/Build/iOS/GoogleMobileAds.framework; sourceTree = "<group>"; };
 		BF3E0A242544179F002D04A0 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleToolboxForMac.framework; path = Carthage/Build/iOS/GoogleToolboxForMac.framework; sourceTree = "<group>"; };
+		BF4D284F255FBF5300A2493D /* Purchases.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Purchases.framework; path = Carthage/Build/iOS/Purchases.framework; sourceTree = "<group>"; };
+		BF4D285A255FC8C500A2493D /* ExStoreKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExStoreKit.swift; sourceTree = "<group>"; };
+		BF4D28762560EA6100A2493D /* ExNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExNotificationCenter.swift; sourceTree = "<group>"; };
 		BF5120F025441303003AC823 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		BF5CB6AE2501CD9100EA1024 /* GroupDetailCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailCollectionReusableView.swift; sourceTree = "<group>"; };
 		BF5CB6AF2501CD9100EA1024 /* GroupDetailCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupDetailCollectionReusableView.xib; sourceTree = "<group>"; };
@@ -470,6 +478,7 @@
 				BF9724A724CD2C930033BB50 /* libc++.tbd in Frameworks */,
 				BFD435F724CD425B00B2E580 /* DZNEmptyDataSet.framework in Frameworks */,
 				BF97247324CD24AD0033BB50 /* FirebaseCore.framework in Frameworks */,
+				BF4D2850255FBF5300A2493D /* Purchases.framework in Frameworks */,
 				BF3E0A2B254417A0002D04A0 /* FirebaseABTesting.framework in Frameworks */,
 				BF97248D24CD24B00033BB50 /* GoogleAppMeasurement.framework in Frameworks */,
 				BF3E0A292544179F002D04A0 /* FirebasePerformance.framework in Frameworks */,
@@ -746,6 +755,8 @@
 			isa = PBXGroup;
 			children = (
 				BF88D4DD24CAAB6600607D6A /* ExString.swift */,
+				BF4D285A255FC8C500A2493D /* ExStoreKit.swift */,
+				BF4D28762560EA6100A2493D /* ExNotificationCenter.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -878,6 +889,7 @@
 		BF97245724CD24AC0033BB50 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BF4D284F255FBF5300A2493D /* Purchases.framework */,
 				BFB24B652544181A00166D88 /* FirebaseCrashlytics.framework */,
 				BF3E0A222544179F002D04A0 /* FirebaseABTesting.framework */,
 				BF3E0A212544179F002D04A0 /* FirebasePerformance.framework */,
@@ -1583,8 +1595,10 @@
 				BFA31F4224FF444700553F06 /* GroupDetailViewModel.swift in Sources */,
 				BF88D49424CAA83300607D6A /* SceneDelegate.swift in Sources */,
 				BF97244C24CC6B070033BB50 /* EditProfileViewBuilder.swift in Sources */,
+				BF4D28772560EA6100A2493D /* ExNotificationCenter.swift in Sources */,
 				BF88D4DE24CAAB6600607D6A /* ExString.swift in Sources */,
 				BFFA616F2508883900A1D2CE /* EditGroupViewPresenter.swift in Sources */,
+				BF4D285B255FC8C500A2493D /* ExStoreKit.swift in Sources */,
 				BFD4361F24CD57F500B2E580 /* SelectedUsersAndMeCollectionViewCell.swift in Sources */,
 				BFD4361224CD4BBC00B2E580 /* User.swift in Sources */,
 			);

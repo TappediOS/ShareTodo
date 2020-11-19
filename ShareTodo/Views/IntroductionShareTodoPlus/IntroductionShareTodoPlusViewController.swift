@@ -64,8 +64,7 @@ final class IntroductionShareTodoPlusViewController: UIViewController {
     }
     
     func setupNavigationBar() {
-        //TODO:- ローカライズ
-        self.navigationItem.title = "ShareTodo Plus"
+        self.navigationItem.title = R.string.localizable.shareTodoPlus()
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.tintColor = .systemGreen
     }
@@ -132,7 +131,6 @@ extension IntroductionShareTodoPlusViewController: IntroductionShareTodoPlusView
     }
     
     func setAnnualApplySubsctiontionButtonTitle(price: String) {
-        //TODO:- titleを代入すること
         let title = R.string.localizable.applyAtN(price, R.string.localizable.slash_Year())
         DispatchQueue.main.async { self.applyAnnualSubscrioptionButton.setTitle(title, for: .normal) }
     }

@@ -97,7 +97,24 @@ class UserDetailModelTests: XCTestCase {
         return formatter.string(from: date)
      }
     
-    func test_getMinimumDate() {
+    func test_getMinimumDate_createdAtIsNil() {
+        XCTContext.runActivity(named: "groupのcreatedAtがnilでない時はcreatedAtが帰ること") { _ in
+            XCTAssertEqual(dateTodayFormat(self.model.getMinimumDate()), dateTodayFormat((self.model.group.createdAt?.dateValue())!))
+            
+            var todo = Todo(isFinished: true, message: nil, userID: "user1", groupID: "group1", createdAt: Timestamp(date: Date(timeIntervalSinceNow: -60*60*24*20)))
+            self.model.todos.append(todo)
+            XCTAssertEqual(dateTodayFormat(self.model.getMinimumDate()), dateTodayFormat((self.model.group.createdAt?.dateValue())!))
+            
+            todo = Todo(isFinished: true, message: nil, userID: "user1", groupID: "group1", createdAt: Timestamp(date: Date(timeIntervalSinceNow: -60*60*24*1)))
+            self.model.todos.append(todo)
+            XCTAssertEqual(dateTodayFormat(self.model.getMinimumDate()), dateTodayFormat((self.model.group.createdAt?.dateValue())!))
+        }
+    }
+    
+    func test_getMinimumDate_createdAtIsNotNil() {
+        // groupのcreatedAtをnilにする
+        let group = Group(groupID: "group1", name: "Apple", task: "Pie", members: ["user1", "user2"], profileImageURL: nil, createdAt: nil)
+        self.model.group = group
         XCTContext.runActivity(named: "groupのcreatedAtがnilの時で，かつ，todoListが空でない時はcalenderの最小値がtodoのisFinishedがtrueである最初の日付であること") { _ in
             XCTAssertEqual(dateTodayFormat(self.model.getMinimumDate()), dateTodayFormat(Date(timeIntervalSinceNow: -60*60*24*7)))
             
@@ -114,8 +131,6 @@ class UserDetailModelTests: XCTestCase {
             self.model.todos.removeAll()
             XCTAssertEqual(dateTodayFormat(self.model.getMinimumDate()), dateTodayFormat(Date(timeIntervalSinceNow: -60*60*24*30)))
         }
-        
-        //TODO:- createdAtがnilでないときの処理をかく
     }
     
     func testPerformanceExample() throws {

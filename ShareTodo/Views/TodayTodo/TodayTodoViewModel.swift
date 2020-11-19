@@ -329,6 +329,7 @@ final class TodayTodoModel: TodayTodoModelProtocol {
     }
     
     @objc func endSubscribed() {
+        self.isUserSubscribed = false
         self.presenter.userEndSubscribed()
     }
     

@@ -129,6 +129,6 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
     }
     
     func userEndSubscribed() {
-        self.model.checkingIfAUserSubscribed()
+        self.view.reloadTodayTodoCollectionView()
     }
 }

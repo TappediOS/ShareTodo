@@ -122,6 +122,10 @@ extension IntroductionShareTodoPlusViewController: IntroductionShareTodoPlusView
         DispatchQueue.main.async { self.activityIndicator.stopAnimating() }
     }
     
+    func popIntroductionVC() {
+        DispatchQueue.main.async { self.navigationController?.popViewController(animated: true) }
+    }
+    
     func setMonthApplySubsctiontionButtonTitle(price: String) {
         let title = R.string.localizable.applyAtN(price, R.string.localizable.slash_Month())
         DispatchQueue.main.async { self.applyMonthSubscriptionButton.setTitle(title, for: .normal) }

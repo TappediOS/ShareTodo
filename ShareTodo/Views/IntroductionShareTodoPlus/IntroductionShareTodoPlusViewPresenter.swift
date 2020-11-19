@@ -18,6 +18,8 @@ protocol IntroductionShareTodoPlusViewPresenterOutput: class {
     func startActivityIndicator()
     func stopActivityIndicator()
     
+    func popIntroductionVC()
+    
     func setMonthApplySubsctiontionButtonTitle(price: String)
     func setAnnualApplySubsctiontionButtonTitle(price: String)
 }
@@ -55,10 +57,12 @@ final class IntroductionShareTodoPlusViewPresenter: IntroductionShareTodoPlusVie
     
     func successPurchaseMonthSubscription() {
         self.view.stopActivityIndicator()
+        self.view.popIntroductionVC()
     }
     
     func successPurchaseAnnualSubscription() {
         self.view.stopActivityIndicator()
+        self.view.popIntroductionVC()
     }
     
     

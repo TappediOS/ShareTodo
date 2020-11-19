@@ -90,8 +90,8 @@ final class IntroductionShareTodoPlusViewController: UIViewController {
     }
     
     func setupActivityIndicator() {
-        self.activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         self.activityIndicator.center = self.view.center
+        self.activityIndicator.style = .large
         self.activityIndicator.hidesWhenStopped = true
         self.view.addSubview(self.activityIndicator)
     }

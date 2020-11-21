@@ -73,6 +73,7 @@ final class UserDetailModel: UserDetailModelProtocol {
     private func setupNotificationCenter() {
         NotificationCenter.default.addObserver(self, selector: #selector(startSubscribed), name: .startSubscribedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(endSubscribed), name: .endSubscribedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(viewWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     func fetchTodoList() {
@@ -201,5 +202,9 @@ final class UserDetailModel: UserDetailModelProtocol {
     
     @objc func endSubscribed() {
         self.presenter.userEndSubscribed()
+    }
+    
+    @objc func viewWillEnterForeground() {
+        self.fetchTodoList()
     }
 }

@@ -6,6 +6,10 @@
   Copyright © 2020 jun. All rights reserved.
 */
 
+// Notification
+"GROUP_TASK_NOTIFICATION_TITLE" = "%@ / %@";
+"FINISHEDUSER_NOTIFICATION_BODY" = "%@ completed today's task";
+
 // ActionSheet
 "Take Photo"      = "Take Photo";
 "Select Photo"    = "Select Photo";

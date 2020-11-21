@@ -6,6 +6,10 @@
   Copyright © 2020 jun. All rights reserved.
 */
 
+// Notification
+"GROUP_TASK_NOTIFICATION_TITLE" = "%@ / %@";
+"FINISHEDUSER_NOTIFICATION_BODY" = "%@さんが今日のタスクを完了させました";
+
 // ActionSheet
 "Take Photo"      = "写真を撮る";
 "Select Photo"    = "写真を選択";

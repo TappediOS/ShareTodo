@@ -72,6 +72,7 @@ final class TodayTodoModel: TodayTodoModelProtocol {
     private func setupNotificationCenter() {
         NotificationCenter.default.addObserver(self, selector: #selector(startSubscribed), name: .startSubscribedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(endSubscribed), name: .endSubscribedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(viewWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     func fetchGroups() {
@@ -331,6 +332,10 @@ final class TodayTodoModel: TodayTodoModelProtocol {
     @objc func endSubscribed() {
         self.isUserSubscribed = false
         self.presenter.userEndSubscribed()
+    }
+    
+    @objc func viewWillEnterForeground() {
+        self.fetchGroups()
     }
     
     func isFirstOpen() -> Bool {

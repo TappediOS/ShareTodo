@@ -17,9 +17,10 @@ async function isFinishedTaskNotification(groupName: string, task: string, finis
                     headers: {
                         "apns-priority": "10",
                     },
-                    //sound: {
-                    //    name: "message_send_009.wav",
-                    //},
+                    sound: {
+                        name: "default",
+                        //name: "message_send_009.wav",
+					},
                     alert: {
                         titleLocKey: "GROUP_TASK_NOTIFICATION_TITLE",
                         titleLocArgs: [groupName, task],

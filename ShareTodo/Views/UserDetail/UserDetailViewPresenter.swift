@@ -36,6 +36,8 @@ protocol UserDetailViewPresenterOutput: class {
     func moveAndResizeImage(scale: Double, xTranslation: Double, yTranslation: Double)
     
     func segueIntroductionShareTodoPlusVC()
+    
+    func showErrorAleartView(error: Error)
 }
 
 final class UserDetailViewPresenter: UserDetailViewPresenterProtocol, UserDetailModelOutput {
@@ -103,5 +105,9 @@ final class UserDetailViewPresenter: UserDetailViewPresenterProtocol, UserDetail
     
     func userEndSubscribed() {
         self.model.checkingIfAUserSubscribed()
+    }
+    
+    func error(error: Error) {
+        self.view.showErrorAleartView(error: error)
     }
 }

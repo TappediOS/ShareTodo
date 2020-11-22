@@ -9,6 +9,7 @@
 import UIKit
 import Nuke
 import FSCalendar
+import SCLAlertView
 
 final class UserDetailViewController: UIViewController {
     private var presenter: UserDetailViewPresenterProtocol!
@@ -194,6 +195,15 @@ extension UserDetailViewController: UserDetailViewPresenterOutput {
         let yTranslation = CGFloat(yTranslation)
         DispatchQueue.main.async {
             self.profileImageView.transform = CGAffineTransform.identity.scaledBy(x: scale, y: scale).translatedBy(x: xTranslation, y: yTranslation)
+        }
+    }
+    
+    func showErrorAleartView(error: Error) {
+        let errorAlertView = SCLAlertView().getErrorAlert()
+        let title = R.string.localizable.error()
+        let subTitle = error.localizedDescription
+        DispatchQueue.main.async {
+            errorAlertView.showError(title, subTitle: subTitle, colorStyle: 0xFF2D55, colorTextButton: 0xFFFFFF)
         }
     }
 }

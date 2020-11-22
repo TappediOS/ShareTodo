@@ -34,6 +34,8 @@ protocol UserDetailModelOutput: class {
     
     func userStartSubscribed()
     func userEndSubscribed()
+    
+    func error(error: Error)
 }
 
 final class UserDetailModel: UserDetailModelProtocol {
@@ -85,6 +87,7 @@ final class UserDetailModel: UserDetailModelProtocol {
             
             if let error = error {
                 print("Error: \(error.localizedDescription)")
+                self.presenter.error(error: error)
                 return
             }
             
@@ -170,6 +173,7 @@ final class UserDetailModel: UserDetailModelProtocol {
         Purchases.shared.purchaserInfo { (purchaserInfo, error) in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
+                self.presenter.error(error: error)
                 return
             }
             

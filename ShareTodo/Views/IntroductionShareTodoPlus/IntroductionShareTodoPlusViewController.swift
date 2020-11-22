@@ -133,7 +133,7 @@ extension IntroductionShareTodoPlusViewController: IntroductionShareTodoPlusView
     }
     
     func popIntroductionVC() {
-        guard (self.navigationController != nil) else { return }
+        if self.navigationController == nil { return }
         DispatchQueue.main.async { self.navigationController?.popViewController(animated: true) }
     }
     

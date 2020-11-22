@@ -26,7 +26,9 @@ protocol IntroductionShareTodoPlusModelOutput: class {
     func successRestoreMonthSubscription()
     func successRestoreAnnualSubscription()
     
+    func userPurchaseCancelled()
     func error(error: Error)
+    func productError()
 }
 
 final class IntroductionShareTodoPlusModel: IntroductionShareTodoPlusModelProtocol {
@@ -104,13 +106,20 @@ final class IntroductionShareTodoPlusModel: IntroductionShareTodoPlusModelProtoc
                 return
             }
             
+            guard userCancelled != false else {
+                self.presenter.userPurchaseCancelled()
+                return
+            }
+            
             guard let purchaserInfo = purchaserInfo else {
                 print("purchaserInfo = nil")
+                self.presenter.productError()
                 return
             }
             
             guard let entitlement = purchaserInfo.entitlements[R.string.sharedString.revenueCatShareTodoEntitlementsID()] else {
                 print("entitlement = nil")
+                self.presenter.productError()
                 return
             }
             
@@ -130,13 +139,20 @@ final class IntroductionShareTodoPlusModel: IntroductionShareTodoPlusModelProtoc
                 return
             }
             
+            guard userCancelled != false else {
+                self.presenter.userPurchaseCancelled()
+                return
+            }
+            
             guard let purchaserInfo = purchaserInfo else {
                 print("purchaserInfo = nil")
+                self.presenter.productError()
                 return
             }
             
             guard let entitlement = purchaserInfo.entitlements[R.string.sharedString.revenueCatShareTodoEntitlementsID()] else {
                 print("entitlement = nil")
+                self.presenter.productError()
                 return
             }
             

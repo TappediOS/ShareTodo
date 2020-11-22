@@ -122,7 +122,18 @@ extension IntroductionShareTodoPlusViewController: IntroductionShareTodoPlusView
         DispatchQueue.main.async { self.activityIndicator.stopAnimating() }
     }
     
+    func enableApplySubscriptionButton() {
+        self.applyMonthSubscriptionButton.isEnabled = true
+        self.applyAnnualSubscrioptionButton.isEnabled = true
+    }
+    
+    func disEnableApplySubscriptionButton() {
+        self.applyMonthSubscriptionButton.isEnabled = false
+        self.applyAnnualSubscrioptionButton.isEnabled = false
+    }
+    
     func popIntroductionVC() {
+        guard (self.navigationController != nil) else { return }
         DispatchQueue.main.async { self.navigationController?.popViewController(animated: true) }
     }
     

@@ -18,6 +18,9 @@ protocol IntroductionShareTodoPlusViewPresenterOutput: class {
     func startActivityIndicator()
     func stopActivityIndicator()
     
+    func enableApplySubscriptionButton()
+    func disEnableApplySubscriptionButton()
+    
     func popIntroductionVC()
     
     func setMonthApplySubsctiontionButtonTitle(price: String)
@@ -41,11 +44,13 @@ final class IntroductionShareTodoPlusViewPresenter: IntroductionShareTodoPlusVie
     
     func didTapApplyAMonthSubscriptionButton() {
         self.view.startActivityIndicator()
+        self.view.disEnableApplySubscriptionButton()
         self.model.makeMonthSubscriptionPurchase()
     }
     
     func didTapApplyAYearSubscriptionButton() {
         self.view.startActivityIndicator()
+        self.view.disEnableApplySubscriptionButton()
         self.model.makeAnnualSubscriptioinPurhase()
     }
     
@@ -59,11 +64,13 @@ final class IntroductionShareTodoPlusViewPresenter: IntroductionShareTodoPlusVie
     
     func successPurchaseMonthSubscription() {
         self.view.stopActivityIndicator()
+        self.view.enableApplySubscriptionButton()
         self.view.popIntroductionVC()
     }
     
     func successPurchaseAnnualSubscription() {
         self.view.stopActivityIndicator()
+        self.view.enableApplySubscriptionButton()
         self.view.popIntroductionVC()
     }
     
@@ -76,7 +83,19 @@ final class IntroductionShareTodoPlusViewPresenter: IntroductionShareTodoPlusVie
         self.view.stopActivityIndicator()
     }
     
+    func userPurchaseCancelled() {
+        self.view.stopActivityIndicator()
+        self.view.enableApplySubscriptionButton()
+    }
+    
     func error(error: Error) {
         self.view.showErrorAleartView(error: error)
+        self.view.stopActivityIndicator()
+        self.view.enableApplySubscriptionButton()
+    }
+    
+    func productError() {
+        self.view.stopActivityIndicator()
+        self.view.enableApplySubscriptionButton()
     }
 }

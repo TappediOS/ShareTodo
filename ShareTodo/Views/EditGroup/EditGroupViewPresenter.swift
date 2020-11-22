@@ -26,6 +26,7 @@ protocol EditGroupViewPresenterProtocol {
     func didTapSelectPhotoAction()
     func didTapDeletePhotoAction()
     func didTapLeaveGroupAction()
+    func didTapPickupActionSheetRemoveAction()
     func didTapRemoveUserAction()
     func didTapCancelRemoveUser()
     
@@ -49,6 +50,7 @@ protocol EditGroupViewPresenterOutput: class {
     func setDeleteAndSetDefaultImage()
     func showSelectInviteUsersVC()
     func showLeaveGroupAleartView()
+    func showPickupUserActionSheet(pickupUserName: String)
     func showRemoveUserAleartView(mayRemoveUserName: String)
 }
 
@@ -131,13 +133,19 @@ final class EditGroupViewPresenter: EditGroupViewPresenterProtocol, EditGroupMod
     func didSelectedInviteUsers(inviteUsers: [User]) {
         self.model.inviteUsers(inviteUsers: inviteUsers)
     }
+    
+    func didTapPickupActionSheetRemoveAction() {
+        guard let uid = model.mayRemoveUserUID else { return }
+        guard let removedUser = model.groupUsers.filter({ $0.id == uid }).first else { return }
+        self.view.showRemoveUserAleartView(mayRemoveUserName: removedUser.name)
+    }
 
     func tapSelectedUsersAndMeProfileImage(index: Int) {
         guard model.selectedUserEqualMe(index: index) == false else { return }
         guard let selectedUser = model.getSelectedUser(index: index) else { return }
         guard let selectedUsersUID = selectedUser.id else { return }
         self.model.setMayRemoveUserUID(uid: selectedUsersUID)
-        self.view.showRemoveUserAleartView(mayRemoveUserName: selectedUser.name)
+        self.view.showPickupUserActionSheet(pickupUserName: selectedUser.name)
     }
     
     func successSaveGroup() {

@@ -161,19 +161,8 @@ final class EditGroupModel: EditGroupModelProtocol {
     
     func removeUser() {
         guard let removeUserUID = self.mayRemoveUserUID else { return }
-        guard let groupID = self.group.groupID else { return }
         
-        let docPath = "todo/v1/groups/" + groupID
-        let newGroupUsers = self.groupUsers.filter { $0.id != removeUserUID }.compactMap { $0.id }
         self.groupUsers = self.groupUsers.filter { $0.id != removeUserUID }
-        
-        self.firestore.document(docPath).setData(["members": newGroupUsers], merge: true) { error in
-            if let error = error {
-                print("Error: \(error.localizedDescription)")
-                return
-            }
-        }
-        
         self.presenter.successRemoveUser()
     }
         

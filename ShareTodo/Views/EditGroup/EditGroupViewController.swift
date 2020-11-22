@@ -30,6 +30,7 @@ final class EditGroupViewController: UIViewController {
     
     var editProfileActionSheet = UIAlertController()
     var leaveGroupActionSheet = UIAlertController()
+    var pickupUserActionSheet = UIAlertController()
     var removeUserActionSheet = UIAlertController()
     let photoPickerVC = UIImagePickerController()
     
@@ -53,6 +54,7 @@ final class EditGroupViewController: UIViewController {
         self.setupSelectedUsersCollectionView()
         self.setupEditProfileActionSheet()
         self.setupLeaveGroupActionSheet()
+        self.setupPickupUserActionSheet()
         self.setupLeaveUserActionSheet()
         self.setupPhotoPickerVC()
         self.setupInviteUsersButton()
@@ -168,6 +170,26 @@ final class EditGroupViewController: UIViewController {
         
         self.leaveGroupActionSheet.addAction(reaveAction)
         self.leaveGroupActionSheet.addAction(cancelAction)
+    }
+    
+    func setupPickupUserActionSheet() {
+        self.pickupUserActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            self.pickupUserActionSheet.popoverPresentationController?.sourceView = self.view
+            let screenSize = UIScreen.main.bounds
+            self.pickupUserActionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width / 2, y: screenSize.size.height, width: 0, height: 0)
+        }
+        
+        let removeAtion = UIAlertAction(title: R.string.localizable.remove(), style: .destructive, handler: { _ in
+            self.presenter.didTapPickupActionSheetRemoveAction()
+        })
+        
+        let cancelAction = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: { _ in
+            self.presenter.didTapCancelRemoveUser()
+        })
+        
+        self.pickupUserActionSheet.addAction(removeAtion)
+        self.pickupUserActionSheet.addAction(cancelAction)
     }
     
     func setupLeaveUserActionSheet() {
@@ -323,6 +345,11 @@ extension EditGroupViewController: EditGroupViewPresenterOutput {
         navigationController.modalPresentationStyle = .fullScreen
         createNewGroupVC.delegate = self
         self.present(navigationController, animated: true, completion: nil)
+    }
+    
+    func showPickupUserActionSheet(pickupUserName: String) {
+        self.pickupUserActionSheet.title = pickupUserName
+        self.present(self.pickupUserActionSheet, animated: true, completion: nil)
     }
     
     func showLeaveGroupAleartView() {

@@ -35,8 +35,16 @@ async function isFinishedTaskNotification(groupName: string, task: string, finis
 }
 
 export const onUpdateTodayTodo = functions.firestore.document('/todo/v1/groups/{groupID}/todo/{todoID}').onUpdate(async (change, context) => {
+    const beforData = change.before.data();
     const afterData = change.after.data();
     
+    // すでにisFinishedがtrueなら早期return
+    // メッセージを送る場合はこの中に書く
+    if (beforData) {
+        const beforeFinished = beforData.isFinished as boolean;
+        if (beforeFinished == true) { return; }
+    }
+
     if (afterData) {
         const groupID = afterData.groupID as string;
         const isFinished = afterData.isFinished as boolean;

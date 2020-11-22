@@ -25,6 +25,8 @@ protocol IntroductionShareTodoPlusModelOutput: class {
     
     func successRestoreMonthSubscription()
     func successRestoreAnnualSubscription()
+    
+    func error(error: Error)
 }
 
 final class IntroductionShareTodoPlusModel: IntroductionShareTodoPlusModelProtocol {
@@ -36,7 +38,8 @@ final class IntroductionShareTodoPlusModel: IntroductionShareTodoPlusModelProtoc
     func fetchAvailableProducts() {
         Purchases.shared.offerings { (offerings, error) in
             if let error = error {
-                print("Error: \(error)")
+                print("Error: \(error.localizedDescription)")
+                self.presenter.error(error: error)
                 return
             }
             
@@ -97,6 +100,7 @@ final class IntroductionShareTodoPlusModel: IntroductionShareTodoPlusModelProtoc
         Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
+                self.presenter.error(error: error)
                 return
             }
             
@@ -122,6 +126,7 @@ final class IntroductionShareTodoPlusModel: IntroductionShareTodoPlusModelProtoc
         Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
+                self.presenter.error(error: error)
                 return
             }
             

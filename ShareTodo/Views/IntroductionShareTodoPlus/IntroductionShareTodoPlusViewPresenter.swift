@@ -22,6 +22,8 @@ protocol IntroductionShareTodoPlusViewPresenterOutput: class {
     
     func setMonthApplySubsctiontionButtonTitle(price: String)
     func setAnnualApplySubsctiontionButtonTitle(price: String)
+    
+    func showErrorAleartView(error: Error)
 }
 
 final class IntroductionShareTodoPlusViewPresenter: IntroductionShareTodoPlusViewPresenterProtocol, IntroductionShareTodoPlusModelOutput {
@@ -72,5 +74,9 @@ final class IntroductionShareTodoPlusViewPresenter: IntroductionShareTodoPlusVie
     
     func successRestoreAnnualSubscription() {
         self.view.stopActivityIndicator()
+    }
+    
+    func error(error: Error) {
+        self.view.showErrorAleartView(error: error)
     }
 }

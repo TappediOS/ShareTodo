@@ -5,8 +5,6 @@ admin.initializeApp(functions.config().firebase);
 const firestore = admin.firestore();
 
 
-
-//@ts-ignore TS6133: 'req' is declared but its value is never read.
 async function isFinishedTaskNotification(groupName: string, task: string, finishedUserName: string, fcmToken: string) {
     const Message = {
         token: fcmToken,
@@ -38,19 +36,18 @@ async function isFinishedTaskNotification(groupName: string, task: string, finis
 
 export const onUpdateTodayTodo = functions.firestore.document('/todo/v1/groups/{groupID}/todo/{todoID}').onUpdate(async (change, context) => {
     const afterData = change.after.data();
-
-    console.log('onUpdated!');
     
     if (afterData) {
         const groupID = afterData.groupID as string;
         const isFinished = afterData.isFinished as boolean;
 
+        // もしisFinishedがfalseなら早期return
         if (isFinished == false) { return; }
 
+        // 通知に必要なのはグループ名とタスク，終わらせたユーザの名前
         let groupName = "";
         let groupTask = "";
         let isFinishedUserName = "";
-        //@ts-ignore TS6133: 'req' is declared but its value is never read.
         const isFinishedUserID  = afterData.userID as string;
 
         const documentRef = '/todo/v1/groups/' + groupID
@@ -66,6 +63,7 @@ export const onUpdateTodayTodo = functions.firestore.document('/todo/v1/groups/{
                 }
                 const docData = doc.data();
                 if (docData) { 
+                    // [memberID]とグループ名，グループタスクを取得する
                     groupMembersID = docData.members as Array<string>; 
                     groupName = docData.name as string;
                     groupTask = docData.task as string;
@@ -114,13 +112,9 @@ export const onUpdateTodayTodo = functions.firestore.document('/todo/v1/groups/{
         console.log('fcmTokenの取得完了');
         console.log('fcmToken: ', membersFcmTokens);
         
-
         for (var fcmToken of membersFcmTokens) {
             isFinishedTaskNotification(groupName, groupTask, isFinishedUserName, fcmToken)
             .catch(() => 'catch')
         }
-        
     }
-
-    
 });

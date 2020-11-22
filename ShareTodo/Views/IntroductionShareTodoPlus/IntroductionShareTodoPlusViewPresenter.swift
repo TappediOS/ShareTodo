@@ -18,8 +18,8 @@ protocol IntroductionShareTodoPlusViewPresenterOutput: class {
     func startActivityIndicator()
     func stopActivityIndicator()
     
-    func enableApplySubscriptionButton()
-    func disEnableApplySubscriptionButton()
+    func endIgnoringInteractionEvents()
+    func beginIgnoringInteractionEvents()
     
     func popIntroductionVC()
     
@@ -44,13 +44,13 @@ final class IntroductionShareTodoPlusViewPresenter: IntroductionShareTodoPlusVie
     
     func didTapApplyAMonthSubscriptionButton() {
         self.view.startActivityIndicator()
-        self.view.disEnableApplySubscriptionButton()
+        self.view.beginIgnoringInteractionEvents()
         self.model.makeMonthSubscriptionPurchase()
     }
     
     func didTapApplyAYearSubscriptionButton() {
         self.view.startActivityIndicator()
-        self.view.disEnableApplySubscriptionButton()
+        self.view.beginIgnoringInteractionEvents()
         self.model.makeAnnualSubscriptioinPurhase()
     }
     
@@ -64,38 +64,39 @@ final class IntroductionShareTodoPlusViewPresenter: IntroductionShareTodoPlusVie
     
     func successPurchaseMonthSubscription() {
         self.view.stopActivityIndicator()
-        self.view.enableApplySubscriptionButton()
+        self.view.endIgnoringInteractionEvents()
         self.view.popIntroductionVC()
     }
     
     func successPurchaseAnnualSubscription() {
         self.view.stopActivityIndicator()
-        self.view.enableApplySubscriptionButton()
+        self.view.endIgnoringInteractionEvents()
         self.view.popIntroductionVC()
     }
     
-    
     func successRestoreMonthSubscription() {
         self.view.stopActivityIndicator()
+        self.view.endIgnoringInteractionEvents()
     }
     
     func successRestoreAnnualSubscription() {
         self.view.stopActivityIndicator()
+        self.view.endIgnoringInteractionEvents()
     }
     
     func userPurchaseCancelled() {
         self.view.stopActivityIndicator()
-        self.view.enableApplySubscriptionButton()
+        self.view.endIgnoringInteractionEvents()
     }
     
     func error(error: Error) {
         self.view.showErrorAleartView(error: error)
         self.view.stopActivityIndicator()
-        self.view.enableApplySubscriptionButton()
+        self.view.endIgnoringInteractionEvents()
     }
     
     func productError() {
         self.view.stopActivityIndicator()
-        self.view.enableApplySubscriptionButton()
+        self.view.endIgnoringInteractionEvents()
     }
 }

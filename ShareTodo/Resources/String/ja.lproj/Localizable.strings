@@ -18,6 +18,7 @@
 "Done"            = "完了";
 "Save"            = "保存";
 "DisCard Changes" = "変更を破棄";
+"Error"           = "エラー";
 
 // DZNEmptyDataSet
 "No Results" = "結果なし";

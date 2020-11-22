@@ -33,6 +33,7 @@
 		BF4D2851255FBF5300A2493D /* Purchases.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF4D284F255FBF5300A2493D /* Purchases.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF4D285B255FC8C500A2493D /* ExStoreKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D285A255FC8C500A2493D /* ExStoreKit.swift */; };
 		BF4D28772560EA6100A2493D /* ExNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D28762560EA6100A2493D /* ExNotificationCenter.swift */; };
+		BF4D2922256A45B500A2493D /* ExSCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D2921256A45B500A2493D /* ExSCLAlertView.swift */; };
 		BF5120F125441303003AC823 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BF5120F025441303003AC823 /* Settings.bundle */; };
 		BF5CB6B02501CD9100EA1024 /* GroupDetailCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5CB6AE2501CD9100EA1024 /* GroupDetailCollectionReusableView.swift */; };
 		BF5CB6B12501CD9100EA1024 /* GroupDetailCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5CB6AF2501CD9100EA1024 /* GroupDetailCollectionReusableView.xib */; };
@@ -257,6 +258,7 @@
 		BF4D284F255FBF5300A2493D /* Purchases.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Purchases.framework; path = Carthage/Build/iOS/Purchases.framework; sourceTree = "<group>"; };
 		BF4D285A255FC8C500A2493D /* ExStoreKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExStoreKit.swift; sourceTree = "<group>"; };
 		BF4D28762560EA6100A2493D /* ExNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExNotificationCenter.swift; sourceTree = "<group>"; };
+		BF4D2921256A45B500A2493D /* ExSCLAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExSCLAlertView.swift; sourceTree = "<group>"; };
 		BF5120F025441303003AC823 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		BF5CB6AE2501CD9100EA1024 /* GroupDetailCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailCollectionReusableView.swift; sourceTree = "<group>"; };
 		BF5CB6AF2501CD9100EA1024 /* GroupDetailCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupDetailCollectionReusableView.xib; sourceTree = "<group>"; };
@@ -770,6 +772,7 @@
 				BFD435F324CD36F900B2E580 /* ExUIImageView.swift */,
 				BFD4362024CD597700B2E580 /* ExCollectionView.swift */,
 				BFFA6174250E087000A1D2CE /* ExUIColor.swift */,
+				BF4D2921256A45B500A2493D /* ExSCLAlertView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1507,6 +1510,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF88D4E824CAB6AA00607D6A /* MainTabBarBuilder.swift in Sources */,
+				BF4D2922256A45B500A2493D /* ExSCLAlertView.swift in Sources */,
 				BFD5DDE6251AFFFD00E35F18 /* UserDetailViewModel.swift in Sources */,
 				BFE3B16B251F2CBC00C69AF2 /* IntroductionShareTodoPlusViewController.swift in Sources */,
 				BF88D4FC24CAB9A100607D6A /* TodayTodoViewPresenter.swift in Sources */,

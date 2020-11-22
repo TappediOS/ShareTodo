@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 final class GroupDetailViewController: UIViewController {
     private var presenter: GroupDetailViewPresenterProtocol!
@@ -112,6 +113,15 @@ extension GroupDetailViewController: GroupDetailViewPresenterOutput {
     func segueUserDetailViewController(index: Int) {
         let userDetailVC = UserDetailViewBuilder.create(group: self.presenter.group, user: self.presenter.groupUsers[index])
         self.navigationController?.pushViewController(userDetailVC, animated: true)
+    }
+    
+    func showErrorAleartView(error: Error) {
+        let errorAlertView = SCLAlertView().getErrorAlert()
+        let title = R.string.localizable.error()
+        let subTitle = error.localizedDescription
+        DispatchQueue.main.async {
+            errorAlertView.showError(title, subTitle: subTitle, colorStyle: 0xFF2D55, colorTextButton: 0xFFFFFF)
+        }
     }
 }
 

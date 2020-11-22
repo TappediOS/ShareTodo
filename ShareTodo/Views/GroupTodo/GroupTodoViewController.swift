@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 import DZNEmptyDataSet
 
 final class GroupTodoViewController: UIViewController {
@@ -92,6 +93,15 @@ extension GroupTodoViewController: GroupTodoViewPresenterOutput {
     func segueGroupDetailViewController(index: Int) {
         let groupDetailVC = GroupDetailViewBuilder.create(group: self.presenter.group[index], groupUsers: self.presenter.groupUsers[index])
         self.navigationController?.pushViewController(groupDetailVC, animated: true)
+    }
+    
+    func showErrorAleartView(error: Error) {
+        let errorAlertView = SCLAlertView().getErrorAlert()
+        let title = R.string.localizable.error()
+        let subTitle = error.localizedDescription
+        DispatchQueue.main.async {
+            errorAlertView.showError(title, subTitle: subTitle, colorStyle: 0xFF2D55, colorTextButton: 0xFFFFFF)
+        }
     }
 }
 

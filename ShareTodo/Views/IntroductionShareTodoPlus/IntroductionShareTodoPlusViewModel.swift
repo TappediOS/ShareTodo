@@ -105,7 +105,12 @@ final class IntroductionShareTodoPlusModel: IntroductionShareTodoPlusModelProtoc
                 return
             }
             
-            if purchaserInfo.entitlements[R.string.sharedString.revenueCatShareTodoEntitlementsID()]?.isActive == true {
+            guard let entitlement = purchaserInfo.entitlements[R.string.sharedString.revenueCatShareTodoEntitlementsID()] else {
+                print("entitlement = nil")
+                return
+            }
+            
+            if entitlement.isActive == true {
                 self.presenter.successPurchaseMonthSubscription()
             }
         }
@@ -125,7 +130,12 @@ final class IntroductionShareTodoPlusModel: IntroductionShareTodoPlusModelProtoc
                 return
             }
             
-            if purchaserInfo.entitlements[R.string.sharedString.revenueCatShareTodoEntitlementsID()]?.isActive == true {
+            guard let entitlement = purchaserInfo.entitlements[R.string.sharedString.revenueCatShareTodoEntitlementsID()] else {
+                print("entitlement = nil")
+                return
+            }
+            
+            if entitlement.isActive == true {
                 self.presenter.successPurchaseMonthSubscription()
             }
         }

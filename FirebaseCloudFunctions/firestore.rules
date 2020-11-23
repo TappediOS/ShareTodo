@@ -10,7 +10,7 @@ service cloud.firestore {
     }
 
     match /todo/v1/users/{userId} {
-      allow read: if isUserAuthenticated(userId);
+      allow get: if isUserAuthenticated(userId);
       
     }
   }

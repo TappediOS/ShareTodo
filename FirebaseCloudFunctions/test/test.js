@@ -16,7 +16,7 @@ function getAdminFirestore() {
 }
 
 beforeEach(async () => {
-    //await firebase.clearFirestoreData({projectId: MY_PROJECT_ID});
+    await firebase.clearFirestoreData({projectId: MY_PROJECT_ID});
 });
 
 
@@ -135,3 +135,61 @@ describe("groupCollectionのreadに対するテスト", () => {
         await firebase.assertFails(testRead.get());
     });
 });
+
+describe("groupCollectionのcreateに対するテスト", () => {
+    it("認証してて，membersに自分のIDがあればGroupを作れる", async() => {
+        const db = getFirestore(myAuth);
+        const groupDoc = db.collection("todo/v1/groups").doc("createdGroupID")
+        await firebase.assertSucceeds(groupDoc.set({members: [otherId, "hoge", myId], name: "Apple", task: "lock"}));
+    });
+
+    it("membersが自分だけでもGroupを作れる", async() => {
+        const db = getFirestore(myAuth);
+        const groupDoc = db.collection("todo/v1/groups").doc("createdGroupID")
+        await firebase.assertSucceeds(groupDoc.set({members: [myId], name: "Apple", task: "lock"}));
+    })
+
+    it("認証してなければどうあってもGroupを作れない", async() => {
+        const db = getFirestore(null);
+        const groupDoc = db.collection("todo/v1/groups").doc("createdGroupID")
+        await firebase.assertFails(groupDoc.set({members: [otherId, "hoge", myId], name: "Apple", task: "lock"}));
+    });
+
+    it("membersに自分のIDがなければGroupを作れない", async() => {
+        const db = getFirestore(myAuth);
+        const groupDoc = db.collection("todo/v1/groups").doc("createdGroupID")
+        await firebase.assertFails(groupDoc.set({members: [otherId, "hoge"], name: "Apple", task: "lock"}));
+    });
+
+    it("membersが空ならGroupを作れない", async() => {
+        const db = getFirestore(myAuth);
+        const groupDoc = db.collection("todo/v1/groups").doc("createdGroupID")
+        await firebase.assertFails(groupDoc.set({members: [], name: "Apple", task: "lock"}));
+    });
+
+    it("名前が0文字ならGroupを作れない", async() => {
+        const db = getFirestore(myAuth);
+        const groupDoc = db.collection("todo/v1/groups").doc("createdGroupID")
+        await firebase.assertFails(groupDoc.set({members: [otherId, "hoge", myId], name: "", task: "lock"}));
+    });
+
+    it("taskが0文字ならGroupを作れない", async() => {
+        const db = getFirestore(myAuth);
+        const groupDoc = db.collection("todo/v1/groups").doc("createdGroupID")
+        await firebase.assertFails(groupDoc.set({members: [otherId, "hoge", myId], name: "print", task: ""}));
+    });
+
+    it("名前が45文字以上ならGroupを作れない", async() => {
+        const db = getFirestore(myAuth);
+        const groupDoc = db.collection("todo/v1/groups").doc("createdGroupID")
+        const name = "123456789012345678901234567890123456789012345678890";
+        await firebase.assertFails(groupDoc.set({members: [otherId, "hoge", myId], name: name, task: "lock"}));
+    });
+
+    it("taskが45文字以上ならGroupを作れない", async() => {
+        const db = getFirestore(myAuth);
+        const groupDoc = db.collection("todo/v1/groups").doc("createdGroupID")
+        const task = "123456789012345678901234567890123456789012345678890";
+        await firebase.assertFails(groupDoc.set({members: [otherId, "hoge", myId], name: "print", task: task}));
+    });
+})

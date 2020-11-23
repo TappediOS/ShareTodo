@@ -23,6 +23,10 @@ service cloud.firestore {
       return request.auth.uid in resource.data.members;
     }
 
+    function isContaintsGroupMemberAsCreate() {
+      return request.auth.uid in incomingData().members;
+    }
+
     match /todo/v1/users/{userId} {
       allow read: if isAuthenticated();
       
@@ -33,6 +37,11 @@ service cloud.firestore {
     match /todo/v1/groups/{groupId} {
       allow read: if isAuthenticated() &&
       isContaintsGroupMember();
+
+      allow create: if isAuthenticated() &&
+      isContaintsGroupMemberAsCreate() &&
+      validateString(incomingData().name, 1, 45) &&
+      validateString(incomingData().task, 1, 45);
     }
   }
 }

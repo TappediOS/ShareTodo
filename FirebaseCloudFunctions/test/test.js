@@ -17,7 +17,7 @@ beforeEach(async () => {
 });
 
 
-describe("user collectionに対するUnitTest", () => {
+describe("user collectionのread対するテスト", () => {
     it("自分のデータを読み取ることができる", async () => {
         const db = getFirestore(myAuth);
         const myDoc = db.collection("todo/v1/users").doc(myId);
@@ -36,5 +36,63 @@ describe("user collectionに対するUnitTest", () => {
         const otherDoc = db.collection("todo/v1/users").doc(otherId);
         await firebase.assertFails(myDoc.get());
         await firebase.assertFails(otherDoc.get());
+    });
+});
+
+describe("user collectionのcreate対するテスト", () => {
+    it("認証していればそのIDに対してcreateできる", async () => {
+        const db = getFirestore(myAuth);
+        const myDoc = db.collection("todo/v1/users").doc(myId);
+        await firebase.assertSucceeds(myDoc.set({
+            name: "hoge",
+            profileImageURL: "fuga",
+            fcmToken: "ex"
+        }));
+    });
+
+    it("他人のドキュメントに対してcreateできない", async () => {
+        const db = getFirestore(myAuth);
+        const otherDoc = db.collection("todo/v1/users").doc(otherId);
+        await firebase.assertFails(otherDoc.set({
+            name: "hoge",
+            profileImageURL: "fuga",
+            fcmToken: "ex"
+        }));
+    });
+
+    it("名前が0文字ならcreateできない", async () => {
+        const db = getFirestore(myAuth);
+        const myDoc = db.collection("todo/v1/users").doc(myId);
+        await firebase.assertFails(myDoc.set({
+            name: "",
+            profileImageURL: "fuga",
+            fcmToken: "ex"
+        }));
+    });
+
+    it("名前が20文字を超えるならcreateできない", async () => {
+        const db = getFirestore(myAuth);
+        const myDoc = db.collection("todo/v1/users").doc(myId);
+        await firebase.assertFails(myDoc.set({
+            name: "12345678901234567890_out",
+            profileImageURL: "fuga",
+            fcmToken: "ex"
+        }));
+    });
+
+    it("認証していなければ，データは作れない", async () => {
+        const db = getFirestore(null);
+        const myDoc = db.collection("todo/v1/users").doc(myId);
+        const otherDoc = db.collection("todo/v1/users").doc(otherId);
+        await firebase.assertFails(myDoc.set({
+            name: "hoge",
+            profileImageURL: "fuga",
+            fcmToken: "ex"
+        }));
+        await firebase.assertFails(otherDoc.set({
+            name: "hoge",
+            profileImageURL: "fuga",
+            fcmToken: "ex"
+        }));
     });
 });

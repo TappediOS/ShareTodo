@@ -1,7 +1,6 @@
 const assert = require('assert');
 const firebase = require('@firebase/rules-unit-testing');
 const MY_PROJECT_ID = "sharetodo-a91ef";
-const serverTimestamp = () => firebase.firestore.FieldValue.serverTimestamp();
 
 const myId = "user_me";
 const otherId = "user_other";
@@ -9,15 +8,19 @@ const otherId = "user_other";
 const myAuth = { uid: myId, };
 
 function getFirestore(auth) {
-    return firebase.initializeTestApp( {projectId: MY_PROJECT_ID, auth: auth}).firestore();
+    return firebase.initializeTestApp({projectId: MY_PROJECT_ID, auth: auth}).firestore();
+}
+
+function getAdminFirestore() {
+    return firebase.initializeAdminApp({projectId: MY_PROJECT_ID}).firestore();
 }
 
 beforeEach(async () => {
-    await firebase.clearFirestoreData({projectId: MY_PROJECT_ID});
+    //await firebase.clearFirestoreData({projectId: MY_PROJECT_ID});
 });
 
 
-describe("user collectionのread対するテスト", () => {
+describe("user collectionのreadに対するテスト", () => {
     it("自分のデータを読み取ることができる", async () => {
         const db = getFirestore(myAuth);
         const myDoc = db.collection("todo/v1/users").doc(myId);
@@ -94,5 +97,41 @@ describe("user collectionのwrite対するテスト", () => {
             profileImageURL: "fuga",
             fcmToken: "ex"
         }));
+    });
+});
+
+describe("groupCollectionのreadに対するテスト", () => {
+    it("GroupMembersに自分が含まれていたらlistとしてReadできること", async () => {
+        const db = getFirestore(myAuth);
+        const testQuery = db.collection("todo/v1/groups").where("members", "array-contains", myId);
+        await firebase.assertSucceeds(testQuery.get());
+    });
+
+    it("GroupMembersに自分が含まれていても認証してなければReadできないこと", async () => {
+        const db = getFirestore(null);
+        const testQuery = db.collection("todo/v1/groups").where("members", "array-contains", myId);
+        await firebase.assertFails(testQuery.get());
+    });
+
+    it("GroupMembersに自分が含まれているドキュメントはReadできること", async() => {
+        const admin = getAdminFirestore();
+        const groupID = "userIsContsintsGroupID"
+        const setupDoc = admin.collection("todo/v1/groups").doc(groupID)
+        await setupDoc.set({members: [otherId, "hoge", myId], name: "Apple", task: "lock"});
+
+        const db = getFirestore(myAuth);
+        const testRead = db.collection("todo/v1/groups").doc(groupID);
+        await firebase.assertSucceeds(testRead.get());
+    });
+
+    it("GroupMembersに自分が含まれていないドキュメントはReadできないこと", async() => {
+        const admin = getAdminFirestore();
+        const groupID = "userIsNotContsintsGroupID"
+        const setupDoc = admin.collection("todo/v1/groups").doc(groupID)
+        await setupDoc.set({members: [otherId, "hoge", "huga"], name: "Apple", task: "lock"});
+
+        const db = getFirestore(myAuth);
+        const testRead = db.collection("todo/v1/groups").doc(groupID);
+        await firebase.assertFails(testRead.get());
     });
 });

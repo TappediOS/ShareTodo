@@ -39,7 +39,7 @@ describe("user collectionのread対するテスト", () => {
     });
 });
 
-describe("user collectionのcreate対するテスト", () => {
+describe("user collectionのwrite対するテスト", () => {
     it("認証していればそのIDに対してcreateできる", async () => {
         const db = getFirestore(myAuth);
         const myDoc = db.collection("todo/v1/users").doc(myId);

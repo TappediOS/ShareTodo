@@ -22,8 +22,9 @@ service cloud.firestore {
     match /todo/v1/users/{userId} {
       allow read: if isAuthenticated();
       
-      allow create: if isUserAuthenticated(userId) &&
+      allow write: if isUserAuthenticated(userId) &&
       validateString(incomingData().name, 1, 20);
+      
     }
   }
 }

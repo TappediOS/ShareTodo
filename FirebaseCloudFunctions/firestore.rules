@@ -42,6 +42,11 @@ service cloud.firestore {
       isContaintsGroupMemberAsCreate() &&
       validateString(incomingData().name, 1, 45) &&
       validateString(incomingData().task, 1, 45);
+
+      allow update: if isAuthenticated() &&
+      isContaintsGroupMember() &&
+      validateString(incomingData().name, 1, 45) &&
+      validateString(incomingData().task, 1, 45);
     }
   }
 }

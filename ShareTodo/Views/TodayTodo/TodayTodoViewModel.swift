@@ -211,6 +211,7 @@ final class TodayTodoModel: TodayTodoModelProtocol {
             }
         } catch let error {
             print("Error: \(error.localizedDescription)")
+            self.presenter.error(error: error)
             return
         }
     }

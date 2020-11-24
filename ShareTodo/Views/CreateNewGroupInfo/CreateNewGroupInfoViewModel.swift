@@ -19,6 +19,8 @@ protocol CreateNewGroupInfoModelProtocol {
 protocol CreateNewGroupInfoModelOutput: class {
     func successCreateGroup()
     func successFetchUser(user: User)
+    
+    func error(error: Error)
 }
 
 final class CreateNewGroupInfoModel: CreateNewGroupInfoModelProtocol {
@@ -51,6 +53,7 @@ final class CreateNewGroupInfoModel: CreateNewGroupInfoModelProtocol {
                 self.presenter.successFetchUser(user: userInfo!)
             } catch let error {
                 print("Error: \(error.localizedDescription)")
+                self.presenter.error(error: error)
                 return
             }
         }
@@ -82,6 +85,7 @@ final class CreateNewGroupInfoModel: CreateNewGroupInfoModelProtocol {
         batch.commit { error in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
+                self.presenter.error(error: error)
                 return
             }
             
@@ -103,6 +107,7 @@ final class CreateNewGroupInfoModel: CreateNewGroupInfoModelProtocol {
             profileImagesRef.downloadURL { (url, error) in
                 if let error = error {
                     print("Error: \(error.localizedDescription)")
+                    self.presenter.error(error: error)
                     return
                 }
                 guard let downloadURL = url else { return }
@@ -117,6 +122,7 @@ final class CreateNewGroupInfoModel: CreateNewGroupInfoModelProtocol {
         self.firestore.collection("todo/v1/groups").document(uid).setData(["profileImageURL": downloadURLStr], merge: true) { error in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
+                self.presenter.error(error: error)
                 return
             }
             

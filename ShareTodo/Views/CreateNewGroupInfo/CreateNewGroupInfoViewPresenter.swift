@@ -27,6 +27,10 @@ protocol CreateNewGroupInfoViewPresenterOutput: class {
     func dismissCreateNewGroupInfoVC()
     func setDeleteAndSetDefaultImage()
     func reloadCollectionView(addUser: User)
+    func enableRightBarButtonItem()
+    func disEnableRightBarButtonItem()
+    
+    func showErrorAleartView(error: Error)
 }
 
 final class CreateNewGroupInfoViewPresenter: CreateNewGroupInfoViewPresenterProtocol, CreateNewGroupInfoModelOutput {
@@ -43,6 +47,7 @@ final class CreateNewGroupInfoViewPresenter: CreateNewGroupInfoViewPresenterProt
     }
     
     func didTapGroupButton(selectedUsers: [User], groupName: String, groupTask: String, groupImageData: Data) {
+        self.view.disEnableRightBarButtonItem()
         self.model.createGroup(selectedUsers: selectedUsers, groupName: groupName, groupTask: groupTask, groupImageData: groupImageData)
     }
     
@@ -68,5 +73,10 @@ final class CreateNewGroupInfoViewPresenter: CreateNewGroupInfoViewPresenterProt
     
     func successFetchUser(user: User) {
         self.view.reloadCollectionView(addUser: user)
+    }
+    
+    func error(error: Error) {
+        self.view.enableRightBarButtonItem()
+        self.view.showErrorAleartView(error: error)
     }
 }

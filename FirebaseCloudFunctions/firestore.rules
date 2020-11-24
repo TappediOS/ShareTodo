@@ -68,6 +68,16 @@ service cloud.firestore {
         incomingData().userID == resource.data.userID &&
         incomingData().groupID == groupId;
       }
+
+      match /members/{userId} {
+        allow read: if isAuthenticated() &&
+        checkContaintsMembers(groupId);
+
+        allow create: if isAuthenticated();
+
+        allow update: if isAuthenticated() &&
+        checkContaintsMembers(groupId);
+      }
     }
   }
 }

@@ -47,6 +47,21 @@ service cloud.firestore {
       isContaintsGroupMember() &&
       validateString(incomingData().name, 1, 45) &&
       validateString(incomingData().task, 1, 45);
+
+      function checkContaintsMembers(groupId) {
+        return request.auth.uid in get(/databases/$(database)/documents/todo/v1/groups/$(groupId)).data.members
+      }
+
+      match /todo/{todoId} {
+        allow read: if isAuthenticated() &&
+        checkContaintsMembers(groupId);
+
+        allow create: if isAuthenticated() &&
+        checkContaintsMembers(groupId) &&
+        incomingData().userID == request.auth.uid &&
+        incomingData().groupID == groupId &&
+        incomingData().isFinished == true;
+      }
     }
   }
 }

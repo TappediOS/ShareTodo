@@ -438,3 +438,98 @@ describe("groups/todoのcreateに対するテスト", () => {
 
  
 });
+
+
+describe("groups/todoのupdateに対するテスト", () => {
+    it("GroupMembersに自分が含まれていて，かつ，自分のDocならupdateできる", async () => {
+        const admin = getAdminFirestore();
+        const groupID = "userIsContsintsGroupID";
+        const setupDoc = admin.collection("todo/v1/groups").doc(groupID)
+        await setupDoc.set({members: [otherId, "hoge", myId], name: "Apple", task: "lock"});
+        const todoDoc = admin.collection(`todo/v1/groups/${groupID}/todo`).doc("someTodoID");
+        await firebase.assertSucceeds(todoDoc.set({groupID: groupID, isFinished: true, userID: myAuth.uid}));
+
+        const db = getFirestore(myAuth);
+        const testDoc = db.collection(`todo/v1/groups/${groupID}/todo`).doc("someTodoID")
+        await firebase.assertSucceeds(testDoc.set({groupID: groupID, isFinished: false, userID: myAuth.uid}));
+    });
+
+    it("GroupMembersに自分が含まれていて，かつ，自分のDocなら,isFinishedに関係なくupdateできる", async () => {
+        const admin = getAdminFirestore();
+        const groupID = "userIsContsintsGroupID";
+        const setupDoc = admin.collection("todo/v1/groups").doc(groupID)
+        await setupDoc.set({members: [otherId, "hoge", myId], name: "Apple", task: "lock"});
+        const todoDoc = admin.collection(`todo/v1/groups/${groupID}/todo`).doc("someTodoID");
+        await todoDoc.set({groupID: groupID, isFinished: true, userID: myAuth.uid});
+
+        const db = getFirestore(myAuth);
+        const testDoc = db.collection(`todo/v1/groups/${groupID}/todo`).doc("someTodoID")
+        await firebase.assertSucceeds(testDoc.set({groupID: groupID, isFinished: true, userID: myAuth.uid}));
+    });
+
+    it("GroupMembersに自分が含まれていて，でも，自分のDocじゃないならupdateできない", async () => {
+        const admin = getAdminFirestore();
+        const groupID = "userIsContsintsGroupID";
+        const setupDoc = admin.collection("todo/v1/groups").doc(groupID)
+        await setupDoc.set({members: [otherId, "hoge", myId], name: "Apple", task: "lock"});
+        const todoDoc = admin.collection(`todo/v1/groups/${groupID}/todo`).doc("someTodoID");
+        await todoDoc.set({groupID: groupID, isFinished: true, userID: otherId});
+
+        const db = getFirestore(myAuth);
+        const testDoc = db.collection(`todo/v1/groups/${groupID}/todo`).doc("someTodoID")
+        await firebase.assertFails(testDoc.set({groupID: groupID, isFinished: false, userID: myAuth.uid}));
+    });
+
+    it("GroupMembersに自分が含まれていて，でも，groupIDが違うとupdateできない", async () => {
+        const admin = getAdminFirestore();
+        const groupID = "userIsContsintsGroupID";
+        const setupDoc = admin.collection("todo/v1/groups").doc(groupID)
+        await setupDoc.set({members: [otherId, "hoge", myId], name: "Apple", task: "lock"});
+        const todoDoc = admin.collection(`todo/v1/groups/${groupID}/todo`).doc("someTodoID");
+        await todoDoc.set({groupID: groupID, isFinished: true, userID: otherId});
+
+        const db = getFirestore(myAuth);
+        const testDoc = db.collection(`todo/v1/groups/${groupID}/todo`).doc("someTodoID")
+        await firebase.assertFails(testDoc.set({groupID: "otherGroupID", isFinished: false, userID: myAuth.uid}));
+    });
+
+    it("GroupMembersに自分が含まれていて，でも，uesrIDが自分のIDと違うとupdateできない", async () => {
+        const admin = getAdminFirestore();
+        const groupID = "userIsContsintsGroupID";
+        const setupDoc = admin.collection("todo/v1/groups").doc(groupID)
+        await setupDoc.set({members: [otherId, "hoge", myId], name: "Apple", task: "lock"});
+        const todoDoc = admin.collection(`todo/v1/groups/${groupID}/todo`).doc("someTodoID");
+        await todoDoc.set({groupID: groupID, isFinished: true, userID: otherId});
+
+        const db = getFirestore(myAuth);
+        const testDoc = db.collection(`todo/v1/groups/${groupID}/todo`).doc("someTodoID")
+        await firebase.assertFails(testDoc.set({groupID: "otherGroupID", isFinished: false, userID: otherId}));
+    });
+
+    it("GroupMembersに自分が含まれていていないとupdateできない(そもそも作れない)", async () => {
+        const admin = getAdminFirestore();
+        const groupID = "userIsContsintsGroupID";
+        const setupDoc = admin.collection("todo/v1/groups").doc(groupID)
+        await setupDoc.set({members: [otherId, "hoge"], name: "Apple", task: "lock"});
+        const todoDoc = admin.collection(`todo/v1/groups/${groupID}/todo`).doc("someTodoID");
+        await todoDoc.set({groupID: groupID, isFinished: true, userID: otherId});
+
+        const db = getFirestore(myAuth);
+        const testDoc = db.collection(`todo/v1/groups/${groupID}/todo`).doc("someTodoID")
+        await firebase.assertFails(testDoc.set({groupID: groupID, isFinished: false, userID: myAuth.uid}));
+    });
+
+    it("認証してないとupdateできない", async () => {
+        const admin = getAdminFirestore();
+        const groupID = "userIsContsintsGroupID";
+        const setupDoc = admin.collection("todo/v1/groups").doc(groupID)
+        await setupDoc.set({members: [otherId, "hoge", myAuth.uid], name: "Apple", task: "lock"});
+        const todoDoc = admin.collection(`todo/v1/groups/${groupID}/todo`).doc("someTodoID");
+        await todoDoc.set({groupID: groupID, isFinished: true, userID: otherId});
+
+        const db = getFirestore(null);
+        const testDoc = db.collection(`todo/v1/groups/${groupID}/todo`).doc("someTodoID")
+        await firebase.assertFails(testDoc.set({groupID: groupID, isFinished: false, userID: myAuth.uid}));
+    });
+
+});

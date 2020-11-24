@@ -61,6 +61,12 @@ service cloud.firestore {
         incomingData().userID == request.auth.uid &&
         incomingData().groupID == groupId &&
         incomingData().isFinished == true;
+
+        allow update: if isAuthenticated() &&
+        checkContaintsMembers(groupId) &&
+        incomingData().userID == request.auth.uid &&
+        incomingData().userID == resource.data.userID &&
+        incomingData().groupID == groupId;
       }
     }
   }

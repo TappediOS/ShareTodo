@@ -219,6 +219,17 @@ describe("groupCollectionのupdateに対するテスト", () => {
         await firebase.assertSucceeds(groupDoc.set({members: [myId], name: "Rips", task: "Run"}), {merge: true});
     })
 
+    it("membersを空にする様なupadteができること", async() => {
+        const admin = getAdminFirestore();
+        const groupID = "userIsContsintsGroupID"
+        const setupDoc = admin.collection("todo/v1/groups").doc(groupID)
+        await setupDoc.set({members: [otherId, "hoge", myId], name: "Apple", task: "lock"});
+
+        const db = getFirestore(myAuth);
+        const groupDoc = db.collection("todo/v1/groups").doc(groupID)
+        await firebase.assertSucceeds(groupDoc.set({members: [], name: "Cat", task: "logout"}), {merge: true});
+    });
+
     it("認証してなければどうあってもGroupをupdateできない", async() => {
         const admin = getAdminFirestore();
         const groupID = "userIsContsintsGroupID"
@@ -250,17 +261,6 @@ describe("groupCollectionのupdateに対するテスト", () => {
         const db = getFirestore(myAuth);
         const groupDoc = db.collection("todo/v1/groups").doc(groupID)
         await firebase.assertFails(groupDoc.set({members: [otherId], name: "en", task: "be good"}), {merge: true});
-    });
-
-    it("membersを空にする様なupadteができること", async() => {
-        const admin = getAdminFirestore();
-        const groupID = "userIsContsintsGroupID"
-        const setupDoc = admin.collection("todo/v1/groups").doc(groupID)
-        await setupDoc.set({members: [otherId, "hoge", myId], name: "Apple", task: "lock"});
-
-        const db = getFirestore(myAuth);
-        const groupDoc = db.collection("todo/v1/groups").doc(groupID)
-        await firebase.assertSucceeds(groupDoc.set({members: [], name: "Cat", task: "logout"}), {merge: true});
     });
 
     it("名前が0文字ならGroupをupdateできない", async() => {

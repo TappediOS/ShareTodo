@@ -52,7 +52,12 @@ final class ProfileViewController: UIViewController {
     
     func setupUIBarButtonItem() {
         let editProfileButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editProfile(_:)))
+        let settingButtonItem = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(setting(_:)))
         editProfileButtonItem.tintColor = .systemGreen
+        settingButtonItem.tintColor = .systemGreen
+        
+        self.navigationItem.leftBarButtonItem = settingButtonItem
+        self.navigationItem.leftBarButtonItem?.tintColor = .systemGreen
         self.navigationItem.rightBarButtonItem = editProfileButtonItem
         self.navigationItem.rightBarButtonItem?.tintColor = .systemGreen
         self.navigationItem.rightBarButtonItem?.isEnabled = false
@@ -60,6 +65,10 @@ final class ProfileViewController: UIViewController {
 
     @objc func editProfile(_ sender: UIButton) {
         self.presenter.didTapEditProfileButton()
+    }
+    
+    @objc func setting(_ sender: UIButton) {
+        self.presenter.didTapSettingButton()
     }
     
     func inject(with presenter: ProfileViewPresenterProtocol) {
@@ -79,6 +88,14 @@ extension ProfileViewController: ProfileViewPresenterOutput {
         
         navigationController.presentationController?.delegate = editProfileVC
         editProfileVC.delegate = self
+        
+        self.present(navigationController, animated: true, completion: nil)
+    }
+    
+    func presentSettingVC() {
+        guard let settingVC = SettingViewBuilder.create() as? SettingViewController else { return }
+        let navigationController = UINavigationController(rootViewController: settingVC)
+        navigationController.modalPresentationStyle = .pageSheet
         
         self.present(navigationController, animated: true, completion: nil)
     }

@@ -12,11 +12,13 @@ protocol ProfileViewPresenterProtocol {
     var view: ProfileViewPresenterOutput! { get set }
     
     func didTapEditProfileButton()
+    func didTapSettingButton()
     func didViewDidLoad()
 }
 
 protocol ProfileViewPresenterOutput: class {
     func presentEditProfileVC()
+    func presentSettingVC()
     func setUserName(userName: String)
     func setProfileImage(URL: URL)
 }
@@ -32,6 +34,10 @@ final class ProfileViewPresenter: ProfileViewPresenterProtocol, ProfileModelOutp
     
     func didTapEditProfileButton() {
         self.view.presentEditProfileVC()
+    }
+    
+    func didTapSettingButton() {
+        self.view.presentSettingVC()
     }
     
     func didViewDidLoad() {

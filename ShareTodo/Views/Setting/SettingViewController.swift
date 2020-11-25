@@ -13,6 +13,26 @@ final class SettingViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setupNavigationBar()
+        self.setupNavigationItem()
+    }
+    
+    func setupNavigationBar() {
+        self.navigationItem.title = R.string.localizable.me()
+        self.navigationItem.largeTitleDisplayMode = .never
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
+    func setupNavigationItem() {
+        let stopItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(tapStopButton))
+        self.navigationItem.leftBarButtonItem = stopItem
+        self.navigationItem.leftBarButtonItem?.tintColor = .systemGray
+        self.navigationItem.title = R.string.localizable.settings()
+    }
+    
+    @objc func tapStopButton() {
+        self.presenter.didTapStopButton()
     }
     
     func inject(with presenter: SettingViewPresenterProtocol) {
@@ -22,5 +42,7 @@ final class SettingViewController: UITableViewController {
 }
 
 extension SettingViewController: SettingViewPresenterOutput {
-    
+    func dismissSettingVC() {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

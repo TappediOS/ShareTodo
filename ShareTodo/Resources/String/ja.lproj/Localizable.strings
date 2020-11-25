@@ -90,6 +90,9 @@
 "slash_Month" = "/月";
 "slash_Year" = "/年";
 
+// SettingVC
+"Settings" = "yu-zasettei";
+
 //TODO:- Privacy Policyと利用規約のURLを添付すること
 "Explanation Of Subscription Notes" = "
 ・お申込日から1ヶ月後に自動反映されます。

@@ -8,10 +8,12 @@
 
 protocol SettingViewPresenterProtocol {
     var view: SettingViewPresenterOutput! { get set }
+    
+    func didTapStopButton()
 }
 
 protocol SettingViewPresenterOutput: class {
-    
+    func dismissSettingVC()
 }
 
 final class SettingViewPresenter: SettingViewPresenterProtocol, SettingModelOutput {
@@ -21,5 +23,9 @@ final class SettingViewPresenter: SettingViewPresenterProtocol, SettingModelOutp
     init(model: SettingModelProtocol) {
         self.model = model
         self.model.presenter = self
+    }
+    
+    func didTapStopButton() {
+        self.view.dismissSettingVC()
     }
 }

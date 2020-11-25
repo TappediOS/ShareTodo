@@ -73,6 +73,9 @@
 "Introduction"            = "Introducing \"ShareTodo Plus\"";
 "IntroductionDescription" = "For those who want to check past tasks from one week";
 
+// SettingVC
+"Settings" = "Settings";
+
 // IntroductionVC
 "ShareTodo Plus" = "ShareTodo Plus";
 "Premium Features" = "Premium features";

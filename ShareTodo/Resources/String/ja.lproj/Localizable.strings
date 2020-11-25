@@ -91,7 +91,7 @@
 "slash_Year" = "/年";
 
 // SettingVC
-"Settings" = "yu-zasettei";
+"Settings" = "ユーザ設定";
 
 //TODO:- Privacy Policyと利用規約のURLを添付すること
 "Explanation Of Subscription Notes" = "

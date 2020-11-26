@@ -95,6 +95,7 @@
 "Term Of Use"         = "Term of use";
 "Privacy Policy"      = "Privacy Policy";
 "Version"             = "Version %@";
+"Success Restore"     = "The purchase history has been restored.";
 
 
 // IntroductionVC

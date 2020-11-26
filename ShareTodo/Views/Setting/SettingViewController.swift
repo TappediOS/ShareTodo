@@ -9,6 +9,7 @@
 import UIKit
 import SafariServices
 import LinkPresentation
+import SCLAlertView
 
 final class SettingViewController: UITableViewController {
     private var presenter: SettingViewPresenterProtocol!
@@ -128,6 +129,14 @@ extension SettingViewController: SettingViewPresenterOutput {
         self.present(sfSafariVC, animated: true, completion: nil)
     }
     
+    func endIgnoringInteractionEvents() {
+        UIApplication.shared.endIgnoringInteractionEvents()
+    }
+    
+    func beginIgnoringInteractionEvents() {
+        UIApplication.shared.beginIgnoringInteractionEvents()
+    }
+    
     func openReviewInAppStore(url: URL) {
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -149,5 +158,23 @@ extension SettingViewController: SettingViewPresenterOutput {
         let sfSafariVC = SFSafariViewController(url: url)
         sfSafariVC.modalPresentationStyle = .pageSheet
         self.present(sfSafariVC, animated: true, completion: nil)
+    }
+    
+    func showRestoreAleartView() {
+        let errorAlertView = SCLAlertView().getErrorAlert()
+        let title = R.string.localizable.done()
+        let subTitle = R.string.localizable.successRestore()
+        DispatchQueue.main.async {
+            errorAlertView.showError(title, subTitle: subTitle, colorStyle: 0x34C759, colorTextButton: 0xFFFFFF)
+        }
+    }
+    
+    func showErrorAleartView(error: Error) {
+        let errorAlertView = SCLAlertView().getErrorAlert()
+        let title = R.string.localizable.error()
+        let subTitle = error.localizedDescription
+        DispatchQueue.main.async {
+            errorAlertView.showError(title, subTitle: subTitle, colorStyle: 0xFF2D55, colorTextButton: 0xFFFFFF)
+        }
     }
 }

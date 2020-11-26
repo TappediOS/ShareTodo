@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Purchases
 
 protocol SettingModelProtocol {
     var presenter: SettingModelOutput! { get set }
@@ -27,6 +28,11 @@ protocol SettingModelOutput: class {
     func showShareActivityVC(shareText: String, shareURL: URL)
     func openTermOfUseVC(url: URL)
     func openPrivacyPolicyVC(url: URL)
+    
+    func startRestore()
+    func successRestoreSubscription()
+    func error(error: Error)
+    func productError()
 }
 
 final class SettingModel: SettingModelProtocol {
@@ -43,8 +49,11 @@ final class SettingModel: SettingModelProtocol {
     
     private func checkSection1(indexPath: IndexPath) {
         switch indexPath.item {
-        case 0: self.presenter.openSubscriptionStatusVC()
-        case 1: self.restoreSubscription()
+        case 0:
+            self.presenter.openSubscriptionStatusVC()
+        case 1:
+            self.presenter.startRestore()
+            self.restoreSubscription()
         default: return
         }
     }
@@ -126,6 +135,30 @@ final class SettingModel: SettingModelProtocol {
     }
     
     private func restoreSubscription() {
-        print("restore")
+        Purchases.shared.restoreTransactions { (purchaserInfo, error) in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                self.presenter.error(error: error)
+                return
+            }
+            
+            guard let purchaserInfo = purchaserInfo else {
+                print("purchaserInfo = nil")
+                self.presenter.productError()
+                return
+            }
+            
+            guard let entitlement = purchaserInfo.entitlements[R.string.sharedString.revenueCatShareTodoEntitlementsID()] else {
+                print("entitlement = nil")
+                self.presenter.productError()
+                return
+            }
+            
+            if entitlement.isActive == true {
+                self.presenter.successRestoreSubscription()
+            } else {
+                self.presenter.successRestoreSubscription()
+            }
+        }
     }
 }

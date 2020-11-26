@@ -112,6 +112,7 @@
 "Term Of Use"         = "利用規約";
 "Privacy Policy"      = "プライバシーポリシー";
 "Version"             = "バージョン %@";
+"Success Restore"     = "購入履歴を復元しました";
 
 //TODO:- Privacy Policyと利用規約のURLを添付すること
 "Explanation Of Subscription Notes" = "

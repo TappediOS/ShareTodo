@@ -123,7 +123,7 @@ extension TodayTodoViewController: TodayTodoViewPresenterOutput {
     }
     
     func showErrorAleartView(error: Error) {
-        let errorAlertView = SCLAlertView().getErrorAlert()
+        let errorAlertView = SCLAlertView().getCustomAlertView()
         let title = R.string.localizable.error()
         let subTitle = error.localizedDescription
         DispatchQueue.main.async {

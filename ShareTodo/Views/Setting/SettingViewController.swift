@@ -161,7 +161,7 @@ extension SettingViewController: SettingViewPresenterOutput {
     }
     
     func showRestoreAleartView() {
-        let errorAlertView = SCLAlertView().getErrorAlert()
+        let errorAlertView = SCLAlertView().getCustomAlertView()
         let title = R.string.localizable.done()
         let subTitle = R.string.localizable.successRestore()
         DispatchQueue.main.async {
@@ -170,7 +170,7 @@ extension SettingViewController: SettingViewPresenterOutput {
     }
     
     func showErrorAleartView(error: Error) {
-        let errorAlertView = SCLAlertView().getErrorAlert()
+        let errorAlertView = SCLAlertView().getCustomAlertView()
         let title = R.string.localizable.error()
         let subTitle = error.localizedDescription
         DispatchQueue.main.async {

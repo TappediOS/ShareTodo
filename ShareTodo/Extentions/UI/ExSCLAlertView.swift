@@ -10,14 +10,14 @@ import SCLAlertView
 import UIKit
 
 public extension SCLAlertView {
-    func getErrorAlert() -> SCLAlertView {
+    func getCustomAlertView() -> SCLAlertView {
         let appearance = SCLAlertView.SCLAppearance(
-            kWindowWidth: view.bounds.width * 0.68, kButtonHeight: 40,
+            kWindowWidth: view.bounds.width * 0.69, kButtonHeight: 40,
             kTitleFont: UIFont(name: "HiraMaruProN-W4", size: 15) ?? UIFont(),
-            kTextFont: UIFont(name: "HiraMaruProN-W4", size: 12) ?? UIFont(),
-            kButtonFont: UIFont(name: "HiraMaruProN-W4", size: 12) ?? UIFont(),
+            kTextFont: UIFont(name: "HiraMaruProN-W4", size: 12.5) ?? UIFont(),
+            kButtonFont: UIFont(name: "HiraMaruProN-W4", size: 14) ?? UIFont(),
             
-            showCircularIcon: false, contentViewCornerRadius: 15, fieldCornerRadius: 18, buttonCornerRadius: 18
+            showCircularIcon: false, contentViewCornerRadius: 16, fieldCornerRadius: 20, buttonCornerRadius: 20
         )
         
         return SCLAlertView(appearance: appearance)

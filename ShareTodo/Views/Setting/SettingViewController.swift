@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SafariServices
+import LinkPresentation
 
 final class SettingViewController: UITableViewController {
     private var presenter: SettingViewPresenterProtocol!
@@ -30,12 +32,14 @@ final class SettingViewController: UITableViewController {
         didSet { if #available(iOS 14.0, *) { lassoImageView.image = UIImage(systemName: "lasso.sparkles") } }
     }
     
+    var activityIndicator = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setupNavigationBar()
         self.setupNavigationItem()
+        self.setupActivityIndicator()
     }
     
     func setupNavigationBar() {
@@ -49,6 +53,13 @@ final class SettingViewController: UITableViewController {
         self.navigationItem.leftBarButtonItem = stopItem
         self.navigationItem.leftBarButtonItem?.tintColor = .systemGray
         self.navigationItem.title = R.string.localizable.settings()
+    }
+    
+    func setupActivityIndicator() {
+        self.activityIndicator.center = self.view.center
+        self.activityIndicator.style = .large
+        self.activityIndicator.hidesWhenStopped = true
+        self.view.addSubview(self.activityIndicator)
     }
     
     @objc func tapStopButton() {
@@ -76,11 +87,67 @@ final class SettingViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        self.presenter.didTapTableViewCell(indexPath: indexPath)
     }
 }
 
 extension SettingViewController: SettingViewPresenterOutput {
     func dismissSettingVC() {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func startActivityIndicator() {
+        DispatchQueue.main.async { self.activityIndicator.startAnimating() }
+    }
+    
+    func stopActivityIndicator() {
+        DispatchQueue.main.async { self.activityIndicator.stopAnimating() }
+    }
+    
+    func openAccountVC() {
+        
+    }
+    
+    func openSubscriptionStatusVC() {
+        
+    }
+    
+    // 設定画面を開く
+    func openPushNotificationVC(url: URL) {
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+    
+    func openAskQuestionVC(url: URL) {
+        
+    }
+    
+    func openFeedbackVC(url: URL) {
+        let sfSafariVC = SFSafariViewController(url: url)
+        sfSafariVC.modalPresentationStyle = .pageSheet
+        self.present(sfSafariVC, animated: true, completion: nil)
+    }
+    
+    func openReviewInAppStore(url: URL) {
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+    
+    func showShareActivityVC(shareText: String, shareURL: URL) {
+        let activityVC = UIActivityViewController(activityItems: [shareText, shareURL], applicationActivities: nil)
+        self.present(activityVC, animated: true, completion: nil)
+    }
+    
+    func openTermOfUseVC(url: URL) {
+        let sfSafariVC = SFSafariViewController(url: url)
+        sfSafariVC.modalPresentationStyle = .pageSheet
+        self.present(sfSafariVC, animated: true, completion: nil)
+    }
+    
+    func openPrivacyPolicyVC(url: URL) {
+        let sfSafariVC = SFSafariViewController(url: url)
+        sfSafariVC.modalPresentationStyle = .pageSheet
+        self.present(sfSafariVC, animated: true, completion: nil)
     }
 }

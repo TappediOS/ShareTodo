@@ -6,17 +6,30 @@
 //  Copyright © 2020 jun. All rights reserved.
 //
 
+import Foundation
+
 protocol SettingViewPresenterProtocol {
     var view: SettingViewPresenterOutput! { get set }
     var numberOfSection: Int { get }
     
     func didTapStopButton()
+    func didTapTableViewCell(indexPath: IndexPath)
     func getNumberOfRowsInSection(section: Int) -> Int
     func getTitleforHeaderInSection(section: Int) -> String
 }
 
 protocol SettingViewPresenterOutput: class {
     func dismissSettingVC()
+    
+    func openAccountVC()
+    func openSubscriptionStatusVC()
+    func openPushNotificationVC(url: URL)
+    func openAskQuestionVC(url: URL)
+    func openFeedbackVC(url: URL)
+    func openReviewInAppStore(url: URL)
+    func showShareActivityVC(shareText: String, shareURL: URL)
+    func openTermOfUseVC(url: URL)
+    func openPrivacyPolicyVC(url: URL)
 }
 
 final class SettingViewPresenter: SettingViewPresenterProtocol, SettingModelOutput {
@@ -34,11 +47,52 @@ final class SettingViewPresenter: SettingViewPresenterProtocol, SettingModelOutp
         self.view.dismissSettingVC()
     }
     
+    func didTapTableViewCell(indexPath: IndexPath) {
+        self.model.chekeTheIndexPath(indexPath: indexPath)
+    }
+    
     func getNumberOfRowsInSection(section: Int) -> Int {
         self.model.getNumberOfRowsInSection(section: section)
     }
     
     func getTitleforHeaderInSection(section: Int) -> String {
         self.model.getTitleforHeaderInSection(section: section)
+    }
+    
+    
+    func openAccountVC() {
+        self.view.openAccountVC()
+    }
+    
+    func openSubscriptionStatusVC() {
+        self.view.openSubscriptionStatusVC()
+    }
+    
+    func openPushNotificationVC(url: URL) {
+        self.view.openPushNotificationVC(url: url)
+    }
+    
+    func openAskQuestionVC(url: URL) {
+        self.view.openAskQuestionVC(url: url)
+    }
+    
+    func openFeedbackVC(url: URL) {
+        self.view.openFeedbackVC(url: url)
+    }
+    
+    func openReviewInAppStore(url: URL) {
+        self.view.openReviewInAppStore(url: url)
+    }
+    
+    func showShareActivityVC(shareText: String, shareURL: URL) {
+        self.view.showShareActivityVC(shareText: shareText, shareURL: shareURL)
+    }
+    
+    func openTermOfUseVC(url: URL) {
+        self.view.openTermOfUseVC(url: url)
+    }
+    
+    func openPrivacyPolicyVC(url: URL) {
+        self.view.openPrivacyPolicyVC(url: url)
     }
 }

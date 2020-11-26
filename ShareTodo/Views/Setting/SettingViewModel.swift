@@ -6,22 +6,100 @@
 //  Copyright © 2020 jun. All rights reserved.
 //
 
+import Foundation
+
 protocol SettingModelProtocol {
     var presenter: SettingModelOutput! { get set }
     var numberOfSection: Int { get set }
     
+    func chekeTheIndexPath(indexPath: IndexPath)
     func getNumberOfRowsInSection(section: Int) -> Int
     func getTitleforHeaderInSection(section: Int) -> String
 }
 
 protocol SettingModelOutput: class {
-    
+    func openAccountVC()
+    func openSubscriptionStatusVC()
+    func openPushNotificationVC(url: URL)
+    func openAskQuestionVC(url: URL)
+    func openFeedbackVC(url: URL)
+    func openReviewInAppStore(url: URL)
+    func showShareActivityVC(shareText: String, shareURL: URL)
+    func openTermOfUseVC(url: URL)
+    func openPrivacyPolicyVC(url: URL)
 }
 
 final class SettingModel: SettingModelProtocol {
     weak var presenter: SettingModelOutput!
     
     var numberOfSection = 6
+    
+    private func checkSection0(indexPath: IndexPath) {
+        switch indexPath.item {
+        case 0: self.presenter.openAccountVC()
+        default: return
+        }
+    }
+    
+    private func checkSection1(indexPath: IndexPath) {
+        switch indexPath.item {
+        case 0: self.presenter.openSubscriptionStatusVC()
+        case 1: self.restoreSubscription()
+        default: return
+        }
+    }
+    
+    private func checkSection2(indexPath: IndexPath) {
+        switch indexPath.item {
+        case 0:
+            guard let url = URL(string: "App-Prefs:root=NOTIFICATIONS_ID&path=com.Taped.ShareTodo") else { return }
+            self.presenter.openPushNotificationVC(url: url)
+        default: return
+        }
+    }
+    
+    private func checkSection3(indexPath: IndexPath) {
+        switch indexPath.item {
+        case 0:
+            guard let url = URL(string: "https://www.google.com") else { return }
+            self.presenter.openAskQuestionVC(url: url)
+        case 1:
+            guard let url = URL(string: "https://www.google.com") else { return }
+            self.presenter.openFeedbackVC(url: url)
+        case 2:
+            guard let url = URL(string: "https://www.google.com") else { return }
+            self.presenter.openReviewInAppStore(url: url)
+        case 3:
+            guard let url = URL(string: "https://www.google.com") else { return }
+            // TODO:- stringを切り出すこと
+            let shareText = "ShareTodoをシェア！"
+            self.presenter.showShareActivityVC(shareText: shareText, shareURL: url)
+        default: return
+        }
+    }
+    
+    private func checkSection4(indexPath: IndexPath) {
+        switch indexPath.item {
+        case 0:
+            guard let url = URL(string: "https://www.google.com") else { return }
+            self.presenter.openTermOfUseVC(url: url)
+        case 1:
+            guard let url = URL(string: "https://www.google.com") else { return }
+            self.presenter.openPrivacyPolicyVC(url: url)
+        default: return
+        }
+    }
+    
+    func chekeTheIndexPath(indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0: self.checkSection0(indexPath: indexPath)
+        case 1: self.checkSection1(indexPath: indexPath)
+        case 2: self.checkSection2(indexPath: indexPath)
+        case 3: self.checkSection3(indexPath: indexPath)
+        case 4: self.checkSection4(indexPath: indexPath)
+        default: return
+        }
+    }
     
     func getNumberOfRowsInSection(section: Int) -> Int {
         switch section {
@@ -45,5 +123,9 @@ final class SettingModel: SettingModelProtocol {
         case 5: return R.string.localizable.blankString()
         default: return R.string.localizable.blankString()
         }
+    }
+    
+    private func restoreSubscription() {
+        print("restore")
     }
 }

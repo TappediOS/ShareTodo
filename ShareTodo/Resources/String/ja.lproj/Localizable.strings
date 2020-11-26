@@ -91,7 +91,24 @@
 "slash_Year" = "/年";
 
 // SettingVC
-"Settings" = "ユーザ設定";
+"Settings"            = "ユーザ設定";
+"General"             = "一般";
+"Account"             = "アカウント";
+"Subscription"        = "サブスクリプション";
+"Status"              = "ステータス";
+"Restore"             = "購入の復元";
+"Settings"            = "設定";
+"Push Notifications"  = "プッシュ通知";
+"Support"             = "サポート";
+"Ask Questions"       = "お問い合わせ";
+"Feedback"            = "フィードバック";
+"Review In App Store" = "App Store でレビューする";
+"Review Desctiption"  = "レビューして頂ければ嬉しいです♪";
+"Share Share Todo"    = "シェアTODOをシェアする";
+"About"               = "アプリについて";
+"Term Of Use"         = "利用規約";
+"Privacy Policy"      = "プライバシーポリシー";
+"Version"             = "バージョン %@";
 
 //TODO:- Privacy Policyと利用規約のURLを添付すること
 "Explanation Of Subscription Notes" = "

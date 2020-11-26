@@ -74,7 +74,25 @@
 "IntroductionDescription" = "For those who want to check past tasks from one week";
 
 // SettingVC
-"Settings" = "Settings";
+"Settings"            = "Settings";
+"General"             = "General";
+"Account"             = "Account";
+"Subscription"        = "Subscription";
+"Status"              = "Status";
+"Restore"             = "Restore";
+"Settings"            = "Settings";
+"Push Notifications"  = "Push Notifications";
+"Support"             = "Support";
+"Ask Questions"       = "Ask questions";
+"Feedback"            = "Feedback";
+"Review In App Store" = "Review in App Store";
+"Review Desctiption"  = "I would be grateful if you could review it ♪";
+"Share Share Todo"    = "Share \"Share Todo\"";
+"About"               = "About";
+"Term Of Use"         = "Term of use";
+"Privacy Policy"      = "Privacy Policy";
+"Version"             = "Version %@";
+
 
 // IntroductionVC
 "ShareTodo Plus" = "ShareTodo Plus";

@@ -37,13 +37,13 @@ final class SettingModel: SettingModelProtocol {
     
     func getTitleforHeaderInSection(section: Int) -> String {
         switch section {
-        case 0: return "1"
-        case 1: return "2"
-        case 2: return "1"
-        case 3: return "4"
-        case 4: return "2"
-        case 5: return "1"
-        default: return "0"
+        case 0: return R.string.localizable.general()
+        case 1: return R.string.localizable.subscription()
+        case 2: return R.string.localizable.settings()
+        case 3: return R.string.localizable.support()
+        case 4: return R.string.localizable.about()
+        case 5: return ""
+        default: return ""
         }
     }
 }

@@ -10,6 +10,26 @@ import UIKit
 
 final class SettingViewController: UITableViewController {
     private var presenter: SettingViewPresenterProtocol!
+    @IBOutlet weak var accountLabel: UILabel! { didSet { accountLabel.text = R.string.localizable.account() }}
+    @IBOutlet weak var statusLabel: UILabel! { didSet { statusLabel.text = R.string.localizable.status() }}
+    @IBOutlet weak var restoreLabel: UILabel! { didSet { restoreLabel.text = R.string.localizable.restore() }}
+    @IBOutlet weak var pushNotificationsLabel: UILabel! { didSet { pushNotificationsLabel.text = R.string.localizable.pushNotifications() }}
+    @IBOutlet weak var askQuestionsLabel: UILabel! { didSet { askQuestionsLabel.text = R.string.localizable.askQuestions() }}
+    @IBOutlet weak var feedbackLabel: UILabel! { didSet { feedbackLabel.text = R.string.localizable.feedback() }}
+    @IBOutlet weak var reviewInAppStoreLabel: UILabel! { didSet { reviewInAppStoreLabel.text = R.string.localizable.reviewInAppStore() }}
+    @IBOutlet weak var reviewDescriptionLabel: UILabel! { didSet { reviewDescriptionLabel.text = R.string.localizable.reviewDesctiption() }}
+    @IBOutlet weak var shareShareTodoLabel: UILabel! { didSet { shareShareTodoLabel.text = R.string.localizable.shareShareTodo() }}
+    @IBOutlet weak var termOfUseLabel: UILabel! { didSet { termOfUseLabel.text = R.string.localizable.termOfUse() }}
+    @IBOutlet weak var privacyPolicyLabel: UILabel! { didSet { privacyPolicyLabel.text = R.string.localizable.privacyPolicy() }}
+    @IBOutlet weak var versionLabel: UILabel! { didSet { versionLabel.text = R.string.localizable.version(R.string.sharedString.appVersion()) }}
+    
+    @IBOutlet weak var bellImageView: UIImageView! {
+        didSet { if #available(iOS 14.0, *) { bellImageView.image = UIImage(systemName: "bell.badge") } }
+    }
+    @IBOutlet weak var lassoImageView: UIImageView! {
+        didSet { if #available(iOS 14.0, *) { lassoImageView.image = UIImage(systemName: "lasso.sparkles") } }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

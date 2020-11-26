@@ -6,6 +6,9 @@
   Copyright © 2020 jun. All rights reserved.
 */
 
+// Shared
+"Blank String" = "";
+
 // Notification
 "GROUP_TASK_NOTIFICATION_TITLE" = "%@ / %@";
 "FINISHEDUSER_NOTIFICATION_BODY" = "%@さんが今日のタスクを完了させました";

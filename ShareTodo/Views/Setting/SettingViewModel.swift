@@ -42,8 +42,8 @@ final class SettingModel: SettingModelProtocol {
         case 2: return R.string.localizable.settings()
         case 3: return R.string.localizable.support()
         case 4: return R.string.localizable.about()
-        case 5: return ""
-        default: return ""
+        case 5: return R.string.localizable.blankString()
+        default: return R.string.localizable.blankString()
         }
     }
 }

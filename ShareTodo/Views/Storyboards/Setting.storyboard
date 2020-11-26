@@ -33,8 +33,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="person.fill" catalog="system" id="bjS-60-LE1">
-                                                    <rect key="frame" x="23" y="15.5" width="18" height="17"/>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="person" catalog="system" id="bjS-60-LE1">
+                                                    <rect key="frame" x="22.5" y="15.5" width="19" height="17.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="tintColor" systemColor="secondaryLabelColor"/>
                                                 </imageView>
@@ -293,6 +293,22 @@
                             <outlet property="delegate" destination="OR0-78-JWu" id="wGG-si-yZ5"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="accountLabel" destination="H9K-Zo-lYb" id="MAY-aP-gQg"/>
+                        <outlet property="askQuestionsLabel" destination="shK-Dg-aKw" id="H4W-wZ-TLX"/>
+                        <outlet property="bellImageView" destination="6Ot-aY-oq7" id="biB-VT-1Fu"/>
+                        <outlet property="feedbackLabel" destination="KUW-Hg-Nxa" id="OgD-K5-gvB"/>
+                        <outlet property="lassoImageView" destination="fz9-MQ-1gD" id="HKS-lj-UdT"/>
+                        <outlet property="privacyPolicyLabel" destination="rgT-7o-OpM" id="kLV-Cp-bAs"/>
+                        <outlet property="pushNotificationsLabel" destination="aUV-fM-fnc" id="dxu-yM-NmD"/>
+                        <outlet property="restoreLabel" destination="d6g-qW-TBf" id="EtL-Bt-jRX"/>
+                        <outlet property="reviewDescriptionLabel" destination="PwA-yE-wgz" id="1Yv-bS-flv"/>
+                        <outlet property="reviewInAppStoreLabel" destination="QOa-Tv-ldp" id="W2U-Pe-znp"/>
+                        <outlet property="shareShareTodoLabel" destination="3or-eb-9NN" id="cco-kl-Enp"/>
+                        <outlet property="statusLabel" destination="bxj-Eu-tjW" id="O6P-wd-EEh"/>
+                        <outlet property="termOfUseLabel" destination="qkZ-fC-G56" id="1uF-Sy-Pd6"/>
+                        <outlet property="versionLabel" destination="7pT-Gn-EkI" id="gSN-Kw-yMp"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DjD-KX-TNA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -306,7 +322,7 @@
         <image name="hand.raised" catalog="system" width="128" height="128"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="lasso" catalog="system" width="128" height="118"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="person" catalog="system" width="128" height="117"/>
         <image name="questionmark" catalog="system" width="96" height="128"/>
         <image name="rosette" catalog="system" width="106" height="128"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>

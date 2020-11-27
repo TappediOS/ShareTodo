@@ -70,8 +70,8 @@ final class SettingModel: SettingModelProtocol {
     private func checkSection3(indexPath: IndexPath) {
         switch indexPath.item {
         case 0:
-            // ask question
-            guard let url = URL(string: "https://www.google.com") else { return }
+            // contact us
+            guard let url = URL(string: R.string.localizable.contactUsURL()) else { return }
             self.presenter.openAskQuestionVC(url: url)
         case 1:
             // feedback

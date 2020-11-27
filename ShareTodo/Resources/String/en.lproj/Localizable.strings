@@ -86,7 +86,7 @@
 "Settings"            = "Settings";
 "Push Notifications"  = "Push Notifications";
 "Support"             = "Support";
-"Ask Questions"       = "Ask questions";
+"Ask Questions"       = "Contact us";
 "Feedback"            = "Feedback";
 "Review In App Store" = "Review in App Store";
 "Review Desctiption"  = "I would be grateful if you could review it ♪";
@@ -96,6 +96,7 @@
 "Privacy Policy"      = "Privacy Policy";
 "Version"             = "Version %@";
 "Success Restore"     = "The purchase history has been restored.";
+"Contact Us URL"      = "https://forms.gle/1iCH2aV5jYJ6Sm87A";
 
 
 // IntroductionVC

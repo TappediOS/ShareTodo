@@ -113,6 +113,7 @@
 "Privacy Policy"      = "プライバシーポリシー";
 "Version"             = "バージョン %@";
 "Success Restore"     = "購入履歴を復元しました";
+"Contact Us URL"      = "https://forms.gle/n7CVXFhreBhxW8cV7";
 
 //TODO:- Privacy Policyと利用規約のURLを添付すること
 "Explanation Of Subscription Notes" = "

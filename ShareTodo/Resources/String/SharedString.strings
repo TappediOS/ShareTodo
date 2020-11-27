@@ -13,4 +13,8 @@
 "RevenueCatShareTodoEntitlementsID" = "ShareTodoPlus";
 
 
+"ShareTodoHostingURL" = "https://sharetodo-a91ef.web.app";
+"GitHubIssueURL" = "https://github.com/TappediOS/ShareTodo/issues/new/choose";
+
+
 "AppVersion" = "1.0.0";

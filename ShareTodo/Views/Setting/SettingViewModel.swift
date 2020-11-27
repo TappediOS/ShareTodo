@@ -25,7 +25,7 @@ protocol SettingModelOutput: class {
     func openAskQuestionVC(url: URL)
     func openFeedbackVC(url: URL)
     func openReviewInAppStore(url: URL)
-    func showShareActivityVC(shareText: String, shareURL: URL)
+    func showShareActivityVC(shareText: String?, shareURL: URL)
     func openTermOfUseVC(url: URL)
     func openPrivacyPolicyVC(url: URL)
     
@@ -70,19 +70,22 @@ final class SettingModel: SettingModelProtocol {
     private func checkSection3(indexPath: IndexPath) {
         switch indexPath.item {
         case 0:
+            // ask question
             guard let url = URL(string: "https://www.google.com") else { return }
             self.presenter.openAskQuestionVC(url: url)
         case 1:
-            guard let url = URL(string: "https://www.google.com") else { return }
+            // feedback
+            guard let url = URL(string: R.string.sharedString.gitHubIssueURL()) else { return }
             self.presenter.openFeedbackVC(url: url)
         case 2:
+            // review in app strore
             guard let url = URL(string: "https://www.google.com") else { return }
             self.presenter.openReviewInAppStore(url: url)
         case 3:
-            guard let url = URL(string: "https://www.google.com") else { return }
+            guard let url = URL(string: "https://itunes.apple.com/us/app/on-stars-top-of-the-stars/id1425699182?l=ja&ls=1&mt=8") else { return }
             // TODO:- stringを切り出すこと
             let shareText = "ShareTodoをシェア！"
-            self.presenter.showShareActivityVC(shareText: shareText, shareURL: url)
+            self.presenter.showShareActivityVC(shareText: nil, shareURL: url)
         default: return
         }
     }
@@ -90,9 +93,11 @@ final class SettingModel: SettingModelProtocol {
     private func checkSection4(indexPath: IndexPath) {
         switch indexPath.item {
         case 0:
-            guard let url = URL(string: "https://www.google.com") else { return }
+            // term of user
+            guard let url = URL(string: R.string.sharedString.shareTodoHostingURL()) else { return }
             self.presenter.openTermOfUseVC(url: url)
         case 1:
+            // privacy policy
             guard let url = URL(string: "https://www.google.com") else { return }
             self.presenter.openPrivacyPolicyVC(url: url)
         default: return

@@ -33,7 +33,7 @@ protocol SettingViewPresenterOutput: class {
     func openAskQuestionVC(url: URL)
     func openFeedbackVC(url: URL)
     func openReviewInAppStore(url: URL)
-    func showShareActivityVC(shareText: String, shareURL: URL)
+    func showShareActivityVC(shareText: String?, shareURL: URL)
     func openTermOfUseVC(url: URL)
     func openPrivacyPolicyVC(url: URL)
     
@@ -93,7 +93,7 @@ final class SettingViewPresenter: SettingViewPresenterProtocol, SettingModelOutp
         self.view.openReviewInAppStore(url: url)
     }
     
-    func showShareActivityVC(shareText: String, shareURL: URL) {
+    func showShareActivityVC(shareText: String?, shareURL: URL) {
         self.view.showShareActivityVC(shareText: shareText, shareURL: shareURL)
     }
     

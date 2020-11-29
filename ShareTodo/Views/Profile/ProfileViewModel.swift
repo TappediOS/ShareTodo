@@ -11,6 +11,7 @@ import Purchases
 
 protocol ProfileModelProtocol {
     var presenter: ProfileModelOutput! { get set }
+    var isUserSubscribed: Bool { get set }
     
     func fetchUser()
     func checkingIfAUserSubscribed()
@@ -30,6 +31,8 @@ final class ProfileModel: ProfileModelProtocol {
     weak var presenter: ProfileModelOutput!
     private var firestore: Firestore!
     private var listener: ListenerRegistration?
+    
+    var isUserSubscribed = false
     
     init() {
         self.firestore = Firestore.firestore()
@@ -82,20 +85,23 @@ final class ProfileModel: ProfileModelProtocol {
             }
             
             guard entitlement.isActive == true else {
+                self.isUserSubscribed = false
                 self.presenter.userDontSubscribed()
                 return
             }
             
+            self.isUserSubscribed = true
             self.presenter.userSubscribed()
         }
     }
     
-    
     @objc func startSubscribed() {
+        self.isUserSubscribed = true
         self.presenter.userStartSubscribed()
     }
     
     @objc func endSubscribed() {
+        self.isUserSubscribed = false
         self.presenter.userEndSubscribed()
     }
 }

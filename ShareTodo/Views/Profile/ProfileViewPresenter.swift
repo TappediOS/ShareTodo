@@ -10,6 +10,7 @@ import Foundation
 
 protocol ProfileViewPresenterProtocol {
     var view: ProfileViewPresenterOutput! { get set }
+    var isUserSubscribed: Bool { get }
     
     func didTapEditProfileButton()
     func didTapSettingButton()
@@ -31,11 +32,14 @@ protocol ProfileViewPresenterOutput: class {
     func setPlanStatusLabelAsNonSubscribed()
     func setPlanStatusButtonAsNonSubscribed()
     
+    func segueIntroductionShareTodoVC()
 }
 
 final class ProfileViewPresenter: ProfileViewPresenterProtocol, ProfileModelOutput {
     weak var view: ProfileViewPresenterOutput!
     private var model: ProfileModelProtocol
+    
+    var isUserSubscribed: Bool { return self.model.isUserSubscribed }
     
     init(model: ProfileModelProtocol) {
         self.model = model
@@ -51,7 +55,9 @@ final class ProfileViewPresenter: ProfileViewPresenterProtocol, ProfileModelOutp
     }
     
     func didTapPlanStateButton() {
-        
+        if self.isUserSubscribed == false {
+            self.view.segueIntroductionShareTodoVC()
+        }
     }
     
     func didViewDidLoad() {
@@ -61,6 +67,7 @@ final class ProfileViewPresenter: ProfileViewPresenterProtocol, ProfileModelOutp
     func didVeiwWillAppear() {
         self.model.checkingIfAUserSubscribed()
     }
+    
     
     func successFetchUser(user: User) {
         self.view.setUserName(userName: user.name)

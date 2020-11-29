@@ -102,6 +102,7 @@ final class ProfileViewController: UIViewController {
     }
     
     @IBAction func tapPlabStateButton(_ sender: Any) {
+        print("tap")
         self.presenter.didTapPlanStateButton()
     }
     
@@ -170,6 +171,11 @@ extension ProfileViewController: ProfileViewPresenterOutput {
                 self.navigationItem.rightBarButtonItem?.isEnabled = true
             })
         }
+    }
+    
+    func segueIntroductionShareTodoVC() {
+        let introductionShareTodoPlusVC = IntroductionShareTodoPlusViewBuilder.create()
+        self.navigationController?.pushViewController(introductionShareTodoPlusVC, animated: true)
     }
 }
 

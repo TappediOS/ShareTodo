@@ -7,15 +7,23 @@
 //
 
 import Firebase
+import Purchases
 
 protocol ProfileModelProtocol {
     var presenter: ProfileModelOutput! { get set }
     
     func fetchUser()
+    func checkingIfAUserSubscribed()
 }
 
 protocol ProfileModelOutput: class {
     func successFetchUser(user: User)
+    
+    func userSubscribed()
+    func userDontSubscribed()
+    
+    func userStartSubscribed()
+    func userEndSubscribed()
 }
 
 final class ProfileModel: ProfileModelProtocol {
@@ -54,5 +62,40 @@ final class ProfileModel: ProfileModelProtocol {
                 return
             }
         }
+    }
+    
+    func checkingIfAUserSubscribed() {
+        Purchases.shared.purchaserInfo { (purchaserInfo, error) in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let purchaserInfo = purchaserInfo else {
+                print("purchaserInfo = nil")
+                return
+            }
+            
+            guard let entitlement = purchaserInfo.entitlements[R.string.sharedString.revenueCatShareTodoEntitlementsID()] else {
+                print("entitlement = nil")
+                return
+            }
+            
+            guard entitlement.isActive == true else {
+                self.presenter.userDontSubscribed()
+                return
+            }
+            
+            self.presenter.userSubscribed()
+        }
+    }
+    
+    
+    @objc func startSubscribed() {
+        self.presenter.userStartSubscribed()
+    }
+    
+    @objc func endSubscribed() {
+        self.presenter.userEndSubscribed()
     }
 }

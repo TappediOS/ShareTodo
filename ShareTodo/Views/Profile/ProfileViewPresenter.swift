@@ -13,7 +13,9 @@ protocol ProfileViewPresenterProtocol {
     
     func didTapEditProfileButton()
     func didTapSettingButton()
+    func didTapPlanStateButton()
     func didViewDidLoad()
+    func didVeiwWillAppear()
 }
 
 protocol ProfileViewPresenterOutput: class {
@@ -21,6 +23,14 @@ protocol ProfileViewPresenterOutput: class {
     func presentSettingVC()
     func setUserName(userName: String)
     func setProfileImage(URL: URL)
+    
+    func setPlanLabelAsSubscribed()
+    func setPlanStatusLabelAsSubscribed()
+    func setPlanStatusButtonAsSubscribed()
+    func setPlanLabelAsNonSubscribed()
+    func setPlanStatusLabelAsNonSubscribed()
+    func setPlanStatusButtonAsNonSubscribed()
+    
 }
 
 final class ProfileViewPresenter: ProfileViewPresenterProtocol, ProfileModelOutput {
@@ -40,13 +50,41 @@ final class ProfileViewPresenter: ProfileViewPresenterProtocol, ProfileModelOutp
         self.view.presentSettingVC()
     }
     
+    func didTapPlanStateButton() {
+        
+    }
+    
     func didViewDidLoad() {
         self.model.fetchUser()
+    }
+    
+    func didVeiwWillAppear() {
+        self.model.checkingIfAUserSubscribed()
     }
     
     func successFetchUser(user: User) {
         self.view.setUserName(userName: user.name)
         guard let url = URL(string: user.profileImageURL ?? "") else { return }
         self.view.setProfileImage(URL: url)
+    }
+    
+    func userSubscribed() {
+        self.view.setPlanLabelAsSubscribed()
+        self.view.setPlanStatusLabelAsSubscribed()
+        self.view.setPlanStatusButtonAsSubscribed()
+    }
+    
+    func userDontSubscribed() {
+        self.view.setPlanLabelAsNonSubscribed()
+        self.view.setPlanStatusLabelAsNonSubscribed()
+        self.view.setPlanStatusButtonAsNonSubscribed()
+    }
+    
+    func userStartSubscribed() {
+        self.model.checkingIfAUserSubscribed()
+    }
+    
+    func userEndSubscribed() {
+        self.model.checkingIfAUserSubscribed()
     }
 }

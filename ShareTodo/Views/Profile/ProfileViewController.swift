@@ -36,6 +36,11 @@ final class ProfileViewController: UIViewController {
         self.presenter.didViewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.presenter.didVeiwWillAppear()
+    }
+    
     func setupScrollView() {
         self.scrollView.alwaysBounceVertical = true
     }
@@ -85,9 +90,7 @@ final class ProfileViewController: UIViewController {
     }
     
     private func setupPlanStateButton() {
-        self.planLabel.text = ""
-        self.planLabel.adjustsFontSizeToFitWidth = true
-        self.planLabel.minimumScaleFactor = 0.4
+        self.planStateButton.alpha = 0
     }
 
     @objc func editProfile(_ sender: UIButton) {
@@ -99,6 +102,7 @@ final class ProfileViewController: UIViewController {
     }
     
     @IBAction func tapPlabStateButton(_ sender: Any) {
+        self.presenter.didTapPlanStateButton()
     }
     
     
@@ -109,6 +113,30 @@ final class ProfileViewController: UIViewController {
 }
 
 extension ProfileViewController: ProfileViewPresenterOutput {
+    func setPlanLabelAsSubscribed() {
+        self.planLabel.text = "Plan"
+    }
+    
+    func setPlanStatusLabelAsSubscribed() {
+        self.planStatusLabel.text = "⭐️ Premium Plan ⭐️"
+    }
+    
+    func setPlanStatusButtonAsSubscribed() {
+        self.planStateButton.alpha = 0.65
+    }
+    
+    func setPlanLabelAsNonSubscribed() {
+        self.planLabel.text = "Plan"
+    }
+    
+    func setPlanStatusLabelAsNonSubscribed() {
+        self.planStatusLabel.text = "Free Plan"
+    }
+    
+    func setPlanStatusButtonAsNonSubscribed() {
+        self.planStateButton.alpha = 0.25
+    }
+    
     func presentEditProfileVC() {
         guard let editProfileVC = EditProfileViewBuilder.create() as? EditProfileViewController else { return }
         editProfileVC.profileImage = self.profileImageView.image ?? UIImage()

@@ -102,7 +102,6 @@ final class ProfileViewController: UIViewController {
     }
     
     @IBAction func tapPlabStateButton(_ sender: Any) {
-        print("tap")
         self.presenter.didTapPlanStateButton()
     }
     

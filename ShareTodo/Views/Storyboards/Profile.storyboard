@@ -57,7 +57,7 @@
                                                 <rect key="frame" x="0.0" y="121" width="414" height="70"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4op-FO-Kmw">
-                                                        <rect key="frame" x="126" y="8" width="162" height="54"/>
+                                                        <rect key="frame" x="121.5" y="8" width="171" height="54"/>
                                                         <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -90,7 +90,7 @@
                                                 <constraints>
                                                     <constraint firstItem="dDT-7Z-LjQ" firstAttribute="centerX" secondItem="tSC-8Q-HaO" secondAttribute="centerX" id="0eL-z1-0F6"/>
                                                     <constraint firstItem="4op-FO-Kmw" firstAttribute="centerY" secondItem="tSC-8Q-HaO" secondAttribute="centerY" id="9kH-zb-Qft"/>
-                                                    <constraint firstItem="hmH-fD-ojm" firstAttribute="width" secondItem="4op-FO-Kmw" secondAttribute="width" multiplier="0.55" id="9sj-bZ-XSE"/>
+                                                    <constraint firstItem="hmH-fD-ojm" firstAttribute="width" secondItem="4op-FO-Kmw" secondAttribute="width" multiplier="0.52" id="9sj-bZ-XSE"/>
                                                     <constraint firstItem="4op-FO-Kmw" firstAttribute="top" secondItem="tSC-8Q-HaO" secondAttribute="top" constant="8" id="chi-48-Crc"/>
                                                     <constraint firstAttribute="height" constant="70" id="dK5-4B-NAM"/>
                                                     <constraint firstItem="dDT-7Z-LjQ" firstAttribute="centerY" secondItem="tSC-8Q-HaO" secondAttribute="centerY" id="e4R-Pc-MYI"/>

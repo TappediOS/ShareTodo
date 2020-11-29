@@ -114,27 +114,27 @@ final class ProfileViewController: UIViewController {
 
 extension ProfileViewController: ProfileViewPresenterOutput {
     func setPlanLabelAsSubscribed() {
-        self.planLabel.text = "Plan"
+        self.planLabel.text = R.string.localizable.plan()
     }
     
     func setPlanStatusLabelAsSubscribed() {
-        self.planStatusLabel.text = "⭐️ Premium Plan ⭐️"
+        self.planStatusLabel.text = R.string.localizable.premiunPlan()
     }
     
     func setPlanStatusButtonAsSubscribed() {
-        self.planStateButton.alpha = 0.65
+        self.planStateButton.alpha = 0.85
     }
     
     func setPlanLabelAsNonSubscribed() {
-        self.planLabel.text = "Plan"
+        self.planLabel.text = R.string.localizable.plan()
     }
     
     func setPlanStatusLabelAsNonSubscribed() {
-        self.planStatusLabel.text = "Free Plan"
+        self.planStatusLabel.text = R.string.localizable.freePlan()
     }
     
     func setPlanStatusButtonAsNonSubscribed() {
-        self.planStateButton.alpha = 0.25
+        self.planStateButton.alpha = 0.4
     }
     
     func presentEditProfileVC() {

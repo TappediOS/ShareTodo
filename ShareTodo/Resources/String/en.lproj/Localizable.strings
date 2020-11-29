@@ -55,6 +55,12 @@
 "Choose Friends" = "Choose friends";
 "Search By Name" = "Search by name";
 
+// ProfileVC
+"Plan" = "Plan";
+"Free Plan" = "Free Plan";
+"Premiun Plan" = "⭐️Premium Plan⭐️";
+
+
 // EditProfileVC
 "Edit Profile"        = "Edit Profile";
 "Chose Profile Photo" = "Chose Profile Photo";

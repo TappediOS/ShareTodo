@@ -55,6 +55,11 @@
 "Choose Friends" = "フレンド選択";
 "Search By Name" = "名前で検索";
 
+// ProfileVC
+"Plan" = "プラン";
+"Free Plan" = "フリープラン";
+"Premiun Plan" = "⭐️プレミアムプラン⭐️";
+
 // EditProfileVC
 "Edit Profile"        = "プロフィール編集";
 "Chose Profile Photo" = "プロフィール写真を選択";

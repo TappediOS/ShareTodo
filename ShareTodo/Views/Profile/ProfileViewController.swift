@@ -122,7 +122,7 @@ extension ProfileViewController: ProfileViewPresenterOutput {
     }
     
     func setPlanStatusButtonAsSubscribed() {
-        self.planStateButton.alpha = 0.85
+        self.planStateButton.alpha = 0.65
     }
     
     func setPlanLabelAsNonSubscribed() {
@@ -134,7 +134,7 @@ extension ProfileViewController: ProfileViewPresenterOutput {
     }
     
     func setPlanStatusButtonAsNonSubscribed() {
-        self.planStateButton.alpha = 0.4
+        self.planStateButton.alpha = 0.25
     }
     
     func presentEditProfileVC() {

@@ -64,6 +64,9 @@
                                                                 <integer key="value" value="8"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="tapPlabStateButton:" destination="Lpt-FI-cP0" eventType="touchUpInside" id="37C-Pq-lQx"/>
+                                                        </connections>
                                                     </button>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dDT-7Z-LjQ">
                                                         <rect key="frame" x="162.5" y="16.5" width="89" height="37"/>
@@ -118,6 +121,9 @@
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
                         <outlet property="nameLabel" destination="Aet-4n-xM0" id="JLk-RG-Asp"/>
+                        <outlet property="planLabel" destination="xcH-sJ-VNb" id="wyb-2i-grV"/>
+                        <outlet property="planStateButton" destination="4op-FO-Kmw" id="7qh-dV-zB6"/>
+                        <outlet property="planStatusLabel" destination="hmH-fD-ojm" id="E5g-ja-pJZ"/>
                         <outlet property="profileImageView" destination="z7C-k8-ISc" id="I2a-gW-Ncl"/>
                         <outlet property="scrollView" destination="nNk-Vs-G0l" id="CvT-YR-DI1"/>
                     </connections>

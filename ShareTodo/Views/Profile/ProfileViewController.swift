@@ -15,6 +15,11 @@ final class ProfileViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
+    @IBOutlet weak var planLabel: UILabel!
+    @IBOutlet weak var planStatusLabel: UILabel!
+    @IBOutlet weak var planStateButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,6 +28,10 @@ final class ProfileViewController: UIViewController {
         self.setupNameLabel()
         self.setupNavigationBar()
         self.setupUIBarButtonItem()
+        self.setupPlanLabel()
+        self.setupPlanStatusLabel()
+        self.setupPlanStateButton()
+        
         
         self.presenter.didViewDidLoad()
     }
@@ -62,6 +71,24 @@ final class ProfileViewController: UIViewController {
         self.navigationItem.rightBarButtonItem?.tintColor = .systemGreen
         self.navigationItem.rightBarButtonItem?.isEnabled = false
     }
+    
+    private func setupPlanLabel() {
+        self.planLabel.text = ""
+        self.planLabel.adjustsFontSizeToFitWidth = true
+        self.planLabel.minimumScaleFactor = 0.4
+    }
+    
+    private func setupPlanStatusLabel() {
+        self.planStatusLabel.text = ""
+        self.planStatusLabel.adjustsFontSizeToFitWidth = true
+        self.planStatusLabel.minimumScaleFactor = 0.4
+    }
+    
+    private func setupPlanStateButton() {
+        self.planLabel.text = ""
+        self.planLabel.adjustsFontSizeToFitWidth = true
+        self.planLabel.minimumScaleFactor = 0.4
+    }
 
     @objc func editProfile(_ sender: UIButton) {
         self.presenter.didTapEditProfileButton()
@@ -70,6 +97,10 @@ final class ProfileViewController: UIViewController {
     @objc func setting(_ sender: UIButton) {
         self.presenter.didTapSettingButton()
     }
+    
+    @IBAction func tapPlabStateButton(_ sender: Any) {
+    }
+    
     
     func inject(with presenter: ProfileViewPresenterProtocol) {
         self.presenter = presenter

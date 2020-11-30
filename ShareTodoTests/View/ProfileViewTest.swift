@@ -34,7 +34,7 @@ class ProfileViewTest: XCTestCase {
         XCTAssertEqual(view.profileImageView.layer.cornerRadius, view.profileImageView.frame.width / 2)
     }
 
-    func test_表示時にラベルの情報が正しいこと() throws {
+    func test_表示時に名前ラベルの情報が正しいこと() throws {
         let presenter = ProfileViewPresenter(model: ProfileViewModelMock())
         view.inject(with: presenter)
         

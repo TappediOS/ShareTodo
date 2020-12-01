@@ -23,6 +23,11 @@ class ProfileViewModelMock: ProfileModelProtocol {
         self.presenter.userSubscribed()
     }
     
+    func changeSubscriptionFalse() {
+        self.isUserSubscribed = false
+        self.presenter.userDontSubscribed()
+    }
+    
     @objc func startSubscribed() {
         self.isUserSubscribed = true
         self.presenter.userStartSubscribed()

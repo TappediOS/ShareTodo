@@ -120,7 +120,9 @@ extension SettingViewController: SettingViewPresenterOutput {
     }
     
     func openAskQuestionVC(url: URL) {
-        
+        let sfSafariVC = SFSafariViewController(url: url)
+        sfSafariVC.modalPresentationStyle = .pageSheet
+        self.present(sfSafariVC, animated: true, completion: nil)
     }
     
     func openFeedbackVC(url: URL) {

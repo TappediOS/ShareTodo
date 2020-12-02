@@ -8,6 +8,7 @@
 
 import Foundation
 import Purchases
+import Firebase
 
 protocol SettingModelProtocol {
     var presenter: SettingModelOutput! { get set }
@@ -71,7 +72,10 @@ final class SettingModel: SettingModelProtocol {
         switch indexPath.item {
         case 0:
             // contact us
-            guard let url = URL(string: R.string.localizable.contactUsURL()) else { return }
+            let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
+            let iOSVersion = "\(UIDevice.current.systemName)%20\(UIDevice.current.systemVersion)"
+            let userID = Auth.auth().currentUser?.uid ?? ""
+            guard let url = URL(string: R.string.localizable.contactUsURL(appVersion, iOSVersion, userID)) else { return }
             self.presenter.openAskQuestionVC(url: url)
         case 1:
             // feedback

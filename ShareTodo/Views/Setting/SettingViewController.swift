@@ -24,7 +24,12 @@ final class SettingViewController: UITableViewController {
     @IBOutlet weak var shareShareTodoLabel: UILabel! { didSet { shareShareTodoLabel.text = R.string.localizable.shareShareTodo() }}
     @IBOutlet weak var termOfUseLabel: UILabel! { didSet { termOfUseLabel.text = R.string.localizable.termOfUse() }}
     @IBOutlet weak var privacyPolicyLabel: UILabel! { didSet { privacyPolicyLabel.text = R.string.localizable.privacyPolicy() }}
-    @IBOutlet weak var versionLabel: UILabel! { didSet { versionLabel.text = R.string.localizable.version(R.string.sharedString.appVersion()) }}
+    
+    @IBOutlet weak var versionLabel: UILabel! {
+        didSet {
+            versionLabel.text = R.string.localizable.version(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "")
+        }
+    }
     
     @IBOutlet weak var bellImageView: UIImageView! {
         didSet { if #available(iOS 14.0, *) { bellImageView.image = UIImage(systemName: "bell.badge") } }

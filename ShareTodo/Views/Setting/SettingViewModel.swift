@@ -82,13 +82,12 @@ final class SettingModel: SettingModelProtocol {
             guard let url = URL(string: R.string.sharedString.gitHubIssueURL()) else { return }
             self.presenter.openFeedbackVC(url: url)
         case 2:
-            // review in app strore
-            guard let url = URL(string: "https://www.google.com") else { return }
+            // review in app strore 
+            guard let url = URL(string: R.string.sharedString.appStoreReviewURL()) else { return }
             self.presenter.openReviewInAppStore(url: url)
         case 3:
-            guard let url = URL(string: "https://itunes.apple.com/us/app/on-stars-top-of-the-stars/id1425699182?l=ja&ls=1&mt=8") else { return }
-            // TODO:- stringを切り出すこと
-            let shareText = "ShareTodoをシェア！"
+            // Share shareTODO
+            guard let url = URL(string: R.string.sharedString.shareShareTodoURL()) else { return }
             self.presenter.showShareActivityVC(shareText: nil, shareURL: url)
         default: return
         }

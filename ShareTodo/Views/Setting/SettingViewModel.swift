@@ -62,7 +62,7 @@ final class SettingModel: SettingModelProtocol {
     private func checkSection2(indexPath: IndexPath) {
         switch indexPath.item {
         case 0:
-            guard let url = URL(string: "App-Prefs:root=NOTIFICATIONS_ID&path=com.Taped.ShareTodo") else { return }
+            guard let url = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) else { return }
             self.presenter.openPushNotificationVC(url: url)
         default: return
         }

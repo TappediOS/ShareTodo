@@ -25,6 +25,9 @@ final class SubscriptionStatusViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setupNavigationBar()
+        self.setupScrollView()
+        
         self.setupLabelLocalize()
         self.setupLabelInfomation(titleLabel)
         self.setupLabelInfomation(hiNameLabel)
@@ -37,7 +40,7 @@ final class SubscriptionStatusViewController: UIViewController {
     
     func setupNavigationBar() {
         self.navigationItem.title = R.string.localizable.status()
-        self.navigationItem.largeTitleDisplayMode = .never
+        self.navigationItem.largeTitleDisplayMode = .automatic
         self.navigationController?.navigationBar.tintColor = .systemGreen
     }
     
@@ -48,6 +51,7 @@ final class SubscriptionStatusViewController: UIViewController {
     private func setupLabelLocalize() {
         self.titleLabel.text = R.string.localizable.shareTodoPlus()
         self.hiNameLabel.text = R.string.localizable.hiName(self.userName ?? "")
+        self.thanksSubscriptionLabel.text = R.string.localizable.thanksSubscriptin()
         self.premiumFeatureLabel.text = R.string.localizable.premiumFeatures()
         //NOTE:- nextBilingDateLabelのローカライズはmodelでサブスクの有効期限を取得してからセットする。
         self.nextBilingDateLabel.text = String()

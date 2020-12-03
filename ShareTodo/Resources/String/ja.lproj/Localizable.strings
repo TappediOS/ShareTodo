@@ -84,7 +84,7 @@
 // SubscriptionStatusVC
 "Status" = "ステータス";
 "Hi Name" = "%@ 様";
-"Thanks Subscriptino" = "プレミアム機能をご利用いただきありがとうございます";
+"Thanks Subscriptin" = "プレミアム機能をご利用いただきありがとうございます";
 "Next Billing Date Colon" = "次回決済日: %@";
 
 // IntroductionVC

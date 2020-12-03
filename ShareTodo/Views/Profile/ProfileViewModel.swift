@@ -35,13 +35,23 @@ final class ProfileModel: ProfileModelProtocol {
     var isUserSubscribed = false
     
     init() {
+        self.setupFirestore()
+        self.setupNotificationCenter()
+    }
+    
+    deinit {
+        listener?.remove()
+    }
+    
+    private func setupFirestore() {
         self.firestore = Firestore.firestore()
         let settings = FirestoreSettings()
         self.firestore.settings = settings
     }
     
-    deinit {
-        listener?.remove()
+    private func setupNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(startSubscribed), name: .startSubscribedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(endSubscribed), name: .endSubscribedNotification, object: nil)
     }
     
     func fetchUser() {

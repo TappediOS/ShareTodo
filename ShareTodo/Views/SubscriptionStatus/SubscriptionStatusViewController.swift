@@ -16,9 +16,9 @@ final class SubscriptionStatusViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var hiNameLabel: UILabel!
     @IBOutlet weak var thanksSubscriptionLabel: UILabel!
-    
     @IBOutlet weak var premiumFeatureLabel: UILabel!
     @IBOutlet weak var nextBilingDateLabel: UILabel!
+    @IBOutlet weak var earthImageView: UIImageView!
     
     var userName: String?
     
@@ -28,6 +28,7 @@ final class SubscriptionStatusViewController: UIViewController {
         self.setupNavigationBar()
         self.setupScrollView()
         
+        self.setupEarthImageView()
         self.setupLabelLocalize()
         self.setupLabelInfomation(titleLabel)
         self.setupLabelInfomation(hiNameLabel)
@@ -40,12 +41,17 @@ final class SubscriptionStatusViewController: UIViewController {
     
     func setupNavigationBar() {
         self.navigationItem.title = R.string.localizable.status()
-        self.navigationItem.largeTitleDisplayMode = .automatic
+        self.navigationItem.largeTitleDisplayMode = .never
         self.navigationController?.navigationBar.tintColor = .systemGreen
     }
     
     func setupScrollView() {
         self.scrollView.alwaysBounceVertical = true
+    }
+    
+    private func setupEarthImageView() {
+        guard let earthImage = UIImage.getRandomEarthImage() else { return }
+        self.earthImageView.image = earthImage
     }
     
     private func setupLabelLocalize() {

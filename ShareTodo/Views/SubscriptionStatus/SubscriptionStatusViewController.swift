@@ -12,6 +12,7 @@ import SCLAlertView
 final class SubscriptionStatusViewController: UIViewController {
     private var presenter: SubscriptionStatusViewPresenterProtocol!
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var hiNameLabel: UILabel!
     @IBOutlet weak var thanksSubscriptionLabel: UILabel!
@@ -32,6 +33,16 @@ final class SubscriptionStatusViewController: UIViewController {
         self.setupLabelInfomation(nextBilingDateLabel)
         
         self.presenter.didViewDidLoad()
+    }
+    
+    func setupNavigationBar() {
+        self.navigationItem.title = R.string.localizable.status()
+        self.navigationItem.largeTitleDisplayMode = .never
+        self.navigationController?.navigationBar.tintColor = .systemGreen
+    }
+    
+    func setupScrollView() {
+        self.scrollView.alwaysBounceVertical = true
     }
     
     private func setupLabelLocalize() {

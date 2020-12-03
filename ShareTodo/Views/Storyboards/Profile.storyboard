@@ -20,8 +20,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nNk-Vs-G0l">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="1Ze-b8-543">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="193"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="1Ze-b8-543">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="196"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9HP-0V-6pU">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
@@ -54,7 +54,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tSC-8Q-HaO">
-                                                <rect key="frame" x="0.0" y="121" width="414" height="72"/>
+                                                <rect key="frame" x="0.0" y="124" width="414" height="72"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4op-FO-Kmw">
                                                         <rect key="frame" x="123" y="8" width="168" height="56"/>

@@ -14,6 +14,7 @@ protocol SubscriptionStatusViewPresenterProtocol {
 
 protocol SubscriptionStatusViewPresenterOutput: class {
     func setNextBilingDateLabel(expiresDate: String)
+    func setHiNameLabel(user: User)
     
     func popViewController()
     
@@ -32,10 +33,15 @@ final class SubscriptionStatusViewPresenter: SubscriptionStatusViewPresenterProt
     
     func didViewDidLoad() {
         self.model.checkSubscrptionExpires()
+        self.model.fetchUserName()
     }
     
     func successFetchSubscriptionExpiresDate(expiresDate: String) {
         self.view.setNextBilingDateLabel(expiresDate: expiresDate)
+    }
+    
+    func successFetchUser(user: User) {
+        self.view.setHiNameLabel(user: user)
     }
     
     func userEndSubscribed() {

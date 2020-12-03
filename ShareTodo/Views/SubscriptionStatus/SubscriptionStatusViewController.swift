@@ -19,9 +19,7 @@ final class SubscriptionStatusViewController: UIViewController {
     @IBOutlet weak var premiumFeatureLabel: UILabel!
     @IBOutlet weak var nextBilingDateLabel: UILabel!
     @IBOutlet weak var earthImageView: UIImageView!
-    
-    var userName: String?
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,20 +54,16 @@ final class SubscriptionStatusViewController: UIViewController {
     
     private func setupLabelLocalize() {
         self.titleLabel.text = R.string.localizable.shareTodoPlus()
-        self.hiNameLabel.text = R.string.localizable.hiName(self.userName ?? "")
         self.thanksSubscriptionLabel.text = R.string.localizable.thanksSubscriptin()
         self.premiumFeatureLabel.text = R.string.localizable.premiumFeatures()
         //NOTE:- nextBilingDateLabelのローカライズはmodelでサブスクの有効期限を取得してからセットする。
         self.nextBilingDateLabel.text = String()
+        self.hiNameLabel.text = String()
     }
     
     private func setupLabelInfomation(_ label: UILabel) {
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.4
-    }
-    
-    public func setUserName(userName: String) {
-        self.userName = userName
     }
     
     func inject(with presenter: SubscriptionStatusViewPresenterProtocol) {
@@ -81,6 +75,10 @@ final class SubscriptionStatusViewController: UIViewController {
 extension SubscriptionStatusViewController: SubscriptionStatusViewPresenterOutput {
     func setNextBilingDateLabel(expiresDate: String) {
         self.nextBilingDateLabel.text = R.string.localizable.nextBillingDateColon(expiresDate)
+    }
+    
+    func setHiNameLabel(user: User) {
+        self.hiNameLabel.text = R.string.localizable.hiName(user.name)
     }
     
     func popViewController() {

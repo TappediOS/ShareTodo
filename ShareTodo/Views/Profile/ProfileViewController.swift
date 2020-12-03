@@ -179,7 +179,6 @@ extension ProfileViewController: ProfileViewPresenterOutput {
     
     func segueSubscriptionStatusVC() {
         guard let subscriptionStatusVC = SubscriptionStatusViewBuilder.create() as? SubscriptionStatusViewController else { return }
-        subscriptionStatusVC.setUserName(userName: self.nameLabel.text ?? "")
         self.navigationController?.pushViewController(subscriptionStatusVC, animated: true)
     }
 }

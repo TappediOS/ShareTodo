@@ -186,11 +186,11 @@ extension ProfileViewController: ProfileViewPresenterOutput {
 extension ProfileViewController: EditProfileViewControllerDelegate {
     func editViewControllerDidCancel(_ editProfileViewController: EditProfileViewController) {
         print("cancel")
-        self.dismiss(animated: true, completion: nil)
+        editProfileViewController.dismiss(animated: true, completion: nil)
     }
     
     func editViewControllerDidFinish(_ editProfileViewController: EditProfileViewController) {
         print("didFinish")
-        self.dismiss(animated: true, completion: nil)
+        editProfileViewController.dismiss(animated: true, completion: nil)
     }
 }

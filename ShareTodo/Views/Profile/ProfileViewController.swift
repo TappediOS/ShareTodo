@@ -176,6 +176,11 @@ extension ProfileViewController: ProfileViewPresenterOutput {
         let introductionShareTodoPlusVC = IntroductionShareTodoPlusViewBuilder.create()
         self.navigationController?.pushViewController(introductionShareTodoPlusVC, animated: true)
     }
+    
+    func segueSubscriptionStatusVC() {
+        let subscriptionStatusVC = SubscriptionStatusViewBuilder.create()
+        self.navigationController?.pushViewController(subscriptionStatusVC, animated: true)
+    }
 }
 
 extension ProfileViewController: EditProfileViewControllerDelegate {

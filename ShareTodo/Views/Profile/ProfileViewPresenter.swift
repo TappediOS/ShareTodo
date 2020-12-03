@@ -33,6 +33,7 @@ protocol ProfileViewPresenterOutput: class {
     func setPlanStatusButtonAsNonSubscribed()
     
     func segueIntroductionShareTodoVC()
+    func segueSubscriptionStatusVC()
 }
 
 final class ProfileViewPresenter: ProfileViewPresenterProtocol, ProfileModelOutput {
@@ -57,6 +58,8 @@ final class ProfileViewPresenter: ProfileViewPresenterProtocol, ProfileModelOutp
     func didTapPlanStateButton() {
         if self.isUserSubscribed == false {
             self.view.segueIntroductionShareTodoVC()
+        } else {
+            self.view.segueSubscriptionStatusVC()
         }
     }
     

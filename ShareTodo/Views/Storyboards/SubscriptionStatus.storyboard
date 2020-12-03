@@ -116,6 +116,7 @@
                         <outlet property="hiNameLabel" destination="n0X-6i-pt9" id="uuC-VJ-0F0"/>
                         <outlet property="nextBilingDateLabel" destination="oZs-Mx-3cD" id="fJV-T9-IU3"/>
                         <outlet property="premiumFeatureLabel" destination="Lgc-fN-WoV" id="9OA-cb-FQJ"/>
+                        <outlet property="scrollView" destination="ach-hS-Mxd" id="ceT-JW-2Cm"/>
                         <outlet property="thanksSubscriptionLabel" destination="34N-RP-4vn" id="PPh-Tj-6WP"/>
                         <outlet property="titleLabel" destination="PNi-J7-7eC" id="DF2-Lc-hK3"/>
                     </connections>

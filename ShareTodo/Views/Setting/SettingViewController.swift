@@ -151,7 +151,7 @@ extension SettingViewController: SettingViewPresenterOutput {
     }
     
     func showShareActivityVC(shareText: String?, shareURL: URL) {
-        let activityVC = UIActivityViewController(activityItems: [shareText, shareURL], applicationActivities: nil)
+        let activityVC = UIActivityViewController(activityItems: [shareURL], applicationActivities: nil)
         self.present(activityVC, animated: true, completion: nil)
     }
     

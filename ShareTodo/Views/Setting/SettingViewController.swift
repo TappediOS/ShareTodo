@@ -117,7 +117,8 @@ extension SettingViewController: SettingViewPresenterOutput {
     }
     
     func openSubscriptionStatusVC() {
-        
+        guard let subscriptionStatusVC = SubscriptionStatusViewBuilder.create() as? SubscriptionStatusViewController else { return }
+        self.navigationController?.pushViewController(subscriptionStatusVC, animated: true)
     }
     
     func openIntroductionShareTodoPlusVC() {

@@ -112,11 +112,17 @@ extension SettingViewController: SettingViewPresenterOutput {
     }
     
     func openAccountVC() {
-        
+        guard let subscriptionStatusVC = SubscriptionStatusViewBuilder.create() as? SubscriptionStatusViewController else { return }
+        self.navigationController?.pushViewController(subscriptionStatusVC, animated: true)
     }
     
     func openSubscriptionStatusVC() {
         
+    }
+    
+    func openIntroductionShareTodoPlusVC() {
+        let introductionShareTodoPlusVC = IntroductionShareTodoPlusViewBuilder.create()
+        self.navigationController?.pushViewController(introductionShareTodoPlusVC, animated: true)
     }
     
     // 設定画面を開く

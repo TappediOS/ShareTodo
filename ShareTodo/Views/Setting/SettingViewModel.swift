@@ -22,6 +22,7 @@ protocol SettingModelProtocol {
 protocol SettingModelOutput: class {
     func openAccountVC()
     func openSubscriptionStatusVC()
+    func openIntroductionShareTodoPlusVC()
     func openPushNotificationVC(url: URL)
     func openAskQuestionVC(url: URL)
     func openFeedbackVC(url: URL)
@@ -51,7 +52,7 @@ final class SettingModel: SettingModelProtocol {
     private func checkSection1(indexPath: IndexPath) {
         switch indexPath.item {
         case 0:
-            self.presenter.openSubscriptionStatusVC()
+            self.checkingIfAUserSubscribed()
         case 1:
             self.presenter.startRestore()
             self.restoreSubscription()
@@ -167,6 +168,33 @@ final class SettingModel: SettingModelProtocol {
             } else {
                 self.presenter.successRestoreSubscription()
             }
+        }
+    }
+    
+    private func checkingIfAUserSubscribed() {
+        Purchases.shared.purchaserInfo { (purchaserInfo, error) in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let purchaserInfo = purchaserInfo else {
+                print("purchaserInfo = nil")
+                return
+            }
+            
+            guard let entitlement = purchaserInfo.entitlements[R.string.sharedString.revenueCatShareTodoEntitlementsID()] else {
+                print("entitlement = nil")
+                return
+            }
+            
+            guard entitlement.isActive == true else {
+                self.presenter.openIntroductionShareTodoPlusVC()
+                return
+            }
+            
+            
+            self.presenter.openSubscriptionStatusVC()
         }
     }
 }

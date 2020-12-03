@@ -29,6 +29,7 @@ protocol SettingViewPresenterOutput: class {
     
     func openAccountVC()
     func openSubscriptionStatusVC()
+    func openIntroductionShareTodoPlusVC()
     func openPushNotificationVC(url: URL)
     func openAskQuestionVC(url: URL)
     func openFeedbackVC(url: URL)
@@ -75,6 +76,10 @@ final class SettingViewPresenter: SettingViewPresenterProtocol, SettingModelOutp
     
     func openSubscriptionStatusVC() {
         self.view.openSubscriptionStatusVC()
+    }
+    
+    func openIntroductionShareTodoPlusVC() {
+        self.view.openIntroductionShareTodoPlusVC()
     }
     
     func openPushNotificationVC(url: URL) {

@@ -31,6 +31,7 @@ protocol UserDetailModelOutput: class {
     func successFetchTodoList()
     
     func userSubscribed()
+    func userDontSubscribed()
     
     func userStartSubscribed()
     func userEndSubscribed()
@@ -191,6 +192,7 @@ final class UserDetailModel: UserDetailModelProtocol {
             
             guard entitlement.isActive == true else {
                 self.isUserSubscribed = false
+                self.presenter.userDontSubscribed()
                 return
             }
             

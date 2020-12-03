@@ -198,6 +198,20 @@ extension UserDetailViewController: UserDetailViewPresenterOutput {
         }
     }
     
+    func hideIntroductionVCView() {
+        DispatchQueue.main.async {
+            self.introductionLabel.isHidden = true
+            self.introductionButton.isHidden = true
+        }
+    }
+    
+    func showIntroductionVCView() {
+        DispatchQueue.main.async {
+            self.introductionLabel.isHidden = false
+            self.introductionButton.isHidden = false
+        }
+    }
+    
     func showErrorAleartView(error: Error) {
         let errorAlertView = SCLAlertView().getCustomAlertView()
         let title = R.string.localizable.error()

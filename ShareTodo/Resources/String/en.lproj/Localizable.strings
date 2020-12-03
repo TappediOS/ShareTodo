@@ -107,8 +107,8 @@
 // SubscriptionStatusVC
 "Status" = "Status";
 "Hi Name" = "Hi %@,";
-"Thanks Subscriptin" = "Thanks for being a Premium member";
-"Next Billing Date Colon" = "Net billing date: %@";
+"Thanks Subscriptin" = "Thanks for being a Premium member!";
+"Next Billing Date Colon" = "Next billing date: %@";
 
 // IntroductionVC
 "ShareTodo Plus" = "Share Todo Plus";

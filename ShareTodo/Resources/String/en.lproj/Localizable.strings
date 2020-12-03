@@ -104,6 +104,10 @@
 "Success Restore"     = "The purchase history has been restored.";
 "Contact Us URL"      = "https://docs.google.com/forms/d/e/1FAIpQLSdmcTc-i0TEuzqF7bHaZDJFSKbtu803tE0-P725wu-gwPxOJg/viewform?usp=pp_url&entry.391075308=%@&entry.1529384452=%@&entry.1843036291=%@";
 
+// SubscriptionStatusVC
+"Hi Name" = "Hi %@,";
+"Thanks Subscriptino" = "Thanks for being a Premium member";
+"Next Billing Date Colon" = "Net billing date: %@";
 
 // IntroductionVC
 "ShareTodo Plus" = "ShareTodo Plus";

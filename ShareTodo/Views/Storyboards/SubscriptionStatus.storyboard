@@ -112,6 +112,13 @@
                         </constraints>
                     </view>
                     <size key="freeformSize" width="414" height="1000"/>
+                    <connections>
+                        <outlet property="hiNameLabel" destination="n0X-6i-pt9" id="uuC-VJ-0F0"/>
+                        <outlet property="nextBilingDateLabel" destination="oZs-Mx-3cD" id="fJV-T9-IU3"/>
+                        <outlet property="premiumFeatureLabel" destination="Lgc-fN-WoV" id="9OA-cb-FQJ"/>
+                        <outlet property="thanksSubscriptionLabel" destination="34N-RP-4vn" id="PPh-Tj-6WP"/>
+                        <outlet property="titleLabel" destination="PNi-J7-7eC" id="DF2-Lc-hK3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6lA-5W-MPp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

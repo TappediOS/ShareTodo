@@ -81,6 +81,11 @@
 "Introduction"            = "「シェアTodo プラス」のご紹介";
 "IntroductionDescription" = "1週間より過去のタスクを確認したい方に";
 
+// SubscriptionStatusVC
+"Hi Name" = "%@ 様";
+"Thanks Subscriptino" = "プレミアム機能をご利用いただきありがとうございます";
+"Next Billing Date Colon" = "次回決済日: %@";
+
 // IntroductionVC
 "ShareTodo Plus" = "シェアTodo プラス";
 "Premium Features" = "プレミアム機能";

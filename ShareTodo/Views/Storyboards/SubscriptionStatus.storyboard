@@ -27,7 +27,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share Todo Plus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNi-J7-7eC">
-                                                        <rect key="frame" x="8" y="26" width="398" height="25"/>
+                                                        <rect key="frame" x="8" y="16" width="398" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="kpt-he-hH7"/>
                                                         </constraints>
@@ -36,7 +36,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="NGD-If-lLU">
-                                                        <rect key="frame" x="8" y="119" width="398" height="39.5"/>
+                                                        <rect key="frame" x="8" y="109" width="398" height="39.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Premium Feature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lgc-fN-WoV">
                                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="20.5"/>
@@ -56,7 +56,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="pAR-wA-onR">
-                                                        <rect key="frame" x="8" y="59" width="398" height="36"/>
+                                                        <rect key="frame" x="8" y="49" width="398" height="36"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0X-6i-pt9">
                                                                 <rect key="frame" x="0.0" y="0.0" width="53" height="17"/>
@@ -84,7 +84,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="PNi-J7-7eC" secondAttribute="trailing" constant="8" id="WTq-yc-xyY"/>
                                                     <constraint firstItem="PNi-J7-7eC" firstAttribute="leading" secondItem="kuh-at-6yt" secondAttribute="leading" constant="8" id="fbW-Od-RSe"/>
                                                     <constraint firstItem="pAR-wA-onR" firstAttribute="top" secondItem="PNi-J7-7eC" secondAttribute="bottom" constant="8" symbolic="YES" id="fnJ-BS-u5V"/>
-                                                    <constraint firstItem="PNi-J7-7eC" firstAttribute="top" secondItem="kuh-at-6yt" secondAttribute="top" constant="26" id="kMv-S9-RCc"/>
+                                                    <constraint firstItem="PNi-J7-7eC" firstAttribute="top" secondItem="kuh-at-6yt" secondAttribute="top" constant="16" id="kMv-S9-RCc"/>
                                                     <constraint firstAttribute="trailing" secondItem="NGD-If-lLU" secondAttribute="trailing" constant="8" id="lB5-4c-knZ"/>
                                                     <constraint firstItem="NGD-If-lLU" firstAttribute="top" secondItem="pAR-wA-onR" secondAttribute="bottom" constant="24" id="xrC-dz-htF"/>
                                                     <constraint firstItem="pAR-wA-onR" firstAttribute="leading" secondItem="kuh-at-6yt" secondAttribute="leading" constant="8" id="zfc-Jh-PnI"/>

@@ -79,7 +79,7 @@
 "Message_colon" = "Message: ";
 
 // UserDetailVC
-"Introduction"            = "Introducing \"ShareTodo Plus\"";
+"Introduction"            = "Introducing \"Share Todo Plus\"";
 "IntroductionDescription" = "For those who want to check past tasks from one week";
 
 // SettingVC
@@ -111,7 +111,7 @@
 "Next Billing Date Colon" = "Net billing date: %@";
 
 // IntroductionVC
-"ShareTodo Plus" = "ShareTodo Plus";
+"ShareTodo Plus" = "Share Todo Plus";
 "Premium Features" = "Premium features";
 "No Ads" = "No ads";
 "Check Past Tasks" = "Check past tasks";

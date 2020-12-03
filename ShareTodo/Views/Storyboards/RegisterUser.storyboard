@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qme-20-sYI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qme-20-sYI">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,12 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S5l-xh-ODZ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S5l-xh-ODZ">
                                 <rect key="frame" x="31" y="240" width="363" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="jnz-D0-rk9"/>
                                 </constraints>
-                                <state key="normal" title="chose profile image"/>
+                                <state key="normal" title="chose profile image">
+                                    <color key="titleColor" systemColor="systemGreenColor"/>
+                                </state>
                                 <connections>
                                     <action selector="tapChoseProfileImageButton:" destination="qme-20-sYI" eventType="touchUpInside" id="jmb-HD-Q7U"/>
                                 </connections>
@@ -63,12 +67,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DID-xd-Wuj">
-                                <rect key="frame" x="143.5" y="380" width="127" height="45"/>
-                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DID-xd-Wuj">
+                                <rect key="frame" x="20" y="380" width="374" height="45"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="kGM-vn-SUT"/>
-                                    <constraint firstAttribute="width" constant="127" id="wuE-99-JVp"/>
                                 </constraints>
                                 <state key="normal" title="Register">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -78,7 +81,8 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="wYS-O0-3gx"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ibe-yP-JXg" firstAttribute="leading" secondItem="X97-Eg-DGN" secondAttribute="trailing" constant="8" id="3Ta-HA-jjf"/>
                             <constraint firstItem="S5l-xh-ODZ" firstAttribute="leading" secondItem="wYS-O0-3gx" secondAttribute="leading" constant="31" id="56a-Vf-vCL"/>
@@ -90,12 +94,12 @@
                             <constraint firstItem="ibe-yP-JXg" firstAttribute="top" secondItem="S5l-xh-ODZ" secondAttribute="bottom" constant="26" id="TcR-yN-seN"/>
                             <constraint firstItem="C7u-yj-Fnq" firstAttribute="centerX" secondItem="F9d-fu-cYi" secondAttribute="centerX" id="kai-gp-6qn"/>
                             <constraint firstItem="X97-Eg-DGN" firstAttribute="top" secondItem="S5l-xh-ODZ" secondAttribute="bottom" constant="33" id="ltc-Xc-pnI"/>
+                            <constraint firstItem="DID-xd-Wuj" firstAttribute="leading" secondItem="wYS-O0-3gx" secondAttribute="leading" constant="20" id="rDD-H5-acJ"/>
                             <constraint firstItem="wYS-O0-3gx" firstAttribute="trailing" secondItem="S5l-xh-ODZ" secondAttribute="trailing" constant="20" id="rHO-Xe-i3H"/>
                             <constraint firstItem="WWs-YA-Fci" firstAttribute="top" secondItem="wYS-O0-3gx" secondAttribute="top" constant="35" id="sOi-4n-Ruo"/>
                             <constraint firstItem="DID-xd-Wuj" firstAttribute="top" secondItem="ibe-yP-JXg" secondAttribute="bottom" constant="50" id="vhh-we-Xno"/>
                             <constraint firstItem="WWs-YA-Fci" firstAttribute="leading" secondItem="wYS-O0-3gx" secondAttribute="leading" constant="20" id="ycJ-Xq-inE"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="wYS-O0-3gx"/>
                     </view>
                     <connections>
                         <outlet property="choseProfileImageButton" destination="S5l-xh-ODZ" id="yO4-Ai-Kks"/>
@@ -110,4 +114,12 @@
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

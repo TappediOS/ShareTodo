@@ -122,6 +122,11 @@
 		BFA792AF25242C03003FE6D0 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA792AA25242C03003FE6D0 /* Protobuf.framework */; };
 		BFB24B662544181A00166D88 /* FirebaseCrashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB24B652544181A00166D88 /* FirebaseCrashlytics.framework */; };
 		BFB24BF525441C1A00166D88 /* SharedString.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFB24BF425441C1A00166D88 /* SharedString.strings */; };
+		BFC2A14A25786F5D00B321C3 /* SubscriptionStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC2A14625786F5D00B321C3 /* SubscriptionStatusViewModel.swift */; };
+		BFC2A14B25786F5D00B321C3 /* SubscriptionStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC2A14725786F5D00B321C3 /* SubscriptionStatusViewController.swift */; };
+		BFC2A14C25786F5D00B321C3 /* SubscriptionStatusViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC2A14825786F5D00B321C3 /* SubscriptionStatusViewBuilder.swift */; };
+		BFC2A14D25786F5D00B321C3 /* SubscriptionStatusViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC2A14925786F5D00B321C3 /* SubscriptionStatusViewPresenter.swift */; };
+		BFC2A15325786F6500B321C3 /* SubscriptionStatus.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFC2A15225786F6500B321C3 /* SubscriptionStatus.storyboard */; };
 		BFD435CF24CD2EBC00B2E580 /* CropViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97246524CD24AD0033BB50 /* CropViewController.framework */; };
 		BFD435D024CD2EBD00B2E580 /* CropViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF97246524CD24AD0033BB50 /* CropViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BFD435E124CD333D00B2E580 /* ExplicitNull.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD435D324CD333C00B2E580 /* ExplicitNull.swift */; };
@@ -361,6 +366,11 @@
 		BFA792AA25242C03003FE6D0 /* Protobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Protobuf.framework; path = Carthage/Build/iOS/Protobuf.framework; sourceTree = "<group>"; };
 		BFB24B652544181A00166D88 /* FirebaseCrashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCrashlytics.framework; path = Carthage/Build/iOS/FirebaseCrashlytics.framework; sourceTree = "<group>"; };
 		BFB24BF425441C1A00166D88 /* SharedString.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = SharedString.strings; sourceTree = "<group>"; };
+		BFC2A14625786F5D00B321C3 /* SubscriptionStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionStatusViewModel.swift; sourceTree = "<group>"; };
+		BFC2A14725786F5D00B321C3 /* SubscriptionStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionStatusViewController.swift; sourceTree = "<group>"; };
+		BFC2A14825786F5D00B321C3 /* SubscriptionStatusViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionStatusViewBuilder.swift; sourceTree = "<group>"; };
+		BFC2A14925786F5D00B321C3 /* SubscriptionStatusViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionStatusViewPresenter.swift; sourceTree = "<group>"; };
+		BFC2A15225786F6500B321C3 /* SubscriptionStatus.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SubscriptionStatus.storyboard; sourceTree = "<group>"; };
 		BFD435D324CD333C00B2E580 /* ExplicitNull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplicitNull.swift; sourceTree = "<group>"; };
 		BFD435D424CD333C00B2E580 /* CollectionReference+WriteEncodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionReference+WriteEncodable.swift"; sourceTree = "<group>"; };
 		BFD435D524CD333C00B2E580 /* CodablePassThroughTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodablePassThroughTypes.swift; sourceTree = "<group>"; };
@@ -812,6 +822,7 @@
 				BFA31F3824FF43FE00553F06 /* GroupDetail */,
 				BFD5DDD0251AFFAE00E35F18 /* UserDetail */,
 				BF110011251F228F0046376F /* IntroductionShareTodoPlus */,
+				BFC2A14525786F4100B321C3 /* SubscriptionStatus */,
 				BF88D4E024CAB65D00607D6A /* MainTabBarController */,
 				BF4D2925256DF52C00A2493D /* Setting */,
 				BF88D4CA24CAA9C000607D6A /* Storyboards */,
@@ -851,6 +862,7 @@
 				BFD5DDE9251B007200E35F18 /* UserDetail.storyboard */,
 				BF110024251F22CF0046376F /* IntroductionShareTodoPlus.storyboard */,
 				BF4D2930256DF54F00A2493D /* Setting.storyboard */,
+				BFC2A15225786F6500B321C3 /* SubscriptionStatus.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -977,6 +989,17 @@
 				BF5CB6B32504AB8100EA1024 /* GroupDetailCollectionViewUserCell.xib */,
 			);
 			path = GroupDetail;
+			sourceTree = "<group>";
+		};
+		BFC2A14525786F4100B321C3 /* SubscriptionStatus */ = {
+			isa = PBXGroup;
+			children = (
+				BFC2A14825786F5D00B321C3 /* SubscriptionStatusViewBuilder.swift */,
+				BFC2A14725786F5D00B321C3 /* SubscriptionStatusViewController.swift */,
+				BFC2A14925786F5D00B321C3 /* SubscriptionStatusViewPresenter.swift */,
+				BFC2A14625786F5D00B321C3 /* SubscriptionStatusViewModel.swift */,
+			);
+			path = SubscriptionStatus;
 			sourceTree = "<group>";
 		};
 		BFD435D224CD312000B2E580 /* FirebaseFirestoreSwift */ = {
@@ -1292,6 +1315,7 @@
 			files = (
 				BFD5DE04251B8CFB00E35F18 /* .gitignore in Resources */,
 				BFD5DDEA251B007200E35F18 /* UserDetail.storyboard in Resources */,
+				BFC2A15325786F6500B321C3 /* SubscriptionStatus.storyboard in Resources */,
 				BFD5DE00251B8CE400E35F18 /* .swiftlint.yml in Resources */,
 				BF5CB6B12501CD9100EA1024 /* GroupDetailCollectionReusableView.xib in Resources */,
 				BF97245424CC6BD80033BB50 /* EditProfile.storyboard in Resources */,
@@ -1557,6 +1581,7 @@
 				BFD4360F24CD4A0900B2E580 /* SelectedUserCollectionViewCell.swift in Sources */,
 				BFD435E624CD333D00B2E580 /* DocumentReference+Codable.swift in Sources */,
 				BF5CB6B42504AB8100EA1024 /* GroupDetailCollectionViewUserCell.swift in Sources */,
+				BFC2A14A25786F5D00B321C3 /* SubscriptionStatusViewModel.swift in Sources */,
 				BFD435EE24CD333D00B2E580 /* GeoPoint+Codable.swift in Sources */,
 				BFD435EA24CD333D00B2E580 /* ServerTimestamp.swift in Sources */,
 				BF97244E24CC6B0D0033BB50 /* EditProfileViewController.swift in Sources */,
@@ -1600,6 +1625,7 @@
 				BFD5DDDE251AFFE900E35F18 /* UserDetailViewController.swift in Sources */,
 				BF88D51924CAC4D600607D6A /* GroupTableViewCell.swift in Sources */,
 				BF6468C12500F36100F1CB75 /* GroupDetailCollectionViewCell.swift in Sources */,
+				BFC2A14D25786F5D00B321C3 /* SubscriptionStatusViewPresenter.swift in Sources */,
 				BF88D4EF24CAB88A00607D6A /* GroupTodoViewController.swift in Sources */,
 				BF88D4DA24CAAB3F00607D6A /* ExUIViewController.swift in Sources */,
 				BFA31F4024FF444200553F06 /* GroupDetailViewPresenter.swift in Sources */,
@@ -1611,6 +1637,7 @@
 				BFD5DDDA251AFFE100E35F18 /* UserDetailViewBuilder.swift in Sources */,
 				BF88D4DC24CAAB5100607D6A /* ExUIView.swift in Sources */,
 				BFD435F424CD36F900B2E580 /* ExUIImageView.swift in Sources */,
+				BFC2A14B25786F5D00B321C3 /* SubscriptionStatusViewController.swift in Sources */,
 				BFD4362324CD659600B2E580 /* Group.swift in Sources */,
 				BFA31F3E24FF443C00553F06 /* GroupDetailViewController.swift in Sources */,
 				BFD4360124CD44A900B2E580 /* CreateNewGroupViewPresenter.swift in Sources */,
@@ -1626,6 +1653,7 @@
 				BFFA61712508883D00A1D2CE /* EditGroupViewModel.swift in Sources */,
 				BFA31F4224FF444700553F06 /* GroupDetailViewModel.swift in Sources */,
 				BF88D49424CAA83300607D6A /* SceneDelegate.swift in Sources */,
+				BFC2A14C25786F5D00B321C3 /* SubscriptionStatusViewBuilder.swift in Sources */,
 				BF97244C24CC6B070033BB50 /* EditProfileViewBuilder.swift in Sources */,
 				BF4D28772560EA6100A2493D /* ExNotificationCenter.swift in Sources */,
 				BF88D4DE24CAAB6600607D6A /* ExString.swift in Sources */,

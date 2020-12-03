@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 final class SubscriptionStatusViewController: UIViewController {
     private var presenter: SubscriptionStatusViewPresenterProtocol!
@@ -29,6 +30,8 @@ final class SubscriptionStatusViewController: UIViewController {
         self.setupLabelInfomation(thanksSubscriptionLabel)
         self.setupLabelInfomation(premiumFeatureLabel)
         self.setupLabelInfomation(nextBilingDateLabel)
+        
+        self.presenter.didViewDidLoad()
     }
     
     private func setupLabelLocalize() {
@@ -57,5 +60,26 @@ final class SubscriptionStatusViewController: UIViewController {
 extension SubscriptionStatusViewController: SubscriptionStatusViewPresenterOutput {
     func setNextBilingDateLabel(expiresDate: String) {
         self.nextBilingDateLabel.text = R.string.localizable.nextBillingDateColon(expiresDate)
+    }
+    
+    func popViewController() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func showErrorAleartView(error: Error) {
+        let errorAlertView = SCLAlertView().getCustomAlertView()
+        let title = R.string.localizable.error()
+        let subTitle = error.localizedDescription
+        DispatchQueue.main.async {
+            errorAlertView.showError(title, subTitle: subTitle, colorStyle: 0xFF2D55, colorTextButton: 0xFFFFFF)
+        }
+    }
+    
+    func showErrorAleartView() {
+        let errorAlertView = SCLAlertView().getCustomAlertView()
+        let title = R.string.localizable.error()
+        DispatchQueue.main.async {
+            errorAlertView.showError(title, subTitle: nil, colorStyle: 0xFF2D55, colorTextButton: 0xFFFFFF)
+        }
     }
 }

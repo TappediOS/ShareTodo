@@ -39,7 +39,7 @@ final class SubscriptionStatusViewController: UIViewController {
     
     func setupNavigationBar() {
         self.navigationItem.title = R.string.localizable.status()
-        self.navigationItem.largeTitleDisplayMode = .never
+        self.navigationItem.largeTitleDisplayMode = .automatic
         self.navigationController?.navigationBar.tintColor = .systemGreen
     }
     

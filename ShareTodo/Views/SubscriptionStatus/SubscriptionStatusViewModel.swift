@@ -92,6 +92,11 @@ final class SubscriptionStatusModel: SubscriptionStatusModelProtocol {
                 return
             }
             
+            guard entitlement.isActive == true else {
+                self.presenter.successFetchSubscriptionExpiresDate(expiresDate: "")
+                return
+            }
+            
             self.presenter.successFetchSubscriptionExpiresDate(expiresDate: self.convertDateToString(date: expiresDate))
         }
     }

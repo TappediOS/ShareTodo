@@ -112,6 +112,7 @@ extension SettingViewController: SettingViewPresenterOutput {
     }
     
     func openAccountVC() {
+        //TODO:- アカウントの画面に遷移させること
         guard let subscriptionStatusVC = SubscriptionStatusViewBuilder.create() as? SubscriptionStatusViewController else { return }
         self.navigationController?.pushViewController(subscriptionStatusVC, animated: true)
     }

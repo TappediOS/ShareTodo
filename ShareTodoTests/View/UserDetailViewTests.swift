@@ -133,11 +133,11 @@ class UserDetailViewTests: XCTestCase {
 //                continue
 //            }
             
-            if tmp >= 0 && tmp <= 15 {
-                XCTAssertEqual(cell?.imageView.image, self.xmarkImage, "tmp = \(tmp)")
-                XCTAssertEqual(cell?.image, self.xmarkImage)
-                continue
-            }
+//            if tmp >= 0 && tmp <= 15 {
+//                XCTAssertEqual(cell?.imageView.image, self.xmarkImage, "tmp = \(tmp)")
+//                XCTAssertEqual(cell?.image, self.xmarkImage)
+//                continue
+//            }
        
             XCTAssertNil(cell?.imageView.image, "tmp = \(tmp)")
             XCTAssertNil(cell?.image)

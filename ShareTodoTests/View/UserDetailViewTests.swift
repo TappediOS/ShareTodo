@@ -125,22 +125,6 @@ class UserDetailViewTests: XCTestCase {
                 XCTAssertNil(cell?.image)
                 continue
             }
-            
-            // 以下の文は日付によって変わるこのに注意
-//            if tmp == 2 || tmp == 4 || tmp == 5 || tmp == 7 || tmp == 9 || tmp == 10 || tmp ==  11 {
-//                XCTAssertEqual(cell?.imageView.image, self.checkmarkImage, "tmp = \(tmp)")
-//                XCTAssertEqual(cell?.image, self.checkmarkImage)
-//                continue
-//            }
-            
-//            if tmp >= 0 && tmp <= 15 {
-//                XCTAssertEqual(cell?.imageView.image, self.xmarkImage, "tmp = \(tmp)")
-//                XCTAssertEqual(cell?.image, self.xmarkImage)
-//                continue
-//            }
-       
-            XCTAssertNil(cell?.imageView.image, "tmp = \(tmp)")
-            XCTAssertNil(cell?.image)
         }
     }
 }

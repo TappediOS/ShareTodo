@@ -18,10 +18,15 @@ protocol IntroductionShareTodoPlusViewPresenterOutput: class {
     func startActivityIndicator()
     func stopActivityIndicator()
     
+    func endIgnoringInteractionEvents()
+    func beginIgnoringInteractionEvents()
+    
     func popIntroductionVC()
     
     func setMonthApplySubsctiontionButtonTitle(price: String)
     func setAnnualApplySubsctiontionButtonTitle(price: String)
+    
+    func showErrorAleartView(error: Error)
 }
 
 final class IntroductionShareTodoPlusViewPresenter: IntroductionShareTodoPlusViewPresenterProtocol, IntroductionShareTodoPlusModelOutput {
@@ -39,11 +44,13 @@ final class IntroductionShareTodoPlusViewPresenter: IntroductionShareTodoPlusVie
     
     func didTapApplyAMonthSubscriptionButton() {
         self.view.startActivityIndicator()
+        self.view.beginIgnoringInteractionEvents()
         self.model.makeMonthSubscriptionPurchase()
     }
     
     func didTapApplyAYearSubscriptionButton() {
         self.view.startActivityIndicator()
+        self.view.beginIgnoringInteractionEvents()
         self.model.makeAnnualSubscriptioinPurhase()
     }
     
@@ -57,20 +64,39 @@ final class IntroductionShareTodoPlusViewPresenter: IntroductionShareTodoPlusVie
     
     func successPurchaseMonthSubscription() {
         self.view.stopActivityIndicator()
+        self.view.endIgnoringInteractionEvents()
         self.view.popIntroductionVC()
     }
     
     func successPurchaseAnnualSubscription() {
         self.view.stopActivityIndicator()
+        self.view.endIgnoringInteractionEvents()
         self.view.popIntroductionVC()
     }
     
-    
     func successRestoreMonthSubscription() {
         self.view.stopActivityIndicator()
+        self.view.endIgnoringInteractionEvents()
     }
     
     func successRestoreAnnualSubscription() {
         self.view.stopActivityIndicator()
+        self.view.endIgnoringInteractionEvents()
+    }
+    
+    func userPurchaseCancelled() {
+        self.view.stopActivityIndicator()
+        self.view.endIgnoringInteractionEvents()
+    }
+    
+    func error(error: Error) {
+        self.view.showErrorAleartView(error: error)
+        self.view.stopActivityIndicator()
+        self.view.endIgnoringInteractionEvents()
+    }
+    
+    func productError() {
+        self.view.stopActivityIndicator()
+        self.view.endIgnoringInteractionEvents()
     }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Lpt-FI-cP0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Lpt-FI-cP0">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,8 +20,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nNk-Vs-G0l">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="1Ze-b8-543">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="1Ze-b8-543">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="196"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9HP-0V-6pU">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
@@ -53,6 +53,57 @@
                                                     <constraint firstAttribute="trailing" secondItem="Aet-4n-xM0" secondAttribute="trailing" constant="8" id="zZJ-4x-YYR"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tSC-8Q-HaO">
+                                                <rect key="frame" x="0.0" y="124" width="414" height="72"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4op-FO-Kmw">
+                                                        <rect key="frame" x="123" y="8" width="168" height="56"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="tapPlabStateButton:" destination="Lpt-FI-cP0" eventType="touchUpInside" id="37C-Pq-lQx"/>
+                                                        </connections>
+                                                    </button>
+                                                    <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dDT-7Z-LjQ">
+                                                        <rect key="frame" x="165" y="18.5" width="84" height="35"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcH-sJ-VNb">
+                                                                <rect key="frame" x="27.5" y="0.0" width="29.5" height="14"/>
+                                                                <accessibility key="accessibilityConfiguration">
+                                                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                                                                </accessibility>
+                                                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="14"/>
+                                                                <color key="textColor" systemColor="placeholderTextColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Free Plan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmH-fD-ojm">
+                                                                <rect key="frame" x="0.0" y="19" width="84" height="16"/>
+                                                                <accessibility key="accessibilityConfiguration">
+                                                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                                                                </accessibility>
+                                                                <fontDescription key="fontDescription" name="HiraginoSans-W7" family="Hiragino Sans" pointSize="16"/>
+                                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="dDT-7Z-LjQ" firstAttribute="centerX" secondItem="tSC-8Q-HaO" secondAttribute="centerX" id="0eL-z1-0F6"/>
+                                                    <constraint firstItem="4op-FO-Kmw" firstAttribute="centerY" secondItem="tSC-8Q-HaO" secondAttribute="centerY" id="9kH-zb-Qft"/>
+                                                    <constraint firstItem="hmH-fD-ojm" firstAttribute="width" secondItem="4op-FO-Kmw" secondAttribute="width" multiplier="0.5" priority="750" id="9sj-bZ-XSE"/>
+                                                    <constraint firstItem="4op-FO-Kmw" firstAttribute="top" secondItem="tSC-8Q-HaO" secondAttribute="top" constant="8" id="chi-48-Crc"/>
+                                                    <constraint firstAttribute="height" constant="72" id="dK5-4B-NAM"/>
+                                                    <constraint firstItem="dDT-7Z-LjQ" firstAttribute="centerY" secondItem="tSC-8Q-HaO" secondAttribute="centerY" id="e4R-Pc-MYI"/>
+                                                    <constraint firstItem="4op-FO-Kmw" firstAttribute="centerX" secondItem="tSC-8Q-HaO" secondAttribute="centerX" id="qSA-Gc-V8N"/>
+                                                    <constraint firstItem="4op-FO-Kmw" firstAttribute="width" relation="lessThanOrEqual" secondItem="tSC-8Q-HaO" secondAttribute="width" multiplier="0.94" id="svz-2h-ra3"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -77,6 +128,9 @@
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
                         <outlet property="nameLabel" destination="Aet-4n-xM0" id="JLk-RG-Asp"/>
+                        <outlet property="planLabel" destination="xcH-sJ-VNb" id="wyb-2i-grV"/>
+                        <outlet property="planStateButton" destination="4op-FO-Kmw" id="7qh-dV-zB6"/>
+                        <outlet property="planStatusLabel" destination="hmH-fD-ojm" id="E5g-ja-pJZ"/>
                         <outlet property="profileImageView" destination="z7C-k8-ISc" id="I2a-gW-Ncl"/>
                         <outlet property="scrollView" destination="nNk-Vs-G0l" id="CvT-YR-DI1"/>
                     </connections>
@@ -87,8 +141,17 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="placeholderTextColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

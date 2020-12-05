@@ -8,6 +8,7 @@
 
 import UIKit
 import Purchases
+import SCLAlertView
 
 final class IntroductionShareTodoPlusViewController: UIViewController {
     private var presenter: IntroductionShareTodoPlusViewPresenterProtocol!
@@ -121,6 +122,14 @@ extension IntroductionShareTodoPlusViewController: IntroductionShareTodoPlusView
         DispatchQueue.main.async { self.activityIndicator.stopAnimating() }
     }
     
+    func endIgnoringInteractionEvents() {
+        UIApplication.shared.endIgnoringInteractionEvents()
+    }
+    
+    func beginIgnoringInteractionEvents() {
+        UIApplication.shared.beginIgnoringInteractionEvents()
+    }
+    
     func popIntroductionVC() {
         DispatchQueue.main.async { self.navigationController?.popViewController(animated: true) }
     }
@@ -133,5 +142,14 @@ extension IntroductionShareTodoPlusViewController: IntroductionShareTodoPlusView
     func setAnnualApplySubsctiontionButtonTitle(price: String) {
         let title = R.string.localizable.applyAtN(price, R.string.localizable.slash_Year())
         DispatchQueue.main.async { self.applyAnnualSubscrioptionButton.setTitle(title, for: .normal) }
+    }
+    
+    func showErrorAleartView(error: Error) {
+        let errorAlertView = SCLAlertView().getCustomAlertView()
+        let title = R.string.localizable.error()
+        let subTitle = error.localizedDescription
+        DispatchQueue.main.async {
+            errorAlertView.showError(title, subTitle: subTitle, colorStyle: 0xFF2D55, colorTextButton: 0xFFFFFF)
+        }
     }
 }

@@ -34,8 +34,12 @@ protocol UserDetailViewPresenterOutput: class {
     func setGroupImage(_ url: URL)
     func reloadCalenderView()
     func moveAndResizeImage(scale: Double, xTranslation: Double, yTranslation: Double)
+    func hideIntroductionVCView()
+    func showIntroductionVCView()
     
     func segueIntroductionShareTodoPlusVC()
+    
+    func showErrorAleartView(error: Error)
 }
 
 final class UserDetailViewPresenter: UserDetailViewPresenterProtocol, UserDetailModelOutput {
@@ -95,6 +99,11 @@ final class UserDetailViewPresenter: UserDetailViewPresenterProtocol, UserDetail
     
     func userSubscribed() {
         self.view.reloadCalenderView()
+        self.view.hideIntroductionVCView()
+    }
+    
+    func userDontSubscribed() {
+        self.view.showIntroductionVCView()
     }
     
     func userStartSubscribed() {
@@ -103,5 +112,9 @@ final class UserDetailViewPresenter: UserDetailViewPresenterProtocol, UserDetail
     
     func userEndSubscribed() {
         self.model.checkingIfAUserSubscribed()
+    }
+    
+    func error(error: Error) {
+        self.view.showErrorAleartView(error: error)
     }
 }

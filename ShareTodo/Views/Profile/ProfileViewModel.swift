@@ -7,15 +7,24 @@
 //
 
 import Firebase
+import Purchases
 
 protocol ProfileModelProtocol {
     var presenter: ProfileModelOutput! { get set }
+    var isUserSubscribed: Bool { get set }
     
     func fetchUser()
+    func checkingIfAUserSubscribed()
 }
 
 protocol ProfileModelOutput: class {
     func successFetchUser(user: User)
+    
+    func userSubscribed()
+    func userDontSubscribed()
+    
+    func userStartSubscribed()
+    func userEndSubscribed()
 }
 
 final class ProfileModel: ProfileModelProtocol {
@@ -23,14 +32,26 @@ final class ProfileModel: ProfileModelProtocol {
     private var firestore: Firestore!
     private var listener: ListenerRegistration?
     
+    var isUserSubscribed = false
+    
     init() {
+        self.setupFirestore()
+        self.setupNotificationCenter()
+    }
+    
+    deinit {
+        listener?.remove()
+    }
+    
+    private func setupFirestore() {
         self.firestore = Firestore.firestore()
         let settings = FirestoreSettings()
         self.firestore.settings = settings
     }
     
-    deinit {
-        listener?.remove()
+    private func setupNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(startSubscribed), name: .startSubscribedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(endSubscribed), name: .endSubscribedNotification, object: nil)
     }
     
     func fetchUser() {
@@ -54,5 +75,43 @@ final class ProfileModel: ProfileModelProtocol {
                 return
             }
         }
+    }
+    
+    func checkingIfAUserSubscribed() {
+        Purchases.shared.purchaserInfo { (purchaserInfo, error) in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let purchaserInfo = purchaserInfo else {
+                print("purchaserInfo = nil")
+                return
+            }
+            
+            guard let entitlement = purchaserInfo.entitlements[R.string.sharedString.revenueCatShareTodoEntitlementsID()] else {
+                print("entitlement = nil")
+                return
+            }
+            
+            guard entitlement.isActive == true else {
+                self.isUserSubscribed = false
+                self.presenter.userDontSubscribed()
+                return
+            }
+            
+            self.isUserSubscribed = true
+            self.presenter.userSubscribed()
+        }
+    }
+    
+    @objc func startSubscribed() {
+        self.isUserSubscribed = true
+        self.presenter.userStartSubscribed()
+    }
+    
+    @objc func endSubscribed() {
+        self.isUserSubscribed = false
+        self.presenter.userEndSubscribed()
     }
 }

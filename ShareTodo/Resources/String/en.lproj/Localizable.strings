@@ -6,6 +6,13 @@
   Copyright © 2020 jun. All rights reserved.
 */
 
+// Shared
+"Blank String" = "";
+
+// Notification
+"GROUP_TASK_NOTIFICATION_TITLE" = "%@ / %@";
+"FINISHEDUSER_NOTIFICATION_BODY" = "%@ completed today's task";
+
 // ActionSheet
 "Take Photo"      = "Take Photo";
 "Select Photo"    = "Select Photo";
@@ -14,6 +21,7 @@
 "Done"            = "Done";
 "Save"            = "Save";
 "DisCard Changes" = "DisCard Changes";
+"Error"           = "Error";
 
 // DZNEmptyDataSet
 "No Results" = "No results";
@@ -47,6 +55,12 @@
 "Choose Friends" = "Choose friends";
 "Search By Name" = "Search by name";
 
+// ProfileVC
+"Plan" = "Plan";
+"Free Plan" = "Free Plan";
+"Premiun Plan" = "⭐️Premium Plan⭐️";
+
+
 // EditProfileVC
 "Edit Profile"        = "Edit Profile";
 "Chose Profile Photo" = "Chose Profile Photo";
@@ -65,11 +79,39 @@
 "Message_colon" = "Message: ";
 
 // UserDetailVC
-"Introduction"            = "Introducing \"ShareTodo Plus\"";
+"Introduction"            = "Introducing \"Share Todo Plus\"";
 "IntroductionDescription" = "For those who want to check past tasks from one week";
 
+// SettingVC
+"Settings"            = "Settings";
+"General"             = "General";
+"Account"             = "Account";
+"Subscription"        = "Subscription";
+"Status"              = "Status";
+"Restore"             = "Restore";
+"Settings"            = "Settings";
+"Push Notifications"  = "Push Notifications";
+"Support"             = "Support";
+"Ask Questions"       = "Contact us";
+"Feedback"            = "Feedback";
+"Review In App Store" = "Review in App Store";
+"Review Desctiption"  = "I would be grateful if you could review it ♪";
+"Share Share Todo"    = "Share \"Share Todo\"";
+"About"               = "About";
+"Term Of Use"         = "Term of use";
+"Privacy Policy"      = "Privacy Policy";
+"Version"             = "Version %@";
+"Success Restore"     = "The purchase history has been restored.";
+"Contact Us URL"      = "https://docs.google.com/forms/d/e/1FAIpQLSdmcTc-i0TEuzqF7bHaZDJFSKbtu803tE0-P725wu-gwPxOJg/viewform?usp=pp_url&entry.391075308=%@&entry.1529384452=%@&entry.1843036291=%@";
+
+// SubscriptionStatusVC
+"Status" = "Status";
+"Hi Name" = "Hi %@,";
+"Thanks Subscriptin" = "Thanks for being a Premium member!";
+"Next Billing Date Colon" = "Next billing date: %@";
+
 // IntroductionVC
-"ShareTodo Plus" = "ShareTodo Plus";
+"ShareTodo Plus" = "Share Todo Plus";
 "Premium Features" = "Premium features";
 "No Ads" = "No ads";
 "Check Past Tasks" = "Check past tasks";

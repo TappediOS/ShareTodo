@@ -25,6 +25,8 @@ protocol GroupTodoViewPresenterOutput: class {
     func stopActivityIndicator()
     
     func segueGroupDetailViewController(index: Int)
+    
+    func showErrorAleartView(error: Error)
 }
 
 final class GroupTodoViewPresenter: GroupTodoViewPresenterProtocol, GroupTodoModelOutput {
@@ -60,5 +62,9 @@ final class GroupTodoViewPresenter: GroupTodoViewPresenterProtocol, GroupTodoMod
     
     func didTapGroupTableViewCell(index: Int) {
         self.view.segueGroupDetailViewController(index: index)
+    }
+    
+    func error(error: Error) {
+        self.view.showErrorAleartView(error: error)
     }
 }

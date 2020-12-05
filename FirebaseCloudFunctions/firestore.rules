@@ -1,0 +1,83 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isUserAuthenticated(userId) {
+      return request.auth.uid == userId;
+    }
+
+    function incomingData() {
+      return request.resource.data;
+    }
+
+    function validateString(txt, min, max) {
+      return txt is string &&
+      txt.size() <= max &&
+      txt.size() >= min;
+    }
+
+    function isContaintsGroupMember() {
+      return request.auth.uid in resource.data.members;
+    }
+
+    function isContaintsGroupMemberAsCreate() {
+      return request.auth.uid in incomingData().members;
+    }
+
+    match /todo/v1/users/{userId} {
+      allow read: if isAuthenticated();
+      
+      allow write: if isUserAuthenticated(userId) &&
+      validateString(incomingData().name, 1, 20);
+    }
+
+    match /todo/v1/groups/{groupId} {
+      allow read: if isAuthenticated() &&
+      isContaintsGroupMember();
+
+      allow create: if isAuthenticated() &&
+      isContaintsGroupMemberAsCreate() &&
+      validateString(incomingData().name, 1, 45) &&
+      validateString(incomingData().task, 1, 45);
+
+      allow update: if isAuthenticated() &&
+      isContaintsGroupMember() &&
+      validateString(incomingData().name, 1, 45) &&
+      validateString(incomingData().task, 1, 45);
+
+      function checkContaintsMembers(groupId) {
+        return request.auth.uid in get(/databases/$(database)/documents/todo/v1/groups/$(groupId)).data.members
+      }
+
+      match /todo/{todoId} {
+        allow read: if isAuthenticated() &&
+        checkContaintsMembers(groupId);
+
+        allow create: if isAuthenticated() &&
+        checkContaintsMembers(groupId) &&
+        incomingData().userID == request.auth.uid &&
+        incomingData().groupID == groupId &&
+        incomingData().isFinished == true;
+
+        allow update: if isAuthenticated() &&
+        checkContaintsMembers(groupId) &&
+        incomingData().userID == request.auth.uid &&
+        incomingData().userID == resource.data.userID &&
+        incomingData().groupID == groupId;
+      }
+
+      match /members/{userId} {
+        allow read: if isAuthenticated() &&
+        checkContaintsMembers(groupId);
+
+        allow create: if isAuthenticated();
+
+        allow update: if isAuthenticated() &&
+        checkContaintsMembers(groupId);
+      }
+    }
+  }
+}

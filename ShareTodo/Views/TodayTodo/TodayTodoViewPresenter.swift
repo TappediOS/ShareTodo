@@ -33,6 +33,8 @@ protocol TodayTodoViewPresenterOutput: class {
     
     func startActivityIndicator()
     func stopActivityIndicator()
+    
+    func showErrorAleartView(error: Error)
 }
 
 final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoModelOutput {
@@ -130,5 +132,9 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
     
     func userEndSubscribed() {
         self.view.reloadTodayTodoCollectionView()
+    }
+    
+    func error(error: Error) {
+        self.view.showErrorAleartView(error: error)
     }
 }

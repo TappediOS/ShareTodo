@@ -31,9 +31,12 @@ protocol UserDetailModelOutput: class {
     func successFetchTodoList()
     
     func userSubscribed()
+    func userDontSubscribed()
     
     func userStartSubscribed()
     func userEndSubscribed()
+    
+    func error(error: Error)
 }
 
 final class UserDetailModel: UserDetailModelProtocol {
@@ -73,6 +76,7 @@ final class UserDetailModel: UserDetailModelProtocol {
     private func setupNotificationCenter() {
         NotificationCenter.default.addObserver(self, selector: #selector(startSubscribed), name: .startSubscribedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(endSubscribed), name: .endSubscribedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(viewWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     func fetchTodoList() {
@@ -84,6 +88,7 @@ final class UserDetailModel: UserDetailModelProtocol {
             
             if let error = error {
                 print("Error: \(error.localizedDescription)")
+                self.presenter.error(error: error)
                 return
             }
             
@@ -169,6 +174,7 @@ final class UserDetailModel: UserDetailModelProtocol {
         Purchases.shared.purchaserInfo { (purchaserInfo, error) in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
+                self.presenter.error(error: error)
                 return
             }
             
@@ -186,6 +192,7 @@ final class UserDetailModel: UserDetailModelProtocol {
             
             guard entitlement.isActive == true else {
                 self.isUserSubscribed = false
+                self.presenter.userDontSubscribed()
                 return
             }
             
@@ -201,5 +208,9 @@ final class UserDetailModel: UserDetailModelProtocol {
     
     @objc func endSubscribed() {
         self.presenter.userEndSubscribed()
+    }
+    
+    @objc func viewWillEnterForeground() {
+        self.fetchTodoList()
     }
 }

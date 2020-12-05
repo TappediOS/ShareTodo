@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 import CropViewController
 
 final class CreateNewGroupInfoViewController: UIViewController {
@@ -140,7 +141,6 @@ final class CreateNewGroupInfoViewController: UIViewController {
         guard !groupTask.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
         let data = self.groupImageView.image?.jpegData(compressionQuality: 0.5) ?? Data()
         
-        self.navigationItem.rightBarButtonItem?.isEnabled = false
         self.presenter.didTapGroupButton(selectedUsers: self.selectedUsersArray, groupName: groupName, groupTask: groupTask, groupImageData: data)
     }
     
@@ -180,6 +180,23 @@ extension CreateNewGroupInfoViewController: CreateNewGroupInfoViewPresenterOutpu
     func reloadCollectionView(addUser: User) {
         self.selectedUsersArray.insert(addUser, at: 0)
         DispatchQueue.main.async { self.selectedUsersAndMeCollectionView.reloadData() }
+    }
+    
+    func enableRightBarButtonItem() {
+        self.navigationItem.rightBarButtonItem?.isEnabled = true
+    }
+    
+    func disEnableRightBarButtonItem() {
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
+    }
+    
+    func showErrorAleartView(error: Error) {
+        let errorAlertView = SCLAlertView().getCustomAlertView()
+        let title = R.string.localizable.error()
+        let subTitle = error.localizedDescription
+        DispatchQueue.main.async {
+            errorAlertView.showError(title, subTitle: subTitle, colorStyle: 0xFF2D55, colorTextButton: 0xFFFFFF)
+        }
     }
 }
 

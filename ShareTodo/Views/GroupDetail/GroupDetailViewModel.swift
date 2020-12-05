@@ -19,6 +19,8 @@ protocol GroupDetailModelProtocol {
 
 protocol GroupDetailModelOutput: class {
     func successFetchTodayTodo()
+    
+    func error(error: Error)
 }
 
 final class GroupDetailModel: GroupDetailModelProtocol {
@@ -62,6 +64,7 @@ final class GroupDetailModel: GroupDetailModelProtocol {
             
             if let error = error {
                 print("Error: \(error)")
+                self.presenter.error(error: error)
                 return
             }
             

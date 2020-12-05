@@ -6,6 +6,13 @@
   Copyright © 2020 jun. All rights reserved.
 */
 
+// Shared
+"Blank String" = "";
+
+// Notification
+"GROUP_TASK_NOTIFICATION_TITLE" = "%@ / %@";
+"FINISHEDUSER_NOTIFICATION_BODY" = "%@さんが今日のタスクを完了させました";
+
 // ActionSheet
 "Take Photo"      = "写真を撮る";
 "Select Photo"    = "写真を選択";
@@ -14,6 +21,7 @@
 "Done"            = "完了";
 "Save"            = "保存";
 "DisCard Changes" = "変更を破棄";
+"Error"           = "エラー";
 
 // DZNEmptyDataSet
 "No Results" = "結果なし";
@@ -47,6 +55,11 @@
 "Choose Friends" = "フレンド選択";
 "Search By Name" = "名前で検索";
 
+// ProfileVC
+"Plan" = "プラン";
+"Free Plan" = "フリープラン";
+"Premiun Plan" = "⭐️プレミアムプラン⭐️";
+
 // EditProfileVC
 "Edit Profile"        = "プロフィール編集";
 "Chose Profile Photo" = "プロフィール写真を選択";
@@ -68,8 +81,14 @@
 "Introduction"            = "「シェアTodo プラス」のご紹介";
 "IntroductionDescription" = "1週間より過去のタスクを確認したい方に";
 
+// SubscriptionStatusVC
+"Status" = "ステータス";
+"Hi Name" = "%@ 様";
+"Thanks Subscriptin" = "プレミアム機能をご利用いただきありがとうございます";
+"Next Billing Date Colon" = "次回決済日: %@";
+
 // IntroductionVC
-"ShareTodo Plus" = "シェアTodo プラス";
+"ShareTodo Plus" = "シェアTODO プラス";
 "Premium Features" = "プレミアム機能";
 "No Ads" = "広告なし";
 "Check Past Tasks" = "過去のタスクの確認";
@@ -84,6 +103,28 @@
 "Apply At N" = "%@%@で申し込む";
 "slash_Month" = "/月";
 "slash_Year" = "/年";
+
+// SettingVC
+"Settings"            = "ユーザ設定";
+"General"             = "一般";
+"Account"             = "アカウント";
+"Subscription"        = "サブスクリプション";
+"Status"              = "ステータス";
+"Restore"             = "購入の復元";
+"Settings"            = "設定";
+"Push Notifications"  = "プッシュ通知";
+"Support"             = "サポート";
+"Ask Questions"       = "お問い合わせ";
+"Feedback"            = "フィードバック";
+"Review In App Store" = "App Store でレビューする";
+"Review Desctiption"  = "レビューして頂ければ嬉しいです♪";
+"Share Share Todo"    = "シェアTODOをシェアする";
+"About"               = "アプリについて";
+"Term Of Use"         = "利用規約";
+"Privacy Policy"      = "プライバシーポリシー";
+"Version"             = "バージョン %@";
+"Success Restore"     = "購入履歴を復元しました";
+"Contact Us URL"      = "https://docs.google.com/forms/d/e/1FAIpQLSfHOFC9RJVwOc0IBca9UPrROpxX4QVKtPTN7Q7bY5gaRmKBkQ/viewform?usp=pp_url&entry.1255802085=%@&entry.468534967=%@&entry.2096107176=%@";
 
 //TODO:- Privacy Policyと利用規約のURLを添付すること
 "Explanation Of Subscription Notes" = "

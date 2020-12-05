@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="25F-C9-pOp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="25F-C9-pOp">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -127,10 +127,9 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQE-Qk-Ytm">
-                                <rect key="frame" x="119" y="463" width="176" height="40"/>
+                                <rect key="frame" x="32" y="463" width="350" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Deb-AS-eYW"/>
-                                    <constraint firstAttribute="width" constant="176" id="pm1-Zi-573"/>
                                 </constraints>
                                 <state key="normal" title="Invite users"/>
                                 <connections>
@@ -138,10 +137,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZB-cG-Wu0">
-                                <rect key="frame" x="119" y="822" width="176" height="40"/>
+                                <rect key="frame" x="32" y="822" width="350" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="d3Z-mN-8NZ"/>
-                                    <constraint firstAttribute="width" constant="176" id="tGj-Qb-Not"/>
                                 </constraints>
                                 <state key="normal" title="Leave group"/>
                                 <connections>
@@ -155,10 +153,12 @@
                             <constraint firstItem="DyQ-br-Vgv" firstAttribute="trailing" secondItem="OEs-vo-hbF" secondAttribute="trailing" constant="20" id="AdH-FQ-mRc"/>
                             <constraint firstItem="OEs-vo-hbF" firstAttribute="top" secondItem="Kct-wt-ZrH" secondAttribute="bottom" constant="8" id="EPC-le-9Jy"/>
                             <constraint firstItem="bzr-bZ-Jla" firstAttribute="centerX" secondItem="OwZ-gJ-YY5" secondAttribute="centerX" id="HiA-CZ-D0d"/>
+                            <constraint firstItem="DyQ-br-Vgv" firstAttribute="trailing" secondItem="HZB-cG-Wu0" secondAttribute="trailing" constant="32" id="LYI-gC-ey1"/>
                             <constraint firstItem="bzr-bZ-Jla" firstAttribute="centerY" secondItem="OwZ-gJ-YY5" secondAttribute="centerY" id="LtB-co-0GF"/>
                             <constraint firstItem="V5R-7T-j2Y" firstAttribute="top" secondItem="OwZ-gJ-YY5" secondAttribute="bottom" constant="30" id="OfW-MM-MEn"/>
                             <constraint firstItem="HZB-cG-Wu0" firstAttribute="centerX" secondItem="NCe-Tp-E8F" secondAttribute="centerX" id="ReJ-Mi-ZBM"/>
                             <constraint firstItem="0Xl-xA-QA7" firstAttribute="leading" secondItem="OwZ-gJ-YY5" secondAttribute="trailing" constant="8" id="TFK-Wv-nBa"/>
+                            <constraint firstItem="KQE-Qk-Ytm" firstAttribute="leading" secondItem="DyQ-br-Vgv" secondAttribute="leading" constant="32" id="V00-8c-xZ8"/>
                             <constraint firstItem="OwZ-gJ-YY5" firstAttribute="leading" secondItem="DyQ-br-Vgv" secondAttribute="leading" constant="20" id="W2M-du-xGG"/>
                             <constraint firstItem="Kct-wt-ZrH" firstAttribute="top" secondItem="TQq-BG-N3j" secondAttribute="bottom" constant="25" id="Xvb-hR-7rC"/>
                             <constraint firstItem="0Xl-xA-QA7" firstAttribute="top" secondItem="DyQ-br-Vgv" secondAttribute="top" constant="20" id="d55-aG-9DQ"/>
@@ -166,11 +166,13 @@
                             <constraint firstItem="KQE-Qk-Ytm" firstAttribute="centerX" secondItem="NCe-Tp-E8F" secondAttribute="centerX" id="ev5-P3-3zz"/>
                             <constraint firstItem="DyQ-br-Vgv" firstAttribute="trailing" secondItem="TQq-BG-N3j" secondAttribute="trailing" constant="20" id="fcq-6B-TSV"/>
                             <constraint firstItem="TQq-BG-N3j" firstAttribute="leading" secondItem="V5R-7T-j2Y" secondAttribute="trailing" constant="8" id="h9K-4C-wL8"/>
+                            <constraint firstItem="DyQ-br-Vgv" firstAttribute="trailing" secondItem="KQE-Qk-Ytm" secondAttribute="trailing" constant="32" id="jRs-IR-fdh"/>
                             <constraint firstItem="HZB-cG-Wu0" firstAttribute="bottom" secondItem="DyQ-br-Vgv" secondAttribute="bottom" id="lan-qG-Sab"/>
                             <constraint firstItem="V5R-7T-j2Y" firstAttribute="leading" secondItem="DyQ-br-Vgv" secondAttribute="leading" constant="20" id="oMD-W6-kde"/>
                             <constraint firstItem="OwZ-gJ-YY5" firstAttribute="top" secondItem="DyQ-br-Vgv" secondAttribute="top" constant="20" id="qEe-sy-A0D"/>
                             <constraint firstItem="KQE-Qk-Ytm" firstAttribute="top" secondItem="OEs-vo-hbF" secondAttribute="bottom" constant="32" id="rWj-QB-Fq4"/>
                             <constraint firstItem="DyQ-br-Vgv" firstAttribute="trailing" secondItem="0Xl-xA-QA7" secondAttribute="trailing" constant="20" id="t4J-ab-czc"/>
+                            <constraint firstItem="HZB-cG-Wu0" firstAttribute="leading" secondItem="DyQ-br-Vgv" secondAttribute="leading" constant="32" id="tn0-gx-KcS"/>
                             <constraint firstItem="Kct-wt-ZrH" firstAttribute="leading" secondItem="DyQ-br-Vgv" secondAttribute="leading" constant="20" id="xZw-m0-Rri"/>
                             <constraint firstItem="TQq-BG-N3j" firstAttribute="top" secondItem="OwZ-gJ-YY5" secondAttribute="bottom" constant="24" id="zBR-R8-gGD"/>
                         </constraints>

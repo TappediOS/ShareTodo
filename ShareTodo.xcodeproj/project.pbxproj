@@ -33,6 +33,12 @@
 		BF4D2851255FBF5300A2493D /* Purchases.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF4D284F255FBF5300A2493D /* Purchases.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF4D285B255FC8C500A2493D /* ExStoreKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D285A255FC8C500A2493D /* ExStoreKit.swift */; };
 		BF4D28772560EA6100A2493D /* ExNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D28762560EA6100A2493D /* ExNotificationCenter.swift */; };
+		BF4D2922256A45B500A2493D /* ExSCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D2921256A45B500A2493D /* ExSCLAlertView.swift */; };
+		BF4D292A256DF53F00A2493D /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D2926256DF53F00A2493D /* SettingViewModel.swift */; };
+		BF4D292B256DF53F00A2493D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D2927256DF53F00A2493D /* SettingViewController.swift */; };
+		BF4D292C256DF53F00A2493D /* SettingViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D2928256DF53F00A2493D /* SettingViewBuilder.swift */; };
+		BF4D292D256DF53F00A2493D /* SettingViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D2929256DF53F00A2493D /* SettingViewPresenter.swift */; };
+		BF4D2931256DF54F00A2493D /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF4D2930256DF54F00A2493D /* Setting.storyboard */; };
 		BF5120F125441303003AC823 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BF5120F025441303003AC823 /* Settings.bundle */; };
 		BF5CB6B02501CD9100EA1024 /* GroupDetailCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5CB6AE2501CD9100EA1024 /* GroupDetailCollectionReusableView.swift */; };
 		BF5CB6B12501CD9100EA1024 /* GroupDetailCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5CB6AF2501CD9100EA1024 /* GroupDetailCollectionReusableView.xib */; };
@@ -116,6 +122,12 @@
 		BFA792AF25242C03003FE6D0 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA792AA25242C03003FE6D0 /* Protobuf.framework */; };
 		BFB24B662544181A00166D88 /* FirebaseCrashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB24B652544181A00166D88 /* FirebaseCrashlytics.framework */; };
 		BFB24BF525441C1A00166D88 /* SharedString.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFB24BF425441C1A00166D88 /* SharedString.strings */; };
+		BFC2A14A25786F5D00B321C3 /* SubscriptionStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC2A14625786F5D00B321C3 /* SubscriptionStatusViewModel.swift */; };
+		BFC2A14B25786F5D00B321C3 /* SubscriptionStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC2A14725786F5D00B321C3 /* SubscriptionStatusViewController.swift */; };
+		BFC2A14C25786F5D00B321C3 /* SubscriptionStatusViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC2A14825786F5D00B321C3 /* SubscriptionStatusViewBuilder.swift */; };
+		BFC2A14D25786F5D00B321C3 /* SubscriptionStatusViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC2A14925786F5D00B321C3 /* SubscriptionStatusViewPresenter.swift */; };
+		BFC2A15325786F6500B321C3 /* SubscriptionStatus.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFC2A15225786F6500B321C3 /* SubscriptionStatus.storyboard */; };
+		BFC2A15F25787DD000B321C3 /* SubscriptionStatusModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC2A15E25787DD000B321C3 /* SubscriptionStatusModelTests.swift */; };
 		BFD435CF24CD2EBC00B2E580 /* CropViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97246524CD24AD0033BB50 /* CropViewController.framework */; };
 		BFD435D024CD2EBD00B2E580 /* CropViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF97246524CD24AD0033BB50 /* CropViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BFD435E124CD333D00B2E580 /* ExplicitNull.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD435D324CD333C00B2E580 /* ExplicitNull.swift */; };
@@ -257,6 +269,12 @@
 		BF4D284F255FBF5300A2493D /* Purchases.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Purchases.framework; path = Carthage/Build/iOS/Purchases.framework; sourceTree = "<group>"; };
 		BF4D285A255FC8C500A2493D /* ExStoreKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExStoreKit.swift; sourceTree = "<group>"; };
 		BF4D28762560EA6100A2493D /* ExNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExNotificationCenter.swift; sourceTree = "<group>"; };
+		BF4D2921256A45B500A2493D /* ExSCLAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExSCLAlertView.swift; sourceTree = "<group>"; };
+		BF4D2926256DF53F00A2493D /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		BF4D2927256DF53F00A2493D /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		BF4D2928256DF53F00A2493D /* SettingViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewBuilder.swift; sourceTree = "<group>"; };
+		BF4D2929256DF53F00A2493D /* SettingViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewPresenter.swift; sourceTree = "<group>"; };
+		BF4D2930256DF54F00A2493D /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		BF5120F025441303003AC823 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		BF5CB6AE2501CD9100EA1024 /* GroupDetailCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailCollectionReusableView.swift; sourceTree = "<group>"; };
 		BF5CB6AF2501CD9100EA1024 /* GroupDetailCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupDetailCollectionReusableView.xib; sourceTree = "<group>"; };
@@ -349,6 +367,12 @@
 		BFA792AA25242C03003FE6D0 /* Protobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Protobuf.framework; path = Carthage/Build/iOS/Protobuf.framework; sourceTree = "<group>"; };
 		BFB24B652544181A00166D88 /* FirebaseCrashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCrashlytics.framework; path = Carthage/Build/iOS/FirebaseCrashlytics.framework; sourceTree = "<group>"; };
 		BFB24BF425441C1A00166D88 /* SharedString.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = SharedString.strings; sourceTree = "<group>"; };
+		BFC2A14625786F5D00B321C3 /* SubscriptionStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionStatusViewModel.swift; sourceTree = "<group>"; };
+		BFC2A14725786F5D00B321C3 /* SubscriptionStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionStatusViewController.swift; sourceTree = "<group>"; };
+		BFC2A14825786F5D00B321C3 /* SubscriptionStatusViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionStatusViewBuilder.swift; sourceTree = "<group>"; };
+		BFC2A14925786F5D00B321C3 /* SubscriptionStatusViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionStatusViewPresenter.swift; sourceTree = "<group>"; };
+		BFC2A15225786F6500B321C3 /* SubscriptionStatus.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SubscriptionStatus.storyboard; sourceTree = "<group>"; };
+		BFC2A15E25787DD000B321C3 /* SubscriptionStatusModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionStatusModelTests.swift; sourceTree = "<group>"; };
 		BFD435D324CD333C00B2E580 /* ExplicitNull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplicitNull.swift; sourceTree = "<group>"; };
 		BFD435D424CD333C00B2E580 /* CollectionReference+WriteEncodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionReference+WriteEncodable.swift"; sourceTree = "<group>"; };
 		BFD435D524CD333C00B2E580 /* CodablePassThroughTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodablePassThroughTypes.swift; sourceTree = "<group>"; };
@@ -575,6 +599,7 @@
 				BF38EF2C251CAD150024CD17 /* TodayTodoModelTest.swift */,
 				BF38EF51251DEA2B0024CD17 /* UserDetailModelTests.swift */,
 				BFF4CE8D25427A860070D4E5 /* EditGroupModelTests.swift */,
+				BFC2A15E25787DD000B321C3 /* SubscriptionStatusModelTests.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -588,6 +613,17 @@
 				BFF4CE89254276D30070D4E5 /* EditGroupModelMock.swift */,
 			);
 			path = ModelMock;
+			sourceTree = "<group>";
+		};
+		BF4D2925256DF52C00A2493D /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				BF4D2928256DF53F00A2493D /* SettingViewBuilder.swift */,
+				BF4D2927256DF53F00A2493D /* SettingViewController.swift */,
+				BF4D2929256DF53F00A2493D /* SettingViewPresenter.swift */,
+				BF4D2926256DF53F00A2493D /* SettingViewModel.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		BF5120EF254412EC003AC823 /* Bundle */ = {
@@ -770,6 +806,7 @@
 				BFD435F324CD36F900B2E580 /* ExUIImageView.swift */,
 				BFD4362024CD597700B2E580 /* ExCollectionView.swift */,
 				BFFA6174250E087000A1D2CE /* ExUIColor.swift */,
+				BF4D2921256A45B500A2493D /* ExSCLAlertView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -788,7 +825,9 @@
 				BFA31F3824FF43FE00553F06 /* GroupDetail */,
 				BFD5DDD0251AFFAE00E35F18 /* UserDetail */,
 				BF110011251F228F0046376F /* IntroductionShareTodoPlus */,
+				BFC2A14525786F4100B321C3 /* SubscriptionStatus */,
 				BF88D4E024CAB65D00607D6A /* MainTabBarController */,
+				BF4D2925256DF52C00A2493D /* Setting */,
 				BF88D4CA24CAA9C000607D6A /* Storyboards */,
 			);
 			path = Views;
@@ -825,6 +864,8 @@
 				BFFA61722508884700A1D2CE /* EditGroup.storyboard */,
 				BFD5DDE9251B007200E35F18 /* UserDetail.storyboard */,
 				BF110024251F22CF0046376F /* IntroductionShareTodoPlus.storyboard */,
+				BF4D2930256DF54F00A2493D /* Setting.storyboard */,
+				BFC2A15225786F6500B321C3 /* SubscriptionStatus.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -951,6 +992,17 @@
 				BF5CB6B32504AB8100EA1024 /* GroupDetailCollectionViewUserCell.xib */,
 			);
 			path = GroupDetail;
+			sourceTree = "<group>";
+		};
+		BFC2A14525786F4100B321C3 /* SubscriptionStatus */ = {
+			isa = PBXGroup;
+			children = (
+				BFC2A14825786F5D00B321C3 /* SubscriptionStatusViewBuilder.swift */,
+				BFC2A14725786F5D00B321C3 /* SubscriptionStatusViewController.swift */,
+				BFC2A14925786F5D00B321C3 /* SubscriptionStatusViewPresenter.swift */,
+				BFC2A14625786F5D00B321C3 /* SubscriptionStatusViewModel.swift */,
+			);
+			path = SubscriptionStatus;
 			sourceTree = "<group>";
 		};
 		BFD435D224CD312000B2E580 /* FirebaseFirestoreSwift */ = {
@@ -1266,6 +1318,7 @@
 			files = (
 				BFD5DE04251B8CFB00E35F18 /* .gitignore in Resources */,
 				BFD5DDEA251B007200E35F18 /* UserDetail.storyboard in Resources */,
+				BFC2A15325786F6500B321C3 /* SubscriptionStatus.storyboard in Resources */,
 				BFD5DE00251B8CE400E35F18 /* .swiftlint.yml in Resources */,
 				BF5CB6B12501CD9100EA1024 /* GroupDetailCollectionReusableView.xib in Resources */,
 				BF97245424CC6BD80033BB50 /* EditProfile.storyboard in Resources */,
@@ -1287,6 +1340,7 @@
 				BFFA61732508884700A1D2CE /* EditGroup.storyboard in Resources */,
 				BF5120F125441303003AC823 /* Settings.bundle in Resources */,
 				BF97249C24CD27010033BB50 /* GoogleService-Info.plist in Resources */,
+				BF4D2931256DF54F00A2493D /* Setting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1507,7 +1561,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF88D4E824CAB6AA00607D6A /* MainTabBarBuilder.swift in Sources */,
+				BF4D2922256A45B500A2493D /* ExSCLAlertView.swift in Sources */,
 				BFD5DDE6251AFFFD00E35F18 /* UserDetailViewModel.swift in Sources */,
+				BF4D292C256DF53F00A2493D /* SettingViewBuilder.swift in Sources */,
 				BFE3B16B251F2CBC00C69AF2 /* IntroductionShareTodoPlusViewController.swift in Sources */,
 				BF88D4FC24CAB9A100607D6A /* TodayTodoViewPresenter.swift in Sources */,
 				BF88D49224CAA83300607D6A /* AppDelegate.swift in Sources */,
@@ -1528,12 +1584,14 @@
 				BFD4360F24CD4A0900B2E580 /* SelectedUserCollectionViewCell.swift in Sources */,
 				BFD435E624CD333D00B2E580 /* DocumentReference+Codable.swift in Sources */,
 				BF5CB6B42504AB8100EA1024 /* GroupDetailCollectionViewUserCell.swift in Sources */,
+				BFC2A14A25786F5D00B321C3 /* SubscriptionStatusViewModel.swift in Sources */,
 				BFD435EE24CD333D00B2E580 /* GeoPoint+Codable.swift in Sources */,
 				BFD435EA24CD333D00B2E580 /* ServerTimestamp.swift in Sources */,
 				BF97244E24CC6B0D0033BB50 /* EditProfileViewController.swift in Sources */,
 				BFD4362624CDAC9600B2E580 /* RegisterUserViewBuilder.swift in Sources */,
 				BF88D50F24CABCB700607D6A /* ProfileViewBuilder.swift in Sources */,
 				BFFA6175250E087000A1D2CE /* ExUIColor.swift in Sources */,
+				BF4D292D256DF53F00A2493D /* SettingViewPresenter.swift in Sources */,
 				BF95E78724DCFFF600FF562D /* Todo.swift in Sources */,
 				BFA31F3C24FF443600553F06 /* GroupDetailViewBuilder.swift in Sources */,
 				BF88D51524CABCC800607D6A /* ProfileViewModel.swift in Sources */,
@@ -1552,6 +1610,7 @@
 				BFE3B16A251F2CBC00C69AF2 /* IntroductionShareTodoPlusViewModel.swift in Sources */,
 				BFD4361524CD4F5300B2E580 /* CreateNewGroupInfoViewBuilder.swift in Sources */,
 				BFD5DE09251B8ED200E35F18 /* NavigationImageConst.swift in Sources */,
+				BF4D292B256DF53F00A2493D /* SettingViewController.swift in Sources */,
 				BF88D4E624CAB6A200607D6A /* MainTabBarPresenter.swift in Sources */,
 				BFFA616B2508882F00A1D2CE /* EditGroupViewBuilder.swift in Sources */,
 				BFD4362824CDAC9D00B2E580 /* RegisterUserViewController.swift in Sources */,
@@ -1569,6 +1628,7 @@
 				BFD5DDDE251AFFE900E35F18 /* UserDetailViewController.swift in Sources */,
 				BF88D51924CAC4D600607D6A /* GroupTableViewCell.swift in Sources */,
 				BF6468C12500F36100F1CB75 /* GroupDetailCollectionViewCell.swift in Sources */,
+				BFC2A14D25786F5D00B321C3 /* SubscriptionStatusViewPresenter.swift in Sources */,
 				BF88D4EF24CAB88A00607D6A /* GroupTodoViewController.swift in Sources */,
 				BF88D4DA24CAAB3F00607D6A /* ExUIViewController.swift in Sources */,
 				BFA31F4024FF444200553F06 /* GroupDetailViewPresenter.swift in Sources */,
@@ -1580,6 +1640,7 @@
 				BFD5DDDA251AFFE100E35F18 /* UserDetailViewBuilder.swift in Sources */,
 				BF88D4DC24CAAB5100607D6A /* ExUIView.swift in Sources */,
 				BFD435F424CD36F900B2E580 /* ExUIImageView.swift in Sources */,
+				BFC2A14B25786F5D00B321C3 /* SubscriptionStatusViewController.swift in Sources */,
 				BFD4362324CD659600B2E580 /* Group.swift in Sources */,
 				BFA31F3E24FF443C00553F06 /* GroupDetailViewController.swift in Sources */,
 				BFD4360124CD44A900B2E580 /* CreateNewGroupViewPresenter.swift in Sources */,
@@ -1589,11 +1650,13 @@
 				BFD435F224CD346D00B2E580 /* FirestoreEncoder.swift in Sources */,
 				BFD4362A24CDACA200B2E580 /* RegisterUserViewPresenter.swift in Sources */,
 				BFD435E824CD333D00B2E580 /* WriteBatch+WriteEncodable.swift in Sources */,
+				BF4D292A256DF53F00A2493D /* SettingViewModel.swift in Sources */,
 				BFD435FF24CD44A400B2E580 /* CreateNewGroupViewController.swift in Sources */,
 				BF020FC32510AA57006DC525 /* UserRepository.swift in Sources */,
 				BFFA61712508883D00A1D2CE /* EditGroupViewModel.swift in Sources */,
 				BFA31F4224FF444700553F06 /* GroupDetailViewModel.swift in Sources */,
 				BF88D49424CAA83300607D6A /* SceneDelegate.swift in Sources */,
+				BFC2A14C25786F5D00B321C3 /* SubscriptionStatusViewBuilder.swift in Sources */,
 				BF97244C24CC6B070033BB50 /* EditProfileViewBuilder.swift in Sources */,
 				BF4D28772560EA6100A2493D /* ExNotificationCenter.swift in Sources */,
 				BF88D4DE24CAAB6600607D6A /* ExString.swift in Sources */,
@@ -1616,6 +1679,7 @@
 				BF95E78924DE4D3700FF562D /* TodayTodoViewTests.swift in Sources */,
 				BF38EF57251EEE3D0024CD17 /* UserDetailViewTests.swift in Sources */,
 				BFF4CE8A254276D30070D4E5 /* EditGroupModelMock.swift in Sources */,
+				BFC2A15F25787DD000B321C3 /* SubscriptionStatusModelTests.swift in Sources */,
 				BF88D4A924CAA83600607D6A /* ShareTodoTests.swift in Sources */,
 				BF38EF4A251DE6F70024CD17 /* ProfileViewModelMock.swift in Sources */,
 				BF28E41524FC886600269D82 /* GroupTodoViewModelTests.swift in Sources */,

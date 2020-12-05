@@ -20,6 +20,8 @@ protocol GroupTodoModelProtocol {
 protocol GroupTodoModelOutput: class {
     func successFetchGroup()
     func successFetchUsersName()
+    
+    func error(error: Error)
 }
 
 final class GroupTodoModel: GroupTodoModelProtocol {
@@ -51,6 +53,7 @@ final class GroupTodoModel: GroupTodoModelProtocol {
             
             if let error = error {
                 print("Error: \(error.localizedDescription)")
+                self.presenter.error(error: error)
                 return
             }
             

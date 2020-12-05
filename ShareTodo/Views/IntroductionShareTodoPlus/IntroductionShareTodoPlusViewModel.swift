@@ -25,6 +25,10 @@ protocol IntroductionShareTodoPlusModelOutput: class {
     
     func successRestoreMonthSubscription()
     func successRestoreAnnualSubscription()
+    
+    func userPurchaseCancelled()
+    func error(error: Error)
+    func productError()
 }
 
 final class IntroductionShareTodoPlusModel: IntroductionShareTodoPlusModelProtocol {
@@ -36,7 +40,8 @@ final class IntroductionShareTodoPlusModel: IntroductionShareTodoPlusModelProtoc
     func fetchAvailableProducts() {
         Purchases.shared.offerings { (offerings, error) in
             if let error = error {
-                print("Error: \(error)")
+                print("Error: \(error.localizedDescription)")
+                self.presenter.error(error: error)
                 return
             }
             
@@ -97,15 +102,28 @@ final class IntroductionShareTodoPlusModel: IntroductionShareTodoPlusModelProtoc
         Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
+                self.presenter.error(error: error)
+                return
+            }
+            
+            guard userCancelled != false else {
+                self.presenter.userPurchaseCancelled()
                 return
             }
             
             guard let purchaserInfo = purchaserInfo else {
                 print("purchaserInfo = nil")
+                self.presenter.productError()
                 return
             }
             
-            if purchaserInfo.entitlements[R.string.sharedString.revenueCatShareTodoEntitlementsID()]?.isActive == true {
+            guard let entitlement = purchaserInfo.entitlements[R.string.sharedString.revenueCatShareTodoEntitlementsID()] else {
+                print("entitlement = nil")
+                self.presenter.productError()
+                return
+            }
+            
+            if entitlement.isActive == true {
                 self.presenter.successPurchaseMonthSubscription()
             }
         }
@@ -117,15 +135,28 @@ final class IntroductionShareTodoPlusModel: IntroductionShareTodoPlusModelProtoc
         Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
+                self.presenter.error(error: error)
+                return
+            }
+            
+            guard userCancelled != false else {
+                self.presenter.userPurchaseCancelled()
                 return
             }
             
             guard let purchaserInfo = purchaserInfo else {
                 print("purchaserInfo = nil")
+                self.presenter.productError()
                 return
             }
             
-            if purchaserInfo.entitlements[R.string.sharedString.revenueCatShareTodoEntitlementsID()]?.isActive == true {
+            guard let entitlement = purchaserInfo.entitlements[R.string.sharedString.revenueCatShareTodoEntitlementsID()] else {
+                print("entitlement = nil")
+                self.presenter.productError()
+                return
+            }
+            
+            if entitlement.isActive == true {
                 self.presenter.successPurchaseMonthSubscription()
             }
         }

@@ -50,7 +50,7 @@ final class TodayTodoViewController: UIViewController {
         flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width - 32, height: 95)
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.minimumLineSpacing = 16
-        flowLayout.sectionInset = UIEdgeInsets(top: 32, left: 16, bottom: 40, right: 16)
+        flowLayout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 40, right: 16)
         
         self.todayTodoCollectionView.setCollectionViewLayout(flowLayout, animated: true)
         self.todayTodoCollectionView.backgroundColor = .secondarySystemBackground
@@ -83,6 +83,7 @@ extension TodayTodoViewController: TodayTodoViewPresenterOutput {
     func showAddMessageEditView(index: Int) {
         let alert = SCLAlertView()
         let textField: UITextField = alert.addTextField(R.string.localizable.exampleMessage())
+        textField.overrideUserInterfaceStyle = .light
         textField.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(notification:)),
                                                name: UITextField.textDidChangeNotification, object: textField)
@@ -118,6 +119,15 @@ extension TodayTodoViewController: TodayTodoViewPresenterOutput {
                 UIApplication.shared.registerForRemoteNotifications()
                 self.presenter.didAllowNotification()
             }
+        }
+    }
+    
+    func showErrorAleartView(error: Error) {
+        let errorAlertView = SCLAlertView().getCustomAlertView()
+        let title = R.string.localizable.error()
+        let subTitle = error.localizedDescription
+        DispatchQueue.main.async {
+            errorAlertView.showError(title, subTitle: subTitle, colorStyle: 0xFF2D55, colorTextButton: 0xFFFFFF)
         }
     }
 }

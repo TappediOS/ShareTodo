@@ -15,6 +15,11 @@ final class ProfileViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
+    @IBOutlet weak var planLabel: UILabel!
+    @IBOutlet weak var planStatusLabel: UILabel!
+    @IBOutlet weak var planStateButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,8 +28,17 @@ final class ProfileViewController: UIViewController {
         self.setupNameLabel()
         self.setupNavigationBar()
         self.setupUIBarButtonItem()
+        self.setupPlanLabel()
+        self.setupPlanStatusLabel()
+        self.setupPlanStateButton()
+        
         
         self.presenter.didViewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.presenter.didVeiwWillAppear()
     }
     
     func setupScrollView() {
@@ -52,15 +66,45 @@ final class ProfileViewController: UIViewController {
     
     func setupUIBarButtonItem() {
         let editProfileButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editProfile(_:)))
+        let settingButtonItem = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(setting(_:)))
         editProfileButtonItem.tintColor = .systemGreen
+        settingButtonItem.tintColor = .systemGreen
+        
+        self.navigationItem.leftBarButtonItem = settingButtonItem
+        self.navigationItem.leftBarButtonItem?.tintColor = .systemGreen
         self.navigationItem.rightBarButtonItem = editProfileButtonItem
         self.navigationItem.rightBarButtonItem?.tintColor = .systemGreen
         self.navigationItem.rightBarButtonItem?.isEnabled = false
+    }
+    
+    private func setupPlanLabel() {
+        self.planLabel.text = ""
+        self.planLabel.adjustsFontSizeToFitWidth = true
+        self.planLabel.minimumScaleFactor = 0.4
+    }
+    
+    private func setupPlanStatusLabel() {
+        self.planStatusLabel.text = ""
+        self.planStatusLabel.adjustsFontSizeToFitWidth = true
+        self.planStatusLabel.minimumScaleFactor = 0.4
+    }
+    
+    private func setupPlanStateButton() {
+        self.planStateButton.alpha = 0
     }
 
     @objc func editProfile(_ sender: UIButton) {
         self.presenter.didTapEditProfileButton()
     }
+    
+    @objc func setting(_ sender: UIButton) {
+        self.presenter.didTapSettingButton()
+    }
+    
+    @IBAction func tapPlabStateButton(_ sender: Any) {
+        self.presenter.didTapPlanStateButton()
+    }
+    
     
     func inject(with presenter: ProfileViewPresenterProtocol) {
         self.presenter = presenter
@@ -69,6 +113,30 @@ final class ProfileViewController: UIViewController {
 }
 
 extension ProfileViewController: ProfileViewPresenterOutput {
+    func setPlanLabelAsSubscribed() {
+        self.planLabel.text = R.string.localizable.plan()
+    }
+    
+    func setPlanStatusLabelAsSubscribed() {
+        self.planStatusLabel.text = R.string.localizable.premiunPlan()
+    }
+    
+    func setPlanStatusButtonAsSubscribed() {
+        self.planStateButton.alpha = 0.65
+    }
+    
+    func setPlanLabelAsNonSubscribed() {
+        self.planLabel.text = R.string.localizable.plan()
+    }
+    
+    func setPlanStatusLabelAsNonSubscribed() {
+        self.planStatusLabel.text = R.string.localizable.freePlan()
+    }
+    
+    func setPlanStatusButtonAsNonSubscribed() {
+        self.planStateButton.alpha = 0.25
+    }
+    
     func presentEditProfileVC() {
         guard let editProfileVC = EditProfileViewBuilder.create() as? EditProfileViewController else { return }
         editProfileVC.profileImage = self.profileImageView.image ?? UIImage()
@@ -79,6 +147,14 @@ extension ProfileViewController: ProfileViewPresenterOutput {
         
         navigationController.presentationController?.delegate = editProfileVC
         editProfileVC.delegate = self
+        
+        self.present(navigationController, animated: true, completion: nil)
+    }
+    
+    func presentSettingVC() {
+        guard let settingVC = SettingViewBuilder.create() as? SettingViewController else { return }
+        let navigationController = UINavigationController(rootViewController: settingVC)
+        navigationController.modalPresentationStyle = .pageSheet
         
         self.present(navigationController, animated: true, completion: nil)
     }
@@ -95,16 +171,26 @@ extension ProfileViewController: ProfileViewPresenterOutput {
             })
         }
     }
+    
+    func segueIntroductionShareTodoVC() {
+        let introductionShareTodoPlusVC = IntroductionShareTodoPlusViewBuilder.create()
+        self.navigationController?.pushViewController(introductionShareTodoPlusVC, animated: true)
+    }
+    
+    func segueSubscriptionStatusVC() {
+        guard let subscriptionStatusVC = SubscriptionStatusViewBuilder.create() as? SubscriptionStatusViewController else { return }
+        self.navigationController?.pushViewController(subscriptionStatusVC, animated: true)
+    }
 }
 
 extension ProfileViewController: EditProfileViewControllerDelegate {
     func editViewControllerDidCancel(_ editProfileViewController: EditProfileViewController) {
         print("cancel")
-        self.dismiss(animated: true, completion: nil)
+        editProfileViewController.dismiss(animated: true, completion: nil)
     }
     
     func editViewControllerDidFinish(_ editProfileViewController: EditProfileViewController) {
         print("didFinish")
-        self.dismiss(animated: true, completion: nil)
+        editProfileViewController.dismiss(animated: true, completion: nil)
     }
 }

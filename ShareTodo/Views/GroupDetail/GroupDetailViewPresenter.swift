@@ -25,6 +25,8 @@ protocol GroupDetailViewPresenterOutput: class {
     func setNavigationBarTitle(title: String)
     func showEditGroupVC()
     func segueUserDetailViewController(index: Int)
+    
+    func showErrorAleartView(error: Error)
 }
 
 final class GroupDetailViewPresenter: GroupDetailViewPresenterProtocol, GroupDetailModelOutput {
@@ -66,6 +68,10 @@ final class GroupDetailViewPresenter: GroupDetailViewPresenterProtocol, GroupDet
     func successFetchTodayTodo() {
         self.view.reloadGroupDetailCollectionView()
     }
+    
+    func error(error: Error) {
+        self.view.showErrorAleartView(error: error)
+    }
 }
 
 extension GroupDetailViewPresenter: GroupCompleteDelegate {
@@ -75,6 +81,7 @@ extension GroupDetailViewPresenter: GroupCompleteDelegate {
     
     func failure(error: Error) {
         print("Error: \(error.localizedDescription)")
+        self.view.showErrorAleartView(error: error)
         return
     }
 }

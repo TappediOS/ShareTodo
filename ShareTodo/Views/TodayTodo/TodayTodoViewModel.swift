@@ -44,6 +44,8 @@ protocol TodayTodoModelOutput: class {
     func userSubscribed()
     func userStartSubscribed()
     func userEndSubscribed()
+    
+    func error(error: Error)
 }
 
 final class TodayTodoModel: TodayTodoModelProtocol {
@@ -72,6 +74,7 @@ final class TodayTodoModel: TodayTodoModelProtocol {
     private func setupNotificationCenter() {
         NotificationCenter.default.addObserver(self, selector: #selector(startSubscribed), name: .startSubscribedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(endSubscribed), name: .endSubscribedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(viewWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     func fetchGroups() {
@@ -82,6 +85,7 @@ final class TodayTodoModel: TodayTodoModelProtocol {
             
             if let error = error {
                 print("Error: \(error.localizedDescription)")
+                self.presenter.error(error: error)
                 return
             }
             
@@ -193,17 +197,21 @@ final class TodayTodoModel: TodayTodoModelProtocol {
         
         do {
             _ = try self.firestore.document(documentRef).setData(from: finishedTodo, merge: true) { [weak self] error in
+                guard let self = self else { return }
+                
                 if let error = error {
                     print("Error: \(error.localizedDescription)")
+                    self.presenter.error(error: error)
                     return
                 }
                 
-                self?.todos[finishedTodoIndex].isFinished = false
-                self?.todos[finishedTodoIndex].message = nil
-                self?.presenter.successUnfinishedTodo()
+                self.todos[finishedTodoIndex].isFinished = false
+                self.todos[finishedTodoIndex].message = nil
+                self.presenter.successUnfinishedTodo()
             }
         } catch let error {
             print("Error: \(error.localizedDescription)")
+            self.presenter.error(error: error)
             return
         }
     }
@@ -217,15 +225,18 @@ final class TodayTodoModel: TodayTodoModelProtocol {
         
         do {
             _ = try self.firestore.document(documentRef).setData(from: todo, merge: true) { [weak self] error in
+                guard let self = self else { return }
                 if let error = error {
                     print("Error: \(error.localizedDescription)")
+                    self.presenter.error(error: error)
                     return
                 }
                 
-                self?.presenter.successFinishedTodo()
+                self.presenter.successFinishedTodo()
             }
         } catch let error {
             print("Error: \(error.localizedDescription)")
+            self.presenter.error(error: error)
             return
         }
     }
@@ -242,13 +253,16 @@ final class TodayTodoModel: TodayTodoModelProtocol {
         
         do {
             _ = try self.firestore.document(documentRef).setData(from: finishedTodo, merge: true) { [weak self] error in
+                guard let self = self else { return }
+                
                 if let error = error {
                     print("Error: \(error.localizedDescription)")
+                    self.presenter.error(error: error)
                     return
                 }
                 
-                self?.todos[finishedTodoIndex].message = message
-                self?.presenter.successWriteMessage()
+                self.todos[finishedTodoIndex].message = message
+                self.presenter.successWriteMessage()
             }
         } catch let error {
             print("Error: \(error.localizedDescription)")
@@ -268,13 +282,16 @@ final class TodayTodoModel: TodayTodoModelProtocol {
         
         do {
             _ = try self.firestore.document(documentRef).setData(from: finishedTodo, merge: true) { [weak self] error in
+                guard let self = self else { return }
+                
                 if let error = error {
                     print("Error: \(error.localizedDescription)")
+                    self.presenter.error(error: error)
                     return
                 }
                 
-                self?.todos[finishedTodoIndex].message = nil
-                self?.presenter.successCancelMessage()
+                self.todos[finishedTodoIndex].message = nil
+                self.presenter.successCancelMessage()
             }
         } catch let error {
             print("Error: \(error.localizedDescription)")
@@ -331,6 +348,10 @@ final class TodayTodoModel: TodayTodoModelProtocol {
     @objc func endSubscribed() {
         self.isUserSubscribed = false
         self.presenter.userEndSubscribed()
+    }
+    
+    @objc func viewWillEnterForeground() {
+        self.fetchGroups()
     }
     
     func isFirstOpen() -> Bool {

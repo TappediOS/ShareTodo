@@ -49,9 +49,9 @@ final class AccountViewController: UITableViewController {
     }
     
     private func setupLabelLocalize() {
-        self.nameLabel.text = String()
+        self.userNameLabel.text = String()
         self.userIdLabel.text = String()
-        self.notificationsLabel.text = String()
+        self.isRegisterFcmTokenLabel.text = String()
     }
     
     private func setupLabelInfomation(_ label: UILabel) {

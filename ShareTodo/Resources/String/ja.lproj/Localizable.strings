@@ -81,6 +81,34 @@
 "Introduction"            = "「シェアTodo プラス」のご紹介";
 "IntroductionDescription" = "1週間より過去のタスクを確認したい方に";
 
+// SettingVC
+"Settings"            = "ユーザ設定";
+"General"             = "一般";
+"Account"             = "アカウント";
+"Subscription"        = "サブスクリプション";
+"Status"              = "ステータス";
+"Restore"             = "購入の復元";
+"Settings"            = "設定";
+"Push Notifications"  = "プッシュ通知";
+"Support"             = "サポート";
+"Ask Questions"       = "お問い合わせ";
+"Feedback"            = "フィードバック";
+"Review In App Store" = "App Store でレビューする";
+"Review Desctiption"  = "レビューして頂ければ嬉しいです♪";
+"Share Share Todo"    = "シェアTODOをシェアする";
+"About"               = "アプリについて";
+"Term Of Use"         = "利用規約";
+"Privacy Policy"      = "プライバシーポリシー";
+"Version"             = "バージョン %@";
+"Success Restore"     = "購入履歴を復元しました";
+"Contact Us URL"      = "https://docs.google.com/forms/d/e/1FAIpQLSfHOFC9RJVwOc0IBca9UPrROpxX4QVKtPTN7Q7bY5gaRmKBkQ/viewform?usp=pp_url&entry.1255802085=%@&entry.468534967=%@&entry.2096107176=%@";
+
+// AccountVC
+"Name" = "Name";
+"User Id" = "User ID";
+"Notifications" = "Notifications";
+"Delete Account" = "Delete account";
+
 // SubscriptionStatusVC
 "Status" = "ステータス";
 "Hi Name" = "%@ 様";
@@ -104,27 +132,6 @@
 "slash_Month" = "/月";
 "slash_Year" = "/年";
 
-// SettingVC
-"Settings"            = "ユーザ設定";
-"General"             = "一般";
-"Account"             = "アカウント";
-"Subscription"        = "サブスクリプション";
-"Status"              = "ステータス";
-"Restore"             = "購入の復元";
-"Settings"            = "設定";
-"Push Notifications"  = "プッシュ通知";
-"Support"             = "サポート";
-"Ask Questions"       = "お問い合わせ";
-"Feedback"            = "フィードバック";
-"Review In App Store" = "App Store でレビューする";
-"Review Desctiption"  = "レビューして頂ければ嬉しいです♪";
-"Share Share Todo"    = "シェアTODOをシェアする";
-"About"               = "アプリについて";
-"Term Of Use"         = "利用規約";
-"Privacy Policy"      = "プライバシーポリシー";
-"Version"             = "バージョン %@";
-"Success Restore"     = "購入履歴を復元しました";
-"Contact Us URL"      = "https://docs.google.com/forms/d/e/1FAIpQLSfHOFC9RJVwOc0IBca9UPrROpxX4QVKtPTN7Q7bY5gaRmKBkQ/viewform?usp=pp_url&entry.1255802085=%@&entry.468534967=%@&entry.2096107176=%@";
 
 //TODO:- Privacy Policyと利用規約のURLを添付すること
 "Explanation Of Subscription Notes" = "

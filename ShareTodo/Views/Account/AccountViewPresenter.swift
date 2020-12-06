@@ -11,11 +11,15 @@ import Foundation
 protocol AccountViewPresenterProtocol {
     var view: AccountViewPresenterOutput! { get set }
     
+    func didViewDidLoad()
     func didTapTableViewCell(indexPath: IndexPath)
 }
 
 protocol AccountViewPresenterOutput: class {
-    
+    func setUserName(name: String)
+    func setUserID(uid: String)
+    func setNotificationLabel(status: String)
+    func showErrorAleartView(error: Error)
 }
 
 final class AccountViewPresenter: AccountViewPresenterProtocol, AccountModelOutput {
@@ -27,8 +31,25 @@ final class AccountViewPresenter: AccountViewPresenterProtocol, AccountModelOutp
         self.model.presenter = self
     }
     
+    func didViewDidLoad() {
+        self.model.fetchUserData()
+    }
+    
     func didTapTableViewCell(indexPath: IndexPath) {
         self.model.chekeTheIndexPath(indexPath: indexPath)
     }
 
+    func successFetchUser(user: User) {
+        self.view.setUserName(name: user.name)
+        self.view.setUserID(uid: user.id ?? "")
+        if (user.fcmToken != nil) {
+            self.view.setNotificationLabel(status: R.string.localizable.yes())
+        } else {
+            self.view.setNotificationLabel(status: R.string.localizable.no())
+        }
+    }
+    
+    func error(error: Error) {
+        self.view.showErrorAleartView(error: error)
+    }
 }

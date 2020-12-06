@@ -109,6 +109,8 @@
 "User Id" = "User ID";
 "Notifications" = "Notifications";
 "Delete Account" = "Delete account";
+"Yes" = "Yes";
+"No" = "No";
 
 // SubscriptionStatusVC
 "Status" = "Status";

@@ -108,6 +108,8 @@
 "User Id" = "ユーザID";
 "Notifications" = "通知";
 "Delete Account" = "アカウント削除";
+"Yes" = "はい";
+"No" = "いいえ";
 
 // SubscriptionStatusVC
 "Status" = "ステータス";

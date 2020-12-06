@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 final class AccountViewController: UITableViewController {
     private var presenter: AccountViewPresenterProtocol!
@@ -25,6 +26,13 @@ final class AccountViewController: UITableViewController {
         
         self.setupNavigationBar()
         self.setupActivityIndicator()
+        
+        self.setupLabelLocalize()
+        self.setupLabelInfomation(userNameLabel)
+        self.setupLabelInfomation(userIdLabel)
+        self.setupLabelInfomation(idLabel)
+        
+        self.presenter.didViewDidLoad()
     }
     
     func setupNavigationBar() {
@@ -38,6 +46,17 @@ final class AccountViewController: UITableViewController {
         self.activityIndicator.style = .large
         self.activityIndicator.hidesWhenStopped = true
         self.view.addSubview(self.activityIndicator)
+    }
+    
+    private func setupLabelLocalize() {
+        self.nameLabel.text = String()
+        self.userIdLabel.text = String()
+        self.notificationsLabel.text = String()
+    }
+    
+    private func setupLabelInfomation(_ label: UILabel) {
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.4
     }
     
     func inject(with presenter: AccountViewPresenterProtocol) {
@@ -54,5 +73,24 @@ final class AccountViewController: UITableViewController {
 }
 
 extension AccountViewController: AccountViewPresenterOutput {
+    func setUserName(name: String) {
+        self.userNameLabel.text = name
+    }
     
+    func setUserID(uid: String) {
+        self.userIdLabel.text = uid
+    }
+    
+    func setNotificationLabel(status: String) {
+        self.notificationsLabel.text = status
+    }
+    
+    func showErrorAleartView(error: Error) {
+        let errorAlertView = SCLAlertView().getCustomAlertView()
+        let title = R.string.localizable.error()
+        let subTitle = error.localizedDescription
+        DispatchQueue.main.async {
+            errorAlertView.showError(title, subTitle: subTitle, colorStyle: 0xFF2D55, colorTextButton: 0xFFFFFF)
+        }
+    }
 }

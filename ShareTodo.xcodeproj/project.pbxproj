@@ -128,6 +128,11 @@
 		BFC2A14D25786F5D00B321C3 /* SubscriptionStatusViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC2A14925786F5D00B321C3 /* SubscriptionStatusViewPresenter.swift */; };
 		BFC2A15325786F6500B321C3 /* SubscriptionStatus.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFC2A15225786F6500B321C3 /* SubscriptionStatus.storyboard */; };
 		BFC2A15F25787DD000B321C3 /* SubscriptionStatusModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC2A15E25787DD000B321C3 /* SubscriptionStatusModelTests.swift */; };
+		BFC2A1A4257C604C00B321C3 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC2A1A0257C604C00B321C3 /* AccountViewModel.swift */; };
+		BFC2A1A5257C604C00B321C3 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC2A1A1257C604C00B321C3 /* AccountViewController.swift */; };
+		BFC2A1A6257C604C00B321C3 /* AccountViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC2A1A2257C604C00B321C3 /* AccountViewBuilder.swift */; };
+		BFC2A1A7257C604C00B321C3 /* AccountViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC2A1A3257C604C00B321C3 /* AccountViewPresenter.swift */; };
+		BFC2A1AB257C605F00B321C3 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFC2A1AA257C605F00B321C3 /* Account.storyboard */; };
 		BFD435CF24CD2EBC00B2E580 /* CropViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97246524CD24AD0033BB50 /* CropViewController.framework */; };
 		BFD435D024CD2EBD00B2E580 /* CropViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF97246524CD24AD0033BB50 /* CropViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BFD435E124CD333D00B2E580 /* ExplicitNull.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD435D324CD333C00B2E580 /* ExplicitNull.swift */; };
@@ -373,6 +378,11 @@
 		BFC2A14925786F5D00B321C3 /* SubscriptionStatusViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionStatusViewPresenter.swift; sourceTree = "<group>"; };
 		BFC2A15225786F6500B321C3 /* SubscriptionStatus.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SubscriptionStatus.storyboard; sourceTree = "<group>"; };
 		BFC2A15E25787DD000B321C3 /* SubscriptionStatusModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionStatusModelTests.swift; sourceTree = "<group>"; };
+		BFC2A1A0257C604C00B321C3 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		BFC2A1A1257C604C00B321C3 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		BFC2A1A2257C604C00B321C3 /* AccountViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewBuilder.swift; sourceTree = "<group>"; };
+		BFC2A1A3257C604C00B321C3 /* AccountViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewPresenter.swift; sourceTree = "<group>"; };
+		BFC2A1AA257C605F00B321C3 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
 		BFD435D324CD333C00B2E580 /* ExplicitNull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplicitNull.swift; sourceTree = "<group>"; };
 		BFD435D424CD333C00B2E580 /* CollectionReference+WriteEncodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionReference+WriteEncodable.swift"; sourceTree = "<group>"; };
 		BFD435D524CD333C00B2E580 /* CodablePassThroughTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodablePassThroughTypes.swift; sourceTree = "<group>"; };
@@ -828,6 +838,7 @@
 				BFC2A14525786F4100B321C3 /* SubscriptionStatus */,
 				BF88D4E024CAB65D00607D6A /* MainTabBarController */,
 				BF4D2925256DF52C00A2493D /* Setting */,
+				BFC2A19F257C603E00B321C3 /* Account */,
 				BF88D4CA24CAA9C000607D6A /* Storyboards */,
 			);
 			path = Views;
@@ -866,6 +877,7 @@
 				BF110024251F22CF0046376F /* IntroductionShareTodoPlus.storyboard */,
 				BF4D2930256DF54F00A2493D /* Setting.storyboard */,
 				BFC2A15225786F6500B321C3 /* SubscriptionStatus.storyboard */,
+				BFC2A1AA257C605F00B321C3 /* Account.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -1003,6 +1015,17 @@
 				BFC2A14625786F5D00B321C3 /* SubscriptionStatusViewModel.swift */,
 			);
 			path = SubscriptionStatus;
+			sourceTree = "<group>";
+		};
+		BFC2A19F257C603E00B321C3 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				BFC2A1A2257C604C00B321C3 /* AccountViewBuilder.swift */,
+				BFC2A1A1257C604C00B321C3 /* AccountViewController.swift */,
+				BFC2A1A3257C604C00B321C3 /* AccountViewPresenter.swift */,
+				BFC2A1A0257C604C00B321C3 /* AccountViewModel.swift */,
+			);
+			path = Account;
 			sourceTree = "<group>";
 		};
 		BFD435D224CD312000B2E580 /* FirebaseFirestoreSwift */ = {
@@ -1326,6 +1349,7 @@
 				BF6468C22500F36100F1CB75 /* GroupDetailCollectionViewCell.xib in Resources */,
 				BFD4362E24CDAD0000B2E580 /* RegisterUser.storyboard in Resources */,
 				BF88D4EA24CAB76700607D6A /* MainTabBar.storyboard in Resources */,
+				BFC2A1AB257C605F00B321C3 /* Account.storyboard in Resources */,
 				BFD4360524CD450200B2E580 /* CreateNewGroup.storyboard in Resources */,
 				BF26FB772530618E00FDFC4A /* Localizable.strings in Resources */,
 				BF5CB6B52504AB8100EA1024 /* GroupDetailCollectionViewUserCell.xib in Resources */,
@@ -1561,6 +1585,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF88D4E824CAB6AA00607D6A /* MainTabBarBuilder.swift in Sources */,
+				BFC2A1A4257C604C00B321C3 /* AccountViewModel.swift in Sources */,
 				BF4D2922256A45B500A2493D /* ExSCLAlertView.swift in Sources */,
 				BFD5DDE6251AFFFD00E35F18 /* UserDetailViewModel.swift in Sources */,
 				BF4D292C256DF53F00A2493D /* SettingViewBuilder.swift in Sources */,
@@ -1588,6 +1613,7 @@
 				BFD435EE24CD333D00B2E580 /* GeoPoint+Codable.swift in Sources */,
 				BFD435EA24CD333D00B2E580 /* ServerTimestamp.swift in Sources */,
 				BF97244E24CC6B0D0033BB50 /* EditProfileViewController.swift in Sources */,
+				BFC2A1A7257C604C00B321C3 /* AccountViewPresenter.swift in Sources */,
 				BFD4362624CDAC9600B2E580 /* RegisterUserViewBuilder.swift in Sources */,
 				BF88D50F24CABCB700607D6A /* ProfileViewBuilder.swift in Sources */,
 				BFFA6175250E087000A1D2CE /* ExUIColor.swift in Sources */,
@@ -1603,8 +1629,10 @@
 				BFFA616D2508883400A1D2CE /* EditGroupViewController.swift in Sources */,
 				BF88D4FE24CAB9A600607D6A /* TodayTodoViewModel.swift in Sources */,
 				BFD4361B24CD4F6700B2E580 /* CreateNewGroupInfoViewModel.swift in Sources */,
+				BFC2A1A6257C604C00B321C3 /* AccountViewBuilder.swift in Sources */,
 				BF020FBF2510A99E006DC525 /* GroupRepositoryProtocol.swift in Sources */,
 				BF88D51324CABCC300607D6A /* ProfileViewPresenter.swift in Sources */,
+				BFC2A1A5257C604C00B321C3 /* AccountViewController.swift in Sources */,
 				BFD435E724CD333D00B2E580 /* Timestamp+Codable.swift in Sources */,
 				BF68712B25109EA300923A8B /* GroupRepository.swift in Sources */,
 				BFE3B16A251F2CBC00C69AF2 /* IntroductionShareTodoPlusViewModel.swift in Sources */,

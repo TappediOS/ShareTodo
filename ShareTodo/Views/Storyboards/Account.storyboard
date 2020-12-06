@@ -120,6 +120,15 @@
                             <outlet property="delegate" destination="OhY-cm-sds" id="kAx-Au-P3h"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="deleteAccountLebel" destination="uCN-g9-pyz" id="oDw-vD-yHe"/>
+                        <outlet property="idLabel" destination="3da-Wv-zx2" id="Qa8-k5-fUR"/>
+                        <outlet property="isRegisterFcmTokenLabel" destination="CuE-0f-OlU" id="Z4c-GN-zgW"/>
+                        <outlet property="nameLabel" destination="h9Z-gG-8Qi" id="Icm-tL-q60"/>
+                        <outlet property="notificationsLabel" destination="WuZ-6H-f8S" id="FQQ-UQ-F9q"/>
+                        <outlet property="userIdLabel" destination="yWd-H0-NP0" id="eEZ-ob-3al"/>
+                        <outlet property="userNameLabel" destination="qQU-Fq-OmB" id="bdF-Ou-082"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I8r-fF-HRN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -104,10 +104,10 @@
 "Contact Us URL"      = "https://docs.google.com/forms/d/e/1FAIpQLSfHOFC9RJVwOc0IBca9UPrROpxX4QVKtPTN7Q7bY5gaRmKBkQ/viewform?usp=pp_url&entry.1255802085=%@&entry.468534967=%@&entry.2096107176=%@";
 
 // AccountVC
-"Name" = "Name";
-"User Id" = "User ID";
-"Notifications" = "Notifications";
-"Delete Account" = "Delete account";
+"Name" = "名前";
+"User Id" = "ユーザID";
+"Notifications" = "通知";
+"Delete Account" = "アカウント削除";
 
 // SubscriptionStatusVC
 "Status" = "ステータス";

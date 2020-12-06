@@ -44,6 +44,13 @@ final class AccountViewController: UITableViewController {
         self.presenter = presenter
         self.presenter.view = self
     }
+    
+    // MARK: - Table view data source
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        self.presenter.didTapTableViewCell(indexPath: indexPath)
+    }
 }
 
 extension AccountViewController: AccountViewPresenterOutput {

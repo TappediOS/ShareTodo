@@ -73,6 +73,14 @@ final class AccountViewController: UITableViewController {
 }
 
 extension AccountViewController: AccountViewPresenterOutput {
+    func startActivityIndicator() {
+        DispatchQueue.main.async { self.activityIndicator.startAnimating() }
+    }
+    
+    func stopActivityIndicator() {
+        DispatchQueue.main.async { self.activityIndicator.stopAnimating() }
+    }
+    
     func setUserName(name: String) {
         self.userNameLabel.text = name
     }
@@ -87,6 +95,53 @@ extension AccountViewController: AccountViewPresenterOutput {
     
     func tableViewReloadData() {
         DispatchQueue.main.async { self.tableView.reloadData() }
+    }
+
+    func showDeleteAccountAleartView() {
+        let Appearanse = SCLAlertView.SCLAppearance(showCloseButton: false)
+        let AlertView = SCLAlertView(appearance: Appearanse)
+        
+        AlertView.addButton(R.string.localizable.deleteAccount()) {
+            self.presenter.didTapDeleteAccountAleartViewDelete()
+        }
+        AlertView.addButton(R.string.localizable.cancel()) {
+            
+        }
+        
+        let title = R.string.localizable.deleteAccount()
+        let subTitle = R.string.localizable.deleteInfo()
+        AlertView.showInfo(title, subTitle: subTitle)
+    }
+    
+    func showWarningAlertViewForDeleteAccount() {
+        let Appearanse = SCLAlertView.SCLAppearance(showCloseButton: false)
+        let AlertView = SCLAlertView(appearance: Appearanse)
+        
+        AlertView.addButton(R.string.localizable.deleteAccount()) {
+            self.presenter.didTapDeleteAccountWarningAleartViewDelete()
+        }
+        
+        AlertView.addButton(R.string.localizable.cancel()) {
+        }
+        
+        let title = R.string.localizable.warning()
+        let subTitle = R.string.localizable.warningInfo()
+        DispatchQueue.main.async {
+            AlertView.showWarning(title, subTitle: subTitle)
+        }
+    }
+    
+    func showSeeYouAlertView() {
+        let Appearanse = SCLAlertView.SCLAppearance(showCloseButton: false)
+        let AlertView = SCLAlertView(appearance: Appearanse)
+        
+        AlertView.addButton(R.string.localizable.seeYou()) {
+            fatalError("delete accounts")
+        }
+        
+        let title = R.string.localizable.accountDeleteComplete()
+        let subTitle = R.string.localizable.thankYouUsingThisApp()
+        AlertView.showSuccess(title, subTitle: subTitle)
     }
     
     func showErrorAleartView(error: Error) {

@@ -13,14 +13,22 @@ protocol AccountViewPresenterProtocol {
     
     func didViewDidLoad()
     func didTapTableViewCell(indexPath: IndexPath)
+    
+    func didTapDeleteAccountAleartViewDelete()
+    func didTapDeleteAccountWarningAleartViewDelete()
 }
 
 protocol AccountViewPresenterOutput: class {
+    func startActivityIndicator()
+    func stopActivityIndicator()
     func setUserName(name: String)
     func setUserID(uid: String)
     func setNotificationLabel(status: String)
     func tableViewReloadData()
     func showErrorAleartView(error: Error)
+    func showDeleteAccountAleartView()
+    func showWarningAlertViewForDeleteAccount()
+    func showSeeYouAlertView()
 }
 
 final class AccountViewPresenter: AccountViewPresenterProtocol, AccountModelOutput {
@@ -39,6 +47,15 @@ final class AccountViewPresenter: AccountViewPresenterProtocol, AccountModelOutp
     func didTapTableViewCell(indexPath: IndexPath) {
         self.model.chekeTheIndexPath(indexPath: indexPath)
     }
+    
+    func didTapDeleteAccountAleartViewDelete() {
+        self.view.showWarningAlertViewForDeleteAccount()
+    }
+    
+    func didTapDeleteAccountWarningAleartViewDelete() {
+        self.model.deleteAccount()
+        self.view.startActivityIndicator()
+    }
 
     func successFetchUser(user: User) {
         self.view.setUserName(name: user.name)
@@ -51,7 +68,17 @@ final class AccountViewPresenter: AccountViewPresenterProtocol, AccountModelOutp
         self.view.tableViewReloadData()
     }
     
+    func successDeleteAccount() {
+        self.view.showSeeYouAlertView()
+        self.view.stopActivityIndicator()
+    }
+    
+    func showDeleteAccountAleartView() {
+        self.view.showDeleteAccountAleartView()
+    }
+    
     func error(error: Error) {
         self.view.showErrorAleartView(error: error)
+        self.view.stopActivityIndicator()
     }
 }

@@ -111,6 +111,14 @@
 "Delete Account" = "Delete account";
 "Yes" = "Yes";
 "No" = "No";
+"Delete Account" = "Delete Account";
+"Delete Info" = "Do you want to delete your account?";
+"Warning" = "Warning!!";
+"Warning Info" = "Deleting your account will delete all informations you've created. This action is irrevocable.";
+"Account Delete Failure" = "Account deletion failure";
+"Account Delete Complete" = "Account deletion complete";
+"Thank You Using This App" = "Thank you for using the app!🙂";
+"See You" = "See you";
 
 // SubscriptionStatusVC
 "Status" = "Status";

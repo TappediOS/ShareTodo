@@ -14,10 +14,13 @@ protocol AccountModelProtocol {
     
     func chekeTheIndexPath(indexPath: IndexPath)
     func fetchUserData()
+    func deleteAccount()
 }
 
 protocol AccountModelOutput: class {
     func successFetchUser(user: User)
+    func showDeleteAccountAleartView()
+    func successDeleteAccount()
     
     func error(error: Error)
 }
@@ -52,9 +55,23 @@ final class AccountModel: AccountModelProtocol {
         }
     }
     
+    func deleteAccount() {
+        guard let user = Auth.auth().currentUser else { return }
+        
+        user.delete { error in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                self.presenter.error(error: error)
+                return
+            }
+            
+            self.presenter.successDeleteAccount()
+        }
+    }
+    
     
     func chekeTheIndexPath(indexPath: IndexPath) {
         guard indexPath.section == 1, indexPath.item == 0 else { return }
-        print("dlete")
+        self.presenter.showDeleteAccountAleartView()
     }
 }

@@ -82,7 +82,11 @@ extension AccountViewController: AccountViewPresenterOutput {
     }
     
     func setNotificationLabel(status: String) {
-        self.notificationsLabel.text = status
+        self.isRegisterFcmTokenLabel.text = status
+    }
+    
+    func tableViewReloadData() {
+        DispatchQueue.main.async { self.tableView.reloadData() }
     }
     
     func showErrorAleartView(error: Error) {

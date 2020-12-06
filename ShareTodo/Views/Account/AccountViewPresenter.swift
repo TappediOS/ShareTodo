@@ -19,6 +19,7 @@ protocol AccountViewPresenterOutput: class {
     func setUserName(name: String)
     func setUserID(uid: String)
     func setNotificationLabel(status: String)
+    func tableViewReloadData()
     func showErrorAleartView(error: Error)
 }
 
@@ -47,6 +48,7 @@ final class AccountViewPresenter: AccountViewPresenterProtocol, AccountModelOutp
         } else {
             self.view.setNotificationLabel(status: R.string.localizable.no())
         }
+        self.view.tableViewReloadData()
     }
     
     func error(error: Error) {

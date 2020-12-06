@@ -18,8 +18,26 @@ final class AccountViewController: UITableViewController {
     @IBOutlet weak var isRegisterFcmTokenLabel: UILabel!
     @IBOutlet weak var deleteAccountLebel: UILabel! { didSet { deleteAccountLebel.text = R.string.localizable.deleteAccount() }}
     
+    var activityIndicator = UIActivityIndicatorView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setupNavigationBar()
+        self.setupActivityIndicator()
+    }
+    
+    func setupNavigationBar() {
+        self.navigationItem.title = R.string.localizable.account()
+        self.navigationItem.largeTitleDisplayMode = .automatic
+        self.navigationController?.navigationBar.tintColor = .systemGreen
+    }
+
+    func setupActivityIndicator() {
+        self.activityIndicator.center = self.view.center
+        self.activityIndicator.style = .large
+        self.activityIndicator.hidesWhenStopped = true
+        self.view.addSubview(self.activityIndicator)
     }
     
     func inject(with presenter: AccountViewPresenterProtocol) {

@@ -20,6 +20,10 @@ protocol SubscriptionStatusViewPresenterOutput: class {
     
     func showErrorAleartView(error: Error)
     func showErrorAleartView()
+    
+    func impactFeedbackOccurred()
+    func noticeFeedbackOccurredError()
+    func noticeFeedbackOccurredSuccess()
 }
 
 final class SubscriptionStatusViewPresenter: SubscriptionStatusViewPresenterProtocol, SubscriptionStatusModelOutput {
@@ -50,9 +54,11 @@ final class SubscriptionStatusViewPresenter: SubscriptionStatusViewPresenterProt
     
     func error(error: Error) {
         self.view.showErrorAleartView(error: error)
+        self.view.noticeFeedbackOccurredError()
     }
     
     func productError() {
         self.view.showErrorAleartView()
+        self.view.noticeFeedbackOccurredError()
     }
 }

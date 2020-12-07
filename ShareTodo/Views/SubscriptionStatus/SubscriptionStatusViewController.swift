@@ -101,4 +101,16 @@ extension SubscriptionStatusViewController: SubscriptionStatusViewPresenterOutpu
             errorAlertView.showError(title, subTitle: nil, colorStyle: 0xFF2D55, colorTextButton: 0xFFFFFF)
         }
     }
+    
+    func impactFeedbackOccurred() {
+        TapticFeedbacker.impact(style: .light)
+    }
+    
+    func noticeFeedbackOccurredError() {
+        TapticFeedbacker.notice(type: .error)
+    }
+    
+    func noticeFeedbackOccurredSuccess() {
+        TapticFeedbacker.notice(type: .success)
+    }
 }

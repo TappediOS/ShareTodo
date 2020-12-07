@@ -364,9 +364,11 @@ extension EditGroupViewController: EditGroupViewPresenterOutput {
     func impactFeedbackOccurred() {
         TapticFeedbacker.impact(style: .light)
     }
+    
     func noticeFeedbackOccurredError() {
         TapticFeedbacker.notice(type: .error)
     }
+    
     func noticeFeedbackOccurredSuccess() {
         TapticFeedbacker.notice(type: .success)
     }

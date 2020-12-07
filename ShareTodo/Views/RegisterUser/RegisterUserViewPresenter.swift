@@ -24,6 +24,9 @@ protocol RegisterUserViewPresenterOutput: class {
     func showUIImagePickerControllerAsLibrary()
     func setDeleteAndSetDefaultImage()
     func presentMainTabBarController()
+    func impactFeedbackOccurred()
+    func noticeFeedbackOccurredError()
+    func noticeFeedbackOccurredSuccess()
 }
 
 final class RegisterUserViewPresenter: RegisterUserViewPresenterProtocol, RegisterUserModelOutput {
@@ -37,25 +40,31 @@ final class RegisterUserViewPresenter: RegisterUserViewPresenterProtocol, Regist
     
     func didTapChoseProfileImageButton() {
         self.view.presentActionSheet()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapTakePhotoAction() {
         self.view.showUIImagePickerControllerAsCamera()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapSelectPhotoAction() {
         self.view.showUIImagePickerControllerAsLibrary()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapDeletePhotoAction() {
         self.view.setDeleteAndSetDefaultImage()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapRegisterButton(userName: String, profileImageData: Data) {
         self.model.registerUser(userName: userName, profileImageData: profileImageData)
+        self.view.impactFeedbackOccurred()
     }
     
     func successRegisterUser() {
         self.view.presentMainTabBarController()
+        self.view.noticeFeedbackOccurredSuccess()
     }
 }

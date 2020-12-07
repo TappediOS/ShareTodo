@@ -161,6 +161,18 @@ extension RegisterUserViewController: RegisterUserViewPresenterOutput {
             self.present(mainTabBarController, animated: true, completion: nil)
         }
     }
+    
+    func impactFeedbackOccurred() {
+        TapticFeedbacker.impact(style: .light)
+    }
+    
+    func noticeFeedbackOccurredError() {
+        TapticFeedbacker.notice(type: .error)
+    }
+    
+    func noticeFeedbackOccurredSuccess() {
+        TapticFeedbacker.notice(type: .success)
+    }
 }
 
 extension RegisterUserViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {

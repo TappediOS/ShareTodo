@@ -180,7 +180,7 @@ extension SettingViewController: SettingViewPresenterOutput {
         let subTitle = R.string.localizable.successRestore()
         DispatchQueue.main.async {
             errorAlertView.showError(title, subTitle: subTitle, colorStyle: 0x34C759, colorTextButton: 0xFFFFFF)
-        }
+        }
     }
     
     func showErrorAleartView(error: Error) {
@@ -190,5 +190,17 @@ extension SettingViewController: SettingViewPresenterOutput {
         DispatchQueue.main.async {
             errorAlertView.showError(title, subTitle: subTitle, colorStyle: 0xFF2D55, colorTextButton: 0xFFFFFF)
         }
+    }
+    
+    func impactFeedbackOccurred() {
+        TapticFeedbacker.impact(style: .light)
+    }
+    
+    func noticeFeedbackOccurredError() {
+        TapticFeedbacker.notice(type: .error)
+    }
+    
+    func noticeFeedbackOccurredSuccess() {
+        TapticFeedbacker.notice(type: .success)
     }
 }

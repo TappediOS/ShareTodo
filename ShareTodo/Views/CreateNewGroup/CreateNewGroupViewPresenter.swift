@@ -39,6 +39,10 @@ protocol CreateNewGroupViewPresenterOutput: class {
     func stopActivityIndicator()
     
     func presentCreateNewGropuInfoVC()
+    
+    func impactFeedbackOccurred()
+    func noticeFeedbackOccurredError()
+    func noticeFeedbackOccurredSuccess()
 }
 
 final class CreateNewGroupViewPresenter: CreateNewGroupViewPresenterProtocol, CreateNewGroupModelOutput {
@@ -76,6 +80,7 @@ final class CreateNewGroupViewPresenter: CreateNewGroupViewPresenterProtocol, Cr
             return
         }
         self.model.appendUserToSelectedUserArray(user: selectedUser)
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapSelectedUserCollectionViewCellDeleteUserButton(index: Int) {
@@ -84,27 +89,32 @@ final class CreateNewGroupViewPresenter: CreateNewGroupViewPresenterProtocol, Cr
         self.view.reloadSelectedUserCollectionView()
         self.view.reloadSerchUserTableview()
         if updatedSelectedUsersArray.isEmpty { self.view.hiddenSelectedUsersCollectionView()}
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapStopCreateRoomButton() {
         self.view.dismissCreateChatRoomVC()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapCreateRoomutton() {
         guard !self.selectedUsers.isEmpty else { return }
         
         self.view.presentCreateNewGropuInfoVC()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapInviteUsersDoneButton() {
         guard !self.selectedUsers.isEmpty else { return }
         self.view.dismissCreateChatRoomVC_delegate()
+        self.view.impactFeedbackOccurred()
     }
     
     func didSearchBarSearchButtonClicked(searchText: String) {
         self.view.clearSearchUserTableView()
         self.view.startActivityIndicator()
         self.model.searchUser(searchText: searchText)
+        self.view.impactFeedbackOccurred()
     }
     
     func isSelected(user: User) -> Bool { return self.selectedUsers.firstIndex { user.id == $0.id } != nil }
@@ -112,16 +122,18 @@ final class CreateNewGroupViewPresenter: CreateNewGroupViewPresenterProtocol, Cr
     func successSearchUser() {
         self.view.reloadSerchUserTableview()
         self.view.stopActivityIndicator()
+        self.view.noticeFeedbackOccurredSuccess()
     }
     
     func successRemoveSelectedUser() {
         self.view.reloadSelectedUserCollectionView()
         self.view.reloadSerchUserTableview()
         if self.selectedUsers.isEmpty { self.view.hiddenSelectedUsersCollectionView()}
+        self.view.impactFeedbackOccurred()
     }
     
     func successAppendUser() {
         self.view.reloadSelectedUserCollectionView()
-        self.view.reloadSerchUserTableview()
+        self.view.impactFeedbackOccurred()
     }
 }

@@ -134,6 +134,7 @@ final class CreateNewGroupViewPresenter: CreateNewGroupViewPresenterProtocol, Cr
     
     func successAppendUser() {
         self.view.reloadSelectedUserCollectionView()
+        self.view.reloadSerchUserTableview()
         self.view.impactFeedbackOccurred()
     }
 }

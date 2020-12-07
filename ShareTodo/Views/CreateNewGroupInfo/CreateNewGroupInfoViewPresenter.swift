@@ -31,6 +31,9 @@ protocol CreateNewGroupInfoViewPresenterOutput: class {
     func disEnableRightBarButtonItem()
     
     func showErrorAleartView(error: Error)
+    func impactFeedbackOccurred()
+    func noticeFeedbackOccurredError()
+    func noticeFeedbackOccurredSuccess()
 }
 
 final class CreateNewGroupInfoViewPresenter: CreateNewGroupInfoViewPresenterProtocol, CreateNewGroupInfoModelOutput {
@@ -49,26 +52,32 @@ final class CreateNewGroupInfoViewPresenter: CreateNewGroupInfoViewPresenterProt
     func didTapGroupButton(selectedUsers: [User], groupName: String, groupTask: String, groupImageData: Data) {
         self.view.disEnableRightBarButtonItem()
         self.model.createGroup(selectedUsers: selectedUsers, groupName: groupName, groupTask: groupTask, groupImageData: groupImageData)
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapGroupImageView() {
         self.view.presentActionSheet()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapTakePhotoAction() {
         self.view.showUIImagePickerControllerAsCamera()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapSelectPhotoAction() {
         self.view.showUIImagePickerControllerAsLibrary()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapDeletePhotoAction() {
         self.view.setDeleteAndSetDefaultImage()
+        self.view.impactFeedbackOccurred()
     }
     
     func successCreateGroup() {
         self.view.dismissCreateNewGroupInfoVC()
+        self.view.noticeFeedbackOccurredSuccess()
     }
     
     func successFetchUser(user: User) {
@@ -78,5 +87,6 @@ final class CreateNewGroupInfoViewPresenter: CreateNewGroupInfoViewPresenterProt
     func error(error: Error) {
         self.view.enableRightBarButtonItem()
         self.view.showErrorAleartView(error: error)
+        self.view.noticeFeedbackOccurredError()
     }
 }

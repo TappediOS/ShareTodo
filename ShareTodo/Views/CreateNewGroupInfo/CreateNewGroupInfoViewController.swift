@@ -198,6 +198,18 @@ extension CreateNewGroupInfoViewController: CreateNewGroupInfoViewPresenterOutpu
             errorAlertView.showError(title, subTitle: subTitle, colorStyle: 0xFF2D55, colorTextButton: 0xFFFFFF)
         }
     }
+    
+    func impactFeedbackOccurred() {
+        TapticFeedbacker.impact(style: .light)
+    }
+    
+    func noticeFeedbackOccurredError() {
+        TapticFeedbacker.notice(type: .error)
+    }
+    
+    func noticeFeedbackOccurredSuccess() {
+        TapticFeedbacker.notice(type: .success)
+    }
 }
 
 extension CreateNewGroupInfoViewController: UICollectionViewDelegate, UICollectionViewDataSource {

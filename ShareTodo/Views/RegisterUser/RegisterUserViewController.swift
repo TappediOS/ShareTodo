@@ -71,7 +71,7 @@ final class RegisterUserViewController: UIViewController {
     }
     
     func setupRegisterButton() {
-        self.registerButton.backgroundColor = .systemTeal
+        self.registerButton.backgroundColor = .systemGreen
         self.registerLabel.textColor = .white
         self.registerButton.titleLabel?.adjustsFontSizeToFitWidth = true
         self.registerButton.titleLabel?.minimumScaleFactor = 0.4

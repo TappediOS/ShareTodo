@@ -52,6 +52,9 @@ protocol EditGroupViewPresenterOutput: class {
     func showLeaveGroupAleartView()
     func showPickupUserActionSheet(pickupUserName: String)
     func showRemoveUserAleartView(mayRemoveUserName: String)
+    func impactFeedbackOccurred()
+    func noticeFeedbackOccurredError()
+    func noticeFeedbackOccurredSuccess()
 }
 
 final class EditGroupViewPresenter: EditGroupViewPresenterProtocol, EditGroupModelOutput {
@@ -74,6 +77,7 @@ final class EditGroupViewPresenter: EditGroupViewPresenterProtocol, EditGroupMod
     
     func didTapStopEditGroupButton() {
         self.view.dismissEditGroupVC_Delegate_Canceled()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapSaveEditGroupButton(selectedUsers: [User], groupName: String, groupTask: String, groupImageData: Data) {
@@ -88,42 +92,52 @@ final class EditGroupViewPresenter: EditGroupViewPresenterProtocol, EditGroupMod
     
     func didTapChangeGroupButton() {
         self.view.presentActionSheet()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapChangeProfileButton() {
         self.view.presentActionSheet()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapGroupImageView() {
         self.view.presentActionSheet()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapInviteUsersButton() {
         self.view.showSelectInviteUsersVC()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapLeaveGroupButton() {
         self.view.showLeaveGroupAleartView()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapTakePhotoAction() {
         self.view.showUIImagePickerControllerAsCamera()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapSelectPhotoAction() {
         self.view.showUIImagePickerControllerAsLibrary()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapDeletePhotoAction() {
         self.view.setDeleteAndSetDefaultImage()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapLeaveGroupAction() {
         self.model.leaveGroup()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapRemoveUserAction() {
         self.model.removeUser()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapCancelRemoveUser() {
@@ -138,6 +152,7 @@ final class EditGroupViewPresenter: EditGroupViewPresenterProtocol, EditGroupMod
         guard let uid = model.mayRemoveUserUID else { return }
         guard let removedUser = model.groupUsers.filter({ $0.id == uid }).first else { return }
         self.view.showRemoveUserAleartView(mayRemoveUserName: removedUser.name)
+        self.view.impactFeedbackOccurred()
     }
 
     func tapSelectedUsersAndMeProfileImage(index: Int) {
@@ -146,21 +161,26 @@ final class EditGroupViewPresenter: EditGroupViewPresenterProtocol, EditGroupMod
         guard let selectedUsersUID = selectedUser.id else { return }
         self.model.setMayRemoveUserUID(uid: selectedUsersUID)
         self.view.showPickupUserActionSheet(pickupUserName: selectedUser.name)
+        self.view.impactFeedbackOccurred()
     }
     
     func successSaveGroup() {
         self.view.dismissEditGroupVC_Delegate_Finished()
+        self.view.noticeFeedbackOccurredSuccess()
     }
     
     func successRemoveUser() {
         self.view.reloadSelectedUsersAndMeCollectionView()
+        self.view.noticeFeedbackOccurredSuccess()
     }
     
     func successLeaveGroup() {
         self.view.dismissEditGroupVC_Delegate_Leaved()
+        self.view.noticeFeedbackOccurredSuccess()
     }
     
     func successInviteUsers() {
         self.view.reloadSelectedUsersAndMeCollectionView()
+        self.view.noticeFeedbackOccurredSuccess()
     }
 }

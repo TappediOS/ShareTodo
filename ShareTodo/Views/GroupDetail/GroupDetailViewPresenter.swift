@@ -67,6 +67,7 @@ final class GroupDetailViewPresenter: GroupDetailViewPresenterProtocol, GroupDet
     
     func didTapGroupDetailCollectionViewuserCell(index: Int) {
         self.view.segueUserDetailViewController(index: index)
+        self.view.impactFeedbackOccurred()
     }
     
     func successFetchTodayTodo() {

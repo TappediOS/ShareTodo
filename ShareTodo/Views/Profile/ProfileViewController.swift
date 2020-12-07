@@ -181,6 +181,18 @@ extension ProfileViewController: ProfileViewPresenterOutput {
         guard let subscriptionStatusVC = SubscriptionStatusViewBuilder.create() as? SubscriptionStatusViewController else { return }
         self.navigationController?.pushViewController(subscriptionStatusVC, animated: true)
     }
+    
+    func impactFeedbackOccurred() {
+        TapticFeedbacker.impact(style: .light)
+    }
+    
+    func noticeFeedbackOccurredError() {
+        TapticFeedbacker.notice(type: .error)
+    }
+    
+    func noticeFeedbackOccurredSuccess() {
+        TapticFeedbacker.notice(type: .success)
+    }
 }
 
 extension ProfileViewController: EditProfileViewControllerDelegate {

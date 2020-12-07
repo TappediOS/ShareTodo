@@ -34,6 +34,10 @@ protocol ProfileViewPresenterOutput: class {
     
     func segueIntroductionShareTodoVC()
     func segueSubscriptionStatusVC()
+    
+    func impactFeedbackOccurred()
+    func noticeFeedbackOccurredError()
+    func noticeFeedbackOccurredSuccess()
 }
 
 final class ProfileViewPresenter: ProfileViewPresenterProtocol, ProfileModelOutput {
@@ -49,10 +53,12 @@ final class ProfileViewPresenter: ProfileViewPresenterProtocol, ProfileModelOutp
     
     func didTapEditProfileButton() {
         self.view.presentEditProfileVC()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapSettingButton() {
         self.view.presentSettingVC()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapPlanStateButton() {
@@ -61,6 +67,7 @@ final class ProfileViewPresenter: ProfileViewPresenterProtocol, ProfileModelOutp
         } else {
             self.view.segueSubscriptionStatusVC()
         }
+        self.view.impactFeedbackOccurred()
     }
     
     func didViewDidLoad() {
@@ -92,6 +99,7 @@ final class ProfileViewPresenter: ProfileViewPresenterProtocol, ProfileModelOutp
     
     func userStartSubscribed() {
         self.model.checkingIfAUserSubscribed()
+        self.view.noticeFeedbackOccurredSuccess()
     }
     
     func userEndSubscribed() {

@@ -130,6 +130,26 @@ extension TodayTodoViewController: TodayTodoViewPresenterOutput {
             errorAlertView.showError(title, subTitle: subTitle, colorStyle: 0xFF2D55, colorTextButton: 0xFFFFFF)
         }
     }
+    
+    func impactFeedbackOccurred_light() {
+        TapticFeedbacker.impact(style: .light)
+    }
+    
+    func impactFeedbackOccurred_medium() {
+        TapticFeedbacker.impact(style: .medium)
+    }
+    
+    func impactFeedbackOccurred_heavy() {
+        TapticFeedbacker.impact(style: .heavy)
+    }
+    
+    func noticeFeedbackOccurredError() {
+        TapticFeedbacker.notice(type: .error)
+    }
+    
+    func noticeFeedbackOccurredSuccess() {
+        TapticFeedbacker.notice(type: .success)
+    }
 }
 
 extension TodayTodoViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

@@ -35,6 +35,12 @@ protocol TodayTodoViewPresenterOutput: class {
     func stopActivityIndicator()
     
     func showErrorAleartView(error: Error)
+    
+    func impactFeedbackOccurred_light()
+    func impactFeedbackOccurred_medium()
+    func impactFeedbackOccurred_heavy()
+    func noticeFeedbackOccurredError()
+    func noticeFeedbackOccurredSuccess()
 }
 
 final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoModelOutput {
@@ -70,11 +76,13 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
     
     func successUnfinishedTodo() {
         self.view.reloadTodayTodoCollectionView()
+        self.view.impactFeedbackOccurred_medium()
     }
     
     func successFinishedTodo() {
         self.model.fetchGroups()
         self.view.stopActivityIndicator()
+        self.view.impactFeedbackOccurred_heavy()
     }
     
     func didTapRadioButton(index: Int) {
@@ -89,6 +97,7 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
     func didTapWriteMessageButtonAction(index: Int) {
         guard self.model.isWrittenMessage(index: index) else {
             self.view.showAddMessageEditView(index: index)
+            self.view.impactFeedbackOccurred_light()
             return
         }
         
@@ -108,10 +117,12 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
     
     func successWriteMessage() {
         self.view.reloadTodayTodoCollectionView()
+        self.view.impactFeedbackOccurred_heavy()
     }
     
     func successCancelMessage() {
         self.view.reloadTodayTodoCollectionView()
+        self.view.impactFeedbackOccurred_medium()
     }
     
     func isFinishedTodo(index: Int) -> Bool {
@@ -136,5 +147,6 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
     
     func error(error: Error) {
         self.view.showErrorAleartView(error: error)
+        self.view.noticeFeedbackOccurredError()
     }
 }

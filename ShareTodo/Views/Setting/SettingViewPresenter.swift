@@ -59,6 +59,7 @@ final class SettingViewPresenter: SettingViewPresenterProtocol, SettingModelOutp
     
     func didTapStopButton() {
         self.view.dismissSettingVC()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapTableViewCell(indexPath: IndexPath) {

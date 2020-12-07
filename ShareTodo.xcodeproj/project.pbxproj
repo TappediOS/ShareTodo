@@ -133,6 +133,7 @@
 		BFC2A1A6257C604C00B321C3 /* AccountViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC2A1A2257C604C00B321C3 /* AccountViewBuilder.swift */; };
 		BFC2A1A7257C604C00B321C3 /* AccountViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC2A1A3257C604C00B321C3 /* AccountViewPresenter.swift */; };
 		BFC2A1AB257C605F00B321C3 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFC2A1AA257C605F00B321C3 /* Account.storyboard */; };
+		BFC2A1AF257DB68A00B321C3 /* TapticFeedbacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC2A1AE257DB68A00B321C3 /* TapticFeedbacker.swift */; };
 		BFD435CF24CD2EBC00B2E580 /* CropViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97246524CD24AD0033BB50 /* CropViewController.framework */; };
 		BFD435D024CD2EBD00B2E580 /* CropViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF97246524CD24AD0033BB50 /* CropViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BFD435E124CD333D00B2E580 /* ExplicitNull.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD435D324CD333C00B2E580 /* ExplicitNull.swift */; };
@@ -383,6 +384,7 @@
 		BFC2A1A2257C604C00B321C3 /* AccountViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewBuilder.swift; sourceTree = "<group>"; };
 		BFC2A1A3257C604C00B321C3 /* AccountViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewPresenter.swift; sourceTree = "<group>"; };
 		BFC2A1AA257C605F00B321C3 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
+		BFC2A1AE257DB68A00B321C3 /* TapticFeedbacker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapticFeedbacker.swift; sourceTree = "<group>"; };
 		BFD435D324CD333C00B2E580 /* ExplicitNull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplicitNull.swift; sourceTree = "<group>"; };
 		BFD435D424CD333C00B2E580 /* CollectionReference+WriteEncodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionReference+WriteEncodable.swift"; sourceTree = "<group>"; };
 		BFD435D524CD333C00B2E580 /* CodablePassThroughTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodablePassThroughTypes.swift; sourceTree = "<group>"; };
@@ -1183,6 +1185,7 @@
 			isa = PBXGroup;
 			children = (
 				BFD5DE08251B8ED200E35F18 /* NavigationImageConst.swift */,
+				BFC2A1AE257DB68A00B321C3 /* TapticFeedbacker.swift */,
 			);
 			path = AppData;
 			sourceTree = "<group>";
@@ -1673,6 +1676,7 @@
 				BFA31F3E24FF443C00553F06 /* GroupDetailViewController.swift in Sources */,
 				BFD4360124CD44A900B2E580 /* CreateNewGroupViewPresenter.swift in Sources */,
 				BF636F5124FCDFD700F30F63 /* R.generated.swift in Sources */,
+				BFC2A1AF257DB68A00B321C3 /* TapticFeedbacker.swift in Sources */,
 				BF88D4F124CAB89000607D6A /* GroupTodoViewPresenter.swift in Sources */,
 				BFD435F124CD346D00B2E580 /* FirestoreDecoder.swift in Sources */,
 				BFD435F224CD346D00B2E580 /* FirestoreEncoder.swift in Sources */,

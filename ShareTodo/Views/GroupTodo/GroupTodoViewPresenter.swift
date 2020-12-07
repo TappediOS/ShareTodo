@@ -27,6 +27,7 @@ protocol GroupTodoViewPresenterOutput: class {
     func segueGroupDetailViewController(index: Int)
     
     func showErrorAleartView(error: Error)
+    func impactFeedbackOccurred()
 }
 
 final class GroupTodoViewPresenter: GroupTodoViewPresenterProtocol, GroupTodoModelOutput {
@@ -49,6 +50,7 @@ final class GroupTodoViewPresenter: GroupTodoViewPresenterProtocol, GroupTodoMod
     
     func didTapMakeGroupButton() {
         self.view.showCreateNewGroupVC()
+        self.view.impactFeedbackOccurred()
     }
     
     func successFetchGroup() {
@@ -62,6 +64,7 @@ final class GroupTodoViewPresenter: GroupTodoViewPresenterProtocol, GroupTodoMod
     
     func didTapGroupTableViewCell(index: Int) {
         self.view.segueGroupDetailViewController(index: index)
+        self.view.impactFeedbackOccurred()
     }
     
     func error(error: Error) {

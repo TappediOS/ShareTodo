@@ -103,6 +103,10 @@ extension GroupTodoViewController: GroupTodoViewPresenterOutput {
             errorAlertView.showError(title, subTitle: subTitle, colorStyle: 0xFF2D55, colorTextButton: 0xFFFFFF)
         }
     }
+    
+    func impactFeedbackOccurred() {
+        TapticFeedbacker.impact(style: .light)
+    }
 }
 
 extension GroupTodoViewController: UITableViewDelegate, UITableViewDataSource {

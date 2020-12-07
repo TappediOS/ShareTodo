@@ -209,6 +209,18 @@ extension EditProfileViewController: EditProfileViewPresenterOutput {
     func turnOffNavigationBarRightItem() {
         self.navigationItem.rightBarButtonItem?.isEnabled = false
     }
+    
+    func impactFeedbackOccurred() {
+        TapticFeedbacker.impact(style: .light)
+    }
+    
+    func noticeFeedbackOccurredError() {
+        TapticFeedbacker.notice(type: .error)
+    }
+    
+    func noticeFeedbackOccurredSuccess() {
+        TapticFeedbacker.notice(type: .success)
+    }
 }
 
 extension EditProfileViewController: UIAdaptivePresentationControllerDelegate {

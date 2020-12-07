@@ -34,6 +34,9 @@ protocol EditProfileViewPresenterOutput: class {
     func turnOnIsModalInPresentation()
     func turnOnNavigationBarRightItem()
     func turnOffNavigationBarRightItem()
+    func impactFeedbackOccurred()
+    func noticeFeedbackOccurredError()
+    func noticeFeedbackOccurredSuccess()
 }
 
 final class EditProfileViewPresenter: EditProfileViewPresenterProtocol, EditProfileModelOutput {
@@ -47,27 +50,33 @@ final class EditProfileViewPresenter: EditProfileViewPresenterProtocol, EditProf
     
     func didTapStopEditProfileButton() {
         self.view.dismissEditProfileVC()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapSaveEditProfileButton(userName: String, profileImageData: Data) {
         self.model.saveUser(userName: userName, profileImageData: profileImageData)
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapChangeProfileButton() {
         self.view.presentActionSheet()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapTakePhotoAction() {
         self.view.showUIImagePickerControllerAsCamera()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapSelectPhotoAction() {
         self.view.showUIImagePickerControllerAsLibrary()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapDeletePhotoAction() {
         self.view.turnOnIsModalInPresentation()
         self.view.setDeleteAndSetDefaultImage()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapSaveAction() {
@@ -76,10 +85,12 @@ final class EditProfileViewPresenter: EditProfileViewPresenterProtocol, EditProf
     
     func didTapDiscardChangesAction() {
         self.view.dismissEditProfileVC()
+        self.view.impactFeedbackOccurred()
     }
     
     func didCropedProfileImageView() {
         self.view.turnOnIsModalInPresentation()
+        self.view.impactFeedbackOccurred()
     }
     
     func didBeginTextFieldEditing() {
@@ -93,5 +104,6 @@ final class EditProfileViewPresenter: EditProfileViewPresenterProtocol, EditProf
     
     func successSaveUser() {
         self.view.dismissEditProfileVC()
+        self.view.noticeFeedbackOccurredSuccess()
     }
 }

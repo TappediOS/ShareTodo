@@ -27,7 +27,10 @@ protocol GroupTodoViewPresenterOutput: class {
     func segueGroupDetailViewController(index: Int)
     
     func showErrorAleartView(error: Error)
+    
     func impactFeedbackOccurred()
+    func noticeFeedbackOccurredError()
+    func noticeFeedbackOccurredSuccess()
 }
 
 final class GroupTodoViewPresenter: GroupTodoViewPresenterProtocol, GroupTodoModelOutput {
@@ -69,5 +72,6 @@ final class GroupTodoViewPresenter: GroupTodoViewPresenterProtocol, GroupTodoMod
     
     func error(error: Error) {
         self.view.showErrorAleartView(error: error)
+        self.view.noticeFeedbackOccurredError()
     }
 }

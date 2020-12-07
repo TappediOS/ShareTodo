@@ -107,6 +107,14 @@ extension GroupTodoViewController: GroupTodoViewPresenterOutput {
     func impactFeedbackOccurred() {
         TapticFeedbacker.impact(style: .light)
     }
+    
+    func noticeFeedbackOccurredError() {
+        TapticFeedbacker.notice(type: .error)
+    }
+    
+    func noticeFeedbackOccurredSuccess() {
+        TapticFeedbacker.notice(type: .success)
+    }
 }
 
 extension GroupTodoViewController: UITableViewDelegate, UITableViewDataSource {

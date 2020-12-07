@@ -180,7 +180,7 @@ extension SettingViewController: SettingViewPresenterOutput {
         let subTitle = R.string.localizable.successRestore()
         DispatchQueue.main.async {
             errorAlertView.showError(title, subTitle: subTitle, colorStyle: 0x34C759, colorTextButton: 0xFFFFFF)
-        }
+        }
     }
     
     func showErrorAleartView(error: Error) {

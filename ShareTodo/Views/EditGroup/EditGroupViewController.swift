@@ -360,6 +360,16 @@ extension EditGroupViewController: EditGroupViewPresenterOutput {
         self.removeUserActionSheet.title = R.string.localizable.remove_colon() + mayRemoveUserName
         self.present(self.removeUserActionSheet, animated: true, completion: nil)
     }
+    
+    func impactFeedbackOccurred() {
+        TapticFeedbacker.impact(style: .light)
+    }
+    func noticeFeedbackOccurredError() {
+        TapticFeedbacker.notice(type: .error)
+    }
+    func noticeFeedbackOccurredSuccess() {
+        TapticFeedbacker.notice(type: .success)
+    }
 }
 
 extension EditGroupViewController: UICollectionViewDelegate, UICollectionViewDataSource {

@@ -29,6 +29,9 @@ protocol AccountViewPresenterOutput: class {
     func showDeleteAccountAleartView()
     func showWarningAlertViewForDeleteAccount()
     func showSeeYouAlertView()
+    func impactFeedbackOccurred()
+    func noticeFeedbackOccurredError()
+    func noticeFeedbackOccurredSuccess()
 }
 
 final class AccountViewPresenter: AccountViewPresenterProtocol, AccountModelOutput {
@@ -46,15 +49,18 @@ final class AccountViewPresenter: AccountViewPresenterProtocol, AccountModelOutp
     
     func didTapTableViewCell(indexPath: IndexPath) {
         self.model.chekeTheIndexPath(indexPath: indexPath)
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapDeleteAccountAleartViewDelete() {
         self.view.showWarningAlertViewForDeleteAccount()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapDeleteAccountWarningAleartViewDelete() {
         self.model.deleteAccount()
         self.view.startActivityIndicator()
+        self.view.impactFeedbackOccurred()
     }
 
     func successFetchUser(user: User) {
@@ -71,6 +77,7 @@ final class AccountViewPresenter: AccountViewPresenterProtocol, AccountModelOutp
     func successDeleteAccount() {
         self.view.showSeeYouAlertView()
         self.view.stopActivityIndicator()
+        self.view.noticeFeedbackOccurredSuccess()
     }
     
     func showDeleteAccountAleartView() {
@@ -80,5 +87,6 @@ final class AccountViewPresenter: AccountViewPresenterProtocol, AccountModelOutp
     func error(error: Error) {
         self.view.showErrorAleartView(error: error)
         self.view.stopActivityIndicator()
+        self.view.noticeFeedbackOccurredError()
     }
 }

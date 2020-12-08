@@ -60,7 +60,6 @@
 "Free Plan" = "Free Plan";
 "Premiun Plan" = "⭐️Premium Plan⭐️";
 
-
 // EditProfileVC
 "Edit Profile"        = "Edit Profile";
 "Chose Profile Photo" = "Chose Profile Photo";
@@ -148,9 +147,11 @@
 "Explanation Of Subscription Notes" = "
 ・It will be automatically reflected one month after the application date.
 
+・Automatic renewal billing will be done automatically within 24 hours when the period expires.
+
 ・Auto-renewal billing will renew automatically unless you turn off auto-renewal at least 24 hours before the expiration date.
 
-・Automatic renewal billing can be managed by the customer and can be canceled at any time.
+・You can manage the automatic renewal billing yourself. You can also cancel at any time.
 
 ・You can check and cancel your subscription from [Settings app] → [iTunes Store] → [Apple ID] → [Display Apple ID] → [Register]. If you cancel, the subscription will end and the renewal will not be performed when the contract period you are using ends.
 
@@ -158,7 +159,12 @@
 
 ・Premium features will be charged to your Apple ID.
 
-・privacy policy
+・ You can use the premium function until the renewal date even after completing the cancellation procedure for automatic renewal billing.
+
+・ After completing the cancellation procedure for automatic renewal billing, the plan will shift to the free plan after the next renewal date.
+
+
+・Privacy Policy
   https://example.com
 
 ・Terms of service

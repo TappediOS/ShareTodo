@@ -7,3 +7,6 @@
 */
 
 CFBundleDisplayName = "ShareTodo";
+
+NSCameraUsageDescription = "Take a profile photo";
+NSPhotoLibraryUsageDescription = "Select your profile photos";

@@ -18,6 +18,7 @@
 		BF26FB772530618E00FDFC4A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF26FB792530618E00FDFC4A /* Localizable.strings */; };
 		BF28E41524FC886600269D82 /* GroupTodoViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */; };
 		BF2B3B70257F045600481B05 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF2B3B72257F045600481B05 /* InfoPlist.strings */; };
+		BF2B3B79257F062900481B05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF2B3B78257F062900481B05 /* LaunchScreen.storyboard */; };
 		BF38EF2D251CAD150024CD17 /* TodayTodoModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF2C251CAD150024CD17 /* TodayTodoModelTest.swift */; };
 		BF38EF44251DE6EC0024CD17 /* TodayTodoModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF43251DE6EC0024CD17 /* TodayTodoModelMock.swift */; };
 		BF38EF4A251DE6F70024CD17 /* ProfileViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF49251DE6F70024CD17 /* ProfileViewModelMock.swift */; };
@@ -263,6 +264,7 @@
 		BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTodoViewModelTests.swift; sourceTree = "<group>"; };
 		BF2B3B71257F045600481B05 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BF2B3B75257F045A00481B05 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BF2B3B78257F062900481B05 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF38EF2C251CAD150024CD17 /* TodayTodoModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoModelTest.swift; sourceTree = "<group>"; };
 		BF38EF43251DE6EC0024CD17 /* TodayTodoModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoModelMock.swift; sourceTree = "<group>"; };
 		BF38EF49251DE6F70024CD17 /* ProfileViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelMock.swift; sourceTree = "<group>"; };
@@ -884,6 +886,7 @@
 				BF4D2930256DF54F00A2493D /* Setting.storyboard */,
 				BFC2A15225786F6500B321C3 /* SubscriptionStatus.storyboard */,
 				BFC2A1AA257C605F00B321C3 /* Account.storyboard */,
+				BF2B3B78257F062900481B05 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -1371,6 +1374,7 @@
 				BFD4366624CE62C700B2E580 /* Assets.xcassets in Resources */,
 				BFFA61732508884700A1D2CE /* EditGroup.storyboard in Resources */,
 				BF5120F125441303003AC823 /* Settings.bundle in Resources */,
+				BF2B3B79257F062900481B05 /* LaunchScreen.storyboard in Resources */,
 				BF97249C24CD27010033BB50 /* GoogleService-Info.plist in Resources */,
 				BF4D2931256DF54F00A2493D /* Setting.storyboard in Resources */,
 			);

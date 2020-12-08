@@ -54,9 +54,11 @@ final class CreateNewGroupInfoViewController: UIViewController {
     }
     
     private func setupNavigationItem() {
+        self.navigationController?.navigationBar.tintColor = .systemGreen
         self.navigationItem.title = R.string.localizable.group()
         let saveItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(tapGroupButton))
         self.navigationItem.rightBarButtonItem = saveItem
+        self.navigationItem.rightBarButtonItem?.tintColor = .systemGreen
     }
     
     func setupGroupImageView() {

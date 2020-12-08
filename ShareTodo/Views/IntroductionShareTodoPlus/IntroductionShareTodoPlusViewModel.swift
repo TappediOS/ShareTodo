@@ -97,7 +97,10 @@ final class IntroductionShareTodoPlusModel: IntroductionShareTodoPlusModelProtoc
     }
     
     func makeMonthSubscriptionPurchase() {
-        guard let package = self.monthAvailablePackage else { return }
+        guard let package = self.monthAvailablePackage else {
+            self.presenter.productError()
+            return
+        }
         
         Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
             if let error = error {
@@ -130,7 +133,10 @@ final class IntroductionShareTodoPlusModel: IntroductionShareTodoPlusModelProtoc
     }
     
     func makeAnnualSubscriptioinPurhase() {
-        guard let package = self.annualAvailablePackage else { return }
+        guard let package = self.annualAvailablePackage else {
+            self.presenter.productError()
+            return
+        }
         
         Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
             if let error = error {

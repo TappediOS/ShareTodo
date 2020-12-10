@@ -145,7 +145,7 @@ extension GroupTodoViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension GroupTodoViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        let str = "No Task"
+        let str = R.string.localizable.noTask()
         let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline)]
         return NSAttributedString(string: str, attributes: attrs)
     }

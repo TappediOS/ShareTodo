@@ -47,6 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UNUserNotificationCenter.current().delegate = self
         Messaging.messaging().delegate = self
         
+        ShareTodoRemoteConfig.fetchLeatest()
+        
         return true
     }
 

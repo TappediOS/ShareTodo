@@ -20,6 +20,7 @@
 		BF2B3B70257F045600481B05 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF2B3B72257F045600481B05 /* InfoPlist.strings */; };
 		BF2B3B79257F062900481B05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF2B3B78257F062900481B05 /* LaunchScreen.storyboard */; };
 		BF2B3B902581AD9600481B05 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF2B3B8F2581AD9600481B05 /* GoogleService-Info.plist */; };
+		BF2B3B942581BBD800481B05 /* ShareTodoRemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B3B932581BBD800481B05 /* ShareTodoRemoteConfig.swift */; };
 		BF38EF2D251CAD150024CD17 /* TodayTodoModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF2C251CAD150024CD17 /* TodayTodoModelTest.swift */; };
 		BF38EF44251DE6EC0024CD17 /* TodayTodoModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF43251DE6EC0024CD17 /* TodayTodoModelMock.swift */; };
 		BF38EF4A251DE6F70024CD17 /* ProfileViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF49251DE6F70024CD17 /* ProfileViewModelMock.swift */; };
@@ -266,6 +267,7 @@
 		BF2B3B75257F045A00481B05 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BF2B3B78257F062900481B05 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF2B3B8F2581AD9600481B05 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BF2B3B932581BBD800481B05 /* ShareTodoRemoteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareTodoRemoteConfig.swift; sourceTree = "<group>"; };
 		BF38EF2C251CAD150024CD17 /* TodayTodoModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoModelTest.swift; sourceTree = "<group>"; };
 		BF38EF43251DE6EC0024CD17 /* TodayTodoModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoModelMock.swift; sourceTree = "<group>"; };
 		BF38EF49251DE6F70024CD17 /* ProfileViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelMock.swift; sourceTree = "<group>"; };
@@ -1193,6 +1195,7 @@
 			children = (
 				BFD5DE08251B8ED200E35F18 /* NavigationImageConst.swift */,
 				BFC2A1AE257DB68A00B321C3 /* TapticFeedbacker.swift */,
+				BF2B3B932581BBD800481B05 /* ShareTodoRemoteConfig.swift */,
 			);
 			path = AppData;
 			sourceTree = "<group>";
@@ -1685,6 +1688,7 @@
 				BFD5DDE2251AFFF900E35F18 /* UserDetailViewPresenter.swift in Sources */,
 				BF88D4ED24CAB88500607D6A /* GroupTodoViewBuilder.swift in Sources */,
 				BFD4360324CD44AE00B2E580 /* CreateNewGroupViewModel.swift in Sources */,
+				BF2B3B942581BBD800481B05 /* ShareTodoRemoteConfig.swift in Sources */,
 				BFD435E524CD333D00B2E580 /* FieldValue+Encodable.swift in Sources */,
 				BFD5DDDE251AFFE900E35F18 /* UserDetailViewController.swift in Sources */,
 				BF88D51924CAC4D600607D6A /* GroupTableViewCell.swift in Sources */,

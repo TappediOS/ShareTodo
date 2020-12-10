@@ -9,6 +9,7 @@
 import UIKit
 import SCLAlertView
 import DZNEmptyDataSet
+import GoogleMobileAds
 
 final class GroupTodoViewController: UIViewController {
     private var presenter: GroupTodoViewPresenterProtocol!
@@ -73,6 +74,11 @@ final class GroupTodoViewController: UIViewController {
 extension GroupTodoViewController: GroupTodoViewPresenterOutput {
     func reloadGroupTableView() {
         DispatchQueue.main.async { self.groupTableView.reloadData() }
+    }
+    
+    func setTableViewInsetBottoms(isSubscribed: Bool) {
+        print(GADAdSize().size.width)
+        self.groupTableView.contentInset.bottom = isSubscribed ? 0 : 75
     }
     
     func startActivityIndicator() {

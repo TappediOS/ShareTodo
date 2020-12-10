@@ -7,6 +7,7 @@
 //
 
 import Firebase
+import Purchases
 
 protocol GroupTodoModelProtocol {
     var presenter: GroupTodoModelOutput! { get set }
@@ -15,11 +16,15 @@ protocol GroupTodoModelProtocol {
     
     func fetchGroup()
     func fetchGroupsUsersNames()
+    
+    func checkingIfAUserSubscribed()
 }
 
 protocol GroupTodoModelOutput: class {
     func successFetchGroup()
     func successFetchUsersName()
+    
+    func userSubscribed(isSubscribed: Bool)
     
     func error(error: Error)
 }
@@ -147,5 +152,34 @@ final class GroupTodoModel: GroupTodoModelProtocol {
         }
         
         return result
+    }
+    
+    func checkingIfAUserSubscribed() {
+        Purchases.shared.purchaserInfo { (purchaserInfo, error) in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                self.presenter.userSubscribed(isSubscribed: false)
+                return
+            }
+            
+            guard let purchaserInfo = purchaserInfo else {
+                print("purchaserInfo = nil")
+                self.presenter.userSubscribed(isSubscribed: false)
+                return
+            }
+            
+            guard let entitlement = purchaserInfo.entitlements[R.string.sharedString.revenueCatShareTodoEntitlementsID()] else {
+                print("entitlement = nil")
+                self.presenter.userSubscribed(isSubscribed: false)
+                return
+            }
+            
+            guard entitlement.isActive == true else {
+                self.presenter.userSubscribed(isSubscribed: false)
+                return
+            }
+            
+            self.presenter.userSubscribed(isSubscribed: true)
+        }
     }
 }

@@ -36,6 +36,12 @@ final class TodayTodoViewController: UIViewController {
         self.presenter.didViewWillAppear()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.todayTodoCollectionView.layoutIfNeeded()
+    }
+    
     func setupView() {
         self.view.backgroundColor = .secondarySystemBackground
     }
@@ -47,13 +53,6 @@ final class TodayTodoViewController: UIViewController {
     }
     
     func setupTodayTodoCollectionView() {
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width - 32, height: 95)
-        flowLayout.minimumInteritemSpacing = 0
-        flowLayout.minimumLineSpacing = 16
-        flowLayout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 40, right: 16)
-        
-        self.todayTodoCollectionView.setCollectionViewLayout(flowLayout, animated: true)
         self.todayTodoCollectionView.backgroundColor = .secondarySystemBackground
         self.todayTodoCollectionView.alwaysBounceVertical = true
         
@@ -159,7 +158,7 @@ extension TodayTodoViewController: TodayTodoViewPresenterOutput {
     }
 }
 
-extension TodayTodoViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension TodayTodoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.presenter.numberOfGroups
     }
@@ -188,7 +187,27 @@ extension TodayTodoViewController: UICollectionViewDelegate, UICollectionViewDat
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
+}
 
+extension TodayTodoViewController: UICollectionViewDelegateFlowLayout {
+    // MARK: - FlowLayout
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width - 32, height: 95)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let bottomInset: CGFloat = self.presenter.isUserSubscribed ? 16 : 75
+        return UIEdgeInsets(top: 16, left: 16, bottom: bottomInset, right: 16)
+    }
+    
+    // cell同士の間隔
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 16
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
 }
 
 extension TodayTodoViewController: UITextFieldDelegate {

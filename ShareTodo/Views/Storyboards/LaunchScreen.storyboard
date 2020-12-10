@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork" translatesAutoresizingMaskIntoConstraints="NO" id="wFI-qA-NDv">
-                                <rect key="frame" x="103.5" y="344.5" width="207" height="207"/>
+                                <rect key="frame" x="95" y="336" width="224" height="224"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="wFI-qA-NDv" secondAttribute="height" multiplier="1:1" id="veo-xm-Sti"/>
                                 </constraints>
@@ -27,7 +27,7 @@
                         <viewLayoutGuide key="safeArea" id="lg2-qG-C8t"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="wFI-qA-NDv" firstAttribute="width" secondItem="Cqd-dx-X4I" secondAttribute="width" multiplier="0.5" id="8zO-2E-nTO"/>
+                            <constraint firstItem="wFI-qA-NDv" firstAttribute="width" secondItem="Cqd-dx-X4I" secondAttribute="width" multiplier="0.54" id="8zO-2E-nTO"/>
                             <constraint firstItem="wFI-qA-NDv" firstAttribute="centerY" secondItem="Cqd-dx-X4I" secondAttribute="centerY" id="MlP-Ud-Npo"/>
                             <constraint firstItem="wFI-qA-NDv" firstAttribute="centerX" secondItem="Cqd-dx-X4I" secondAttribute="centerX" id="faP-RJ-BDf"/>
                         </constraints>

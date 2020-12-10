@@ -31,6 +31,8 @@ protocol TodayTodoViewPresenterOutput: class {
     func reloadTodayTodoCollectionView()
     func showRequestAllowNotificationView()
     
+    func showSKStoreReviewController()
+    
     func startActivityIndicator()
     func stopActivityIndicator()
     
@@ -62,6 +64,9 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
         self.view.startActivityIndicator()
         self.model.fetchGroups()
         self.model.checkingIfAUserSubscribed()
+        
+        self.model.countUpOpenApp()
+        if self.model.shouldRequestStoreReviewOpenAppCount() { self.view.showSKStoreReviewController() }
     }
     
     func didViewWillAppear() {
@@ -83,6 +88,9 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
         self.model.fetchGroups()
         self.view.stopActivityIndicator()
         self.view.impactFeedbackOccurred_heavy()
+        
+        self.model.countUpRequestFinishTodo()
+        if self.model.shouldRequestStoreReviewFinishTodoCount() { self.view.showSKStoreReviewController() }
     }
     
     func didTapRadioButton(index: Int) {

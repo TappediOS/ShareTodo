@@ -19,9 +19,9 @@ protocol TodayTodoModelProtocol {
     func fetchGroups()
     func fetchTodayTodo(groupDocuments: [QueryDocumentSnapshot], userID: String)
     
-    func isFirstOpen() -> Bool
     func isFinishedTodo(index: Int) -> Bool
     func isWrittenMessage(index: Int) -> Bool
+    
     
     func unfinishedTodo(index: Int)
     func finishedTodo(index: Int)
@@ -30,6 +30,12 @@ protocol TodayTodoModelProtocol {
     func cancelMessage(index: Int)
     
     func setFcmToken()
+    
+    func countUpOpenApp()
+    func shouldRequestStoreReviewOpenAppCount() -> Bool
+    func countUpRequestFinishTodo()
+    func shouldRequestStoreReviewFinishTodoCount() -> Bool
+    func isFirstOpen() -> Bool
     
     func checkingIfAUserSubscribed()
 }
@@ -358,11 +364,36 @@ final class TodayTodoModel: TodayTodoModelProtocol {
         self.fetchGroups()
     }
     
+    func countUpOpenApp() {
+        UserDefaults.standard.register(defaults: [R.string.sharedString.openAppCountKey(): 0])
+        let key = R.string.sharedString.openAppCountKey()
+        UserDefaults.standard.set(UserDefaults.standard.integer(forKey: key) + 1, forKey: key)
+    }
+    
+    func countUpRequestFinishTodo() {
+        UserDefaults.standard.register(defaults: [R.string.sharedString.requestFinishTodoCountKey(): 0])
+        let key = R.string.sharedString.requestFinishTodoCountKey()
+        UserDefaults.standard.set(UserDefaults.standard.integer(forKey: key) + 1, forKey: key)
+    }
+    
+    func shouldRequestStoreReviewOpenAppCount() -> Bool {
+        let count = UserDefaults.standard.integer(forKey: R.string.sharedString.openAppCountKey())
+        if count == 4 || count == 7 || count == 12 || count == 18 || count == 25 || count == 35 || count == 50 { return true }
+        return false
+    }
+    
+    func shouldRequestStoreReviewFinishTodoCount() -> Bool {
+        let count = UserDefaults.standard.integer(forKey: R.string.sharedString.requestFinishTodoCountKey())
+        if count == 3 || count == 6 || count == 10 || count == 18 || count == 35 || count == 40 { return true }
+        if count == 62 || count == 75 || count == 88 || count == 92 || count == 100 { return true }
+        return false
+    }
+    
     func isFirstOpen() -> Bool {
-        UserDefaults.standard.register(defaults: ["isFirstOpen": true])
-        if !UserDefaults.standard.bool(forKey: "isFirstOpen") { return false }
+        UserDefaults.standard.register(defaults: [R.string.sharedString.isFirstOpenKey(): true])
+        if !UserDefaults.standard.bool(forKey: R.string.sharedString.isFirstOpenKey()) { return false }
         
-        UserDefaults.standard.set(false, forKey: "isFirstOpen")
+        UserDefaults.standard.set(false, forKey: R.string.sharedString.isFirstOpenKey())
         return true
     }
 }

@@ -9,6 +9,7 @@
 import UIKit
 import DZNEmptyDataSet
 import SCLAlertView
+import StoreKit
 
 final class TodayTodoViewController: UIViewController {
     private var presenter: TodayTodoViewPresenterProtocol!
@@ -119,6 +120,12 @@ extension TodayTodoViewController: TodayTodoViewPresenterOutput {
                 UIApplication.shared.registerForRemoteNotifications()
                 self.presenter.didAllowNotification()
             }
+        }
+    }
+    
+    func showSKStoreReviewController() {
+        DispatchQueue.main.async {
+            SKStoreReviewController.requestReview()
         }
     }
     

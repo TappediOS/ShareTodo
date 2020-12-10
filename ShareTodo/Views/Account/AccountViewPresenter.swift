@@ -66,7 +66,7 @@ final class AccountViewPresenter: AccountViewPresenterProtocol, AccountModelOutp
     func successFetchUser(user: User) {
         self.view.setUserName(name: user.name)
         self.view.setUserID(uid: user.id ?? "")
-        if (user.fcmToken != nil) {
+        if user.fcmToken != nil {
             self.view.setNotificationLabel(status: R.string.localizable.yes())
         } else {
             self.view.setNotificationLabel(status: R.string.localizable.no())

@@ -70,6 +70,10 @@ final class RegisterUserModel: RegisterUserModelProtocol {
             }
             
             profileImagesRef.downloadURL { (url, error) in
+                if let error = error {
+                    print("Error: \(error.localizedDescription)")
+                }
+                
                 guard let downloadURL = url else { return }
                 self.registerProfileURLtoFirestore(uid: uid, downloadURL: downloadURL)
             }

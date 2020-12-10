@@ -384,8 +384,8 @@ final class TodayTodoModel: TodayTodoModelProtocol {
     
     func shouldRequestStoreReviewFinishTodoCount() -> Bool {
         let count = UserDefaults.standard.integer(forKey: R.string.sharedString.requestFinishTodoCountKey())
-        if count == 3 || count == 6 || count == 10 || count == 18 || count == 35 || count == 40 { return true }
-        if count == 62 || count == 75 || count == 88 || count == 92 || count == 100 { return true }
+        if count == 3 || count == 6 || count == 10 || count == 15 || count == 26 || count == 36 { return true }
+        if count == 48 || count == 61 || count == 75 || count == 90 || count == 118 { return true }
         return false
     }
     

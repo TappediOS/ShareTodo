@@ -19,6 +19,7 @@
 		BF28E41524FC886600269D82 /* GroupTodoViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */; };
 		BF2B3B70257F045600481B05 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF2B3B72257F045600481B05 /* InfoPlist.strings */; };
 		BF2B3B79257F062900481B05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF2B3B78257F062900481B05 /* LaunchScreen.storyboard */; };
+		BF2B3B902581AD9600481B05 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF2B3B8F2581AD9600481B05 /* GoogleService-Info.plist */; };
 		BF38EF2D251CAD150024CD17 /* TodayTodoModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF2C251CAD150024CD17 /* TodayTodoModelTest.swift */; };
 		BF38EF44251DE6EC0024CD17 /* TodayTodoModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF43251DE6EC0024CD17 /* TodayTodoModelMock.swift */; };
 		BF38EF4A251DE6F70024CD17 /* ProfileViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF49251DE6F70024CD17 /* ProfileViewModelMock.swift */; };
@@ -109,7 +110,6 @@
 		BF97249124CD24B00033BB50 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97246A24CD24AD0033BB50 /* GTMSessionFetcher.framework */; };
 		BF97249324CD24B10033BB50 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97246B24CD24AD0033BB50 /* GoogleUtilities.framework */; };
 		BF97249524CD24B10033BB50 /* gRPC-Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97246C24CD24AD0033BB50 /* gRPC-Core.framework */; };
-		BF97249C24CD27010033BB50 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF97249B24CD27010033BB50 /* GoogleService-Info.plist */; };
 		BF9724A324CD2B180033BB50 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF9724A224CD2B180033BB50 /* StoreKit.framework */; };
 		BF9724A724CD2C930033BB50 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BF9724A424CD2BA70033BB50 /* libc++.tbd */; };
 		BF9724A824CD2CAD0033BB50 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BF9724A524CD2BCC0033BB50 /* libsqlite3.tbd */; };
@@ -265,6 +265,7 @@
 		BF2B3B71257F045600481B05 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BF2B3B75257F045A00481B05 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BF2B3B78257F062900481B05 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BF2B3B8F2581AD9600481B05 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BF38EF2C251CAD150024CD17 /* TodayTodoModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoModelTest.swift; sourceTree = "<group>"; };
 		BF38EF43251DE6EC0024CD17 /* TodayTodoModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoModelMock.swift; sourceTree = "<group>"; };
 		BF38EF49251DE6F70024CD17 /* ProfileViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelMock.swift; sourceTree = "<group>"; };
@@ -363,7 +364,6 @@
 		BF97246A24CD24AD0033BB50 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GTMSessionFetcher.framework; path = Carthage/Build/iOS/GTMSessionFetcher.framework; sourceTree = "<group>"; };
 		BF97246B24CD24AD0033BB50 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Carthage/Build/iOS/GoogleUtilities.framework; sourceTree = "<group>"; };
 		BF97246C24CD24AD0033BB50 /* gRPC-Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "gRPC-Core.framework"; path = "Carthage/Build/iOS/gRPC-Core.framework"; sourceTree = "<group>"; };
-		BF97249B24CD27010033BB50 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BF9724A224CD2B180033BB50 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		BF9724A424CD2BA70033BB50 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		BF9724A524CD2BCC0033BB50 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -863,7 +863,7 @@
 		BF88D4C924CAA99B00607D6A /* GoogleInfo */ = {
 			isa = PBXGroup;
 			children = (
-				BF97249B24CD27010033BB50 /* GoogleService-Info.plist */,
+				BF2B3B8F2581AD9600481B05 /* GoogleService-Info.plist */,
 			);
 			path = GoogleInfo;
 			sourceTree = "<group>";
@@ -1250,6 +1250,7 @@
 				BFD435CE24CD2E3800B2E580 /* Carthage */,
 				BFD435D124CD2EBD00B2E580 /* Embed Frameworks */,
 				D22DF730596E192E7D83398A /* [CP] Embed Pods Frameworks */,
+				BF2B3B7C2581A9BC00481B05 /* Crashlytics */,
 				BF5120E4254411AF003AC823 /* LicensePlist */,
 			);
 			buildRules = (
@@ -1362,6 +1363,7 @@
 				BFC2A1AB257C605F00B321C3 /* Account.storyboard in Resources */,
 				BFD4360524CD450200B2E580 /* CreateNewGroup.storyboard in Resources */,
 				BF26FB772530618E00FDFC4A /* Localizable.strings in Resources */,
+				BF2B3B902581AD9600481B05 /* GoogleService-Info.plist in Resources */,
 				BF5CB6B52504AB8100EA1024 /* GroupDetailCollectionViewUserCell.xib in Resources */,
 				BFD4361D24CD504800B2E580 /* CreateNewGroupInfo.storyboard in Resources */,
 				BF88D51724CABD1000607D6A /* Profile.storyboard in Resources */,
@@ -1375,7 +1377,6 @@
 				BFFA61732508884700A1D2CE /* EditGroup.storyboard in Resources */,
 				BF5120F125441303003AC823 /* Settings.bundle in Resources */,
 				BF2B3B79257F062900481B05 /* LaunchScreen.storyboard in Resources */,
-				BF97249C24CD27010033BB50 /* GoogleService-Info.plist in Resources */,
 				BF4D2931256DF54F00A2493D /* Setting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1479,6 +1480,26 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShareTodo-ShareTodoUITests/Pods-ShareTodo-ShareTodoUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		BF2B3B7C2581A9BC00481B05 /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}",
+			);
+			name = Crashlytics;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PROJECT_DIR}/FirebaseCrashlytics/run\n";
 		};
 		BF5120E4254411AF003AC823 /* LicensePlist */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1896,6 +1917,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ShareTodo/ShareTodo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 9R4W53MKG7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

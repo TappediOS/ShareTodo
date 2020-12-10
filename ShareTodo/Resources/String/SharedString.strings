@@ -19,3 +19,21 @@
 
 "AppStoreReviewURL" = "https://itunes.apple.com/us/app/itunes-u/id1540403297?action=write-review";
 "ShareShareTodoURL" = "https://itunes.apple.com/us/app/on-stars-top-of-the-stars/id1540403297?l=ja&ls=1&mt=8";
+
+
+// AnalyticsLogEventName
+"finishedTodo_EventName" = "finishedTodo";
+"unFinishedTodo_EventName" = "unFinishedTodo";
+"writeMessage_EventName" = "writeMessage_EventName";
+"cancelWriteMessage_EventName" = "cancelWriteMessagae";
+"editProfile_EventName" = "editProfile";
+"editGroup_EventName" = "editGroup";
+"leaveGroup_EventName" = "leaveGroup";
+"tapApplyMonthSubscriptionButton_EventName" = "tapApplyMonthSubscriptionButton";
+"tapApplyAnnualSubscripotionButton_EventName" = "tapApplyAnnualSubscripotionButton";
+
+
+// AnalyticsLogEventParam
+"writeMessage_EventParam" = "writeMessage_EventParam";
+"groupLeaveUserID_EventParam" = "groupLeaveUserID";
+"groupLeaveGroupID_EventParam" = "groupLeaveGroupID";

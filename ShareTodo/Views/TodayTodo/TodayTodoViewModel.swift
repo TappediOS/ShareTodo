@@ -208,6 +208,7 @@ final class TodayTodoModel: TodayTodoModelProtocol {
                 self.todos[finishedTodoIndex].isFinished = false
                 self.todos[finishedTodoIndex].message = nil
                 self.presenter.successUnfinishedTodo()
+                Analytics.logEvent(R.string.sharedString.unFinishedTodo_EventName(), parameters: nil)
             }
         } catch let error {
             print("Error: \(error.localizedDescription)")
@@ -233,6 +234,7 @@ final class TodayTodoModel: TodayTodoModelProtocol {
                 }
                 
                 self.presenter.successFinishedTodo()
+                Analytics.logEvent(R.string.sharedString.finishedTodo_EventName(), parameters: nil)
             }
         } catch let error {
             print("Error: \(error.localizedDescription)")
@@ -263,6 +265,7 @@ final class TodayTodoModel: TodayTodoModelProtocol {
                 
                 self.todos[finishedTodoIndex].message = message
                 self.presenter.successWriteMessage()
+                Analytics.logEvent(R.string.sharedString.writeMessage_EventName(), parameters: [R.string.sharedString.writeMessage_EventParam(): message])
             }
         } catch let error {
             print("Error: \(error.localizedDescription)")
@@ -292,6 +295,7 @@ final class TodayTodoModel: TodayTodoModelProtocol {
                 
                 self.todos[finishedTodoIndex].message = nil
                 self.presenter.successCancelMessage()
+                Analytics.logEvent(R.string.sharedString.cancelWriteMessage_EventName(), parameters: nil)
             }
         } catch let error {
             print("Error: \(error.localizedDescription)")

@@ -86,6 +86,7 @@ final class RegisterUserModel: RegisterUserModelProtocol {
             }
             
             self.presenter.successRegisterUser()
+            Analytics.logEvent(AnalyticsEventSignUp, parameters: nil)
         }
     }
 }

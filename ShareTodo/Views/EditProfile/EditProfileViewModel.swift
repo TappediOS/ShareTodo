@@ -76,6 +76,7 @@ final class EditProfileModel: EditProfileModelProtocol {
             }
             
             self.presenter.successSaveUser()
+            Analytics.logEvent(R.string.sharedString.editProfile_EventName(), parameters: nil)
         }
     }
 }

@@ -97,13 +97,13 @@ final class CreateNewGroupViewPresenter: CreateNewGroupViewPresenterProtocol, Cr
         self.view.impactFeedbackOccurred()
     }
     
+    // グループ作成時は1人でも作れる
     func didTapCreateRoomutton() {
-        guard !self.selectedUsers.isEmpty else { return }
-        
         self.view.presentCreateNewGropuInfoVC()
         self.view.impactFeedbackOccurred()
     }
     
+    // ユーザ招待時は選択してなかったらreturn
     func didTapInviteUsersDoneButton() {
         guard !self.selectedUsers.isEmpty else { return }
         self.view.dismissCreateChatRoomVC_delegate()

@@ -230,13 +230,13 @@ extension TodayTodoViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegat
         let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline)]
         return NSAttributedString(string: str, attributes: attrs)
     }
-   
+    
     func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
         let str = R.string.localizable.dznEmptyDataSetDescription_CreateGroup()
         let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)]
         return NSAttributedString(string: str, attributes: attrs)
     }
-
+    
     func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView!) -> Bool {
         return true
     }

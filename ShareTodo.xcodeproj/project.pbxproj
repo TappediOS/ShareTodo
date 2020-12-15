@@ -21,6 +21,11 @@
 		BF2B3B79257F062900481B05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF2B3B78257F062900481B05 /* LaunchScreen.storyboard */; };
 		BF2B3B902581AD9600481B05 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF2B3B8F2581AD9600481B05 /* GoogleService-Info.plist */; };
 		BF2B3B942581BBD800481B05 /* ShareTodoRemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B3B932581BBD800481B05 /* ShareTodoRemoteConfig.swift */; };
+		BF2B3BA625884E4F00481B05 /* OnBoarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF2B3BA525884E4F00481B05 /* OnBoarding.storyboard */; };
+		BF2B3BAE25884E5F00481B05 /* OnBoardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B3BAA25884E5F00481B05 /* OnBoardingViewModel.swift */; };
+		BF2B3BAF25884E5F00481B05 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B3BAB25884E5F00481B05 /* OnBoardingViewController.swift */; };
+		BF2B3BB025884E5F00481B05 /* OnBoardingViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B3BAC25884E5F00481B05 /* OnBoardingViewBuilder.swift */; };
+		BF2B3BB125884E5F00481B05 /* OnBoardingViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B3BAD25884E5F00481B05 /* OnBoardingViewPresenter.swift */; };
 		BF38EF2D251CAD150024CD17 /* TodayTodoModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF2C251CAD150024CD17 /* TodayTodoModelTest.swift */; };
 		BF38EF44251DE6EC0024CD17 /* TodayTodoModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF43251DE6EC0024CD17 /* TodayTodoModelMock.swift */; };
 		BF38EF4A251DE6F70024CD17 /* ProfileViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF49251DE6F70024CD17 /* ProfileViewModelMock.swift */; };
@@ -268,6 +273,11 @@
 		BF2B3B78257F062900481B05 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF2B3B8F2581AD9600481B05 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BF2B3B932581BBD800481B05 /* ShareTodoRemoteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareTodoRemoteConfig.swift; sourceTree = "<group>"; };
+		BF2B3BA525884E4F00481B05 /* OnBoarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnBoarding.storyboard; sourceTree = "<group>"; };
+		BF2B3BAA25884E5F00481B05 /* OnBoardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewModel.swift; sourceTree = "<group>"; };
+		BF2B3BAB25884E5F00481B05 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		BF2B3BAC25884E5F00481B05 /* OnBoardingViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewBuilder.swift; sourceTree = "<group>"; };
+		BF2B3BAD25884E5F00481B05 /* OnBoardingViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewPresenter.swift; sourceTree = "<group>"; };
 		BF38EF2C251CAD150024CD17 /* TodayTodoModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoModelTest.swift; sourceTree = "<group>"; };
 		BF38EF43251DE6EC0024CD17 /* TodayTodoModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoModelMock.swift; sourceTree = "<group>"; };
 		BF38EF49251DE6F70024CD17 /* ProfileViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelMock.swift; sourceTree = "<group>"; };
@@ -612,6 +622,17 @@
 			path = String;
 			sourceTree = "<group>";
 		};
+		BF2B3BA925884E5100481B05 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				BF2B3BAC25884E5F00481B05 /* OnBoardingViewBuilder.swift */,
+				BF2B3BAB25884E5F00481B05 /* OnBoardingViewController.swift */,
+				BF2B3BAD25884E5F00481B05 /* OnBoardingViewPresenter.swift */,
+				BF2B3BAA25884E5F00481B05 /* OnBoardingViewModel.swift */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
 		BF38EF2B251CAD010024CD17 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -835,6 +856,7 @@
 			isa = PBXGroup;
 			children = (
 				BFFA61692508881800A1D2CE /* EditGroup */,
+				BF2B3BA925884E5100481B05 /* OnBoarding */,
 				BFD4362424CDAC7F00B2E580 /* RegisterUser */,
 				BFD4361324CD4F3800B2E580 /* CreateNewGroupInfo */,
 				BFD435FB24CD448300B2E580 /* CreateNewGroup */,
@@ -874,6 +896,7 @@
 			isa = PBXGroup;
 			children = (
 				BF88D4E924CAB76700607D6A /* MainTabBar.storyboard */,
+				BF2B3BA525884E4F00481B05 /* OnBoarding.storyboard */,
 				BF88D4F424CAB8F300607D6A /* GroupTodo.storyboard */,
 				BF88D4FF24CAB9F000607D6A /* TodayTodo.storyboard */,
 				BF88D51624CABD1000607D6A /* Profile.storyboard */,
@@ -1377,6 +1400,7 @@
 				BF110025251F22CF0046376F /* IntroductionShareTodoPlus.storyboard in Resources */,
 				BFB24BF525441C1A00166D88 /* SharedString.strings in Resources */,
 				BFD4366624CE62C700B2E580 /* Assets.xcassets in Resources */,
+				BF2B3BA625884E4F00481B05 /* OnBoarding.storyboard in Resources */,
 				BFFA61732508884700A1D2CE /* EditGroup.storyboard in Resources */,
 				BF5120F125441303003AC823 /* Settings.bundle in Resources */,
 				BF2B3B79257F062900481B05 /* LaunchScreen.storyboard in Resources */,
@@ -1670,6 +1694,7 @@
 				BF88D51324CABCC300607D6A /* ProfileViewPresenter.swift in Sources */,
 				BFC2A1A5257C604C00B321C3 /* AccountViewController.swift in Sources */,
 				BFD435E724CD333D00B2E580 /* Timestamp+Codable.swift in Sources */,
+				BF2B3BB125884E5F00481B05 /* OnBoardingViewPresenter.swift in Sources */,
 				BF68712B25109EA300923A8B /* GroupRepository.swift in Sources */,
 				BFE3B16A251F2CBC00C69AF2 /* IntroductionShareTodoPlusViewModel.swift in Sources */,
 				BFD4361524CD4F5300B2E580 /* CreateNewGroupInfoViewBuilder.swift in Sources */,
@@ -1695,6 +1720,7 @@
 				BF6468C12500F36100F1CB75 /* GroupDetailCollectionViewCell.swift in Sources */,
 				BFC2A14D25786F5D00B321C3 /* SubscriptionStatusViewPresenter.swift in Sources */,
 				BF88D4EF24CAB88A00607D6A /* GroupTodoViewController.swift in Sources */,
+				BF2B3BAE25884E5F00481B05 /* OnBoardingViewModel.swift in Sources */,
 				BF88D4DA24CAAB3F00607D6A /* ExUIViewController.swift in Sources */,
 				BFA31F4024FF444200553F06 /* GroupDetailViewPresenter.swift in Sources */,
 				BF88D4FA24CAB99C00607D6A /* TodayTodoViewController.swift in Sources */,
@@ -1710,6 +1736,7 @@
 				BFA31F3E24FF443C00553F06 /* GroupDetailViewController.swift in Sources */,
 				BFD4360124CD44A900B2E580 /* CreateNewGroupViewPresenter.swift in Sources */,
 				BF636F5124FCDFD700F30F63 /* R.generated.swift in Sources */,
+				BF2B3BB025884E5F00481B05 /* OnBoardingViewBuilder.swift in Sources */,
 				BFC2A1AF257DB68A00B321C3 /* TapticFeedbacker.swift in Sources */,
 				BF88D4F124CAB89000607D6A /* GroupTodoViewPresenter.swift in Sources */,
 				BFD435F124CD346D00B2E580 /* FirestoreDecoder.swift in Sources */,
@@ -1726,6 +1753,7 @@
 				BF97244C24CC6B070033BB50 /* EditProfileViewBuilder.swift in Sources */,
 				BF4D28772560EA6100A2493D /* ExNotificationCenter.swift in Sources */,
 				BF88D4DE24CAAB6600607D6A /* ExString.swift in Sources */,
+				BF2B3BAF25884E5F00481B05 /* OnBoardingViewController.swift in Sources */,
 				BFFA616F2508883900A1D2CE /* EditGroupViewPresenter.swift in Sources */,
 				BF4D285B255FC8C500A2493D /* ExStoreKit.swift in Sources */,
 				BFD4361F24CD57F500B2E580 /* SelectedUsersAndMeCollectionViewCell.swift in Sources */,

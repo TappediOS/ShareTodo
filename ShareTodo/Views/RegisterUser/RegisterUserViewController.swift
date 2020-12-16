@@ -45,6 +45,7 @@ final class RegisterUserViewController: UIViewController {
     }
     
     func setupRegisterLabel() {
+        self.registerLabel.text = R.string.localizable.register()
         self.registerLabel.adjustsFontSizeToFitWidth = true
         self.registerLabel.minimumScaleFactor = 0.4
     }
@@ -72,7 +73,6 @@ final class RegisterUserViewController: UIViewController {
     
     func setupRegisterButton() {
         self.registerButton.backgroundColor = .systemGreen
-        self.registerLabel.textColor = .white
         self.registerButton.titleLabel?.adjustsFontSizeToFitWidth = true
         self.registerButton.titleLabel?.minimumScaleFactor = 0.4
         self.registerButton.layer.cornerRadius = 8

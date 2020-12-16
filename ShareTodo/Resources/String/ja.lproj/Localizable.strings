@@ -47,6 +47,7 @@
 "Group Task" = "タスク";
 
 // RegisterUserVC
+"Register"  = "登録";
 "User Name" = "ユーザ名";
 
 // OnBoardingVC

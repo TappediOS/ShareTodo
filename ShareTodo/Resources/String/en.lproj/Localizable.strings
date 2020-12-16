@@ -49,6 +49,10 @@
 // RegisterUserVC
 "User Name" = "user name";
 
+// OnBoardingVC
+"Create Account"   = "Create Account";
+"On Boarding Text" = "Share your daily habits with your friends and family.";
+
 // CreateNewGroupInfoVC
 
 // CreateNewGroupVC

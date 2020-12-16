@@ -10,9 +10,30 @@ import UIKit
 
 final class OnBoardingViewController: UIViewController {
     private var presenter: OnBoardingViewPresenterProtocol!
+    @IBOutlet weak var onBoardingTextLabel: UILabel!
+    @IBOutlet weak var createAccountButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        self.setupOnBoardingTextLabel()
+        self.setupCreateAccountButton()
+    }
+    
+    private func setupOnBoardingTextLabel() {
+        self.onBoardingTextLabel.text = R.string.localizable.onBoardingText()
+        self.onBoardingTextLabel.adjustsFontSizeToFitWidth = true
+        self.onBoardingTextLabel.minimumScaleFactor = 0.4
+    }
+    
+    private func setupCreateAccountButton() {
+        self.createAccountButton.setTitle(R.string.localizable.createAccount(), for: .normal)
+        self.createAccountButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        self.createAccountButton.titleLabel?.minimumScaleFactor = 0.4
+    }
+    
+    @IBAction func tapCreateAccountButton(_ sender: Any) {
+        
     }
     
     func inject(with presenter: OnBoardingViewPresenterProtocol) {

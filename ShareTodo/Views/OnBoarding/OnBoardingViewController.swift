@@ -33,7 +33,7 @@ final class OnBoardingViewController: UIViewController {
     }
     
     @IBAction func tapCreateAccountButton(_ sender: Any) {
-        
+        self.presenter.didTapCreateAccountButton()
     }
     
     func inject(with presenter: OnBoardingViewPresenterProtocol) {
@@ -43,5 +43,23 @@ final class OnBoardingViewController: UIViewController {
 }
 
 extension OnBoardingViewController: OnBoardingViewPresenterOutput {
+    func segueRegisterUserVC() {
+        let registerUserVC = RegisterUserViewBuilder.create()
+        registerUserVC.modalPresentationStyle = .fullScreen
+        registerUserVC.modalTransitionStyle = .crossDissolve
+        
+        self.present(registerUserVC, animated: true, completion: nil)
+    }
     
+    func impactFeedbackOccurred() {
+        TapticFeedbacker.impact(style: .heavy)
+    }
+    
+    func noticeFeedbackOccurredError() {
+        TapticFeedbacker.notice(type: .error)
+    }
+    
+    func noticeFeedbackOccurredSuccess() {
+        TapticFeedbacker.notice(type: .success)
+    }
 }

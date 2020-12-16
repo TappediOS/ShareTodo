@@ -8,10 +8,16 @@
 
 protocol OnBoardingViewPresenterProtocol {
     var view: OnBoardingViewPresenterOutput! { get set }
+    
+    func didTapCreateAccountButton()
 }
 
 protocol OnBoardingViewPresenterOutput: class {
+    func segueRegisterUserVC()
     
+    func impactFeedbackOccurred()
+    func noticeFeedbackOccurredError()
+    func noticeFeedbackOccurredSuccess()
 }
 
 final class OnBoardingViewPresenter: OnBoardingViewPresenterProtocol, OnBoardingModelOutput {
@@ -21,5 +27,10 @@ final class OnBoardingViewPresenter: OnBoardingViewPresenterProtocol, OnBoarding
     init(model: OnBoardingModelProtocol) {
         self.model = model
         self.model.presenter = self
+    }
+    
+    func didTapCreateAccountButton() {
+        self.view.segueRegisterUserVC()
+        self.view.impactFeedbackOccurred()
     }
 }

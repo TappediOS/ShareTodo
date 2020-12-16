@@ -13,6 +13,8 @@ final class OnBoardingViewController: UIViewController {
     @IBOutlet weak var onBoardingTextLabel: UILabel!
     @IBOutlet weak var createAccountButton: UIButton!
     
+    override var prefersHomeIndicatorAutoHidden: Bool { true }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     

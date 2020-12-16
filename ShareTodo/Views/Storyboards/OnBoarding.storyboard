@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_0" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ub9-y8-N1x">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
@@ -14,37 +14,37 @@
             <objects>
                 <viewController id="Ub9-y8-N1x" customClass="OnBoardingViewController" customModule="ShareTodo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pWB-Zr-HBC">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ShareTodoOnBoarding2" translatesAutoresizingMaskIntoConstraints="NO" id="OQ7-35-TSe">
-                                <rect key="frame" x="0.0" y="649" width="390" height="195"/>
+                                <rect key="frame" x="0.0" y="689" width="414" height="207"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="OQ7-35-TSe" secondAttribute="height" multiplier="2:1" id="qJm-Pi-te2"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ShasreTodoOnBoarding1" translatesAutoresizingMaskIntoConstraints="NO" id="03p-8n-0zK">
-                                <rect key="frame" x="0.0" y="44" width="390" height="195"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="207"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="03p-8n-0zK" secondAttribute="height" multiplier="2:1" id="bCS-xT-K97"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="毎日の習慣を家族や友達と共有しよう！" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iOI-Cp-RsX">
-                                <rect key="frame" x="24" y="356.66666666666669" width="342" height="67"/>
+                                <rect key="frame" x="24" y="384" width="366" height="64.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" priority="250" constant="20.5" id="Fgi-FO-LXX"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="28"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="27"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pC4-9a-abZ">
-                                <rect key="frame" x="24" y="455.66666666666669" width="342" height="56"/>
+                                <rect key="frame" x="24" y="480.5" width="366" height="56"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="NdP-uZ-mnY"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="アカウント作成">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>

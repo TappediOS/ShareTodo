@@ -17,6 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ShasreTodoOnBoarding1" translatesAutoresizingMaskIntoConstraints="NO" id="YtN-yO-GKi">
+                                <rect key="frame" x="0.0" y="655" width="414" height="207"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="414" id="F69-ZM-3y6"/>
+                                    <constraint firstAttribute="width" secondItem="YtN-yO-GKi" secondAttribute="height" multiplier="2:1" id="k4s-A4-TXK"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S5l-xh-ODZ">
                                 <rect key="frame" x="31" y="240" width="363" height="30"/>
                                 <constraints>
@@ -68,10 +75,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DID-xd-Wuj">
-                                <rect key="frame" x="20" y="380" width="374" height="45"/>
+                                <rect key="frame" x="20" y="380" width="374" height="48"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="kGM-vn-SUT"/>
+                                    <constraint firstAttribute="height" constant="48" id="kGM-vn-SUT"/>
                                 </constraints>
                                 <state key="normal" title="Register">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -84,6 +91,7 @@
                         <viewLayoutGuide key="safeArea" id="wYS-O0-3gx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="YtN-yO-GKi" firstAttribute="trailing" secondItem="wYS-O0-3gx" secondAttribute="trailing" id="19e-Qz-wIh"/>
                             <constraint firstItem="ibe-yP-JXg" firstAttribute="leading" secondItem="X97-Eg-DGN" secondAttribute="trailing" constant="8" id="3Ta-HA-jjf"/>
                             <constraint firstItem="S5l-xh-ODZ" firstAttribute="leading" secondItem="wYS-O0-3gx" secondAttribute="leading" constant="31" id="56a-Vf-vCL"/>
                             <constraint firstItem="X97-Eg-DGN" firstAttribute="leading" secondItem="wYS-O0-3gx" secondAttribute="leading" constant="20" id="6bQ-mI-uWk"/>
@@ -92,8 +100,10 @@
                             <constraint firstItem="wYS-O0-3gx" firstAttribute="trailing" secondItem="ibe-yP-JXg" secondAttribute="trailing" constant="20" id="K10-46-Xrh"/>
                             <constraint firstItem="DID-xd-Wuj" firstAttribute="centerX" secondItem="F9d-fu-cYi" secondAttribute="centerX" id="Kwr-eZ-1h6"/>
                             <constraint firstItem="ibe-yP-JXg" firstAttribute="top" secondItem="S5l-xh-ODZ" secondAttribute="bottom" constant="26" id="TcR-yN-seN"/>
+                            <constraint firstItem="YtN-yO-GKi" firstAttribute="bottom" secondItem="wYS-O0-3gx" secondAttribute="bottom" id="iOc-bN-jYq"/>
                             <constraint firstItem="C7u-yj-Fnq" firstAttribute="centerX" secondItem="F9d-fu-cYi" secondAttribute="centerX" id="kai-gp-6qn"/>
                             <constraint firstItem="X97-Eg-DGN" firstAttribute="top" secondItem="S5l-xh-ODZ" secondAttribute="bottom" constant="33" id="ltc-Xc-pnI"/>
+                            <constraint firstItem="YtN-yO-GKi" firstAttribute="leading" secondItem="wYS-O0-3gx" secondAttribute="leading" id="mB5-et-b6b"/>
                             <constraint firstItem="DID-xd-Wuj" firstAttribute="leading" secondItem="wYS-O0-3gx" secondAttribute="leading" constant="20" id="rDD-H5-acJ"/>
                             <constraint firstItem="wYS-O0-3gx" firstAttribute="trailing" secondItem="S5l-xh-ODZ" secondAttribute="trailing" constant="20" id="rHO-Xe-i3H"/>
                             <constraint firstItem="WWs-YA-Fci" firstAttribute="top" secondItem="wYS-O0-3gx" secondAttribute="top" constant="35" id="sOi-4n-Ruo"/>
@@ -115,6 +125,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ShasreTodoOnBoarding1" width="1000" height="500"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
@@ -14,20 +14,78 @@
             <objects>
                 <viewController id="Ub9-y8-N1x" customClass="OnBoardingViewController" customModule="ShareTodo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pWB-Zr-HBC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="毎日の習慣を家族や友達と共有しよう！" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iOI-Cp-RsX">
+                                <rect key="frame" x="24" y="356.66666666666669" width="342" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="250" constant="20.5" id="Fgi-FO-LXX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pC4-9a-abZ">
+                                <rect key="frame" x="24" y="455.66666666666669" width="342" height="56"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="NdP-uZ-mnY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <state key="normal" title="アカウント作成">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ShasreTodoOnBoarding1" translatesAutoresizingMaskIntoConstraints="NO" id="03p-8n-0zK">
+                                <rect key="frame" x="0.0" y="44" width="390" height="195"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="03p-8n-0zK" secondAttribute="height" multiplier="2:1" id="bCS-xT-K97"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ShareTodoOnBoarding2" translatesAutoresizingMaskIntoConstraints="NO" id="OQ7-35-TSe">
+                                <rect key="frame" x="0.0" y="649" width="390" height="195"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="OQ7-35-TSe" secondAttribute="height" multiplier="2:1" id="qJm-Pi-te2"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6zK-ge-QBH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="03p-8n-0zK" firstAttribute="top" secondItem="6zK-ge-QBH" secondAttribute="top" id="4FH-XI-Bmn"/>
+                            <constraint firstItem="pC4-9a-abZ" firstAttribute="leading" secondItem="6zK-ge-QBH" secondAttribute="leading" constant="24" id="4Tb-zp-nB1"/>
+                            <constraint firstItem="OQ7-35-TSe" firstAttribute="centerX" secondItem="pWB-Zr-HBC" secondAttribute="centerX" id="4tH-kv-HEa"/>
+                            <constraint firstItem="03p-8n-0zK" firstAttribute="leading" secondItem="6zK-ge-QBH" secondAttribute="leading" id="5A7-dI-fKx"/>
+                            <constraint firstItem="pC4-9a-abZ" firstAttribute="top" secondItem="iOI-Cp-RsX" secondAttribute="bottom" constant="32" id="PDa-yu-8ev"/>
+                            <constraint firstItem="pC4-9a-abZ" firstAttribute="centerX" secondItem="pWB-Zr-HBC" secondAttribute="centerX" id="VBt-jc-flP"/>
+                            <constraint firstItem="iOI-Cp-RsX" firstAttribute="leading" secondItem="6zK-ge-QBH" secondAttribute="leading" constant="24" id="YZ7-s5-bWQ"/>
+                            <constraint firstItem="03p-8n-0zK" firstAttribute="trailing" secondItem="6zK-ge-QBH" secondAttribute="trailing" id="avY-Y0-ZdJ"/>
+                            <constraint firstAttribute="bottom" secondItem="OQ7-35-TSe" secondAttribute="bottom" id="hhP-yH-RcN"/>
+                            <constraint firstItem="iOI-Cp-RsX" firstAttribute="centerY" secondItem="pWB-Zr-HBC" secondAttribute="centerY" constant="-32" id="m9S-jf-k8M"/>
+                            <constraint firstItem="iOI-Cp-RsX" firstAttribute="centerX" secondItem="pWB-Zr-HBC" secondAttribute="centerX" id="oFS-2o-jHh"/>
+                            <constraint firstItem="OQ7-35-TSe" firstAttribute="leading" secondItem="6zK-ge-QBH" secondAttribute="leading" id="unO-SP-GWF"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rST-dG-v0M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="138"/>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
     </scenes>
     <resources>
+        <image name="ShareTodoOnBoarding2" width="1000" height="500"/>
+        <image name="ShasreTodoOnBoarding1" width="1000" height="500"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

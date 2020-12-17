@@ -22,6 +22,7 @@ final class EditGroupViewController: UIViewController {
     @IBOutlet weak var groupNameTextField: UITextField!
     @IBOutlet weak var taskLabel: UILabel!
     @IBOutlet weak var taskTextField: UITextField!
+    @IBOutlet weak var membersLabel: UILabel! { didSet { self.membersLabel.text = R.string.localizable.members() }}
     @IBOutlet weak var selectedUsersAndMeCollectionView: UICollectionView!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var inviteUsersButton: UIButton!
@@ -102,6 +103,7 @@ final class EditGroupViewController: UIViewController {
     }
     
     func setupTaskLabel() {
+        self.taskLabel.text = R.string.localizable.task()
         self.taskLabel.adjustsFontSizeToFitWidth = true
         self.taskLabel.minimumScaleFactor = 0.4
     }

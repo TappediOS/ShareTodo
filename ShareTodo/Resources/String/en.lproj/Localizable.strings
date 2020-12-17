@@ -57,6 +57,8 @@
 "On Boarding Text" = "Share your daily habits with your friends and family.";
 
 // CreateNewGroupInfoVC
+"Task" = "Task";
+"Members" = "Members";
 
 // CreateNewGroupVC
 "Choose Friends" = "Choose friends";

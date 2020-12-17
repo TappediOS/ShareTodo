@@ -18,6 +18,7 @@ final class CreateNewGroupInfoViewController: UIViewController {
     @IBOutlet weak var taskTextField: UITextField!
     @IBOutlet weak var selectedUsersAndMeCollectionView: UICollectionView!
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var membersLabel: UILabel! { didSet { self.membersLabel.text = R.string.localizable.members() }}
     
     var actionSheet = UIAlertController()
     let photoPickerVC = UIImagePickerController()
@@ -82,6 +83,7 @@ final class CreateNewGroupInfoViewController: UIViewController {
     }
     
     func setupTaskLabel() {
+        self.taskLabel.text = R.string.localizable.task()
         self.taskLabel.adjustsFontSizeToFitWidth = true
         self.taskLabel.minimumScaleFactor = 0.4
     }

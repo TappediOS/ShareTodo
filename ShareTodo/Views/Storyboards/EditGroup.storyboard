@@ -106,11 +106,11 @@
                                 </cells>
                             </collectionView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="bzr-bZ-Jla">
-                                <rect key="frame" x="65.5" y="105.5" width="50" height="50"/>
+                                <rect key="frame" x="62.5" y="102.5" width="56" height="56"/>
                                 <color key="backgroundColor" systemColor="systemGray3Color"/>
                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="giL-nQ-Ipz"/>
+                                    <constraint firstAttribute="width" constant="56" id="giL-nQ-Ipz"/>
                                     <constraint firstAttribute="width" secondItem="bzr-bZ-Jla" secondAttribute="height" multiplier="1:1" id="iZU-YK-n6D"/>
                                 </constraints>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="default" weight="bold">
@@ -183,6 +183,7 @@
                         <outlet property="inviteUsersButton" destination="KQE-Qk-Ytm" id="aJZ-Kc-p0o"/>
                         <outlet property="leaveGroupButton" destination="HZB-cG-Wu0" id="wp2-Ki-i5z"/>
                         <outlet property="leaveGroupButtonButtomConstraint" destination="lan-qG-Sab" id="DyV-qj-Z71"/>
+                        <outlet property="membersLabel" destination="Kct-wt-ZrH" id="99o-F8-jRB"/>
                         <outlet property="photoImageView" destination="bzr-bZ-Jla" id="LYe-hh-tnn"/>
                         <outlet property="selectedUsersAndMeCollectionView" destination="OEs-vo-hbF" id="TYj-4v-Ldf"/>
                         <outlet property="taskLabel" destination="V5R-7T-j2Y" id="uNs-LD-T19"/>

@@ -182,6 +182,6 @@ final class EditGroupModel: EditGroupModelProtocol {
         }
         
         self.presenter.successLeaveGroup()
-        Analytics.logEvent(R.string.sharedString.leaveGroup_EventName(), parameters: [R.string.sharedString.groupLeaveUserID_EventParam(): user.uid, R.string.sharedString.groupLeaveUserID_EventParam(): groupID])
+        Analytics.logEvent(R.string.sharedString.leaveGroup_EventName(), parameters: [R.string.sharedString.groupLeaveUserID_EventParam(): user.uid, R.string.sharedString.groupLeaveGroupID_EventParam(): groupID])
     }
 }

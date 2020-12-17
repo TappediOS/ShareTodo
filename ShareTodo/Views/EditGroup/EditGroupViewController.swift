@@ -70,6 +70,7 @@ final class EditGroupViewController: UIViewController {
         self.taskTextField.addBorderBottom(borderWidth: 0.5, color: .systemGray2)
         self.selectedUsersAndMeCollectionView.addBorderBottom(borderWidth: 0.25, color: .systemGray3)
         self.selectedUsersAndMeCollectionView.addBorderTop(borderWidth: 0.25, color: .systemGray3)
+        self.groupImageView.layer.cornerRadius = self.groupImageView.frame.width / 2
     }
     
     func setupNavigationItem() {

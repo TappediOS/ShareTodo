@@ -78,7 +78,7 @@ extension GroupTodoViewController: GroupTodoViewPresenterOutput {
     
     func setTableViewInsetBottoms(isSubscribed: Bool) {
         print(GADAdSize().size.width)
-        self.groupTableView.contentInset.bottom = isSubscribed ? 0 : 80
+        self.groupTableView.contentInset.bottom = isSubscribed ? 0 : 110
     }
     
     func startActivityIndicator() {

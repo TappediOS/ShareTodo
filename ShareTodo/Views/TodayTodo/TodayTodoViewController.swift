@@ -196,7 +196,7 @@ extension TodayTodoViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let bottomInset: CGFloat = self.presenter.isUserSubscribed ? 16 : 88
+        let bottomInset: CGFloat = self.presenter.isUserSubscribed ? 16 : 110
         return UIEdgeInsets(top: 16, left: 16, bottom: bottomInset, right: 16)
     }
     

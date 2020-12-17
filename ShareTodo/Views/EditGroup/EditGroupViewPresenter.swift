@@ -87,6 +87,7 @@ final class EditGroupViewPresenter: EditGroupViewPresenterProtocol, EditGroupMod
     func didTapSaveEditGroupButton(isEmptyTextField: Bool) {
         guard isEmptyTextField else { return }
         
+        self.view.noticeFeedbackOccurredError()
         self.view.setRedColorPlaceholder()
     }
     

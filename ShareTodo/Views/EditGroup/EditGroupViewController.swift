@@ -60,6 +60,7 @@ final class EditGroupViewController: UIViewController {
         self.setupPhotoPickerVC()
         self.setupInviteUsersButton()
         self.setupLeaveGroupButton()
+        self.setupNotificationCenter()
         
         self.presenter.didViewDidLoad()
     }
@@ -233,6 +234,13 @@ final class EditGroupViewController: UIViewController {
         self.leaveGroupButton.tintColor = .white
         self.leaveGroupButton.layer.cornerRadius = 8
         self.leaveGroupButton.layer.masksToBounds = true
+    }
+    
+    func setupNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(notification:)),
+                                               name: UITextField.textDidChangeNotification, object: self.groupNameTextField)
+        NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(notification:)),
+                                               name: UITextField.textDidChangeNotification, object: self.taskTextField)
     }
     
     @objc func tapStopEditGroupButton() {

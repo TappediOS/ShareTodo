@@ -41,6 +41,7 @@ final class CreateNewGroupInfoViewController: UIViewController {
         self.setupSelectedUsersCollectionView()
         self.setupActionSheet()
         self.setupPhotoPickerVC()
+        self.setupNotificationCenter()
         
         self.presenter.didViewDidLoad()
     }
@@ -139,6 +140,14 @@ final class CreateNewGroupInfoViewController: UIViewController {
     
     func setupPhotoPickerVC() {
         self.photoPickerVC.delegate = self
+    }
+    
+    func setupNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(notification:)),
+                                               name: UITextField.textDidChangeNotification, object: self.taskTextField)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(notification:)),
+                                               name: UITextField.textDidChangeNotification, object: self.groupNameTextField)
     }
     
     @objc func tapGroupButton() {

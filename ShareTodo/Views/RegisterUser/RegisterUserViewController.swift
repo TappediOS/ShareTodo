@@ -37,6 +37,7 @@ final class RegisterUserViewController: UIViewController {
         self.setupRegisterButton()
         self.setupActionSheet()
         self.setupPhotoPickerVC()
+        self.setupNotificationCenter()
     }
     
     override func viewDidLayoutSubviews() {
@@ -108,6 +109,11 @@ final class RegisterUserViewController: UIViewController {
     
     func setupPhotoPickerVC() {
         self.photoPickerVC.delegate = self
+    }
+    
+    func setupNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(notification:)),
+                                               name: UITextField.textDidChangeNotification, object: self.nameTextField)
     }
     
     @IBAction func tapChoseProfileImageButton(_ sender: Any) {

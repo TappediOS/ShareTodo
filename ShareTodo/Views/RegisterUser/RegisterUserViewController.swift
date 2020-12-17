@@ -8,6 +8,7 @@
 
 import UIKit
 import CropViewController
+import SCLAlertView
 
 final class RegisterUserViewController: UIViewController {
     private var presenter: RegisterUserViewPresenterProtocol!
@@ -159,6 +160,23 @@ extension RegisterUserViewController: RegisterUserViewPresenterOutput {
             let mainTabBarController = MainTabBarViewBuilder.create()
             mainTabBarController.modalPresentationStyle = .fullScreen
             self.present(mainTabBarController, animated: true, completion: nil)
+        }
+    }
+    
+    func enableRegisterButton() {
+        self.registerButton.isEnabled = true
+    }
+    
+    func disableRegisterButton() {
+        self.registerButton.isEnabled = false
+    }
+    
+    func showErrorAleartView(error: Error) {
+        let errorAlertView = SCLAlertView().getCustomAlertView()
+        let title = R.string.localizable.error()
+        let subTitle = error.localizedDescription
+        DispatchQueue.main.async {
+            errorAlertView.showError(title, subTitle: subTitle, colorStyle: 0xFF2D55, colorTextButton: 0xFFFFFF)
         }
     }
     

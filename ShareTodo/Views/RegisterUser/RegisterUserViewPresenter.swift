@@ -24,6 +24,9 @@ protocol RegisterUserViewPresenterOutput: class {
     func showUIImagePickerControllerAsLibrary()
     func setDeleteAndSetDefaultImage()
     func presentMainTabBarController()
+    func enableRegisterButton()
+    func disableRegisterButton()
+    func showErrorAleartView(error: Error)
     func impactFeedbackOccurred()
     func noticeFeedbackOccurredError()
     func noticeFeedbackOccurredSuccess()
@@ -59,6 +62,7 @@ final class RegisterUserViewPresenter: RegisterUserViewPresenterProtocol, Regist
     }
     
     func didTapRegisterButton(userName: String, profileImageData: Data) {
+        self.view.disableRegisterButton()
         self.model.registerUser(userName: userName, profileImageData: profileImageData)
         self.view.impactFeedbackOccurred()
     }
@@ -66,5 +70,10 @@ final class RegisterUserViewPresenter: RegisterUserViewPresenterProtocol, Regist
     func successRegisterUser() {
         self.view.presentMainTabBarController()
         self.view.noticeFeedbackOccurredSuccess()
+    }
+    
+    func error(error: Error) {
+        self.view.showErrorAleartView(error: error)
+        self.view.noticeFeedbackOccurredError()
     }
 }

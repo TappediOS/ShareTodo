@@ -142,9 +142,16 @@ final class CreateNewGroupInfoViewController: UIViewController {
     }
     
     @objc func tapGroupButton() {
-        guard let groupName = groupNameTextField.text, let groupTask = taskTextField.text else { return }
-        guard !groupName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
-        guard !groupTask.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
+        guard let groupName = groupNameTextField.text, let groupTask = taskTextField.text else {
+            self.noticeFeedbackOccurredError()
+            return
+        }
+        guard !groupName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
+              !groupTask.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            self.setTextFieldRedColorPlaceholder()
+            self.noticeFeedbackOccurredError()
+            return
+        }
         let data = self.groupImageView.image?.jpegData(compressionQuality: 0.5) ?? Data()
         
         self.presenter.didTapGroupButton(selectedUsers: self.selectedUsersArray, groupName: groupName, groupTask: groupTask, groupImageData: data)
@@ -183,6 +190,13 @@ extension CreateNewGroupInfoViewController: CreateNewGroupInfoViewPresenterOutpu
         DispatchQueue.main.async { self.groupImageView.image = R.image.groupDefaultImage() }
     }
     
+    func setTextFieldRedColorPlaceholder() {
+        let attributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.systemPink.withAlphaComponent(0.55),
+                                                         .font: UIFont.boldSystemFont(ofSize: 14)]
+        self.groupNameTextField.attributedPlaceholder = NSAttributedString(string: R.string.localizable.groupName(), attributes: attributes)
+        self.taskTextField.attributedPlaceholder = NSAttributedString(string: R.string.localizable.groupTask(), attributes: attributes)
+    }
+
     func reloadCollectionView(addUser: User) {
         self.selectedUsersArray.insert(addUser, at: 0)
         DispatchQueue.main.async { self.selectedUsersAndMeCollectionView.reloadData() }

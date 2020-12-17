@@ -169,9 +169,10 @@
 ・ After completing the cancellation procedure for automatic renewal billing, the plan will shift to the free plan after the next renewal date.
 
 
-・Privacy Policy
-  https://example.com
-
 ・Terms of service
-  https://example.com
+  %@
+
+・Privacy Policy
+  %@
+
 ";

@@ -26,6 +26,7 @@
 		BF2B3BAF25884E5F00481B05 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B3BAB25884E5F00481B05 /* OnBoardingViewController.swift */; };
 		BF2B3BB025884E5F00481B05 /* OnBoardingViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B3BAC25884E5F00481B05 /* OnBoardingViewBuilder.swift */; };
 		BF2B3BB125884E5F00481B05 /* OnBoardingViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B3BAD25884E5F00481B05 /* OnBoardingViewPresenter.swift */; };
+		BF351E6D258B301E000D17CF /* ExUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF351E6C258B301E000D17CF /* ExUIImage.swift */; };
 		BF38EF2D251CAD150024CD17 /* TodayTodoModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF2C251CAD150024CD17 /* TodayTodoModelTest.swift */; };
 		BF38EF44251DE6EC0024CD17 /* TodayTodoModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF43251DE6EC0024CD17 /* TodayTodoModelMock.swift */; };
 		BF38EF4A251DE6F70024CD17 /* ProfileViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF49251DE6F70024CD17 /* ProfileViewModelMock.swift */; };
@@ -278,6 +279,7 @@
 		BF2B3BAB25884E5F00481B05 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		BF2B3BAC25884E5F00481B05 /* OnBoardingViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewBuilder.swift; sourceTree = "<group>"; };
 		BF2B3BAD25884E5F00481B05 /* OnBoardingViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewPresenter.swift; sourceTree = "<group>"; };
+		BF351E6C258B301E000D17CF /* ExUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIImage.swift; sourceTree = "<group>"; };
 		BF38EF2C251CAD150024CD17 /* TodayTodoModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoModelTest.swift; sourceTree = "<group>"; };
 		BF38EF43251DE6EC0024CD17 /* TodayTodoModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoModelMock.swift; sourceTree = "<group>"; };
 		BF38EF49251DE6F70024CD17 /* ProfileViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelMock.swift; sourceTree = "<group>"; };
@@ -848,6 +850,7 @@
 				BFD4362024CD597700B2E580 /* ExCollectionView.swift */,
 				BFFA6174250E087000A1D2CE /* ExUIColor.swift */,
 				BF4D2921256A45B500A2493D /* ExSCLAlertView.swift */,
+				BF351E6C258B301E000D17CF /* ExUIImage.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1648,6 +1651,7 @@
 				BFC2A1A4257C604C00B321C3 /* AccountViewModel.swift in Sources */,
 				BF4D2922256A45B500A2493D /* ExSCLAlertView.swift in Sources */,
 				BFD5DDE6251AFFFD00E35F18 /* UserDetailViewModel.swift in Sources */,
+				BF351E6D258B301E000D17CF /* ExUIImage.swift in Sources */,
 				BF4D292C256DF53F00A2493D /* SettingViewBuilder.swift in Sources */,
 				BFE3B16B251F2CBC00C69AF2 /* IntroductionShareTodoPlusViewController.swift in Sources */,
 				BF88D4FC24CAB9A100607D6A /* TodayTodoViewPresenter.swift in Sources */,

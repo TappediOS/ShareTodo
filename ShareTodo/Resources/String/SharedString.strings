@@ -16,7 +16,6 @@
 "ShareTodoHostingURL" = "https://sharetodo-a91ef.web.app";
 "ShareTodoPrivacyPolicyURL" = "https://sharetodo-a91ef.firebaseapp.com/privacy.html";
 "ShareTodoTermOfUseURL" = "https://sharetodo-a91ef.firebaseapp.com/term.html";
-"GitHubIssueURL" = "https://github.com/TappediOS/ShareTodo/issues/new/choose";
 
 
 "AppStoreReviewURL" = "https://itunes.apple.com/us/app/itunes-u/id1540403297?action=write-review";

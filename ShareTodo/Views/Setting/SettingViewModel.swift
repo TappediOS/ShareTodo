@@ -80,7 +80,7 @@ final class SettingModel: SettingModelProtocol {
             self.presenter.openAskQuestionVC(url: url)
         case 1:
             // feedback
-            guard let url = URL(string: R.string.sharedString.gitHubIssueURL()) else { return }
+            guard let url = URL(string: R.string.localizable.feedbackURL()) else { return }
             self.presenter.openFeedbackVC(url: url)
         case 2:
             // review in app strore 

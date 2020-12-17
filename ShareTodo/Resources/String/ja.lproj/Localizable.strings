@@ -110,6 +110,7 @@
 "Privacy Policy"      = "プライバシーポリシー";
 "Version"             = "バージョン %@";
 "Success Restore"     = "購入履歴を復元しました";
+"Feedback URL" = "https://docs.google.com/forms/d/e/1FAIpQLSdzcy_z58v_T8GJx3ObKpB44qewPcUTZG0lXNw-B7qseIwL1g/viewform?usp=sf_link";
 "Contact Us URL"      = "https://docs.google.com/forms/d/e/1FAIpQLSfHOFC9RJVwOc0IBca9UPrROpxX4QVKtPTN7Q7bY5gaRmKBkQ/viewform?usp=pp_url&entry.1255802085=%@&entry.468534967=%@&entry.2096107176=%@";
 
 // AccountVC

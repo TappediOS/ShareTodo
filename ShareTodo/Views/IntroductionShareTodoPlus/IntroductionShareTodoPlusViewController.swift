@@ -76,6 +76,9 @@ final class IntroductionShareTodoPlusViewController: UIViewController {
     }
     
     func setupLabelText() {
+        let termOfUseURL: String = R.string.sharedString.shareTodoTermOfUseURL()
+        let privacyPolicyURL: String = R.string.sharedString.shareTodoPrivacyPolicyURL()
+        
         premiumFeatureLabel.text         = R.string.localizable.premiumFeatures()
         noAdsImageLabel.text             = R.string.localizable.noAds()
         checkPastImageLabel.text         = R.string.localizable.checkPastTasks()
@@ -87,7 +90,7 @@ final class IntroductionShareTodoPlusViewController: UIViewController {
         addMessageLabel.text             = R.string.localizable.addMessageToTaskExMark()
         addMessageDescrioptionLabel.text = R.string.localizable.addMessageToTaskDescription()
         goodValueLabel.text              = R.string.localizable.goodValue()
-        subscriptionNotesLabel.text      = R.string.localizable.explanationOfSubscriptionNotes()
+        subscriptionNotesLabel.text      = R.string.localizable.explanationOfSubscriptionNotes(termOfUseURL, privacyPolicyURL)
     }
     
     func setupActivityIndicator() {

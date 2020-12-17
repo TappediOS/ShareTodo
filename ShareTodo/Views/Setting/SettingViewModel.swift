@@ -98,11 +98,11 @@ final class SettingModel: SettingModelProtocol {
         switch indexPath.item {
         case 0:
             // term of user
-            guard let url = URL(string: R.string.sharedString.shareTodoHostingURL()) else { return }
+            guard let url = URL(string: R.string.sharedString.shareTodoTermOfUseURL()) else { return }
             self.presenter.openTermOfUseVC(url: url)
         case 1:
             // privacy policy
-            guard let url = URL(string: "https://www.google.com") else { return }
+            guard let url = URL(string: R.string.sharedString.shareTodoPrivacyPolicyURL()) else { return }
             self.presenter.openPrivacyPolicyVC(url: url)
         default: return
         }

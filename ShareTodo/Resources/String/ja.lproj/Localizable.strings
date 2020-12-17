@@ -26,8 +26,10 @@
 // DZNEmptyDataSet
 "No Results" = "結果なし";
 "No Task" = "タスクなし";
+"Create Group" = "グループを作成";
 "DZNEmptyDataSetDescription_SearchUser" = "検索したユーザが表示されます";
 "DZNEmptyDataSetDescription_CreateGroup" = "グループを作成すると表示されます";
+"DZNEmptyDataSetDescription_LetsCreateGroup" = "まずは自分だけのグループを作ってみよう！";
 
 // TabBarItem
 "Today" = "今日";

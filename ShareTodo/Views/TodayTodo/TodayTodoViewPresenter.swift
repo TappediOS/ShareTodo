@@ -17,6 +17,7 @@ protocol TodayTodoViewPresenterProtocol {
     func didViewWillAppear()
     func didTapRadioButton(index: Int)
     func didTapWriteMessageButtonAction(index: Int)
+    func didTapEmptyDataSetButton()
     func didAllowNotification()
     
     func didEndAddMessage(message: String?, index: Int)
@@ -29,7 +30,9 @@ protocol TodayTodoViewPresenterOutput: class {
     func showAddMessageEditView(index: Int)
     
     func reloadTodayTodoCollectionView()
+    func setDZEmptyDataSetDelegate()
     func showRequestAllowNotificationView()
+    func showCreateGroupInfoVC()
     
     func showSKStoreReviewController()
     
@@ -75,6 +78,7 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
     }
     
     func successFetchTodayTodo() {
+        self.view.setDZEmptyDataSetDelegate()
         self.view.reloadTodayTodoCollectionView()
         self.view.stopActivityIndicator()
     }
@@ -110,6 +114,11 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
         }
         
         self.model.cancelMessage(index: index)
+    }
+    
+    func didTapEmptyDataSetButton() {
+        self.view.showCreateGroupInfoVC()
+        self.view.impactFeedbackOccurred_light()
     }
     
     func didAllowNotification() {

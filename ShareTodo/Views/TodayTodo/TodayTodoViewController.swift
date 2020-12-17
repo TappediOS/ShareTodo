@@ -58,8 +58,6 @@ final class TodayTodoViewController: UIViewController {
         
         self.todayTodoCollectionView.delegate = self
         self.todayTodoCollectionView.dataSource = self
-        self.todayTodoCollectionView.emptyDataSetSource = self
-        self.todayTodoCollectionView.emptyDataSetDelegate = self
     }
     
     func setupActivityIndicator() {
@@ -78,6 +76,11 @@ final class TodayTodoViewController: UIViewController {
 extension TodayTodoViewController: TodayTodoViewPresenterOutput {
     func reloadTodayTodoCollectionView() {
         DispatchQueue.main.async { self.todayTodoCollectionView.reloadData() }
+    }
+    
+    func setDZEmptyDataSetDelegate() {
+        self.todayTodoCollectionView.emptyDataSetSource = self
+        self.todayTodoCollectionView.emptyDataSetDelegate = self
     }
     
     func showAddMessageEditView(index: Int) {
@@ -120,6 +123,14 @@ extension TodayTodoViewController: TodayTodoViewPresenterOutput {
                 self.presenter.didAllowNotification()
             }
         }
+    }
+    
+    func showCreateGroupInfoVC() {
+        guard let createNewGropuInfoVC = CreateNewGroupInfoViewBuilder.create() as? CreateNewGroupInfoViewController else { return }
+        createNewGropuInfoVC.selectedUsersArray = Array()
+        
+        let navigationController = UINavigationController(rootViewController: createNewGropuInfoVC)
+        self.present(navigationController, animated: true, completion: nil)
     }
     
     func showSKStoreReviewController() {
@@ -232,9 +243,29 @@ extension TodayTodoViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegat
     }
     
     func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        let str = R.string.localizable.dznEmptyDataSetDescription_CreateGroup()
+        let str = R.string.localizable.dznEmptyDataSetDescription_LetsCreateGroup()
         let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)]
         return NSAttributedString(string: str, attributes: attrs)
+    }
+    
+    func spaceHeight(forEmptyDataSet scrollView: UIScrollView!) -> CGFloat {
+       return 16
+    }
+    
+    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControl.State) -> NSAttributedString! {
+        let str = R.string.localizable.createGroup()
+        let attrs: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white, .font: UIFont.preferredFont(forTextStyle: .headline)]
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+    
+    func buttonBackgroundImage(forEmptyDataSet scrollView: UIScrollView!, for state: UIControl.State) -> UIImage! {
+        let size = CGSize(width: self.view.bounds.width * 0.7, height: 48)
+        return UIColor.systemGreen.image(size: size).withRoundedCorners(radius: 8)
+    }
+    
+
+    func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
+        self.presenter.didTapEmptyDataSetButton()
     }
     
     func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView!) -> Bool {

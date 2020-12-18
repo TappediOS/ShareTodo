@@ -36,6 +36,7 @@
 "leaveGroup_EventName" = "leaveGroup";
 "tapApplyMonthSubscriptionButton_EventName" = "tapApplyMonthSubscriptionButton";
 "tapApplyAnnualSubscripotionButton_EventName" = "tapApplyAnnualSubscripotionButton";
+"deleteAccount_EventName" = "deleteAccount";
 
 
 // AnalyticsLogEventParam

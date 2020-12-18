@@ -8,6 +8,7 @@
 
 import UIKit
 import SCLAlertView
+import Firebase
 
 final class AccountViewController: UITableViewController {
     private var presenter: AccountViewPresenterProtocol!
@@ -136,6 +137,7 @@ extension AccountViewController: AccountViewPresenterOutput {
         let AlertView = SCLAlertView(appearance: Appearanse)
         
         AlertView.addButton(R.string.localizable.seeYou()) {
+            Analytics.logEvent(R.string.sharedString.deleteAccount_EventName(), parameters: nil)
             fatalError("delete accounts")
         }
         

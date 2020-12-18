@@ -28,7 +28,6 @@
 		BF2B3BB125884E5F00481B05 /* OnBoardingViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B3BAD25884E5F00481B05 /* OnBoardingViewPresenter.swift */; };
 		BF351E6D258B301E000D17CF /* ExUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF351E6C258B301E000D17CF /* ExUIImage.swift */; };
 		BF351E8F258C82B2000D17CF /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BF351E8E258C82B1000D17CF /* Settings.bundle */; };
-		BF351E93258C82D2000D17CF /* Root.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF351E92258C82D2000D17CF /* Root.plist */; };
 		BF38EF2D251CAD150024CD17 /* TodayTodoModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF2C251CAD150024CD17 /* TodayTodoModelTest.swift */; };
 		BF38EF44251DE6EC0024CD17 /* TodayTodoModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF43251DE6EC0024CD17 /* TodayTodoModelMock.swift */; };
 		BF38EF4A251DE6F70024CD17 /* ProfileViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF49251DE6F70024CD17 /* ProfileViewModelMock.swift */; };
@@ -282,7 +281,6 @@
 		BF2B3BAD25884E5F00481B05 /* OnBoardingViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewPresenter.swift; sourceTree = "<group>"; };
 		BF351E6C258B301E000D17CF /* ExUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIImage.swift; sourceTree = "<group>"; };
 		BF351E8E258C82B1000D17CF /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		BF351E92258C82D2000D17CF /* Root.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Root.plist; sourceTree = "<group>"; };
 		BF38EF2C251CAD150024CD17 /* TodayTodoModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoModelTest.swift; sourceTree = "<group>"; };
 		BF38EF43251DE6EC0024CD17 /* TodayTodoModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoModelMock.swift; sourceTree = "<group>"; };
 		BF38EF49251DE6F70024CD17 /* ProfileViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelMock.swift; sourceTree = "<group>"; };
@@ -675,7 +673,6 @@
 			isa = PBXGroup;
 			children = (
 				BF351E8E258C82B1000D17CF /* Settings.bundle */,
-				BF351E92258C82D2000D17CF /* Root.plist */,
 			);
 			path = Bundle;
 			sourceTree = "<group>";
@@ -1386,7 +1383,6 @@
 				BFD5DDEA251B007200E35F18 /* UserDetail.storyboard in Resources */,
 				BFC2A15325786F6500B321C3 /* SubscriptionStatus.storyboard in Resources */,
 				BFD5DE00251B8CE400E35F18 /* .swiftlint.yml in Resources */,
-				BF351E93258C82D2000D17CF /* Root.plist in Resources */,
 				BF5CB6B12501CD9100EA1024 /* GroupDetailCollectionReusableView.xib in Resources */,
 				BF97245424CC6BD80033BB50 /* EditProfile.storyboard in Resources */,
 				BFA31F4424FF445200553F06 /* GroupDetail.storyboard in Resources */,

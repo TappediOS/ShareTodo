@@ -27,6 +27,8 @@
 		BF2B3BB025884E5F00481B05 /* OnBoardingViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B3BAC25884E5F00481B05 /* OnBoardingViewBuilder.swift */; };
 		BF2B3BB125884E5F00481B05 /* OnBoardingViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B3BAD25884E5F00481B05 /* OnBoardingViewPresenter.swift */; };
 		BF351E6D258B301E000D17CF /* ExUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF351E6C258B301E000D17CF /* ExUIImage.swift */; };
+		BF351E8F258C82B2000D17CF /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BF351E8E258C82B1000D17CF /* Settings.bundle */; };
+		BF351E93258C82D2000D17CF /* Root.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF351E92258C82D2000D17CF /* Root.plist */; };
 		BF38EF2D251CAD150024CD17 /* TodayTodoModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF2C251CAD150024CD17 /* TodayTodoModelTest.swift */; };
 		BF38EF44251DE6EC0024CD17 /* TodayTodoModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF43251DE6EC0024CD17 /* TodayTodoModelMock.swift */; };
 		BF38EF4A251DE6F70024CD17 /* ProfileViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF49251DE6F70024CD17 /* ProfileViewModelMock.swift */; };
@@ -49,7 +51,6 @@
 		BF4D292C256DF53F00A2493D /* SettingViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D2928256DF53F00A2493D /* SettingViewBuilder.swift */; };
 		BF4D292D256DF53F00A2493D /* SettingViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D2929256DF53F00A2493D /* SettingViewPresenter.swift */; };
 		BF4D2931256DF54F00A2493D /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF4D2930256DF54F00A2493D /* Setting.storyboard */; };
-		BF5120F125441303003AC823 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BF5120F025441303003AC823 /* Settings.bundle */; };
 		BF5CB6B02501CD9100EA1024 /* GroupDetailCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5CB6AE2501CD9100EA1024 /* GroupDetailCollectionReusableView.swift */; };
 		BF5CB6B12501CD9100EA1024 /* GroupDetailCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5CB6AF2501CD9100EA1024 /* GroupDetailCollectionReusableView.xib */; };
 		BF5CB6B42504AB8100EA1024 /* GroupDetailCollectionViewUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5CB6B22504AB8100EA1024 /* GroupDetailCollectionViewUserCell.swift */; };
@@ -280,6 +281,8 @@
 		BF2B3BAC25884E5F00481B05 /* OnBoardingViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewBuilder.swift; sourceTree = "<group>"; };
 		BF2B3BAD25884E5F00481B05 /* OnBoardingViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewPresenter.swift; sourceTree = "<group>"; };
 		BF351E6C258B301E000D17CF /* ExUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIImage.swift; sourceTree = "<group>"; };
+		BF351E8E258C82B1000D17CF /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		BF351E92258C82D2000D17CF /* Root.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Root.plist; sourceTree = "<group>"; };
 		BF38EF2C251CAD150024CD17 /* TodayTodoModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoModelTest.swift; sourceTree = "<group>"; };
 		BF38EF43251DE6EC0024CD17 /* TodayTodoModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoModelMock.swift; sourceTree = "<group>"; };
 		BF38EF49251DE6F70024CD17 /* ProfileViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelMock.swift; sourceTree = "<group>"; };
@@ -301,7 +304,6 @@
 		BF4D2928256DF53F00A2493D /* SettingViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewBuilder.swift; sourceTree = "<group>"; };
 		BF4D2929256DF53F00A2493D /* SettingViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewPresenter.swift; sourceTree = "<group>"; };
 		BF4D2930256DF54F00A2493D /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
-		BF5120F025441303003AC823 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		BF5CB6AE2501CD9100EA1024 /* GroupDetailCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailCollectionReusableView.swift; sourceTree = "<group>"; };
 		BF5CB6AF2501CD9100EA1024 /* GroupDetailCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupDetailCollectionReusableView.xib; sourceTree = "<group>"; };
 		BF5CB6B22504AB8100EA1024 /* GroupDetailCollectionViewUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailCollectionViewUserCell.swift; sourceTree = "<group>"; };
@@ -672,7 +674,8 @@
 		BF5120EF254412EC003AC823 /* Bundle */ = {
 			isa = PBXGroup;
 			children = (
-				BF5120F025441303003AC823 /* Settings.bundle */,
+				BF351E8E258C82B1000D17CF /* Settings.bundle */,
+				BF351E92258C82D2000D17CF /* Root.plist */,
 			);
 			path = Bundle;
 			sourceTree = "<group>";
@@ -1383,6 +1386,7 @@
 				BFD5DDEA251B007200E35F18 /* UserDetail.storyboard in Resources */,
 				BFC2A15325786F6500B321C3 /* SubscriptionStatus.storyboard in Resources */,
 				BFD5DE00251B8CE400E35F18 /* .swiftlint.yml in Resources */,
+				BF351E93258C82D2000D17CF /* Root.plist in Resources */,
 				BF5CB6B12501CD9100EA1024 /* GroupDetailCollectionReusableView.xib in Resources */,
 				BF97245424CC6BD80033BB50 /* EditProfile.storyboard in Resources */,
 				BFA31F4424FF445200553F06 /* GroupDetail.storyboard in Resources */,
@@ -1390,6 +1394,7 @@
 				BFD4362E24CDAD0000B2E580 /* RegisterUser.storyboard in Resources */,
 				BF88D4EA24CAB76700607D6A /* MainTabBar.storyboard in Resources */,
 				BFC2A1AB257C605F00B321C3 /* Account.storyboard in Resources */,
+				BF351E8F258C82B2000D17CF /* Settings.bundle in Resources */,
 				BFD4360524CD450200B2E580 /* CreateNewGroup.storyboard in Resources */,
 				BF26FB772530618E00FDFC4A /* Localizable.strings in Resources */,
 				BF2B3B902581AD9600481B05 /* GoogleService-Info.plist in Resources */,
@@ -1405,7 +1410,6 @@
 				BFD4366624CE62C700B2E580 /* Assets.xcassets in Resources */,
 				BF2B3BA625884E4F00481B05 /* OnBoarding.storyboard in Resources */,
 				BFFA61732508884700A1D2CE /* EditGroup.storyboard in Resources */,
-				BF5120F125441303003AC823 /* Settings.bundle in Resources */,
 				BF2B3B79257F062900481B05 /* LaunchScreen.storyboard in Resources */,
 				BF4D2931256DF54F00A2493D /* Setting.storyboard in Resources */,
 			);
@@ -1547,7 +1551,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ $CONFIGURATION = \"Debug\" ]; then\n${PODS_ROOT}/LicensePlist/license-plist --output-path $PRODUCT_NAME/Resources/Bundle/Settings.bundle --github-token YOUR_GITHUB_TOKEN\nfi\n";
+			shellScript = "if [ $CONFIGURATION = \"Debug\" ]; then\n${PODS_ROOT}/LicensePlist/license-plist --output-path $PRODUCT_NAME/Resources/Bundle/Settings.bundle\nfi\n";
 		};
 		BF636F4D24FCDF4200F30F63 /* R.swift */ = {
 			isa = PBXShellScriptBuildPhase;

@@ -12,9 +12,49 @@
 		</dict>
 		<dict>
 			<key>File</key>
+			<string>com.mono0926.LicensePlist/DZNEmptyDataSet</string>
+			<key>Title</key>
+			<string>DZNEmptyDataSet</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.mono0926.LicensePlist/firebase-ios-sdk</string>
+			<key>Title</key>
+			<string>Firebase</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.mono0926.LicensePlist/FSCalendar</string>
+			<key>Title</key>
+			<string>FSCalendar</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
 			<string>com.mono0926.LicensePlist/LicensePlist</string>
 			<key>Title</key>
 			<string>LicensePlist</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.mono0926.LicensePlist/Nuke</string>
+			<key>Title</key>
+			<string>Nuke</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.mono0926.LicensePlist/purchases-ios</string>
+			<key>Title</key>
+			<string>purchases-ios</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -31,6 +71,22 @@
 			<string>com.mono0926.LicensePlist/R.swift.Library</string>
 			<key>Title</key>
 			<string>R.swift.Library</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.mono0926.LicensePlist/SCLAlertView-Swift</string>
+			<key>Title</key>
+			<string>SCLAlertView-Swift</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.mono0926.LicensePlist/TOCropViewController</string>
+			<key>Title</key>
+			<string>TOCropViewController</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>

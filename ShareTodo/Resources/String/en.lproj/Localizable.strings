@@ -142,10 +142,10 @@
 "Check Past Tasks" = "Check past tasks";
 "Add Message To Task" = "Add message";
 "No Ads Ex Mark" = "No ads!";
-"No Ads Description" = "The ad will be removed.\nThe clean screen makes it easier to see!";
-"Check Past Tasks Description" = "You will be able to see past tasks for more than a week.";
+"No Ads Description" = "The ad will be removed.\nThe screen is clean and easy to see!";
+"Check Past Tasks Description" = "The lock will be released and you will be able to see past tasks for more than a week.\n\nOf course, you can see the past tasks of all the users who belong to the group!";
 "Add Message To Task Ex Mark" = "Add message to task!";
-"Add Message To Task Description" = "Task complete Then you will be able to add messages!\n\nThe message can be viewed by the users of the group, so you can add a few words and let the members see it!";
+"Add Message To Task Description" = "Task complete Then you will be able to add messages!\n\nThe message can be viewed by all users in the group, so you can add a few words and let the members see it!";
 
 "Good Value" = "Save over 2 months' worth!";
 "Apply At N" = "Apply at %@%@";

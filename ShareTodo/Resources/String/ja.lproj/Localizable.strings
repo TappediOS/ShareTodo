@@ -142,10 +142,10 @@
 "Check Past Tasks" = "過去のタスクの確認";
 "Add Message To Task" = "メッセージを追加";
 "No Ads Ex Mark" = "広告なし！";
-"No Ads Description" = "広告が削除されます。\nすっきりした画面で見やすくなります！";
-"Check Past Tasks Description" = "1週間より過去のタスクを見れるようになります。";
+"No Ads Description" = "広告が全て削除されます。\n画面がすっきりして見やすくなります！";
+"Check Past Tasks Description" = "ロックが外れ，1週間より過去のタスクが見れるようになります。\n\nもちろん，グループに所属する全てのユーザの過去のタスクも見れるように！";
 "Add Message To Task Ex Mark" = "タスクにメッセージを追加！";
-"Add Message To Task Description" = "タスク完了次にメッセージを追加できるようになります！\n\nメッセージはグループのユーザが確認できるので，ちょっとした一言を追加してメンバーに見てもらうことができます！";
+"Add Message To Task Description" = "タスク完了次にメッセージを追加できるようになります！\n\nメッセージはグループのユーザ全員が確認できるので，ちょっとした一言を追加してメンバーに見てもらうことができます！";
 
 "Good Value" = "2ヶ月分以上お得！";
 "Apply At N" = "%@%@で申し込む";

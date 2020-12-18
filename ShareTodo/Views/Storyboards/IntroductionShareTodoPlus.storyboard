@@ -131,7 +131,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="21" id="EtV-sp-M8g"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -235,7 +235,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="21" id="hQg-Gc-ZWZ"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -301,7 +301,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="21" id="7c1-2O-Pdg"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>

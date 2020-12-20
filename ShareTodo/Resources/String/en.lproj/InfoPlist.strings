@@ -1,0 +1,12 @@
+/* 
+  InfoPlist.strings
+  ShareTodo
+
+  Created by jun on 2020/12/08.
+  Copyright © 2020 jun. All rights reserved.
+*/
+
+CFBundleDisplayName = "ShareTodo";
+
+NSCameraUsageDescription = "Take a profile photo";
+NSPhotoLibraryUsageDescription = "Select your profile photos";

@@ -27,6 +27,9 @@ protocol GroupDetailViewPresenterOutput: class {
     func segueUserDetailViewController(index: Int)
     
     func showErrorAleartView(error: Error)
+    func impactFeedbackOccurred()
+    func noticeFeedbackOccurredError()
+    func noticeFeedbackOccurredSuccess()
 }
 
 final class GroupDetailViewPresenter: GroupDetailViewPresenterProtocol, GroupDetailModelOutput {
@@ -53,6 +56,7 @@ final class GroupDetailViewPresenter: GroupDetailViewPresenterProtocol, GroupDet
     
     func didTapEditGroup() {
         self.view.showEditGroupVC()
+        self.view.impactFeedbackOccurred()
     }
     
     func didFinishedEditGroup(group: Group, groupUsers: [User]) {
@@ -63,6 +67,7 @@ final class GroupDetailViewPresenter: GroupDetailViewPresenterProtocol, GroupDet
     
     func didTapGroupDetailCollectionViewuserCell(index: Int) {
         self.view.segueUserDetailViewController(index: index)
+        self.view.impactFeedbackOccurred()
     }
     
     func successFetchTodayTodo() {
@@ -71,6 +76,7 @@ final class GroupDetailViewPresenter: GroupDetailViewPresenterProtocol, GroupDet
     
     func error(error: Error) {
         self.view.showErrorAleartView(error: error)
+        self.view.noticeFeedbackOccurredError()
     }
 }
 

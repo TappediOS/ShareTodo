@@ -17,7 +17,7 @@ protocol CreateNewGroupInfoViewPresenterProtocol {
     func didTapSelectPhotoAction()
     func didTapDeletePhotoAction()
     
-    func didTapGroupButton(selectedUsers: [User], groupName: String, groupTask: String, groupImageData: Data)
+    func didTapGroupButton(selectedUsers: [User], groupName: String?, groupTask: String?, groupImageData: Data)
 }
 
 protocol CreateNewGroupInfoViewPresenterOutput: class {
@@ -26,11 +26,15 @@ protocol CreateNewGroupInfoViewPresenterOutput: class {
     func showUIImagePickerControllerAsLibrary()
     func dismissCreateNewGroupInfoVC()
     func setDeleteAndSetDefaultImage()
+    func setTextFieldRedColorPlaceholder()
     func reloadCollectionView(addUser: User)
     func enableRightBarButtonItem()
     func disEnableRightBarButtonItem()
     
     func showErrorAleartView(error: Error)
+    func impactFeedbackOccurred()
+    func noticeFeedbackOccurredError()
+    func noticeFeedbackOccurredSuccess()
 }
 
 final class CreateNewGroupInfoViewPresenter: CreateNewGroupInfoViewPresenterProtocol, CreateNewGroupInfoModelOutput {
@@ -46,29 +50,46 @@ final class CreateNewGroupInfoViewPresenter: CreateNewGroupInfoViewPresenterProt
         self.model.fetchUser()
     }
     
-    func didTapGroupButton(selectedUsers: [User], groupName: String, groupTask: String, groupImageData: Data) {
+    func didTapGroupButton(selectedUsers: [User], groupName: String?, groupTask: String?, groupImageData: Data) {
+        guard let groupName = groupName, let groupTask = groupTask else {
+            self.view.noticeFeedbackOccurredError()
+            return
+        }
+        guard !groupName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
+              !groupTask.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            self.view.setTextFieldRedColorPlaceholder()
+            self.view.noticeFeedbackOccurredError()
+            return
+        }
+        
         self.view.disEnableRightBarButtonItem()
         self.model.createGroup(selectedUsers: selectedUsers, groupName: groupName, groupTask: groupTask, groupImageData: groupImageData)
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapGroupImageView() {
         self.view.presentActionSheet()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapTakePhotoAction() {
         self.view.showUIImagePickerControllerAsCamera()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapSelectPhotoAction() {
         self.view.showUIImagePickerControllerAsLibrary()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapDeletePhotoAction() {
         self.view.setDeleteAndSetDefaultImage()
+        self.view.impactFeedbackOccurred()
     }
     
     func successCreateGroup() {
         self.view.dismissCreateNewGroupInfoVC()
+        self.view.noticeFeedbackOccurredSuccess()
     }
     
     func successFetchUser(user: User) {
@@ -78,5 +99,6 @@ final class CreateNewGroupInfoViewPresenter: CreateNewGroupInfoViewPresenterProt
     func error(error: Error) {
         self.view.enableRightBarButtonItem()
         self.view.showErrorAleartView(error: error)
+        self.view.noticeFeedbackOccurredError()
     }
 }

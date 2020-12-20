@@ -22,6 +22,7 @@ final class EditGroupViewController: UIViewController {
     @IBOutlet weak var groupNameTextField: UITextField!
     @IBOutlet weak var taskLabel: UILabel!
     @IBOutlet weak var taskTextField: UITextField!
+    @IBOutlet weak var membersLabel: UILabel! { didSet { self.membersLabel.text = R.string.localizable.members() }}
     @IBOutlet weak var selectedUsersAndMeCollectionView: UICollectionView!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var inviteUsersButton: UIButton!
@@ -59,6 +60,7 @@ final class EditGroupViewController: UIViewController {
         self.setupPhotoPickerVC()
         self.setupInviteUsersButton()
         self.setupLeaveGroupButton()
+        self.setupNotificationCenter()
         
         self.presenter.didViewDidLoad()
     }
@@ -70,6 +72,7 @@ final class EditGroupViewController: UIViewController {
         self.taskTextField.addBorderBottom(borderWidth: 0.5, color: .systemGray2)
         self.selectedUsersAndMeCollectionView.addBorderBottom(borderWidth: 0.25, color: .systemGray3)
         self.selectedUsersAndMeCollectionView.addBorderTop(borderWidth: 0.25, color: .systemGray3)
+        self.groupImageView.layer.cornerRadius = self.groupImageView.frame.width / 2
     }
     
     func setupNavigationItem() {
@@ -101,6 +104,7 @@ final class EditGroupViewController: UIViewController {
     }
     
     func setupTaskLabel() {
+        self.taskLabel.text = R.string.localizable.task()
         self.taskLabel.adjustsFontSizeToFitWidth = true
         self.taskLabel.minimumScaleFactor = 0.4
     }
@@ -232,6 +236,13 @@ final class EditGroupViewController: UIViewController {
         self.leaveGroupButton.layer.masksToBounds = true
     }
     
+    func setupNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(notification:)),
+                                               name: UITextField.textDidChangeNotification, object: self.groupNameTextField)
+        NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(notification:)),
+                                               name: UITextField.textDidChangeNotification, object: self.taskTextField)
+    }
+    
     @objc func tapStopEditGroupButton() {
         self.presenter.didTapStopEditGroupButton()
     }
@@ -359,6 +370,18 @@ extension EditGroupViewController: EditGroupViewPresenterOutput {
     func showRemoveUserAleartView(mayRemoveUserName: String) {
         self.removeUserActionSheet.title = R.string.localizable.remove_colon() + mayRemoveUserName
         self.present(self.removeUserActionSheet, animated: true, completion: nil)
+    }
+    
+    func impactFeedbackOccurred() {
+        TapticFeedbacker.impact(style: .light)
+    }
+    
+    func noticeFeedbackOccurredError() {
+        TapticFeedbacker.notice(type: .error)
+    }
+    
+    func noticeFeedbackOccurredSuccess() {
+        TapticFeedbacker.notice(type: .success)
     }
 }
 

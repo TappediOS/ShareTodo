@@ -17,6 +17,7 @@ protocol TodayTodoViewPresenterProtocol {
     func didViewWillAppear()
     func didTapRadioButton(index: Int)
     func didTapWriteMessageButtonAction(index: Int)
+    func didTapEmptyDataSetButton()
     func didAllowNotification()
     
     func didEndAddMessage(message: String?, index: Int)
@@ -29,12 +30,22 @@ protocol TodayTodoViewPresenterOutput: class {
     func showAddMessageEditView(index: Int)
     
     func reloadTodayTodoCollectionView()
+    func setDZEmptyDataSetDelegate()
     func showRequestAllowNotificationView()
+    func showCreateGroupInfoVC()
+    
+    func showSKStoreReviewController()
     
     func startActivityIndicator()
     func stopActivityIndicator()
     
     func showErrorAleartView(error: Error)
+    
+    func impactFeedbackOccurred_light()
+    func impactFeedbackOccurred_medium()
+    func impactFeedbackOccurred_heavy()
+    func noticeFeedbackOccurredError()
+    func noticeFeedbackOccurredSuccess()
 }
 
 final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoModelOutput {
@@ -56,6 +67,9 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
         self.view.startActivityIndicator()
         self.model.fetchGroups()
         self.model.checkingIfAUserSubscribed()
+        
+        self.model.countUpOpenApp()
+        if self.model.shouldRequestStoreReviewOpenAppCount() { self.view.showSKStoreReviewController() }
     }
     
     func didViewWillAppear() {
@@ -64,17 +78,23 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
     }
     
     func successFetchTodayTodo() {
+        self.view.setDZEmptyDataSetDelegate()
         self.view.reloadTodayTodoCollectionView()
         self.view.stopActivityIndicator()
     }
     
     func successUnfinishedTodo() {
         self.view.reloadTodayTodoCollectionView()
+        self.view.impactFeedbackOccurred_medium()
     }
     
     func successFinishedTodo() {
         self.model.fetchGroups()
         self.view.stopActivityIndicator()
+        self.view.impactFeedbackOccurred_heavy()
+        
+        self.model.countUpRequestFinishTodo()
+        if self.model.shouldRequestStoreReviewFinishTodoCount() { self.view.showSKStoreReviewController() }
     }
     
     func didTapRadioButton(index: Int) {
@@ -89,10 +109,16 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
     func didTapWriteMessageButtonAction(index: Int) {
         guard self.model.isWrittenMessage(index: index) else {
             self.view.showAddMessageEditView(index: index)
+            self.view.impactFeedbackOccurred_light()
             return
         }
         
         self.model.cancelMessage(index: index)
+    }
+    
+    func didTapEmptyDataSetButton() {
+        self.view.showCreateGroupInfoVC()
+        self.view.impactFeedbackOccurred_light()
     }
     
     func didAllowNotification() {
@@ -108,10 +134,12 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
     
     func successWriteMessage() {
         self.view.reloadTodayTodoCollectionView()
+        self.view.impactFeedbackOccurred_heavy()
     }
     
     func successCancelMessage() {
         self.view.reloadTodayTodoCollectionView()
+        self.view.impactFeedbackOccurred_medium()
     }
     
     func isFinishedTodo(index: Int) -> Bool {
@@ -136,5 +164,6 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
     
     func error(error: Error) {
         self.view.showErrorAleartView(error: error)
+        self.view.noticeFeedbackOccurredError()
     }
 }

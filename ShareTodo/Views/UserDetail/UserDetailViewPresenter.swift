@@ -40,6 +40,10 @@ protocol UserDetailViewPresenterOutput: class {
     func segueIntroductionShareTodoPlusVC()
     
     func showErrorAleartView(error: Error)
+    
+    func impactFeedbackOccurred()
+    func noticeFeedbackOccurredError()
+    func noticeFeedbackOccurredSuccess()
 }
 
 final class UserDetailViewPresenter: UserDetailViewPresenterProtocol, UserDetailModelOutput {
@@ -74,6 +78,7 @@ final class UserDetailViewPresenter: UserDetailViewPresenterProtocol, UserDetail
     
     func didTapIntroductionButton() {
         self.view.segueIntroductionShareTodoPlusVC()
+        self.view.impactFeedbackOccurred()
     }
     
     func didScrollViewDidScroll(height: Double) {
@@ -116,5 +121,6 @@ final class UserDetailViewPresenter: UserDetailViewPresenterProtocol, UserDetail
     
     func error(error: Error) {
         self.view.showErrorAleartView(error: error)
+        self.view.noticeFeedbackOccurredError()
     }
 }

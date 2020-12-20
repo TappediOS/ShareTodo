@@ -112,9 +112,8 @@ extension SettingViewController: SettingViewPresenterOutput {
     }
     
     func openAccountVC() {
-        //TODO:- アカウントの画面に遷移させること
-        guard let subscriptionStatusVC = SubscriptionStatusViewBuilder.create() as? SubscriptionStatusViewController else { return }
-        self.navigationController?.pushViewController(subscriptionStatusVC, animated: true)
+        let accountVC = AccountViewBuilder.create()
+        self.navigationController?.pushViewController(accountVC, animated: true)
     }
     
     func openSubscriptionStatusVC() {
@@ -191,5 +190,17 @@ extension SettingViewController: SettingViewPresenterOutput {
         DispatchQueue.main.async {
             errorAlertView.showError(title, subTitle: subTitle, colorStyle: 0xFF2D55, colorTextButton: 0xFFFFFF)
         }
+    }
+    
+    func impactFeedbackOccurred() {
+        TapticFeedbacker.impact(style: .light)
+    }
+    
+    func noticeFeedbackOccurredError() {
+        TapticFeedbacker.notice(type: .error)
+    }
+    
+    func noticeFeedbackOccurredSuccess() {
+        TapticFeedbacker.notice(type: .success)
     }
 }

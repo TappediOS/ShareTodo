@@ -18,6 +18,7 @@ final class CreateNewGroupInfoViewController: UIViewController {
     @IBOutlet weak var taskTextField: UITextField!
     @IBOutlet weak var selectedUsersAndMeCollectionView: UICollectionView!
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var membersLabel: UILabel! { didSet { self.membersLabel.text = R.string.localizable.members() }}
     
     var actionSheet = UIAlertController()
     let photoPickerVC = UIImagePickerController()
@@ -40,6 +41,7 @@ final class CreateNewGroupInfoViewController: UIViewController {
         self.setupSelectedUsersCollectionView()
         self.setupActionSheet()
         self.setupPhotoPickerVC()
+        self.setupNotificationCenter()
         
         self.presenter.didViewDidLoad()
     }
@@ -51,12 +53,16 @@ final class CreateNewGroupInfoViewController: UIViewController {
         self.taskTextField.addBorderBottom(borderWidth: 0.5, color: .systemGray2)
         self.selectedUsersAndMeCollectionView.addBorderBottom(borderWidth: 0.25, color: .systemGray3)
         self.selectedUsersAndMeCollectionView.addBorderTop(borderWidth: 0.25, color: .systemGray3)
+        
+        self.groupImageView.layer.cornerRadius = self.groupImageView.frame.width / 2
     }
     
     private func setupNavigationItem() {
+        self.navigationController?.navigationBar.tintColor = .systemGreen
         self.navigationItem.title = R.string.localizable.group()
         let saveItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(tapGroupButton))
         self.navigationItem.rightBarButtonItem = saveItem
+        self.navigationItem.rightBarButtonItem?.tintColor = .systemGreen
     }
     
     func setupGroupImageView() {
@@ -78,6 +84,7 @@ final class CreateNewGroupInfoViewController: UIViewController {
     }
     
     func setupTaskLabel() {
+        self.taskLabel.text = R.string.localizable.task()
         self.taskLabel.adjustsFontSizeToFitWidth = true
         self.taskLabel.minimumScaleFactor = 0.4
     }
@@ -135,13 +142,17 @@ final class CreateNewGroupInfoViewController: UIViewController {
         self.photoPickerVC.delegate = self
     }
     
-    @objc func tapGroupButton() {
-        guard let groupName = groupNameTextField.text, let groupTask = taskTextField.text else { return }
-        guard !groupName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
-        guard !groupTask.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
-        let data = self.groupImageView.image?.jpegData(compressionQuality: 0.5) ?? Data()
+    func setupNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(notification:)),
+                                               name: UITextField.textDidChangeNotification, object: self.taskTextField)
         
-        self.presenter.didTapGroupButton(selectedUsers: self.selectedUsersArray, groupName: groupName, groupTask: groupTask, groupImageData: data)
+        NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(notification:)),
+                                               name: UITextField.textDidChangeNotification, object: self.groupNameTextField)
+    }
+    
+    @objc func tapGroupButton() {
+        let data = self.groupImageView.image?.jpegData(compressionQuality: 0.5) ?? Data()
+        self.presenter.didTapGroupButton(selectedUsers: self.selectedUsersArray, groupName: groupNameTextField.text, groupTask: taskTextField.text, groupImageData: data)
     }
     
     @objc func tapGroupImageView(_ sender: UITapGestureRecognizer) {
@@ -177,6 +188,13 @@ extension CreateNewGroupInfoViewController: CreateNewGroupInfoViewPresenterOutpu
         DispatchQueue.main.async { self.groupImageView.image = R.image.groupDefaultImage() }
     }
     
+    func setTextFieldRedColorPlaceholder() {
+        let attributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.systemPink.withAlphaComponent(0.55),
+                                                         .font: UIFont.boldSystemFont(ofSize: 14)]
+        self.groupNameTextField.attributedPlaceholder = NSAttributedString(string: R.string.localizable.groupName(), attributes: attributes)
+        self.taskTextField.attributedPlaceholder = NSAttributedString(string: R.string.localizable.groupTask(), attributes: attributes)
+    }
+
     func reloadCollectionView(addUser: User) {
         self.selectedUsersArray.insert(addUser, at: 0)
         DispatchQueue.main.async { self.selectedUsersAndMeCollectionView.reloadData() }
@@ -197,6 +215,18 @@ extension CreateNewGroupInfoViewController: CreateNewGroupInfoViewPresenterOutpu
         DispatchQueue.main.async {
             errorAlertView.showError(title, subTitle: subTitle, colorStyle: 0xFF2D55, colorTextButton: 0xFFFFFF)
         }
+    }
+    
+    func impactFeedbackOccurred() {
+        TapticFeedbacker.impact(style: .light)
+    }
+    
+    func noticeFeedbackOccurredError() {
+        TapticFeedbacker.notice(type: .error)
+    }
+    
+    func noticeFeedbackOccurredSuccess() {
+        TapticFeedbacker.notice(type: .success)
     }
 }
 
@@ -254,13 +284,23 @@ extension CreateNewGroupInfoViewController: UINavigationControllerDelegate, UIIm
 
 extension CreateNewGroupInfoViewController: CropViewControllerDelegate {
     func cropViewController(_ cropViewController: CropViewController, didFinishCancelled cancelled: Bool) {
-        cropViewController.dismiss(animated: true, completion: nil)
+        //NOTE:- pageSheetにおいてcropVCを使用する際は以下の様にしてdismissする必要がある。
+        //       fullScreenで使用する際は`cropViewController.dismiss()`でok
+        let cropVC = cropViewController.children.first!
+        cropVC.modalTransitionStyle = .coverVertical
+        cropVC.presentingViewController?.dismiss(animated: true, completion: nil)
+        //cropViewController.dismiss(animated: true, completion: nil)
     }
     
     func cropViewController(_ cropViewController: CropViewController, didCropToCircularImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
         let resizeImage = image.resizeUIImage(width: self.usersImageViewWide, height: self.usersImageViewWide)
         self.groupImageView.image = resizeImage
-        cropViewController.dismiss(animated: true, completion: nil)
+        
+        let cropVC = cropViewController.children.first!
+        cropVC.modalTransitionStyle = .coverVertical
+        cropVC.presentingViewController?.dismiss(animated: true, completion: nil)
+        
+        //cropViewController.dismiss(animated: true, completion: nil)
     }
 }
 

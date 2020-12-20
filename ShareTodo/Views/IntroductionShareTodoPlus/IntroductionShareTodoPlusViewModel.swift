@@ -7,6 +7,7 @@
 //
 
 import Purchases
+import Firebase
 
 protocol IntroductionShareTodoPlusModelProtocol {
     var presenter: IntroductionShareTodoPlusModelOutput! { get set }
@@ -97,7 +98,12 @@ final class IntroductionShareTodoPlusModel: IntroductionShareTodoPlusModelProtoc
     }
     
     func makeMonthSubscriptionPurchase() {
-        guard let package = self.monthAvailablePackage else { return }
+        Analytics.logEvent(R.string.sharedString.tapApplyMonthSubscriptionButton_EventName(), parameters: nil)
+        
+        guard let package = self.monthAvailablePackage else {
+            self.presenter.productError()
+            return
+        }
         
         Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
             if let error = error {
@@ -130,7 +136,12 @@ final class IntroductionShareTodoPlusModel: IntroductionShareTodoPlusModelProtoc
     }
     
     func makeAnnualSubscriptioinPurhase() {
-        guard let package = self.annualAvailablePackage else { return }
+        Analytics.logEvent(R.string.sharedString.tapApplyAnnualSubscripotionButton_EventName(), parameters: nil)
+        
+        guard let package = self.annualAvailablePackage else {
+            self.presenter.productError()
+            return
+        }
         
         Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
             if let error = error {

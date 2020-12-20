@@ -207,3 +207,24 @@ export const onUpdateTodayTodo = functions.firestore.document('/todo/v1/groups/{
         }
     }
 });
+
+//アカウント削除時のトリガー
+export const deleteUsersAccount = functions.auth.user().onDelete(async (userRecord, context) => {
+	let uid = userRecord.uid
+	console.log(`user ${uid} deleted.`);
+
+	// /todo/v1/users/uidを削除する。これだけではサブコレクションは削除されない。そういう仕様。今回はサブコレクション置いてないから大丈夫
+	await firestore.collection('/todo/v1/users/').doc(uid).delete();
+
+    // userが所属しているグループをすべて取り出す
+	const userGroups = await firestore.collection('todo/v1/groups').where('members', 'array-contains', uid).get()
+    const batch = firestore.batch()
+
+    // グループのmembersを１つづつ自分のuidを取り除く様にして更新していく
+    userGroups.forEach(async group => {
+        batch.update(group.ref, {'members': admin.firestore.FieldValue.arrayRemove(uid)})
+    })
+
+    await batch.commit()
+});
+

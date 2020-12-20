@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GnO-Qa-DOt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GnO-Qa-DOt">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,14 +19,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CRZ-oC-lSX">
-                                <rect key="frame" x="20" y="64" width="140" height="140"/>
+                                <rect key="frame" x="20" y="60" width="145" height="145"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="CKF-xI-fN8"/>
-                                    <constraint firstAttribute="height" constant="140" id="sVQ-GJ-N6i"/>
+                                    <constraint firstAttribute="width" secondItem="CRZ-oC-lSX" secondAttribute="height" multiplier="1:1" id="EV4-eh-m7y"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A6f-aF-ab6">
-                                <rect key="frame" x="168" y="64" width="226" height="34"/>
+                                <rect key="frame" x="173" y="60" width="221" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="1np-cx-dK0"/>
                                 </constraints>
@@ -32,7 +33,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cwk-gE-pYn">
-                                <rect key="frame" x="80" y="228" width="314" height="34"/>
+                                <rect key="frame" x="80" y="229" width="314" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="fId-Gs-WDJ"/>
                                 </constraints>
@@ -40,7 +41,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gm-yo-msK">
-                                <rect key="frame" x="20" y="234" width="52" height="21"/>
+                                <rect key="frame" x="20" y="235.5" width="52" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Odt-oj-Ux2"/>
                                     <constraint firstAttribute="width" constant="52" id="hm8-Vb-WsB"/>
@@ -60,7 +61,7 @@
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Inb-wv-Op6">
                                 <rect key="frame" x="20" y="331" width="374" height="100"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="7cx-Ay-jUH"/>
                                 </constraints>
@@ -112,43 +113,45 @@
                                 </cells>
                             </collectionView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Org-cp-hoF">
-                                <rect key="frame" x="65" y="109" width="50" height="50"/>
-                                <color key="backgroundColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="64.5" y="104.5" width="56" height="56"/>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="2bM-rC-uZB"/>
-                                    <constraint firstAttribute="height" constant="50" id="D01-EJ-dtn"/>
+                                    <constraint firstAttribute="width" constant="56" id="2bM-rC-uZB"/>
+                                    <constraint firstAttribute="width" secondItem="Org-cp-hoF" secondAttribute="height" multiplier="1:1" id="Gxt-F6-7sk"/>
                                 </constraints>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="default" weight="bold">
                                     <fontDescription key="fontDescription" type="system" pointSize="7"/>
                                 </preferredSymbolConfiguration>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="tDO-GW-vAe"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="CRZ-oC-lSX" firstAttribute="leading" secondItem="tDO-GW-vAe" secondAttribute="leading" constant="20" id="0D2-5X-PKa"/>
-                            <constraint firstItem="CRZ-oC-lSX" firstAttribute="top" secondItem="tDO-GW-vAe" secondAttribute="top" constant="20" id="0b6-Lz-nsW"/>
+                            <constraint firstItem="CRZ-oC-lSX" firstAttribute="top" secondItem="tDO-GW-vAe" secondAttribute="top" constant="16" id="0b6-Lz-nsW"/>
                             <constraint firstItem="tDO-GW-vAe" firstAttribute="trailing" secondItem="Cwk-gE-pYn" secondAttribute="trailing" constant="20" id="1LR-EF-ysi"/>
                             <constraint firstItem="tDO-GW-vAe" firstAttribute="trailing" secondItem="Inb-wv-Op6" secondAttribute="trailing" constant="20" id="3vx-Q9-tmD"/>
                             <constraint firstItem="qJd-8h-MT0" firstAttribute="leading" secondItem="tDO-GW-vAe" secondAttribute="leading" constant="20" id="8Xp-Hm-tSP"/>
                             <constraint firstItem="tDO-GW-vAe" firstAttribute="trailing" secondItem="A6f-aF-ab6" secondAttribute="trailing" constant="20" id="BIv-n2-sg5"/>
                             <constraint firstItem="7gm-yo-msK" firstAttribute="leading" secondItem="tDO-GW-vAe" secondAttribute="leading" constant="20" id="ECK-Ut-qJB"/>
-                            <constraint firstItem="7gm-yo-msK" firstAttribute="top" secondItem="CRZ-oC-lSX" secondAttribute="bottom" constant="30" id="Fji-a1-8YU"/>
                             <constraint firstItem="Cwk-gE-pYn" firstAttribute="leading" secondItem="7gm-yo-msK" secondAttribute="trailing" constant="8" id="Kks-Pt-Hno"/>
                             <constraint firstItem="Inb-wv-Op6" firstAttribute="top" secondItem="qJd-8h-MT0" secondAttribute="bottom" constant="8" id="LTK-HA-RSB"/>
                             <constraint firstItem="Inb-wv-Op6" firstAttribute="leading" secondItem="tDO-GW-vAe" secondAttribute="leading" constant="20" id="LUl-b2-cIC"/>
-                            <constraint firstItem="Org-cp-hoF" firstAttribute="top" secondItem="tDO-GW-vAe" secondAttribute="top" constant="65" id="MTc-v5-vBp"/>
                             <constraint firstItem="Cwk-gE-pYn" firstAttribute="top" secondItem="CRZ-oC-lSX" secondAttribute="bottom" constant="24" id="N6Q-XV-gue"/>
-                            <constraint firstItem="Org-cp-hoF" firstAttribute="leading" secondItem="tDO-GW-vAe" secondAttribute="leading" constant="65" id="T2Z-eU-aOB"/>
+                            <constraint firstItem="Org-cp-hoF" firstAttribute="centerY" secondItem="CRZ-oC-lSX" secondAttribute="centerY" id="RVX-eM-6Qf"/>
                             <constraint firstItem="A6f-aF-ab6" firstAttribute="leading" secondItem="CRZ-oC-lSX" secondAttribute="trailing" constant="8" id="Vja-1Q-hfV"/>
-                            <constraint firstItem="A6f-aF-ab6" firstAttribute="top" secondItem="tDO-GW-vAe" secondAttribute="top" constant="20" id="ZBx-7G-xLi"/>
-                            <constraint firstItem="qJd-8h-MT0" firstAttribute="top" secondItem="Cwk-gE-pYn" secondAttribute="bottom" constant="25" id="vwi-Iq-4KB"/>
+                            <constraint firstItem="A6f-aF-ab6" firstAttribute="top" secondItem="tDO-GW-vAe" secondAttribute="top" constant="16" id="ZBx-7G-xLi"/>
+                            <constraint firstItem="7gm-yo-msK" firstAttribute="centerY" secondItem="Cwk-gE-pYn" secondAttribute="centerY" id="ayd-SI-Gh7"/>
+                            <constraint firstItem="CRZ-oC-lSX" firstAttribute="width" secondItem="pnR-bG-XvO" secondAttribute="width" multiplier="0.35" id="dEf-e1-WcF"/>
+                            <constraint firstItem="Org-cp-hoF" firstAttribute="centerX" secondItem="CRZ-oC-lSX" secondAttribute="centerX" id="hrt-2z-PTd"/>
+                            <constraint firstItem="qJd-8h-MT0" firstAttribute="top" secondItem="Cwk-gE-pYn" secondAttribute="bottom" constant="24" id="vwi-Iq-4KB"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="tDO-GW-vAe"/>
                     </view>
                     <connections>
                         <outlet property="groupImageView" destination="CRZ-oC-lSX" id="K52-hJ-844"/>
                         <outlet property="groupNameTextField" destination="A6f-aF-ab6" id="2J2-8P-0fA"/>
+                        <outlet property="membersLabel" destination="qJd-8h-MT0" id="wH1-H5-5xp"/>
                         <outlet property="photoImageView" destination="Org-cp-hoF" id="TpC-Ls-XmG"/>
                         <outlet property="selectedUsersAndMeCollectionView" destination="Inb-wv-Op6" id="Lph-Mi-FAq"/>
                         <outlet property="taskLabel" destination="7gm-yo-msK" id="bgO-4Z-aw0"/>
@@ -161,6 +164,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera.fill" catalog="system" width="128" height="96"/>
+        <image name="camera.fill" catalog="system" width="128" height="94"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

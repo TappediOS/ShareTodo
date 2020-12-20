@@ -122,6 +122,7 @@ final class EditGroupModel: EditGroupModelProtocol {
             }
             
             self.presenter.successSaveGroup()
+            Analytics.logEvent(R.string.sharedString.editGroup_EventName(), parameters: nil)
         }
     }
     
@@ -181,5 +182,6 @@ final class EditGroupModel: EditGroupModelProtocol {
         }
         
         self.presenter.successLeaveGroup()
+        Analytics.logEvent(R.string.sharedString.leaveGroup_EventName(), parameters: [R.string.sharedString.groupLeaveUserID_EventParam(): user.uid, R.string.sharedString.groupLeaveGroupID_EventParam(): groupID])
     }
 }

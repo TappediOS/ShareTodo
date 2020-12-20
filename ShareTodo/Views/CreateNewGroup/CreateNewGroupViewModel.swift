@@ -50,6 +50,7 @@ final class CreateNewGroupModel: CreateNewGroupModelProtocol {
     /// ユーザをFirestoreから検索する関数
     /// - Parameter searchText: 検索するユーザ名
     func searchUser(searchText: String) {
+        Analytics.logEvent(AnalyticsEventSearch, parameters: [AnalyticsParameterSearchTerm: searchText])
         self.firestore.collection("todo/v1/users").whereField("name", isEqualTo: searchText).getDocuments { [weak self] (documentSnapshot, error) in
             guard let self = self else { return }
             

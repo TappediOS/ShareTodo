@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="jlt-Ad-vVy">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="778"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="812.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X6m-eo-fYl">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
@@ -97,19 +97,19 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E02-D3-RAc">
-                                                <rect key="frame" x="0.0" y="574" width="414" height="120"/>
+                                                <rect key="frame" x="0.0" y="574" width="414" height="124.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1週間より過去のタスクを確認したい方に" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YP0-5q-OKa">
-                                                        <rect key="frame" x="8" y="16" width="398" height="21"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1週間より過去のタスクを確認したい方に" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YP0-5q-OKa">
+                                                        <rect key="frame" x="16" y="16" width="382" height="20.5"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="21" id="F1r-ev-ata"/>
+                                                            <constraint firstAttribute="height" priority="250" constant="21" id="F1r-ev-ata"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SfA-1g-skh">
-                                                        <rect key="frame" x="16" y="53" width="382" height="56"/>
+                                                        <rect key="frame" x="16" y="52.5" width="382" height="56"/>
                                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="DWC-Fp-EVi"/>
@@ -126,20 +126,21 @@
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstItem="SfA-1g-skh" firstAttribute="centerX" secondItem="E02-D3-RAc" secondAttribute="centerX" id="9dA-1E-mg7"/>
-                                                    <constraint firstAttribute="height" constant="120" id="EQw-ss-DGe"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="750" constant="120" id="EQw-ss-DGe"/>
                                                     <constraint firstItem="SfA-1g-skh" firstAttribute="top" secondItem="YP0-5q-OKa" secondAttribute="bottom" constant="16" id="G9g-DS-eYJ"/>
                                                     <constraint firstAttribute="trailing" secondItem="SfA-1g-skh" secondAttribute="trailing" constant="16" id="JNI-d1-N4m"/>
                                                     <constraint firstItem="YP0-5q-OKa" firstAttribute="top" secondItem="E02-D3-RAc" secondAttribute="top" constant="16" id="M0p-8V-psu"/>
                                                     <constraint firstItem="SfA-1g-skh" firstAttribute="leading" secondItem="E02-D3-RAc" secondAttribute="leading" constant="16" id="R3P-4b-5N5"/>
-                                                    <constraint firstItem="YP0-5q-OKa" firstAttribute="leading" secondItem="E02-D3-RAc" secondAttribute="leading" constant="8" id="dmg-6h-3im"/>
-                                                    <constraint firstAttribute="trailing" secondItem="YP0-5q-OKa" secondAttribute="trailing" constant="8" id="l17-7X-5HK"/>
+                                                    <constraint firstAttribute="bottom" secondItem="SfA-1g-skh" secondAttribute="bottom" constant="16" id="Yyt-Bz-XNS"/>
+                                                    <constraint firstItem="YP0-5q-OKa" firstAttribute="leading" secondItem="E02-D3-RAc" secondAttribute="leading" constant="16" id="dmg-6h-3im"/>
+                                                    <constraint firstItem="YP0-5q-OKa" firstAttribute="centerX" secondItem="E02-D3-RAc" secondAttribute="centerX" id="z1A-B1-sCY"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ptr-Au-0aH">
-                                                <rect key="frame" x="0.0" y="698" width="414" height="80"/>
+                                                <rect key="frame" x="0.0" y="702.5" width="414" height="110"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="80" id="51u-ni-4Kc"/>
+                                                    <constraint firstAttribute="height" constant="110" id="51u-ni-4Kc"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -171,6 +172,7 @@
                         <outlet property="groupTaskLabel" destination="ft3-Ro-Bxs" id="gRe-L6-3Sb"/>
                         <outlet property="introductionButton" destination="SfA-1g-skh" id="QXZ-qm-ZVm"/>
                         <outlet property="introductionLabel" destination="YP0-5q-OKa" id="M1z-H1-jUZ"/>
+                        <outlet property="introductionView" destination="E02-D3-RAc" id="5lk-7s-oyu"/>
                         <outlet property="scrollView" destination="9xU-Rn-w6k" id="yaW-y0-I7A"/>
                     </connections>
                 </viewController>

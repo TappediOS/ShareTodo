@@ -26,8 +26,10 @@
 // DZNEmptyDataSet
 "No Results" = "No results";
 "No Task" = "No Task";
+"Create Group" = "Create Group";
 "DZNEmptyDataSetDescription_SearchUser" = "It will be displayed when you search and find it.";
 "DZNEmptyDataSetDescription_CreateGroup" = "It will be displayed when you create New Group!";
+"DZNEmptyDataSetDescription_LetsCreateGroup" = "First, let's create your own Group!";
 
 // TabBarItem
 "Today" = "Today";
@@ -47,9 +49,16 @@
 "Group Task" = "Group Task";
 
 // RegisterUserVC
+"Register"  = "Register";
 "User Name" = "user name";
 
+// OnBoardingVC
+"Create Account"   = "Create Account";
+"On Boarding Text" = "Share your daily habits with your friends and family.";
+
 // CreateNewGroupInfoVC
+"Task" = "Task";
+"Members" = "Members";
 
 // CreateNewGroupVC
 "Choose Friends" = "Choose friends";
@@ -59,7 +68,6 @@
 "Plan" = "Plan";
 "Free Plan" = "Free Plan";
 "Premiun Plan" = "⭐️Premium Plan⭐️";
-
 
 // EditProfileVC
 "Edit Profile"        = "Edit Profile";
@@ -102,7 +110,24 @@
 "Privacy Policy"      = "Privacy Policy";
 "Version"             = "Version %@";
 "Success Restore"     = "The purchase history has been restored.";
+"Feedback URL" = "https://docs.google.com/forms/d/e/1FAIpQLSfx6Cengy_WEjMiprL_iwBulVxk_c7ElgmfpYGGFMaUQPXZpg/viewform?usp=sf_link";
 "Contact Us URL"      = "https://docs.google.com/forms/d/e/1FAIpQLSdmcTc-i0TEuzqF7bHaZDJFSKbtu803tE0-P725wu-gwPxOJg/viewform?usp=pp_url&entry.391075308=%@&entry.1529384452=%@&entry.1843036291=%@";
+
+// AccountVC
+"Name" = "Name";
+"User Id" = "User ID";
+"Notifications" = "Notifications";
+"Delete Account" = "Delete account";
+"Yes" = "Yes";
+"No" = "No";
+"Delete Account" = "Delete Account";
+"Delete Info" = "Do you want to delete your account?";
+"Warning" = "Warning!!";
+"Warning Info" = "Deleting your account will delete all informations you've created. This action is irrevocable.";
+"Account Delete Failure" = "Account deletion failure";
+"Account Delete Complete" = "Account deletion complete";
+"Thank You Using This App" = "Thank you for using the app!🙂";
+"See You" = "See you";
 
 // SubscriptionStatusVC
 "Status" = "Status";
@@ -117,10 +142,10 @@
 "Check Past Tasks" = "Check past tasks";
 "Add Message To Task" = "Add message";
 "No Ads Ex Mark" = "No ads!";
-"No Ads Description" = "The ad will be removed.\nThe clean screen makes it easier to see!";
-"Check Past Tasks Description" = "You will be able to see past tasks for more than a week.";
+"No Ads Description" = "The ad will be removed.\nThe screen is clean and easy to see!";
+"Check Past Tasks Description" = "The lock will be released and you will be able to see past tasks for more than a week.\n\nOf course, you can see the past tasks of all the users who belong to the group!";
 "Add Message To Task Ex Mark" = "Add message to task!";
-"Add Message To Task Description" = "Task complete Then you will be able to add messages!\n\nThe message can be viewed by the users of the group, so you can add a few words and let the members see it!";
+"Add Message To Task Description" = "Task complete Then you will be able to add messages!\n\nThe message can be viewed by all users in the group, so you can add a few words and let the members see it!";
 
 "Good Value" = "Save over 2 months' worth!";
 "Apply At N" = "Apply at %@%@";
@@ -132,9 +157,11 @@
 "Explanation Of Subscription Notes" = "
 ・It will be automatically reflected one month after the application date.
 
+・Automatic renewal billing will be done automatically within 24 hours when the period expires.
+
 ・Auto-renewal billing will renew automatically unless you turn off auto-renewal at least 24 hours before the expiration date.
 
-・Automatic renewal billing can be managed by the customer and can be canceled at any time.
+・You can manage the automatic renewal billing yourself. You can also cancel at any time.
 
 ・You can check and cancel your subscription from [Settings app] → [iTunes Store] → [Apple ID] → [Display Apple ID] → [Register]. If you cancel, the subscription will end and the renewal will not be performed when the contract period you are using ends.
 
@@ -142,9 +169,15 @@
 
 ・Premium features will be charged to your Apple ID.
 
-・privacy policy
-  https://example.com
+・ You can use the premium function until the renewal date even after completing the cancellation procedure for automatic renewal billing.
+
+・ After completing the cancellation procedure for automatic renewal billing, the plan will shift to the free plan after the next renewal date.
+
 
 ・Terms of service
-  https://example.com
+  %@
+
+・Privacy Policy
+  %@
+
 ";

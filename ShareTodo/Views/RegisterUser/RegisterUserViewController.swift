@@ -8,6 +8,7 @@
 
 import UIKit
 import CropViewController
+import SCLAlertView
 
 final class RegisterUserViewController: UIViewController {
     private var presenter: RegisterUserViewPresenterProtocol!
@@ -36,6 +37,7 @@ final class RegisterUserViewController: UIViewController {
         self.setupRegisterButton()
         self.setupActionSheet()
         self.setupPhotoPickerVC()
+        self.setupNotificationCenter()
     }
     
     override func viewDidLayoutSubviews() {
@@ -45,6 +47,7 @@ final class RegisterUserViewController: UIViewController {
     }
     
     func setupRegisterLabel() {
+        self.registerLabel.text = R.string.localizable.register()
         self.registerLabel.adjustsFontSizeToFitWidth = true
         self.registerLabel.minimumScaleFactor = 0.4
     }
@@ -71,8 +74,7 @@ final class RegisterUserViewController: UIViewController {
     }
     
     func setupRegisterButton() {
-        self.registerButton.backgroundColor = .systemTeal
-        self.registerLabel.textColor = .white
+        self.registerButton.backgroundColor = .systemGreen
         self.registerButton.titleLabel?.adjustsFontSizeToFitWidth = true
         self.registerButton.titleLabel?.minimumScaleFactor = 0.4
         self.registerButton.layer.cornerRadius = 8
@@ -107,6 +109,11 @@ final class RegisterUserViewController: UIViewController {
     
     func setupPhotoPickerVC() {
         self.photoPickerVC.delegate = self
+    }
+    
+    func setupNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(notification:)),
+                                               name: UITextField.textDidChangeNotification, object: self.nameTextField)
     }
     
     @IBAction func tapChoseProfileImageButton(_ sender: Any) {
@@ -160,6 +167,35 @@ extension RegisterUserViewController: RegisterUserViewPresenterOutput {
             mainTabBarController.modalPresentationStyle = .fullScreen
             self.present(mainTabBarController, animated: true, completion: nil)
         }
+    }
+    
+    func enableRegisterButton() {
+        self.registerButton.isEnabled = true
+    }
+    
+    func disableRegisterButton() {
+        self.registerButton.isEnabled = false
+    }
+    
+    func showErrorAleartView(error: Error) {
+        let errorAlertView = SCLAlertView().getCustomAlertView()
+        let title = R.string.localizable.error()
+        let subTitle = error.localizedDescription
+        DispatchQueue.main.async {
+            errorAlertView.showError(title, subTitle: subTitle, colorStyle: 0xFF2D55, colorTextButton: 0xFFFFFF)
+        }
+    }
+    
+    func impactFeedbackOccurred() {
+        TapticFeedbacker.impact(style: .light)
+    }
+    
+    func noticeFeedbackOccurredError() {
+        TapticFeedbacker.notice(type: .error)
+    }
+    
+    func noticeFeedbackOccurredSuccess() {
+        TapticFeedbacker.notice(type: .success)
     }
 }
 

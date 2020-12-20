@@ -187,6 +187,7 @@ final class UserDetailModel: UserDetailModelProtocol {
             guard let entitlement = purchaserInfo.entitlements[R.string.sharedString.revenueCatShareTodoEntitlementsID()] else {
                 print("entitlement = nil")
                 self.isUserSubscribed = false
+                self.presenter.userDontSubscribed()
                 return
             }
             

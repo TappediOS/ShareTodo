@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uLm-mX-A78">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uLm-mX-A78">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,12 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s3g-W3-agu">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s3g-W3-agu">
                                 <rect key="frame" x="50" y="224" width="314" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Amx-Vn-8N0"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" systemColor="systemGreenColor"/>
+                                </state>
                                 <connections>
                                     <action selector="tapChangeProfileButton:" destination="uLm-mX-A78" eventType="touchUpInside" id="LwC-ec-7n6"/>
                                 </connections>
@@ -38,7 +42,8 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="bJL-Sq-3bb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="3q4-kl-WJY" firstAttribute="centerX" secondItem="xXJ-ua-TLa" secondAttribute="centerX" id="42y-sp-G7x"/>
                             <constraint firstItem="Crs-cm-Yz7" firstAttribute="leading" secondItem="bJL-Sq-3bb" secondAttribute="leading" constant="50" id="73f-Zc-sC2"/>
@@ -51,7 +56,6 @@
                             <constraint firstItem="Crs-cm-Yz7" firstAttribute="top" secondItem="s3g-W3-agu" secondAttribute="bottom" constant="50" id="rVf-mA-QNx"/>
                             <constraint firstItem="Crs-cm-Yz7" firstAttribute="centerX" secondItem="xXJ-ua-TLa" secondAttribute="centerX" id="uIm-xH-FRt"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="bJL-Sq-3bb"/>
                     </view>
                     <connections>
                         <outlet property="chageProfileButton" destination="s3g-W3-agu" id="jRV-aO-o0u"/>
@@ -64,4 +68,12 @@
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

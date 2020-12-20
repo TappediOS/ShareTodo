@@ -114,6 +114,22 @@ class TodayTodoModelMock: TodayTodoModelProtocol {
         self.isUserSubscribed = false
     }
     
+    func countUpOpenApp() {
+        return
+    }
+    
+    func shouldRequestStoreReviewOpenAppCount() -> Bool {
+        return false
+    }
+    
+    func countUpRequestFinishTodo() {
+        return
+    }
+    
+    func shouldRequestStoreReviewFinishTodoCount() -> Bool {
+        return false
+    }
+    
     @objc func startSubscribed() {
         self.presenter.userStartSubscribed()
     }

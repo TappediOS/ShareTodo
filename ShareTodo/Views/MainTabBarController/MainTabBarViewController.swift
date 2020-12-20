@@ -94,6 +94,10 @@ final class MainTabBarViewController: UITabBarController {
         self.viewControllers = [todayTodoNavigationController, groupTodoNavigationController, profileNavigationController]
     }
     
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        self.presenter.didTapTabBarItem()
+    }
+    
     func inject(with presenter: MainTabBarViewPresenterProtocol) {
         self.presenter = presenter
         self.presenter.view = self
@@ -104,13 +108,27 @@ extension MainTabBarViewController: MainTabBarViewPresenterOutput {
     func initBannerAds() {
         self.initBannerView()
     }
+    
     func showBannerAds() {
         
     }
+    
     func dismissBannerAds() {
         DispatchQueue.main.async {
             self.shareTodoTabBarBannerView.removeFromSuperview()
         }
+    }
+    
+    func impactFeedbackOccurred() {
+        TapticFeedbacker.impact(style: .soft)
+    }
+    
+    func noticeFeedbackOccurredError() {
+        TapticFeedbacker.notice(type: .error)
+    }
+    
+    func noticeFeedbackOccurredSuccess() {
+        TapticFeedbacker.notice(type: .success)
     }
 }
 

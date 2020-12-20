@@ -63,7 +63,7 @@ final class EditProfileViewController: UIViewController {
         let saveItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(tapSaveEditProfileButton))
         self.navigationItem.leftBarButtonItem = stopItem
         self.navigationItem.rightBarButtonItem = saveItem
-        self.navigationItem.leftBarButtonItem?.tintColor = .systemPink
+        self.navigationItem.leftBarButtonItem?.tintColor = .systemGray
         self.navigationItem.rightBarButtonItem?.tintColor = .systemGreen
         self.navigationItem.title = R.string.localizable.editProfile()
     }
@@ -209,6 +209,18 @@ extension EditProfileViewController: EditProfileViewPresenterOutput {
     func turnOffNavigationBarRightItem() {
         self.navigationItem.rightBarButtonItem?.isEnabled = false
     }
+    
+    func impactFeedbackOccurred() {
+        TapticFeedbacker.impact(style: .light)
+    }
+    
+    func noticeFeedbackOccurredError() {
+        TapticFeedbacker.notice(type: .error)
+    }
+    
+    func noticeFeedbackOccurredSuccess() {
+        TapticFeedbacker.notice(type: .success)
+    }
 }
 
 extension EditProfileViewController: UIAdaptivePresentationControllerDelegate {
@@ -256,6 +268,8 @@ extension EditProfileViewController: CropViewControllerDelegate {
         
         self.presenter.didCropedProfileImageView()
         
+        //NOTE:- pageSheetにおいてcropVCを使用する際は以下の様にしてdismissする必要がある。
+        //       fullScreenで使用する際は`cropViewController.dismiss()`でok
         let cropVC = cropViewController.children.first!
         cropVC.modalTransitionStyle = .coverVertical
         cropVC.presentingViewController?.dismiss(animated: true, completion: nil)

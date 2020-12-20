@@ -17,6 +17,8 @@ protocol RegisterUserModelProtocol {
 
 protocol RegisterUserModelOutput: class {
     func successRegisterUser()
+    
+    func error(error: Error)
 }
 
 final class RegisterUserModel: RegisterUserModelProtocol {
@@ -33,6 +35,7 @@ final class RegisterUserModel: RegisterUserModelProtocol {
         Auth.auth().signInAnonymously { (authResult, error) in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
+                self.presenter.error(error: error)
                 return
             }
             guard let user = authResult?.user else { return }
@@ -49,6 +52,7 @@ final class RegisterUserModel: RegisterUserModelProtocol {
             _ = try self.firestore.collection("todo/v1/users").document(uid).setData(from: user) { error in
                 if let error = error {
                     print("Error: \(error.localizedDescription)")
+                    self.presenter.error(error: error)
                     return
                 }
             }
@@ -66,10 +70,15 @@ final class RegisterUserModel: RegisterUserModelProtocol {
         _ = profileImagesRef.putData(imageData as Data, metadata: nil) { (_, error) in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
+                self.presenter.error(error: error)
                 return
             }
             
             profileImagesRef.downloadURL { (url, error) in
+                if let error = error {
+                    print("Error: \(error.localizedDescription)")
+                }
+                
                 guard let downloadURL = url else { return }
                 self.registerProfileURLtoFirestore(uid: uid, downloadURL: downloadURL)
             }
@@ -82,10 +91,12 @@ final class RegisterUserModel: RegisterUserModelProtocol {
         self.firestore.collection("todo/v1/users").document(uid).setData(["profileImageURL": downloadURLStr], merge: true) { error in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
+                self.presenter.error(error: error)
                 return
             }
             
             self.presenter.successRegisterUser()
+            Analytics.logEvent(AnalyticsEventSignUp, parameters: nil)
         }
     }
 }

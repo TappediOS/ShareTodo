@@ -10,12 +10,16 @@ protocol MainTabBarViewPresenterProtocol {
     var view: MainTabBarViewPresenterOutput! { get set }
     
     func didViewDidAppear()
+    func didTapTabBarItem()
 }
 
 protocol MainTabBarViewPresenterOutput: class {
     func initBannerAds()
     func showBannerAds()
     func dismissBannerAds()
+    func impactFeedbackOccurred()
+    func noticeFeedbackOccurredError()
+    func noticeFeedbackOccurredSuccess()
 }
 
 final class MainTabBarViewPresenter: MainTabBarViewPresenterProtocol, MainTabBarModelOutput {
@@ -31,6 +35,9 @@ final class MainTabBarViewPresenter: MainTabBarViewPresenterProtocol, MainTabBar
         self.model.checkingIfAUserSubscribed()
     }
     
+    func didTapTabBarItem() {
+        self.view.impactFeedbackOccurred()
+    }
     
     func userSubscribed() {
         self.view.dismissBannerAds()

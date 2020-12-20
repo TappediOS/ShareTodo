@@ -77,7 +77,7 @@ class GroupDetailCollectionViewCell: UICollectionViewCell {
         
         guard let url = URL(string: user.profileImageURL ?? "") else { return }
         DispatchQueue.main.async {
-            let options = ImageLoadingOptions(placeholder: R.image.placeholderImage(), transition: .fadeIn(duration: 0.25), failureImage: R.image.groupDefaultImage())
+            let options = ImageLoadingOptions(placeholder: R.image.placeholderImage(), transition: .fadeIn(duration: 0.25), failureImage: R.image.defaultProfileImage())
             loadImage(with: url, options: options, into: self.profileImageView, progress: nil, completion: nil)
         }
     }

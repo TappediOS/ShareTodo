@@ -26,4 +26,11 @@ public extension UIColor {
         default: return .black
         }
     }
+    
+    func image(size: CGSize) -> UIImage {
+        return UIGraphicsImageRenderer(size: size).image { rendererContext in
+            self.setFill()
+            rendererContext.fill(.init(origin: .zero, size: size))
+        }
+    }
 }

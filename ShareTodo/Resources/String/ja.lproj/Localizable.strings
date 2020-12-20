@@ -26,8 +26,10 @@
 // DZNEmptyDataSet
 "No Results" = "結果なし";
 "No Task" = "タスクなし";
+"Create Group" = "グループを作成";
 "DZNEmptyDataSetDescription_SearchUser" = "検索したユーザが表示されます";
 "DZNEmptyDataSetDescription_CreateGroup" = "グループを作成すると表示されます";
+"DZNEmptyDataSetDescription_LetsCreateGroup" = "まずは自分だけのグループを作ってみよう！";
 
 // TabBarItem
 "Today" = "今日";
@@ -47,9 +49,16 @@
 "Group Task" = "タスク";
 
 // RegisterUserVC
+"Register"  = "登録";
 "User Name" = "ユーザ名";
 
+// OnBoardingVC
+"Create Account"   = "アカウント作成";
+"On Boarding Text" = "毎日の習慣を友達や家族と共有しよう";
+
 // CreateNewGroupInfoVC
+"Task" = "タスク";
+"Members" = "メンバー";
 
 // CreateNewGroupVC
 "Choose Friends" = "フレンド選択";
@@ -81,29 +90,6 @@
 "Introduction"            = "「シェアTodo プラス」のご紹介";
 "IntroductionDescription" = "1週間より過去のタスクを確認したい方に";
 
-// SubscriptionStatusVC
-"Status" = "ステータス";
-"Hi Name" = "%@ 様";
-"Thanks Subscriptin" = "プレミアム機能をご利用いただきありがとうございます";
-"Next Billing Date Colon" = "次回決済日: %@";
-
-// IntroductionVC
-"ShareTodo Plus" = "シェアTODO プラス";
-"Premium Features" = "プレミアム機能";
-"No Ads" = "広告なし";
-"Check Past Tasks" = "過去のタスクの確認";
-"Add Message To Task" = "メッセージを追加";
-"No Ads Ex Mark" = "広告なし！";
-"No Ads Description" = "広告が削除されます。\nすっきりした画面で見やすくなります！";
-"Check Past Tasks Description" = "1週間より過去のタスクを見れるようになります。";
-"Add Message To Task Ex Mark" = "タスクにメッセージを追加！";
-"Add Message To Task Description" = "タスク完了次にメッセージを追加できるようになります！\n\nメッセージはグループのユーザが確認できるので，ちょっとした一言を追加してメンバーに見てもらうことができます！";
-
-"Good Value" = "2ヶ月分以上お得！";
-"Apply At N" = "%@%@で申し込む";
-"slash_Month" = "/月";
-"slash_Year" = "/年";
-
 // SettingVC
 "Settings"            = "ユーザ設定";
 "General"             = "一般";
@@ -124,15 +110,58 @@
 "Privacy Policy"      = "プライバシーポリシー";
 "Version"             = "バージョン %@";
 "Success Restore"     = "購入履歴を復元しました";
+"Feedback URL" = "https://docs.google.com/forms/d/e/1FAIpQLSdzcy_z58v_T8GJx3ObKpB44qewPcUTZG0lXNw-B7qseIwL1g/viewform?usp=sf_link";
 "Contact Us URL"      = "https://docs.google.com/forms/d/e/1FAIpQLSfHOFC9RJVwOc0IBca9UPrROpxX4QVKtPTN7Q7bY5gaRmKBkQ/viewform?usp=pp_url&entry.1255802085=%@&entry.468534967=%@&entry.2096107176=%@";
+
+// AccountVC
+"Name" = "名前";
+"User Id" = "ユーザID";
+"Notifications" = "通知";
+"Delete Account" = "アカウント削除";
+"Yes" = "はい";
+"No" = "いいえ";
+"Delete Account" = "アカウントの削除";
+"Delete Info" = "アカウントを削除しますか？";
+"Warning" = "警告!!";
+"Warning Info" = "アカウントを削除すると今までの記録が全て削除されます。この操作は取り消せません。";
+"Account Delete Failure" = "アカウント削除失敗";
+"Account Delete Complete" = "アカウント削除完了";
+"Thank You Using This App" = "アプリを使用していただきありがとうございました🙂";
+"See You" = "またね";
+
+// SubscriptionStatusVC
+"Status" = "ステータス";
+"Hi Name" = "%@ 様";
+"Thanks Subscriptin" = "プレミアム機能をご利用いただきありがとうございます";
+"Next Billing Date Colon" = "次回決済日: %@";
+
+// IntroductionVC
+"ShareTodo Plus" = "シェアTODO プラス";
+"Premium Features" = "プレミアム機能";
+"No Ads" = "広告なし";
+"Check Past Tasks" = "過去のタスクの確認";
+"Add Message To Task" = "メッセージを追加";
+"No Ads Ex Mark" = "広告なし！";
+"No Ads Description" = "広告が全て削除されます。\n画面がすっきりして見やすくなります！";
+"Check Past Tasks Description" = "ロックが外れ，1週間より過去のタスクが見れるようになります。\n\nもちろん，グループに所属する全てのユーザの過去のタスクも見れるように！";
+"Add Message To Task Ex Mark" = "タスクにメッセージを追加！";
+"Add Message To Task Description" = "タスク完了次にメッセージを追加できるようになります！\n\nメッセージはグループのユーザ全員が確認できるので，ちょっとした一言を追加してメンバーに見てもらうことができます！";
+
+"Good Value" = "2ヶ月分以上お得！";
+"Apply At N" = "%@%@で申し込む";
+"slash_Month" = "/月";
+"slash_Year" = "/年";
+
 
 //TODO:- Privacy Policyと利用規約のURLを添付すること
 "Explanation Of Subscription Notes" = "
 ・お申込日から1ヶ月後に自動反映されます。
 
+・自動継続課金は期間が切れる24時間以内に自動で行われます。
+
 ・自動継続課金は期間の期限が切れる24時間以上前に自動更新をオフにしない限り自動更新されます。
 
-・自動継続課金はお客様自身で管理することができ，いつでもキャンセルすることができます。
+・自動継続課金はお客様自身で管理することができます。また，いつでもキャンセルすることができます。
 
 ・定期購入の確認と解約は「設定アプリ」→「iTunes Store」→「Apple ID」→「Apple IDを表示」→「登録」から行うことが可能です。キャンセルをするとご利用中の契約期間終了をもって定期購読は終了し更新は行われなくなります。
 
@@ -140,9 +169,15 @@
 
 ・プレミアム機能はお客様がお使いのApple IDに課金されます。
 
-・プライバシーポリシー
-　https://example.com
+・自動継続課金の解約手続き完了後でも更新日まではプレミアム機能をご利用いただけます。
+
+・自動継続課金の解約手続き完了後，次回更新日を過ぎますとフリープランに移行します。
+
 
 ・利用規約
-　https://example.com
+　%@
+
+・プライバシーポリシー
+　%@
+
 ";

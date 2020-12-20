@@ -89,6 +89,8 @@ final class CreateNewGroupInfoModel: CreateNewGroupInfoModelProtocol {
                 return
             }
             
+            Analytics.logEvent(AnalyticsEventJoinGroup, parameters: [AnalyticsParameterGroupID: groupUid])
+            
         }
         
         self.registerGroupImageFireStorage(uid: groupUid, imageData: groupImageData)

@@ -40,6 +40,10 @@ protocol SettingViewPresenterOutput: class {
     
     func showRestoreAleartView()
     func showErrorAleartView(error: Error)
+    
+    func impactFeedbackOccurred()
+    func noticeFeedbackOccurredError()
+    func noticeFeedbackOccurredSuccess()
 }
 
 final class SettingViewPresenter: SettingViewPresenterProtocol, SettingModelOutput {
@@ -55,10 +59,12 @@ final class SettingViewPresenter: SettingViewPresenterProtocol, SettingModelOutp
     
     func didTapStopButton() {
         self.view.dismissSettingVC()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapTableViewCell(indexPath: IndexPath) {
         self.model.chekeTheIndexPath(indexPath: indexPath)
+        self.view.impactFeedbackOccurred()
     }
     
     func getNumberOfRowsInSection(section: Int) -> Int {
@@ -119,16 +125,19 @@ final class SettingViewPresenter: SettingViewPresenterProtocol, SettingModelOutp
         self.view.stopActivityIndicator()
         self.view.showRestoreAleartView()
         self.view.endIgnoringInteractionEvents()
+        self.view.noticeFeedbackOccurredSuccess()
     }
     
     func error(error: Error) {
         self.view.showErrorAleartView(error: error)
         self.view.stopActivityIndicator()
         self.view.endIgnoringInteractionEvents()
+        self.view.noticeFeedbackOccurredError()
     }
     
     func productError() {
         self.view.stopActivityIndicator()
         self.view.endIgnoringInteractionEvents()
+        self.view.noticeFeedbackOccurredError()
     }
 }

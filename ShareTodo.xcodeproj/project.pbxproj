@@ -17,6 +17,17 @@
 		BF110025251F22CF0046376F /* IntroductionShareTodoPlus.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF110024251F22CF0046376F /* IntroductionShareTodoPlus.storyboard */; };
 		BF26FB772530618E00FDFC4A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF26FB792530618E00FDFC4A /* Localizable.strings */; };
 		BF28E41524FC886600269D82 /* GroupTodoViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */; };
+		BF2B3B70257F045600481B05 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF2B3B72257F045600481B05 /* InfoPlist.strings */; };
+		BF2B3B79257F062900481B05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF2B3B78257F062900481B05 /* LaunchScreen.storyboard */; };
+		BF2B3B902581AD9600481B05 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF2B3B8F2581AD9600481B05 /* GoogleService-Info.plist */; };
+		BF2B3B942581BBD800481B05 /* ShareTodoRemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B3B932581BBD800481B05 /* ShareTodoRemoteConfig.swift */; };
+		BF2B3BA625884E4F00481B05 /* OnBoarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF2B3BA525884E4F00481B05 /* OnBoarding.storyboard */; };
+		BF2B3BAE25884E5F00481B05 /* OnBoardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B3BAA25884E5F00481B05 /* OnBoardingViewModel.swift */; };
+		BF2B3BAF25884E5F00481B05 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B3BAB25884E5F00481B05 /* OnBoardingViewController.swift */; };
+		BF2B3BB025884E5F00481B05 /* OnBoardingViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B3BAC25884E5F00481B05 /* OnBoardingViewBuilder.swift */; };
+		BF2B3BB125884E5F00481B05 /* OnBoardingViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B3BAD25884E5F00481B05 /* OnBoardingViewPresenter.swift */; };
+		BF351E6D258B301E000D17CF /* ExUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF351E6C258B301E000D17CF /* ExUIImage.swift */; };
+		BF351E8F258C82B2000D17CF /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BF351E8E258C82B1000D17CF /* Settings.bundle */; };
 		BF38EF2D251CAD150024CD17 /* TodayTodoModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF2C251CAD150024CD17 /* TodayTodoModelTest.swift */; };
 		BF38EF44251DE6EC0024CD17 /* TodayTodoModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF43251DE6EC0024CD17 /* TodayTodoModelMock.swift */; };
 		BF38EF4A251DE6F70024CD17 /* ProfileViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF49251DE6F70024CD17 /* ProfileViewModelMock.swift */; };
@@ -39,7 +50,6 @@
 		BF4D292C256DF53F00A2493D /* SettingViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D2928256DF53F00A2493D /* SettingViewBuilder.swift */; };
 		BF4D292D256DF53F00A2493D /* SettingViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D2929256DF53F00A2493D /* SettingViewPresenter.swift */; };
 		BF4D2931256DF54F00A2493D /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF4D2930256DF54F00A2493D /* Setting.storyboard */; };
-		BF5120F125441303003AC823 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BF5120F025441303003AC823 /* Settings.bundle */; };
 		BF5CB6B02501CD9100EA1024 /* GroupDetailCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5CB6AE2501CD9100EA1024 /* GroupDetailCollectionReusableView.swift */; };
 		BF5CB6B12501CD9100EA1024 /* GroupDetailCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5CB6AF2501CD9100EA1024 /* GroupDetailCollectionReusableView.xib */; };
 		BF5CB6B42504AB8100EA1024 /* GroupDetailCollectionViewUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5CB6B22504AB8100EA1024 /* GroupDetailCollectionViewUserCell.swift */; };
@@ -107,7 +117,6 @@
 		BF97249124CD24B00033BB50 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97246A24CD24AD0033BB50 /* GTMSessionFetcher.framework */; };
 		BF97249324CD24B10033BB50 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97246B24CD24AD0033BB50 /* GoogleUtilities.framework */; };
 		BF97249524CD24B10033BB50 /* gRPC-Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97246C24CD24AD0033BB50 /* gRPC-Core.framework */; };
-		BF97249C24CD27010033BB50 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF97249B24CD27010033BB50 /* GoogleService-Info.plist */; };
 		BF9724A324CD2B180033BB50 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF9724A224CD2B180033BB50 /* StoreKit.framework */; };
 		BF9724A724CD2C930033BB50 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BF9724A424CD2BA70033BB50 /* libc++.tbd */; };
 		BF9724A824CD2CAD0033BB50 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BF9724A524CD2BCC0033BB50 /* libsqlite3.tbd */; };
@@ -128,6 +137,12 @@
 		BFC2A14D25786F5D00B321C3 /* SubscriptionStatusViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC2A14925786F5D00B321C3 /* SubscriptionStatusViewPresenter.swift */; };
 		BFC2A15325786F6500B321C3 /* SubscriptionStatus.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFC2A15225786F6500B321C3 /* SubscriptionStatus.storyboard */; };
 		BFC2A15F25787DD000B321C3 /* SubscriptionStatusModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC2A15E25787DD000B321C3 /* SubscriptionStatusModelTests.swift */; };
+		BFC2A1A4257C604C00B321C3 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC2A1A0257C604C00B321C3 /* AccountViewModel.swift */; };
+		BFC2A1A5257C604C00B321C3 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC2A1A1257C604C00B321C3 /* AccountViewController.swift */; };
+		BFC2A1A6257C604C00B321C3 /* AccountViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC2A1A2257C604C00B321C3 /* AccountViewBuilder.swift */; };
+		BFC2A1A7257C604C00B321C3 /* AccountViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC2A1A3257C604C00B321C3 /* AccountViewPresenter.swift */; };
+		BFC2A1AB257C605F00B321C3 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFC2A1AA257C605F00B321C3 /* Account.storyboard */; };
+		BFC2A1AF257DB68A00B321C3 /* TapticFeedbacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC2A1AE257DB68A00B321C3 /* TapticFeedbacker.swift */; };
 		BFD435CF24CD2EBC00B2E580 /* CropViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97246524CD24AD0033BB50 /* CropViewController.framework */; };
 		BFD435D024CD2EBD00B2E580 /* CropViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF97246524CD24AD0033BB50 /* CropViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BFD435E124CD333D00B2E580 /* ExplicitNull.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD435D324CD333C00B2E580 /* ExplicitNull.swift */; };
@@ -254,6 +269,18 @@
 		BF26FB782530618E00FDFC4A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BF26FB7C2530619100FDFC4A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTodoViewModelTests.swift; sourceTree = "<group>"; };
+		BF2B3B71257F045600481B05 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BF2B3B75257F045A00481B05 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BF2B3B78257F062900481B05 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BF2B3B8F2581AD9600481B05 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BF2B3B932581BBD800481B05 /* ShareTodoRemoteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareTodoRemoteConfig.swift; sourceTree = "<group>"; };
+		BF2B3BA525884E4F00481B05 /* OnBoarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnBoarding.storyboard; sourceTree = "<group>"; };
+		BF2B3BAA25884E5F00481B05 /* OnBoardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewModel.swift; sourceTree = "<group>"; };
+		BF2B3BAB25884E5F00481B05 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		BF2B3BAC25884E5F00481B05 /* OnBoardingViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewBuilder.swift; sourceTree = "<group>"; };
+		BF2B3BAD25884E5F00481B05 /* OnBoardingViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewPresenter.swift; sourceTree = "<group>"; };
+		BF351E6C258B301E000D17CF /* ExUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIImage.swift; sourceTree = "<group>"; };
+		BF351E8E258C82B1000D17CF /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		BF38EF2C251CAD150024CD17 /* TodayTodoModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoModelTest.swift; sourceTree = "<group>"; };
 		BF38EF43251DE6EC0024CD17 /* TodayTodoModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTodoModelMock.swift; sourceTree = "<group>"; };
 		BF38EF49251DE6F70024CD17 /* ProfileViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelMock.swift; sourceTree = "<group>"; };
@@ -275,7 +302,6 @@
 		BF4D2928256DF53F00A2493D /* SettingViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewBuilder.swift; sourceTree = "<group>"; };
 		BF4D2929256DF53F00A2493D /* SettingViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewPresenter.swift; sourceTree = "<group>"; };
 		BF4D2930256DF54F00A2493D /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
-		BF5120F025441303003AC823 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		BF5CB6AE2501CD9100EA1024 /* GroupDetailCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailCollectionReusableView.swift; sourceTree = "<group>"; };
 		BF5CB6AF2501CD9100EA1024 /* GroupDetailCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupDetailCollectionReusableView.xib; sourceTree = "<group>"; };
 		BF5CB6B22504AB8100EA1024 /* GroupDetailCollectionViewUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailCollectionViewUserCell.swift; sourceTree = "<group>"; };
@@ -352,7 +378,6 @@
 		BF97246A24CD24AD0033BB50 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GTMSessionFetcher.framework; path = Carthage/Build/iOS/GTMSessionFetcher.framework; sourceTree = "<group>"; };
 		BF97246B24CD24AD0033BB50 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Carthage/Build/iOS/GoogleUtilities.framework; sourceTree = "<group>"; };
 		BF97246C24CD24AD0033BB50 /* gRPC-Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "gRPC-Core.framework"; path = "Carthage/Build/iOS/gRPC-Core.framework"; sourceTree = "<group>"; };
-		BF97249B24CD27010033BB50 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BF9724A224CD2B180033BB50 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		BF9724A424CD2BA70033BB50 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		BF9724A524CD2BCC0033BB50 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -373,6 +398,12 @@
 		BFC2A14925786F5D00B321C3 /* SubscriptionStatusViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionStatusViewPresenter.swift; sourceTree = "<group>"; };
 		BFC2A15225786F6500B321C3 /* SubscriptionStatus.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SubscriptionStatus.storyboard; sourceTree = "<group>"; };
 		BFC2A15E25787DD000B321C3 /* SubscriptionStatusModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionStatusModelTests.swift; sourceTree = "<group>"; };
+		BFC2A1A0257C604C00B321C3 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		BFC2A1A1257C604C00B321C3 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		BFC2A1A2257C604C00B321C3 /* AccountViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewBuilder.swift; sourceTree = "<group>"; };
+		BFC2A1A3257C604C00B321C3 /* AccountViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewPresenter.swift; sourceTree = "<group>"; };
+		BFC2A1AA257C605F00B321C3 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
+		BFC2A1AE257DB68A00B321C3 /* TapticFeedbacker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapticFeedbacker.swift; sourceTree = "<group>"; };
 		BFD435D324CD333C00B2E580 /* ExplicitNull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplicitNull.swift; sourceTree = "<group>"; };
 		BFD435D424CD333C00B2E580 /* CollectionReference+WriteEncodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionReference+WriteEncodable.swift"; sourceTree = "<group>"; };
 		BFD435D524CD333C00B2E580 /* CodablePassThroughTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodablePassThroughTypes.swift; sourceTree = "<group>"; };
@@ -588,8 +619,20 @@
 			children = (
 				BFB24BF425441C1A00166D88 /* SharedString.strings */,
 				BF26FB792530618E00FDFC4A /* Localizable.strings */,
+				BF2B3B72257F045600481B05 /* InfoPlist.strings */,
 			);
 			path = String;
+			sourceTree = "<group>";
+		};
+		BF2B3BA925884E5100481B05 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				BF2B3BAC25884E5F00481B05 /* OnBoardingViewBuilder.swift */,
+				BF2B3BAB25884E5F00481B05 /* OnBoardingViewController.swift */,
+				BF2B3BAD25884E5F00481B05 /* OnBoardingViewPresenter.swift */,
+				BF2B3BAA25884E5F00481B05 /* OnBoardingViewModel.swift */,
+			);
+			path = OnBoarding;
 			sourceTree = "<group>";
 		};
 		BF38EF2B251CAD010024CD17 /* Model */ = {
@@ -629,7 +672,7 @@
 		BF5120EF254412EC003AC823 /* Bundle */ = {
 			isa = PBXGroup;
 			children = (
-				BF5120F025441303003AC823 /* Settings.bundle */,
+				BF351E8E258C82B1000D17CF /* Settings.bundle */,
 			);
 			path = Bundle;
 			sourceTree = "<group>";
@@ -807,6 +850,7 @@
 				BFD4362024CD597700B2E580 /* ExCollectionView.swift */,
 				BFFA6174250E087000A1D2CE /* ExUIColor.swift */,
 				BF4D2921256A45B500A2493D /* ExSCLAlertView.swift */,
+				BF351E6C258B301E000D17CF /* ExUIImage.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -815,6 +859,7 @@
 			isa = PBXGroup;
 			children = (
 				BFFA61692508881800A1D2CE /* EditGroup */,
+				BF2B3BA925884E5100481B05 /* OnBoarding */,
 				BFD4362424CDAC7F00B2E580 /* RegisterUser */,
 				BFD4361324CD4F3800B2E580 /* CreateNewGroupInfo */,
 				BFD435FB24CD448300B2E580 /* CreateNewGroup */,
@@ -828,6 +873,7 @@
 				BFC2A14525786F4100B321C3 /* SubscriptionStatus */,
 				BF88D4E024CAB65D00607D6A /* MainTabBarController */,
 				BF4D2925256DF52C00A2493D /* Setting */,
+				BFC2A19F257C603E00B321C3 /* Account */,
 				BF88D4CA24CAA9C000607D6A /* Storyboards */,
 			);
 			path = Views;
@@ -844,7 +890,7 @@
 		BF88D4C924CAA99B00607D6A /* GoogleInfo */ = {
 			isa = PBXGroup;
 			children = (
-				BF97249B24CD27010033BB50 /* GoogleService-Info.plist */,
+				BF2B3B8F2581AD9600481B05 /* GoogleService-Info.plist */,
 			);
 			path = GoogleInfo;
 			sourceTree = "<group>";
@@ -853,6 +899,7 @@
 			isa = PBXGroup;
 			children = (
 				BF88D4E924CAB76700607D6A /* MainTabBar.storyboard */,
+				BF2B3BA525884E4F00481B05 /* OnBoarding.storyboard */,
 				BF88D4F424CAB8F300607D6A /* GroupTodo.storyboard */,
 				BF88D4FF24CAB9F000607D6A /* TodayTodo.storyboard */,
 				BF88D51624CABD1000607D6A /* Profile.storyboard */,
@@ -866,6 +913,8 @@
 				BF110024251F22CF0046376F /* IntroductionShareTodoPlus.storyboard */,
 				BF4D2930256DF54F00A2493D /* Setting.storyboard */,
 				BFC2A15225786F6500B321C3 /* SubscriptionStatus.storyboard */,
+				BFC2A1AA257C605F00B321C3 /* Account.storyboard */,
+				BF2B3B78257F062900481B05 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -1003,6 +1052,17 @@
 				BFC2A14625786F5D00B321C3 /* SubscriptionStatusViewModel.swift */,
 			);
 			path = SubscriptionStatus;
+			sourceTree = "<group>";
+		};
+		BFC2A19F257C603E00B321C3 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				BFC2A1A2257C604C00B321C3 /* AccountViewBuilder.swift */,
+				BFC2A1A1257C604C00B321C3 /* AccountViewController.swift */,
+				BFC2A1A3257C604C00B321C3 /* AccountViewPresenter.swift */,
+				BFC2A1A0257C604C00B321C3 /* AccountViewModel.swift */,
+			);
+			path = Account;
 			sourceTree = "<group>";
 		};
 		BFD435D224CD312000B2E580 /* FirebaseFirestoreSwift */ = {
@@ -1160,6 +1220,8 @@
 			isa = PBXGroup;
 			children = (
 				BFD5DE08251B8ED200E35F18 /* NavigationImageConst.swift */,
+				BFC2A1AE257DB68A00B321C3 /* TapticFeedbacker.swift */,
+				BF2B3B932581BBD800481B05 /* ShareTodoRemoteConfig.swift */,
 			);
 			path = AppData;
 			sourceTree = "<group>";
@@ -1217,6 +1279,7 @@
 				BFD435CE24CD2E3800B2E580 /* Carthage */,
 				BFD435D124CD2EBD00B2E580 /* Embed Frameworks */,
 				D22DF730596E192E7D83398A /* [CP] Embed Pods Frameworks */,
+				BF2B3B7C2581A9BC00481B05 /* Crashlytics */,
 				BF5120E4254411AF003AC823 /* LicensePlist */,
 			);
 			buildRules = (
@@ -1326,20 +1389,24 @@
 				BF6468C22500F36100F1CB75 /* GroupDetailCollectionViewCell.xib in Resources */,
 				BFD4362E24CDAD0000B2E580 /* RegisterUser.storyboard in Resources */,
 				BF88D4EA24CAB76700607D6A /* MainTabBar.storyboard in Resources */,
+				BFC2A1AB257C605F00B321C3 /* Account.storyboard in Resources */,
+				BF351E8F258C82B2000D17CF /* Settings.bundle in Resources */,
 				BFD4360524CD450200B2E580 /* CreateNewGroup.storyboard in Resources */,
 				BF26FB772530618E00FDFC4A /* Localizable.strings in Resources */,
+				BF2B3B902581AD9600481B05 /* GoogleService-Info.plist in Resources */,
 				BF5CB6B52504AB8100EA1024 /* GroupDetailCollectionViewUserCell.xib in Resources */,
 				BFD4361D24CD504800B2E580 /* CreateNewGroupInfo.storyboard in Resources */,
 				BF88D51724CABD1000607D6A /* Profile.storyboard in Resources */,
+				BF2B3B70257F045600481B05 /* InfoPlist.strings in Resources */,
 				BF88D50024CAB9F000607D6A /* TodayTodo.storyboard in Resources */,
 				BFD5DDEE251B0EE700E35F18 /* carthage.sh in Resources */,
 				BF88D4F524CAB8F300607D6A /* GroupTodo.storyboard in Resources */,
 				BF110025251F22CF0046376F /* IntroductionShareTodoPlus.storyboard in Resources */,
 				BFB24BF525441C1A00166D88 /* SharedString.strings in Resources */,
 				BFD4366624CE62C700B2E580 /* Assets.xcassets in Resources */,
+				BF2B3BA625884E4F00481B05 /* OnBoarding.storyboard in Resources */,
 				BFFA61732508884700A1D2CE /* EditGroup.storyboard in Resources */,
-				BF5120F125441303003AC823 /* Settings.bundle in Resources */,
-				BF97249C24CD27010033BB50 /* GoogleService-Info.plist in Resources */,
+				BF2B3B79257F062900481B05 /* LaunchScreen.storyboard in Resources */,
 				BF4D2931256DF54F00A2493D /* Setting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1444,6 +1511,26 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShareTodo-ShareTodoUITests/Pods-ShareTodo-ShareTodoUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		BF2B3B7C2581A9BC00481B05 /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}",
+			);
+			name = Crashlytics;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PROJECT_DIR}/FirebaseCrashlytics/run\n";
+		};
 		BF5120E4254411AF003AC823 /* LicensePlist */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1460,7 +1547,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ $CONFIGURATION = \"Debug\" ]; then\n${PODS_ROOT}/LicensePlist/license-plist --output-path $PRODUCT_NAME/Resources/Bundle/Settings.bundle --github-token YOUR_GITHUB_TOKEN\nfi\n";
+			shellScript = "if [ $CONFIGURATION = \"Debug\" ]; then\n${PODS_ROOT}/LicensePlist/license-plist --output-path $PRODUCT_NAME/Resources/Bundle/Settings.bundle\nfi\n";
 		};
 		BF636F4D24FCDF4200F30F63 /* R.swift */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1561,8 +1648,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF88D4E824CAB6AA00607D6A /* MainTabBarBuilder.swift in Sources */,
+				BFC2A1A4257C604C00B321C3 /* AccountViewModel.swift in Sources */,
 				BF4D2922256A45B500A2493D /* ExSCLAlertView.swift in Sources */,
 				BFD5DDE6251AFFFD00E35F18 /* UserDetailViewModel.swift in Sources */,
+				BF351E6D258B301E000D17CF /* ExUIImage.swift in Sources */,
 				BF4D292C256DF53F00A2493D /* SettingViewBuilder.swift in Sources */,
 				BFE3B16B251F2CBC00C69AF2 /* IntroductionShareTodoPlusViewController.swift in Sources */,
 				BF88D4FC24CAB9A100607D6A /* TodayTodoViewPresenter.swift in Sources */,
@@ -1588,6 +1677,7 @@
 				BFD435EE24CD333D00B2E580 /* GeoPoint+Codable.swift in Sources */,
 				BFD435EA24CD333D00B2E580 /* ServerTimestamp.swift in Sources */,
 				BF97244E24CC6B0D0033BB50 /* EditProfileViewController.swift in Sources */,
+				BFC2A1A7257C604C00B321C3 /* AccountViewPresenter.swift in Sources */,
 				BFD4362624CDAC9600B2E580 /* RegisterUserViewBuilder.swift in Sources */,
 				BF88D50F24CABCB700607D6A /* ProfileViewBuilder.swift in Sources */,
 				BFFA6175250E087000A1D2CE /* ExUIColor.swift in Sources */,
@@ -1603,9 +1693,12 @@
 				BFFA616D2508883400A1D2CE /* EditGroupViewController.swift in Sources */,
 				BF88D4FE24CAB9A600607D6A /* TodayTodoViewModel.swift in Sources */,
 				BFD4361B24CD4F6700B2E580 /* CreateNewGroupInfoViewModel.swift in Sources */,
+				BFC2A1A6257C604C00B321C3 /* AccountViewBuilder.swift in Sources */,
 				BF020FBF2510A99E006DC525 /* GroupRepositoryProtocol.swift in Sources */,
 				BF88D51324CABCC300607D6A /* ProfileViewPresenter.swift in Sources */,
+				BFC2A1A5257C604C00B321C3 /* AccountViewController.swift in Sources */,
 				BFD435E724CD333D00B2E580 /* Timestamp+Codable.swift in Sources */,
+				BF2B3BB125884E5F00481B05 /* OnBoardingViewPresenter.swift in Sources */,
 				BF68712B25109EA300923A8B /* GroupRepository.swift in Sources */,
 				BFE3B16A251F2CBC00C69AF2 /* IntroductionShareTodoPlusViewModel.swift in Sources */,
 				BFD4361524CD4F5300B2E580 /* CreateNewGroupInfoViewBuilder.swift in Sources */,
@@ -1624,12 +1717,14 @@
 				BFD5DDE2251AFFF900E35F18 /* UserDetailViewPresenter.swift in Sources */,
 				BF88D4ED24CAB88500607D6A /* GroupTodoViewBuilder.swift in Sources */,
 				BFD4360324CD44AE00B2E580 /* CreateNewGroupViewModel.swift in Sources */,
+				BF2B3B942581BBD800481B05 /* ShareTodoRemoteConfig.swift in Sources */,
 				BFD435E524CD333D00B2E580 /* FieldValue+Encodable.swift in Sources */,
 				BFD5DDDE251AFFE900E35F18 /* UserDetailViewController.swift in Sources */,
 				BF88D51924CAC4D600607D6A /* GroupTableViewCell.swift in Sources */,
 				BF6468C12500F36100F1CB75 /* GroupDetailCollectionViewCell.swift in Sources */,
 				BFC2A14D25786F5D00B321C3 /* SubscriptionStatusViewPresenter.swift in Sources */,
 				BF88D4EF24CAB88A00607D6A /* GroupTodoViewController.swift in Sources */,
+				BF2B3BAE25884E5F00481B05 /* OnBoardingViewModel.swift in Sources */,
 				BF88D4DA24CAAB3F00607D6A /* ExUIViewController.swift in Sources */,
 				BFA31F4024FF444200553F06 /* GroupDetailViewPresenter.swift in Sources */,
 				BF88D4FA24CAB99C00607D6A /* TodayTodoViewController.swift in Sources */,
@@ -1645,6 +1740,8 @@
 				BFA31F3E24FF443C00553F06 /* GroupDetailViewController.swift in Sources */,
 				BFD4360124CD44A900B2E580 /* CreateNewGroupViewPresenter.swift in Sources */,
 				BF636F5124FCDFD700F30F63 /* R.generated.swift in Sources */,
+				BF2B3BB025884E5F00481B05 /* OnBoardingViewBuilder.swift in Sources */,
+				BFC2A1AF257DB68A00B321C3 /* TapticFeedbacker.swift in Sources */,
 				BF88D4F124CAB89000607D6A /* GroupTodoViewPresenter.swift in Sources */,
 				BFD435F124CD346D00B2E580 /* FirestoreDecoder.swift in Sources */,
 				BFD435F224CD346D00B2E580 /* FirestoreEncoder.swift in Sources */,
@@ -1660,6 +1757,7 @@
 				BF97244C24CC6B070033BB50 /* EditProfileViewBuilder.swift in Sources */,
 				BF4D28772560EA6100A2493D /* ExNotificationCenter.swift in Sources */,
 				BF88D4DE24CAAB6600607D6A /* ExString.swift in Sources */,
+				BF2B3BAF25884E5F00481B05 /* OnBoardingViewController.swift in Sources */,
 				BFFA616F2508883900A1D2CE /* EditGroupViewPresenter.swift in Sources */,
 				BF4D285B255FC8C500A2493D /* ExStoreKit.swift in Sources */,
 				BFD4361F24CD57F500B2E580 /* SelectedUsersAndMeCollectionViewCell.swift in Sources */,
@@ -1720,6 +1818,15 @@
 				BF26FB7C2530619100FDFC4A /* ja */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		BF2B3B72257F045600481B05 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF2B3B71257F045600481B05 /* en */,
+				BF2B3B75257F045A00481B05 /* ja */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1846,6 +1953,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ShareTodo/ShareTodo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 9R4W53MKG7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1857,12 +1965,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				OTHER_LDFLAGS = "-ObjC";
 				"OTHER_SWIFT_FLAGS[arch=*]" = "-Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Taped.ShareTodo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1884,11 +1993,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Taped.ShareTodo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

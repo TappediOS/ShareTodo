@@ -20,6 +20,7 @@ final class UserDetailViewController: UIViewController {
     @IBOutlet weak var groupTaskLabel: UILabel!
     @IBOutlet weak var introductionLabel: UILabel!
     @IBOutlet weak var introductionButton: UIButton!
+    @IBOutlet weak var introductionView: UIView!
     
     
     internal let profileImageView = UIImageView()
@@ -200,6 +201,7 @@ extension UserDetailViewController: UserDetailViewPresenterOutput {
     
     func hideIntroductionVCView() {
         DispatchQueue.main.async {
+            self.introductionView.isHidden = true
             self.introductionLabel.isHidden = true
             self.introductionButton.isHidden = true
         }
@@ -207,6 +209,7 @@ extension UserDetailViewController: UserDetailViewPresenterOutput {
     
     func showIntroductionVCView() {
         DispatchQueue.main.async {
+            self.introductionView.isHidden = false
             self.introductionLabel.isHidden = false
             self.introductionButton.isHidden = false
         }
@@ -219,6 +222,18 @@ extension UserDetailViewController: UserDetailViewPresenterOutput {
         DispatchQueue.main.async {
             errorAlertView.showError(title, subTitle: subTitle, colorStyle: 0xFF2D55, colorTextButton: 0xFFFFFF)
         }
+    }
+    
+    func impactFeedbackOccurred() {
+        TapticFeedbacker.impact(style: .light)
+    }
+    
+    func noticeFeedbackOccurredError() {
+        TapticFeedbacker.notice(type: .error)
+    }
+    
+    func noticeFeedbackOccurredSuccess() {
+        TapticFeedbacker.notice(type: .success)
     }
 }
 

@@ -32,5 +32,7 @@
 	<string>1:914051065084:ios:0ce22d67ee4050f12e6379</string>
 	<key>DATABASE_URL</key>
 	<string>https://sharetodo-a91ef.firebaseio.com</string>
+	<key>ADMOB_APP_ID</key>
+	<string>ca-app-pub-1460017825820383~2647982551</string>
 </dict>
 </plist>

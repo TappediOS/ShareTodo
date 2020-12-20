@@ -9,6 +9,7 @@
 import UIKit
 import DZNEmptyDataSet
 import SCLAlertView
+import StoreKit
 
 final class TodayTodoViewController: UIViewController {
     private var presenter: TodayTodoViewPresenterProtocol!
@@ -35,6 +36,12 @@ final class TodayTodoViewController: UIViewController {
         self.presenter.didViewWillAppear()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.todayTodoCollectionView.layoutIfNeeded()
+    }
+    
     func setupView() {
         self.view.backgroundColor = .secondarySystemBackground
     }
@@ -46,20 +53,11 @@ final class TodayTodoViewController: UIViewController {
     }
     
     func setupTodayTodoCollectionView() {
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width - 32, height: 95)
-        flowLayout.minimumInteritemSpacing = 0
-        flowLayout.minimumLineSpacing = 16
-        flowLayout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 40, right: 16)
-        
-        self.todayTodoCollectionView.setCollectionViewLayout(flowLayout, animated: true)
         self.todayTodoCollectionView.backgroundColor = .secondarySystemBackground
         self.todayTodoCollectionView.alwaysBounceVertical = true
         
         self.todayTodoCollectionView.delegate = self
         self.todayTodoCollectionView.dataSource = self
-        self.todayTodoCollectionView.emptyDataSetSource = self
-        self.todayTodoCollectionView.emptyDataSetDelegate = self
     }
     
     func setupActivityIndicator() {
@@ -78,6 +76,11 @@ final class TodayTodoViewController: UIViewController {
 extension TodayTodoViewController: TodayTodoViewPresenterOutput {
     func reloadTodayTodoCollectionView() {
         DispatchQueue.main.async { self.todayTodoCollectionView.reloadData() }
+    }
+    
+    func setDZEmptyDataSetDelegate() {
+        self.todayTodoCollectionView.emptyDataSetSource = self
+        self.todayTodoCollectionView.emptyDataSetDelegate = self
     }
     
     func showAddMessageEditView(index: Int) {
@@ -122,6 +125,20 @@ extension TodayTodoViewController: TodayTodoViewPresenterOutput {
         }
     }
     
+    func showCreateGroupInfoVC() {
+        guard let createNewGropuInfoVC = CreateNewGroupInfoViewBuilder.create() as? CreateNewGroupInfoViewController else { return }
+        createNewGropuInfoVC.selectedUsersArray = Array()
+        
+        let navigationController = UINavigationController(rootViewController: createNewGropuInfoVC)
+        self.present(navigationController, animated: true, completion: nil)
+    }
+    
+    func showSKStoreReviewController() {
+        DispatchQueue.main.async {
+            SKStoreReviewController.requestReview()
+        }
+    }
+    
     func showErrorAleartView(error: Error) {
         let errorAlertView = SCLAlertView().getCustomAlertView()
         let title = R.string.localizable.error()
@@ -130,9 +147,29 @@ extension TodayTodoViewController: TodayTodoViewPresenterOutput {
             errorAlertView.showError(title, subTitle: subTitle, colorStyle: 0xFF2D55, colorTextButton: 0xFFFFFF)
         }
     }
+    
+    func impactFeedbackOccurred_light() {
+        TapticFeedbacker.impact(style: .light)
+    }
+    
+    func impactFeedbackOccurred_medium() {
+        TapticFeedbacker.impact(style: .medium)
+    }
+    
+    func impactFeedbackOccurred_heavy() {
+        TapticFeedbacker.impact(style: .heavy)
+    }
+    
+    func noticeFeedbackOccurredError() {
+        TapticFeedbacker.notice(type: .error)
+    }
+    
+    func noticeFeedbackOccurredSuccess() {
+        TapticFeedbacker.notice(type: .success)
+    }
 }
 
-extension TodayTodoViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension TodayTodoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.presenter.numberOfGroups
     }
@@ -161,7 +198,27 @@ extension TodayTodoViewController: UICollectionViewDelegate, UICollectionViewDat
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
+}
 
+extension TodayTodoViewController: UICollectionViewDelegateFlowLayout {
+    // MARK: - FlowLayout
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width - 32, height: 95)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let bottomInset: CGFloat = self.presenter.isUserSubscribed ? 16 : 110
+        return UIEdgeInsets(top: 16, left: 16, bottom: bottomInset, right: 16)
+    }
+    
+    // cell同士の間隔
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 16
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
 }
 
 extension TodayTodoViewController: UITextFieldDelegate {
@@ -184,13 +241,33 @@ extension TodayTodoViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegat
         let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline)]
         return NSAttributedString(string: str, attributes: attrs)
     }
-   
+    
     func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        let str = R.string.localizable.dznEmptyDataSetDescription_CreateGroup()
+        let str = R.string.localizable.dznEmptyDataSetDescription_LetsCreateGroup()
         let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)]
         return NSAttributedString(string: str, attributes: attrs)
     }
+    
+    func spaceHeight(forEmptyDataSet scrollView: UIScrollView!) -> CGFloat {
+       return 16
+    }
+    
+    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControl.State) -> NSAttributedString! {
+        let str = R.string.localizable.createGroup()
+        let attrs: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white, .font: UIFont.preferredFont(forTextStyle: .headline)]
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+    
+    func buttonBackgroundImage(forEmptyDataSet scrollView: UIScrollView!, for state: UIControl.State) -> UIImage! {
+        let size = CGSize(width: self.view.bounds.width * 0.7, height: 48)
+        return UIColor.systemGreen.image(size: size).withRoundedCorners(radius: 8)
+    }
+    
 
+    func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
+        self.presenter.didTapEmptyDataSetButton()
+    }
+    
     func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView!) -> Bool {
         return true
     }

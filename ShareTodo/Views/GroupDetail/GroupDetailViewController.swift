@@ -123,6 +123,18 @@ extension GroupDetailViewController: GroupDetailViewPresenterOutput {
             errorAlertView.showError(title, subTitle: subTitle, colorStyle: 0xFF2D55, colorTextButton: 0xFFFFFF)
         }
     }
+    
+    func impactFeedbackOccurred() {
+        TapticFeedbacker.impact(style: .light)
+    }
+    
+    func noticeFeedbackOccurredError() {
+        TapticFeedbacker.notice(type: .error)
+    }
+    
+    func noticeFeedbackOccurredSuccess() {
+        TapticFeedbacker.notice(type: .success)
+    }
 }
 
 extension GroupDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -199,7 +211,7 @@ extension GroupDetailViewController: UICollectionViewDelegateFlowLayout {
         
         switch section {
         case 0: return UIEdgeInsets(top: 4, left: 16, bottom: 24, right: 16)
-        case 1: return UIEdgeInsets(top: 4, left: 16, bottom: 78, right: 16)
+        case 1: return UIEdgeInsets(top: 4, left: 16, bottom: 110, right: 16)
         default: return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         }
     }

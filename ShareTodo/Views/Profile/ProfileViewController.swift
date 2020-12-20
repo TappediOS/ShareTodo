@@ -114,26 +114,32 @@ final class ProfileViewController: UIViewController {
 
 extension ProfileViewController: ProfileViewPresenterOutput {
     func setPlanLabelAsSubscribed() {
+        guard self.planLabel != nil else { return }
         self.planLabel.text = R.string.localizable.plan()
     }
     
     func setPlanStatusLabelAsSubscribed() {
+        guard self.planStatusLabel != nil else { return }
         self.planStatusLabel.text = R.string.localizable.premiunPlan()
     }
     
     func setPlanStatusButtonAsSubscribed() {
+        guard self.planStateButton != nil else { return }
         self.planStateButton.alpha = 0.65
     }
     
     func setPlanLabelAsNonSubscribed() {
+        guard self.planLabel != nil else { return }
         self.planLabel.text = R.string.localizable.plan()
     }
     
     func setPlanStatusLabelAsNonSubscribed() {
+        guard self.planStatusLabel != nil else { return }
         self.planStatusLabel.text = R.string.localizable.freePlan()
     }
     
     func setPlanStatusButtonAsNonSubscribed() {
+        guard self.planStateButton != nil else { return }
         self.planStateButton.alpha = 0.25
     }
     
@@ -180,6 +186,18 @@ extension ProfileViewController: ProfileViewPresenterOutput {
     func segueSubscriptionStatusVC() {
         guard let subscriptionStatusVC = SubscriptionStatusViewBuilder.create() as? SubscriptionStatusViewController else { return }
         self.navigationController?.pushViewController(subscriptionStatusVC, animated: true)
+    }
+    
+    func impactFeedbackOccurred() {
+        TapticFeedbacker.impact(style: .light)
+    }
+    
+    func noticeFeedbackOccurredError() {
+        TapticFeedbacker.notice(type: .error)
+    }
+    
+    func noticeFeedbackOccurredSuccess() {
+        TapticFeedbacker.notice(type: .success)
     }
 }
 

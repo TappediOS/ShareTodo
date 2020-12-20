@@ -19,9 +19,9 @@ protocol TodayTodoModelProtocol {
     func fetchGroups()
     func fetchTodayTodo(groupDocuments: [QueryDocumentSnapshot], userID: String)
     
-    func isFirstOpen() -> Bool
     func isFinishedTodo(index: Int) -> Bool
     func isWrittenMessage(index: Int) -> Bool
+    
     
     func unfinishedTodo(index: Int)
     func finishedTodo(index: Int)
@@ -30,6 +30,12 @@ protocol TodayTodoModelProtocol {
     func cancelMessage(index: Int)
     
     func setFcmToken()
+    
+    func countUpOpenApp()
+    func shouldRequestStoreReviewOpenAppCount() -> Bool
+    func countUpRequestFinishTodo()
+    func shouldRequestStoreReviewFinishTodoCount() -> Bool
+    func isFirstOpen() -> Bool
     
     func checkingIfAUserSubscribed()
 }
@@ -208,6 +214,7 @@ final class TodayTodoModel: TodayTodoModelProtocol {
                 self.todos[finishedTodoIndex].isFinished = false
                 self.todos[finishedTodoIndex].message = nil
                 self.presenter.successUnfinishedTodo()
+                Analytics.logEvent(R.string.sharedString.unFinishedTodo_EventName(), parameters: nil)
             }
         } catch let error {
             print("Error: \(error.localizedDescription)")
@@ -233,6 +240,7 @@ final class TodayTodoModel: TodayTodoModelProtocol {
                 }
                 
                 self.presenter.successFinishedTodo()
+                Analytics.logEvent(R.string.sharedString.finishedTodo_EventName(), parameters: nil)
             }
         } catch let error {
             print("Error: \(error.localizedDescription)")
@@ -263,6 +271,7 @@ final class TodayTodoModel: TodayTodoModelProtocol {
                 
                 self.todos[finishedTodoIndex].message = message
                 self.presenter.successWriteMessage()
+                Analytics.logEvent(R.string.sharedString.writeMessage_EventName(), parameters: [R.string.sharedString.writeMessage_EventParam(): message])
             }
         } catch let error {
             print("Error: \(error.localizedDescription)")
@@ -292,6 +301,7 @@ final class TodayTodoModel: TodayTodoModelProtocol {
                 
                 self.todos[finishedTodoIndex].message = nil
                 self.presenter.successCancelMessage()
+                Analytics.logEvent(R.string.sharedString.cancelWriteMessage_EventName(), parameters: nil)
             }
         } catch let error {
             print("Error: \(error.localizedDescription)")
@@ -354,13 +364,36 @@ final class TodayTodoModel: TodayTodoModelProtocol {
         self.fetchGroups()
     }
     
+    func countUpOpenApp() {
+        UserDefaults.standard.register(defaults: [R.string.sharedString.openAppCountKey(): 0])
+        let key = R.string.sharedString.openAppCountKey()
+        UserDefaults.standard.set(UserDefaults.standard.integer(forKey: key) + 1, forKey: key)
+    }
+    
+    func countUpRequestFinishTodo() {
+        UserDefaults.standard.register(defaults: [R.string.sharedString.requestFinishTodoCountKey(): 0])
+        let key = R.string.sharedString.requestFinishTodoCountKey()
+        UserDefaults.standard.set(UserDefaults.standard.integer(forKey: key) + 1, forKey: key)
+    }
+    
+    func shouldRequestStoreReviewOpenAppCount() -> Bool {
+        let count = UserDefaults.standard.integer(forKey: R.string.sharedString.openAppCountKey())
+        if count == 4 || count == 7 || count == 12 || count == 18 || count == 25 || count == 35 || count == 50 { return true }
+        return false
+    }
+    
+    func shouldRequestStoreReviewFinishTodoCount() -> Bool {
+        let count = UserDefaults.standard.integer(forKey: R.string.sharedString.requestFinishTodoCountKey())
+        if count == 3 || count == 6 || count == 10 || count == 15 || count == 26 || count == 36 { return true }
+        if count == 48 || count == 61 || count == 75 || count == 90 || count == 118 { return true }
+        return false
+    }
+    
     func isFirstOpen() -> Bool {
-        //TODO:- 実装後に以下の一文を取り除くこと
-        return true
-        UserDefaults.standard.register(defaults: ["isFirstOpen": true])
-        if !UserDefaults.standard.bool(forKey: "isFirstOpen") { return false }
+        UserDefaults.standard.register(defaults: [R.string.sharedString.isFirstOpenKey(): true])
+        if !UserDefaults.standard.bool(forKey: R.string.sharedString.isFirstOpenKey()) { return false }
         
-        UserDefaults.standard.set(false, forKey: "isFirstOpen")
+        UserDefaults.standard.set(false, forKey: R.string.sharedString.isFirstOpenKey())
         return true
     }
 }

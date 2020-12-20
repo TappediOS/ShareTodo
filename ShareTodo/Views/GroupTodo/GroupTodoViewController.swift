@@ -9,6 +9,7 @@
 import UIKit
 import SCLAlertView
 import DZNEmptyDataSet
+import GoogleMobileAds
 
 final class GroupTodoViewController: UIViewController {
     private var presenter: GroupTodoViewPresenterProtocol!
@@ -75,6 +76,11 @@ extension GroupTodoViewController: GroupTodoViewPresenterOutput {
         DispatchQueue.main.async { self.groupTableView.reloadData() }
     }
     
+    func setTableViewInsetBottoms(isSubscribed: Bool) {
+        print(GADAdSize().size.width)
+        self.groupTableView.contentInset.bottom = isSubscribed ? 0 : 110
+    }
+    
     func startActivityIndicator() {
         DispatchQueue.main.async { self.activityIndicator.startAnimating() }
     }
@@ -103,6 +109,18 @@ extension GroupTodoViewController: GroupTodoViewPresenterOutput {
             errorAlertView.showError(title, subTitle: subTitle, colorStyle: 0xFF2D55, colorTextButton: 0xFFFFFF)
         }
     }
+    
+    func impactFeedbackOccurred() {
+        TapticFeedbacker.impact(style: .light)
+    }
+    
+    func noticeFeedbackOccurredError() {
+        TapticFeedbacker.notice(type: .error)
+    }
+    
+    func noticeFeedbackOccurredSuccess() {
+        TapticFeedbacker.notice(type: .success)
+    }
 }
 
 extension GroupTodoViewController: UITableViewDelegate, UITableViewDataSource {
@@ -110,6 +128,10 @@ extension GroupTodoViewController: UITableViewDelegate, UITableViewDataSource {
         let view = UIView()
         view.backgroundColor = .none
         return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -133,7 +155,7 @@ extension GroupTodoViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension GroupTodoViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        let str = "No Task"
+        let str = R.string.localizable.noTask()
         let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline)]
         return NSAttributedString(string: str, attributes: attrs)
     }

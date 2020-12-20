@@ -24,9 +24,15 @@ protocol GroupTodoViewPresenterOutput: class {
     func startActivityIndicator()
     func stopActivityIndicator()
     
+    func setTableViewInsetBottoms(isSubscribed: Bool)
+    
     func segueGroupDetailViewController(index: Int)
     
     func showErrorAleartView(error: Error)
+    
+    func impactFeedbackOccurred()
+    func noticeFeedbackOccurredError()
+    func noticeFeedbackOccurredSuccess()
 }
 
 final class GroupTodoViewPresenter: GroupTodoViewPresenterProtocol, GroupTodoModelOutput {
@@ -45,10 +51,12 @@ final class GroupTodoViewPresenter: GroupTodoViewPresenterProtocol, GroupTodoMod
     func didViewDidLoad() {
         self.view.startActivityIndicator()
         self.model.fetchGroup()
+        self.model.checkingIfAUserSubscribed()
     }
     
     func didTapMakeGroupButton() {
         self.view.showCreateNewGroupVC()
+        self.view.impactFeedbackOccurred()
     }
     
     func successFetchGroup() {
@@ -62,9 +70,15 @@ final class GroupTodoViewPresenter: GroupTodoViewPresenterProtocol, GroupTodoMod
     
     func didTapGroupTableViewCell(index: Int) {
         self.view.segueGroupDetailViewController(index: index)
+        self.view.impactFeedbackOccurred()
+    }
+    
+    func userSubscribed(isSubscribed: Bool) {
+        self.view.setTableViewInsetBottoms(isSubscribed: isSubscribed)
     }
     
     func error(error: Error) {
         self.view.showErrorAleartView(error: error)
+        self.view.noticeFeedbackOccurredError()
     }
 }

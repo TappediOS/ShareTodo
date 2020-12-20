@@ -27,6 +27,10 @@ protocol IntroductionShareTodoPlusViewPresenterOutput: class {
     func setAnnualApplySubsctiontionButtonTitle(price: String)
     
     func showErrorAleartView(error: Error)
+    
+    func impactFeedbackOccurred()
+    func noticeFeedbackOccurredError()
+    func noticeFeedbackOccurredSuccess()
 }
 
 final class IntroductionShareTodoPlusViewPresenter: IntroductionShareTodoPlusViewPresenterProtocol, IntroductionShareTodoPlusModelOutput {
@@ -46,12 +50,14 @@ final class IntroductionShareTodoPlusViewPresenter: IntroductionShareTodoPlusVie
         self.view.startActivityIndicator()
         self.view.beginIgnoringInteractionEvents()
         self.model.makeMonthSubscriptionPurchase()
+        self.view.impactFeedbackOccurred()
     }
     
     func didTapApplyAYearSubscriptionButton() {
         self.view.startActivityIndicator()
         self.view.beginIgnoringInteractionEvents()
         self.model.makeAnnualSubscriptioinPurhase()
+        self.view.impactFeedbackOccurred()
     }
     
     func successFetchMonthSubscriptionPrise(price: String) {
@@ -66,37 +72,44 @@ final class IntroductionShareTodoPlusViewPresenter: IntroductionShareTodoPlusVie
         self.view.stopActivityIndicator()
         self.view.endIgnoringInteractionEvents()
         self.view.popIntroductionVC()
+        self.view.noticeFeedbackOccurredSuccess()
     }
     
     func successPurchaseAnnualSubscription() {
         self.view.stopActivityIndicator()
         self.view.endIgnoringInteractionEvents()
         self.view.popIntroductionVC()
+        self.view.noticeFeedbackOccurredSuccess()
     }
     
     func successRestoreMonthSubscription() {
         self.view.stopActivityIndicator()
         self.view.endIgnoringInteractionEvents()
+        self.view.noticeFeedbackOccurredSuccess()
     }
     
     func successRestoreAnnualSubscription() {
         self.view.stopActivityIndicator()
         self.view.endIgnoringInteractionEvents()
+        self.view.noticeFeedbackOccurredSuccess()
     }
     
     func userPurchaseCancelled() {
         self.view.stopActivityIndicator()
         self.view.endIgnoringInteractionEvents()
+        self.view.noticeFeedbackOccurredError()
     }
     
     func error(error: Error) {
         self.view.showErrorAleartView(error: error)
         self.view.stopActivityIndicator()
         self.view.endIgnoringInteractionEvents()
+        self.view.noticeFeedbackOccurredError()
     }
     
     func productError() {
         self.view.stopActivityIndicator()
         self.view.endIgnoringInteractionEvents()
+        self.view.noticeFeedbackOccurredError()
     }
 }

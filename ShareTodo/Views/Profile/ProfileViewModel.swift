@@ -91,6 +91,7 @@ final class ProfileModel: ProfileModelProtocol {
             
             guard let entitlement = purchaserInfo.entitlements[R.string.sharedString.revenueCatShareTodoEntitlementsID()] else {
                 print("entitlement = nil")
+                self.presenter.userDontSubscribed()
                 return
             }
             

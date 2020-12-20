@@ -316,7 +316,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="messageInfo2" translatesAutoresizingMaskIntoConstraints="NO" id="cgn-Lu-3NP">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MessageInfo2" translatesAutoresizingMaskIntoConstraints="NO" id="cgn-Lu-3NP">
                                                                 <rect key="frame" x="8" y="448.5" width="366" height="244"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="cgn-Lu-3NP" secondAttribute="height" multiplier="3:2" id="dbj-Uc-oMF"/>
@@ -534,8 +534,8 @@ ZS5jb20KCuODu+WIqeeUqOimj+e0hArjgIBodHRwczovL2V4YW1wbGUuY29tA
         </scene>
     </scenes>
     <resources>
+        <image name="MessageInfo2" width="1056" height="704"/>
         <image name="messageInfo1" width="1056" height="704"/>
-        <image name="messageInfo2" width="1056" height="704"/>
         <image name="noAds" width="256" height="256"/>
         <image name="noAdsInfo" width="528" height="352"/>
         <image name="pastInfo" width="528" height="352"/>

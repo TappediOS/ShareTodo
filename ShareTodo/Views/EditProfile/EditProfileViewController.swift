@@ -268,6 +268,8 @@ extension EditProfileViewController: CropViewControllerDelegate {
         
         self.presenter.didCropedProfileImageView()
         
+        //NOTE:- pageSheetにおいてcropVCを使用する際は以下の様にしてdismissする必要がある。
+        //       fullScreenで使用する際は`cropViewController.dismiss()`でok
         let cropVC = cropViewController.children.first!
         cropVC.modalTransitionStyle = .coverVertical
         cropVC.presentingViewController?.dismiss(animated: true, completion: nil)

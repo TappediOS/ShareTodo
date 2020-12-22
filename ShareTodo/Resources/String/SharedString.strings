@@ -19,7 +19,8 @@
 
 
 "AppStoreReviewURL" = "https://itunes.apple.com/us/app/itunes-u/id1540403297?action=write-review";
-"ShareShareTodoURL" = "https://itunes.apple.com/us/app/on-stars-top-of-the-stars/id1540403297?l=ja&ls=1&mt=8";
+"ShareShareTodoURL" = "https://itunes.apple.com/us/app/sharetodo-share-with-friends/id1540403297?l=ja&ls=1&mt=8";
+
 
 // UserDefaultKey
 "isFirstOpenKey" = "isFirstOpenKey";

@@ -1,10 +1,10 @@
 
 github "revenuecat/purchases-ios" "3.7.3"
-github "TimOliver/TOCropViewController"
+github "TimOliver/TOCropViewController" "2.5.5"
 github "vikmeup/SCLAlertView-Swift" "master"
-github "dzenbot/DZNEmptyDataSet"
-github "kean/Nuke"
-github "WenchaoD/FSCalendar"
+github "dzenbot/DZNEmptyDataSet" "v1.8.1"
+github "kean/Nuke" "9.2.1"
+github "WenchaoD/FSCalendar" "2.8.1"
 
 
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAnalyticsBinary.json" == 7.0.0
@@ -17,5 +17,4 @@ binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseProtobufBinary.js
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseABTestingBinary.json" == 7.0.0
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAdMobBinary.json" == 7.0.0
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseCrashlyticsBinary.json" == 7.0.0
-binary "https://dl.google.com/dl/firebase/ios/carthage/FirebasePerformanceBinary.json" == 7.0.0
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseRemoteConfigBinary.json" == 7.0.0

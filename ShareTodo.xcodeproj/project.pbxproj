@@ -36,10 +36,8 @@
 		BF38EF57251EEE3D0024CD17 /* UserDetailViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF56251EEE3D0024CD17 /* UserDetailViewTests.swift */; };
 		BF3E0A252544179F002D04A0 /* FirebaseRemoteConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3E0A1F2544179F002D04A0 /* FirebaseRemoteConfig.framework */; };
 		BF3E0A272544179F002D04A0 /* UserMessagingPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3E0A202544179F002D04A0 /* UserMessagingPlatform.framework */; };
-		BF3E0A292544179F002D04A0 /* FirebasePerformance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3E0A212544179F002D04A0 /* FirebasePerformance.framework */; };
 		BF3E0A2B254417A0002D04A0 /* FirebaseABTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3E0A222544179F002D04A0 /* FirebaseABTesting.framework */; };
 		BF3E0A2D254417A0002D04A0 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3E0A232544179F002D04A0 /* GoogleMobileAds.framework */; };
-		BF3E0A2F254417A0002D04A0 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3E0A242544179F002D04A0 /* GoogleToolboxForMac.framework */; };
 		BF4D2850255FBF5300A2493D /* Purchases.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF4D284F255FBF5300A2493D /* Purchases.framework */; };
 		BF4D2851255FBF5300A2493D /* Purchases.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF4D284F255FBF5300A2493D /* Purchases.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF4D285B255FC8C500A2493D /* ExStoreKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D285A255FC8C500A2493D /* ExStoreKit.swift */; };
@@ -289,10 +287,8 @@
 		BF38EF56251EEE3D0024CD17 /* UserDetailViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewTests.swift; sourceTree = "<group>"; };
 		BF3E0A1F2544179F002D04A0 /* FirebaseRemoteConfig.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseRemoteConfig.framework; path = Carthage/Build/iOS/FirebaseRemoteConfig.framework; sourceTree = "<group>"; };
 		BF3E0A202544179F002D04A0 /* UserMessagingPlatform.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserMessagingPlatform.framework; path = Carthage/Build/iOS/UserMessagingPlatform.framework; sourceTree = "<group>"; };
-		BF3E0A212544179F002D04A0 /* FirebasePerformance.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebasePerformance.framework; path = Carthage/Build/iOS/FirebasePerformance.framework; sourceTree = "<group>"; };
 		BF3E0A222544179F002D04A0 /* FirebaseABTesting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseABTesting.framework; path = Carthage/Build/iOS/FirebaseABTesting.framework; sourceTree = "<group>"; };
 		BF3E0A232544179F002D04A0 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = Carthage/Build/iOS/GoogleMobileAds.framework; sourceTree = "<group>"; };
-		BF3E0A242544179F002D04A0 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleToolboxForMac.framework; path = Carthage/Build/iOS/GoogleToolboxForMac.framework; sourceTree = "<group>"; };
 		BF4D284F255FBF5300A2493D /* Purchases.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Purchases.framework; path = Carthage/Build/iOS/Purchases.framework; sourceTree = "<group>"; };
 		BF4D285A255FC8C500A2493D /* ExStoreKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExStoreKit.swift; sourceTree = "<group>"; };
 		BF4D28762560EA6100A2493D /* ExNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExNotificationCenter.swift; sourceTree = "<group>"; };
@@ -536,13 +532,11 @@
 				BF4D2850255FBF5300A2493D /* Purchases.framework in Frameworks */,
 				BF3E0A2B254417A0002D04A0 /* FirebaseABTesting.framework in Frameworks */,
 				BF97248D24CD24B00033BB50 /* GoogleAppMeasurement.framework in Frameworks */,
-				BF3E0A292544179F002D04A0 /* FirebasePerformance.framework in Frameworks */,
 				BFA792AD25242C03003FE6D0 /* FirebaseInstanceID.framework in Frameworks */,
 				BFA792AB25242C03003FE6D0 /* FirebaseMessaging.framework in Frameworks */,
 				BF97249524CD24B10033BB50 /* gRPC-Core.framework in Frameworks */,
 				BF97248124CD24AE0033BB50 /* gRPC-C++.framework in Frameworks */,
 				BF97248324CD24AE0033BB50 /* PromisesObjC.framework in Frameworks */,
-				BF3E0A2F254417A0002D04A0 /* GoogleToolboxForMac.framework in Frameworks */,
 				BFD5DDF4251B0FE700E35F18 /* FSCalendar.framework in Frameworks */,
 				BFD4366224CDC4B800B2E580 /* Nuke.framework in Frameworks */,
 				BF97246D24CD24AD0033BB50 /* leveldb-library.framework in Frameworks */,
@@ -982,10 +976,8 @@
 				BF4D284F255FBF5300A2493D /* Purchases.framework */,
 				BFB24B652544181A00166D88 /* FirebaseCrashlytics.framework */,
 				BF3E0A222544179F002D04A0 /* FirebaseABTesting.framework */,
-				BF3E0A212544179F002D04A0 /* FirebasePerformance.framework */,
 				BF3E0A1F2544179F002D04A0 /* FirebaseRemoteConfig.framework */,
 				BF3E0A232544179F002D04A0 /* GoogleMobileAds.framework */,
-				BF3E0A242544179F002D04A0 /* GoogleToolboxForMac.framework */,
 				BF3E0A202544179F002D04A0 /* UserMessagingPlatform.framework */,
 				BFA792A925242C03003FE6D0 /* FirebaseInstanceID.framework */,
 				BFA792A825242C03003FE6D0 /* FirebaseMessaging.framework */,
@@ -1978,7 +1970,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ShareTodo/ShareTodo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 9R4W53MKG7;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1991,7 +1983,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				OTHER_LDFLAGS = "-ObjC";
 				"OTHER_SWIFT_FLAGS[arch=*]" = "-Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Taped.ShareTodo;
@@ -2008,7 +2000,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ShareTodo/ShareTodo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 9R4W53MKG7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2020,7 +2012,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Taped.ShareTodo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

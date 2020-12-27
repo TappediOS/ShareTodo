@@ -62,6 +62,9 @@ final class TodayTodoModel: TodayTodoModelProtocol {
     private var firestore: Firestore!
     private var listener: ListenerRegistration?
     
+    // finishの処理が完了しているかどうか
+    private var isFinishedTodo = false
+    
     init() {
         self.setUpFirestore()
         self.setupNotificationCenter()
@@ -91,12 +94,14 @@ final class TodayTodoModel: TodayTodoModelProtocol {
             
             if let error = error {
                 print("Error: \(error.localizedDescription)")
+                self.isFinishedTodo = false
                 self.presenter.error(error: error)
                 return
             }
             
             guard let documents = documentSnapshot?.documents else {
                 print("The document doesn't exist.")
+                self.isFinishedTodo = false
                 return
             }
             
@@ -156,6 +161,7 @@ final class TodayTodoModel: TodayTodoModelProtocol {
         
         dispatchGroup.notify(queue: .main) {
             self.presenter.successFetchTodayTodo()
+            self.isFinishedTodo = false
         }
     }
     
@@ -191,6 +197,7 @@ final class TodayTodoModel: TodayTodoModelProtocol {
     }
     
     func unfinishedTodo(index: Int) {
+        guard self.isFinishedTodo == false else { return }
         let todo = todos.filter({ $0.groupID == groups[index].groupID ?? ""}).first
         guard var finishedTodo = todo else { return }
         guard let finishedTodoIndex = getFinishedTodoIndex(groupIndex: index) else { return }
@@ -230,12 +237,15 @@ final class TodayTodoModel: TodayTodoModelProtocol {
         let documentRef = "todo/v1/groups/" + groupID + "/todo/" + user.uid + "_" + todayFormat
         let todo = Todo(isFinished: true, userID: user.uid, groupID: groupID)
         
+        self.isFinishedTodo = true
+        
         do {
             _ = try self.firestore.document(documentRef).setData(from: todo, merge: true) { [weak self] error in
                 guard let self = self else { return }
                 if let error = error {
                     print("Error: \(error.localizedDescription)")
                     self.presenter.error(error: error)
+                    self.isFinishedTodo = false
                     return
                 }
                 
@@ -244,6 +254,7 @@ final class TodayTodoModel: TodayTodoModelProtocol {
             }
         } catch let error {
             print("Error: \(error.localizedDescription)")
+            self.isFinishedTodo = false
             self.presenter.error(error: error)
             return
         }

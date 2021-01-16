@@ -16,6 +16,7 @@
 		BF020FC52510AA7D006DC525 /* UserDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF020FC42510AA7D006DC525 /* UserDataStore.swift */; };
 		BF110025251F22CF0046376F /* IntroductionShareTodoPlus.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF110024251F22CF0046376F /* IntroductionShareTodoPlus.storyboard */; };
 		BF26FB772530618E00FDFC4A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF26FB792530618E00FDFC4A /* Localizable.strings */; };
+		BF286F0825B2BB1900E657BC /* lottie_stardust.json in Resources */ = {isa = PBXBuildFile; fileRef = BF286F0725B2BB1900E657BC /* lottie_stardust.json */; };
 		BF28E41524FC886600269D82 /* GroupTodoViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */; };
 		BF2B3B70257F045600481B05 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF2B3B72257F045600481B05 /* InfoPlist.strings */; };
 		BF2B3B79257F062900481B05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF2B3B78257F062900481B05 /* LaunchScreen.storyboard */; };
@@ -266,6 +267,7 @@
 		BF110024251F22CF0046376F /* IntroductionShareTodoPlus.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IntroductionShareTodoPlus.storyboard; sourceTree = "<group>"; };
 		BF26FB782530618E00FDFC4A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BF26FB7C2530619100FDFC4A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BF286F0725B2BB1900E657BC /* lottie_stardust.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottie_stardust.json; sourceTree = "<group>"; };
 		BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTodoViewModelTests.swift; sourceTree = "<group>"; };
 		BF2B3B71257F045600481B05 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BF2B3B75257F045A00481B05 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -618,6 +620,14 @@
 			path = String;
 			sourceTree = "<group>";
 		};
+		BF286F0625B2BA8600E657BC /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				BF286F0725B2BB1900E657BC /* lottie_stardust.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
 		BF2B3BA925884E5100481B05 /* OnBoarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -796,6 +806,7 @@
 		BF88D4C124CAA8E800607D6A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BF286F0625B2BA8600E657BC /* Lottie */,
 				BF5120EF254412EC003AC823 /* Bundle */,
 				BF26FB702530616600FDFC4A /* String */,
 				BFD4366424CE62B000B2E580 /* Asset */,
@@ -1376,6 +1387,7 @@
 				BFD5DDEA251B007200E35F18 /* UserDetail.storyboard in Resources */,
 				BFC2A15325786F6500B321C3 /* SubscriptionStatus.storyboard in Resources */,
 				BFD5DE00251B8CE400E35F18 /* .swiftlint.yml in Resources */,
+				BF286F0825B2BB1900E657BC /* lottie_stardust.json in Resources */,
 				BF5CB6B12501CD9100EA1024 /* GroupDetailCollectionReusableView.xib in Resources */,
 				BF97245424CC6BD80033BB50 /* EditProfile.storyboard in Resources */,
 				BFA31F4424FF445200553F06 /* GroupDetail.storyboard in Resources */,

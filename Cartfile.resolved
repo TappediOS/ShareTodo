@@ -10,6 +10,8 @@ binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseRemoteConfigBinar
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseStorageBinary.json" "7.0.0"
 github "TimOliver/TOCropViewController" "2.5.5"
 github "WenchaoD/FSCalendar" "2.8.1"
+github "airbnb/lottie-ios" "3.1.9"
+github "cats-oss/Sica" "0.4.1"
 github "dzenbot/DZNEmptyDataSet" "v1.8.1"
 github "kean/Nuke" "9.2.1"
 github "revenuecat/purchases-ios" "3.7.3"

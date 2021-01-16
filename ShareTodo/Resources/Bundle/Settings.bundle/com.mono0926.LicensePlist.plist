@@ -44,6 +44,14 @@
 		</dict>
 		<dict>
 			<key>File</key>
+			<string>com.mono0926.LicensePlist/lottie-ios</string>
+			<key>Title</key>
+			<string>lottie-ios</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
 			<string>com.mono0926.LicensePlist/Nuke</string>
 			<key>Title</key>
 			<string>Nuke</string>
@@ -79,6 +87,14 @@
 			<string>com.mono0926.LicensePlist/SCLAlertView-Swift</string>
 			<key>Title</key>
 			<string>SCLAlertView-Swift</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.mono0926.LicensePlist/Sica</string>
+			<key>Title</key>
+			<string>Sica</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>

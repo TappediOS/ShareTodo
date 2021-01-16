@@ -17,6 +17,10 @@
 		BF110025251F22CF0046376F /* IntroductionShareTodoPlus.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF110024251F22CF0046376F /* IntroductionShareTodoPlus.storyboard */; };
 		BF26FB772530618E00FDFC4A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF26FB792530618E00FDFC4A /* Localizable.strings */; };
 		BF286F0825B2BB1900E657BC /* lottie_stardust.json in Resources */ = {isa = PBXBuildFile; fileRef = BF286F0725B2BB1900E657BC /* lottie_stardust.json */; };
+		BF286F2525B2C88D00E657BC /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF286F2325B2C88D00E657BC /* Lottie.framework */; };
+		BF286F2625B2C88D00E657BC /* Lottie.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF286F2325B2C88D00E657BC /* Lottie.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BF286F2725B2C88D00E657BC /* Sica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF286F2425B2C88D00E657BC /* Sica.framework */; };
+		BF286F2825B2C88E00E657BC /* Sica.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF286F2425B2C88D00E657BC /* Sica.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF28E41524FC886600269D82 /* GroupTodoViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */; };
 		BF2B3B70257F045600481B05 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF2B3B72257F045600481B05 /* InfoPlist.strings */; };
 		BF2B3B79257F062900481B05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF2B3B78257F062900481B05 /* LaunchScreen.storyboard */; };
@@ -242,9 +246,11 @@
 			files = (
 				BFD435F824CD425B00B2E580 /* DZNEmptyDataSet.framework in Embed Frameworks */,
 				BFD4366324CDC4B800B2E580 /* Nuke.framework in Embed Frameworks */,
+				BF286F2825B2C88E00E657BC /* Sica.framework in Embed Frameworks */,
 				BFD435D024CD2EBD00B2E580 /* CropViewController.framework in Embed Frameworks */,
 				BFD5DDF5251B0FE800E35F18 /* FSCalendar.framework in Embed Frameworks */,
 				BFD435FA24CD425C00B2E580 /* SCLAlertView.framework in Embed Frameworks */,
+				BF286F2625B2C88D00E657BC /* Lottie.framework in Embed Frameworks */,
 				BF4D2851255FBF5300A2493D /* Purchases.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -268,6 +274,8 @@
 		BF26FB782530618E00FDFC4A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BF26FB7C2530619100FDFC4A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BF286F0725B2BB1900E657BC /* lottie_stardust.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottie_stardust.json; sourceTree = "<group>"; };
+		BF286F2325B2C88D00E657BC /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = Carthage/Build/iOS/Lottie.framework; sourceTree = "<group>"; };
+		BF286F2425B2C88D00E657BC /* Sica.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sica.framework; path = Carthage/Build/iOS/Sica.framework; sourceTree = "<group>"; };
 		BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTodoViewModelTests.swift; sourceTree = "<group>"; };
 		BF2B3B71257F045600481B05 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BF2B3B75257F045A00481B05 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -531,6 +539,7 @@
 				BF9724A724CD2C930033BB50 /* libc++.tbd in Frameworks */,
 				BFD435F724CD425B00B2E580 /* DZNEmptyDataSet.framework in Frameworks */,
 				BF97247324CD24AD0033BB50 /* FirebaseCore.framework in Frameworks */,
+				BF286F2525B2C88D00E657BC /* Lottie.framework in Frameworks */,
 				BF4D2850255FBF5300A2493D /* Purchases.framework in Frameworks */,
 				BF3E0A2B254417A0002D04A0 /* FirebaseABTesting.framework in Frameworks */,
 				BF97248D24CD24B00033BB50 /* GoogleAppMeasurement.framework in Frameworks */,
@@ -559,6 +568,7 @@
 				BF97249124CD24B00033BB50 /* GTMSessionFetcher.framework in Frameworks */,
 				BF3E0A252544179F002D04A0 /* FirebaseRemoteConfig.framework in Frameworks */,
 				BF97248524CD24AF0033BB50 /* abseil.framework in Frameworks */,
+				BF286F2725B2C88D00E657BC /* Sica.framework in Frameworks */,
 				BF3E0A2D254417A0002D04A0 /* GoogleMobileAds.framework in Frameworks */,
 				BF97246F24CD24AD0033BB50 /* FirebaseFirestore.framework in Frameworks */,
 				BF97249324CD24B10033BB50 /* GoogleUtilities.framework in Frameworks */,
@@ -984,6 +994,8 @@
 		BF97245724CD24AC0033BB50 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BF286F2325B2C88D00E657BC /* Lottie.framework */,
+				BF286F2425B2C88D00E657BC /* Sica.framework */,
 				BF4D284F255FBF5300A2493D /* Purchases.framework */,
 				BFB24B652544181A00166D88 /* FirebaseCrashlytics.framework */,
 				BF3E0A222544179F002D04A0 /* FirebaseABTesting.framework */,
@@ -1642,6 +1654,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/CropViewController.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SCLAlertView.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Nuke.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Lottie.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Sica.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (

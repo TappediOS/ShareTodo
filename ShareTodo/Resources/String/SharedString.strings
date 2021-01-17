@@ -44,3 +44,12 @@
 "writeMessage_EventParam" = "writeMessage_EventParam";
 "groupLeaveUserID_EventParam" = "groupLeaveUserID";
 "groupLeaveGroupID_EventParam" = "groupLeaveGroupID";
+
+
+// RemoteConfig
+"remoteConfig_star" = "star";
+"remoteConfig_mudRaibow" = "mudRainbow";
+"remoteConfig_fireworks" = "fireworks";
+"remoteConfig_cracker" = "cracker";
+"remoteConfig_spark" = "spark";
+"remoteConfig_randomAnimation" = "random";

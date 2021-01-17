@@ -34,8 +34,8 @@ public extension AnimationView {
     func getStarAnimationView(stackViewFrame: CGRect, targetViewFrame: CGRect) -> AnimationView {
         let animationView = AnimationView(name: R.file.lottie_stardustJson.name)
         animationView.frame = frameCalculation(stackViewFrame, targetViewFrame)
-        animationView.transform = CGAffineTransform(scaleX: 2.7, y: 2.7)
-        animationView.animationSpeed = 1
+        animationView.transform = CGAffineTransform(scaleX: 2.78, y: 2.78)
+        animationView.animationSpeed = 0.92
         self.setupAnimationOption(animationView: animationView)
         return animationView
     }
@@ -48,7 +48,7 @@ public extension AnimationView {
         trans = trans.translatedBy(x: -16, y: 16) // 移動してから拡大すること
         trans = trans.scaledBy(x: 3.2, y: 3.2)
         animationView.transform = trans
-        animationView.animationSpeed = 1.28
+        animationView.animationSpeed = 1.0
         self.setupAnimationOption(animationView: animationView)
         return animationView
     }
@@ -56,8 +56,8 @@ public extension AnimationView {
     func getFireworksAnimationView(stackViewFrame: CGRect, targetViewFrame: CGRect) -> AnimationView {
         let animationView = AnimationView(name: R.file.lottie_fireworksJson.name)
         animationView.frame = frameCalculation(stackViewFrame, targetViewFrame)
-        animationView.transform = CGAffineTransform(scaleX: 4.25, y: 4.25)
-        animationView.animationSpeed = 1.6
+        animationView.transform = CGAffineTransform(scaleX: 4.4, y: 4.4)
+        animationView.animationSpeed = 1.1
         self.setupAnimationOption(animationView: animationView)
         return animationView
     }
@@ -66,7 +66,7 @@ public extension AnimationView {
         let animationView = AnimationView(name: R.file.lottie_mud_rainbowJson.name)
         animationView.frame = frameCalculation(stackViewFrame, targetViewFrame)
         animationView.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
-        animationView.animationSpeed = 2.0
+        animationView.animationSpeed = 1.75
         self.setupAnimationOption(animationView: animationView)
         return animationView
     }

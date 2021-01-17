@@ -21,6 +21,7 @@
 		BF286F2625B2C88D00E657BC /* Lottie.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF286F2325B2C88D00E657BC /* Lottie.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF286F2725B2C88D00E657BC /* Sica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF286F2425B2C88D00E657BC /* Sica.framework */; };
 		BF286F2825B2C88E00E657BC /* Sica.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF286F2425B2C88D00E657BC /* Sica.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BF286F4625B3F72400E657BC /* ExLottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF286F4525B3F72400E657BC /* ExLottie.swift */; };
 		BF28E41524FC886600269D82 /* GroupTodoViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */; };
 		BF2B3B70257F045600481B05 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF2B3B72257F045600481B05 /* InfoPlist.strings */; };
 		BF2B3B79257F062900481B05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF2B3B78257F062900481B05 /* LaunchScreen.storyboard */; };
@@ -276,6 +277,7 @@
 		BF286F0725B2BB1900E657BC /* lottie_stardust.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottie_stardust.json; sourceTree = "<group>"; };
 		BF286F2325B2C88D00E657BC /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = Carthage/Build/iOS/Lottie.framework; sourceTree = "<group>"; };
 		BF286F2425B2C88D00E657BC /* Sica.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sica.framework; path = Carthage/Build/iOS/Sica.framework; sourceTree = "<group>"; };
+		BF286F4525B3F72400E657BC /* ExLottie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExLottie.swift; sourceTree = "<group>"; };
 		BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTodoViewModelTests.swift; sourceTree = "<group>"; };
 		BF2B3B71257F045600481B05 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BF2B3B75257F045A00481B05 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -866,6 +868,7 @@
 				BFFA6174250E087000A1D2CE /* ExUIColor.swift */,
 				BF4D2921256A45B500A2493D /* ExSCLAlertView.swift */,
 				BF351E6C258B301E000D17CF /* ExUIImage.swift */,
+				BF286F4525B3F72400E657BC /* ExLottie.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1777,6 +1780,7 @@
 				BF88D51B24CACEEC00607D6A /* TodayTodoCollectionViewCell.swift in Sources */,
 				BFD5DDDA251AFFE100E35F18 /* UserDetailViewBuilder.swift in Sources */,
 				BF88D4DC24CAAB5100607D6A /* ExUIView.swift in Sources */,
+				BF286F4625B3F72400E657BC /* ExLottie.swift in Sources */,
 				BFD435F424CD36F900B2E580 /* ExUIImageView.swift in Sources */,
 				BFC2A14B25786F5D00B321C3 /* SubscriptionStatusViewController.swift in Sources */,
 				BFD4362324CD659600B2E580 /* Group.swift in Sources */,

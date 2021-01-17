@@ -22,6 +22,10 @@
 		BF286F2725B2C88D00E657BC /* Sica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF286F2425B2C88D00E657BC /* Sica.framework */; };
 		BF286F2825B2C88E00E657BC /* Sica.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF286F2425B2C88D00E657BC /* Sica.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF286F4625B3F72400E657BC /* ExLottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF286F4525B3F72400E657BC /* ExLottie.swift */; };
+		BF286F4D25B42D1600E657BC /* lottie_mud_rainbow.json in Resources */ = {isa = PBXBuildFile; fileRef = BF286F4925B42D1500E657BC /* lottie_mud_rainbow.json */; };
+		BF286F4E25B42D1600E657BC /* lottie_fireworks.json in Resources */ = {isa = PBXBuildFile; fileRef = BF286F4A25B42D1500E657BC /* lottie_fireworks.json */; };
+		BF286F4F25B42D1600E657BC /* lottie_spark.json in Resources */ = {isa = PBXBuildFile; fileRef = BF286F4B25B42D1500E657BC /* lottie_spark.json */; };
+		BF286F5025B42D1600E657BC /* lottie_cracker.json in Resources */ = {isa = PBXBuildFile; fileRef = BF286F4C25B42D1500E657BC /* lottie_cracker.json */; };
 		BF28E41524FC886600269D82 /* GroupTodoViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */; };
 		BF2B3B70257F045600481B05 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF2B3B72257F045600481B05 /* InfoPlist.strings */; };
 		BF2B3B79257F062900481B05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF2B3B78257F062900481B05 /* LaunchScreen.storyboard */; };
@@ -278,6 +282,10 @@
 		BF286F2325B2C88D00E657BC /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = Carthage/Build/iOS/Lottie.framework; sourceTree = "<group>"; };
 		BF286F2425B2C88D00E657BC /* Sica.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sica.framework; path = Carthage/Build/iOS/Sica.framework; sourceTree = "<group>"; };
 		BF286F4525B3F72400E657BC /* ExLottie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExLottie.swift; sourceTree = "<group>"; };
+		BF286F4925B42D1500E657BC /* lottie_mud_rainbow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottie_mud_rainbow.json; sourceTree = "<group>"; };
+		BF286F4A25B42D1500E657BC /* lottie_fireworks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottie_fireworks.json; sourceTree = "<group>"; };
+		BF286F4B25B42D1500E657BC /* lottie_spark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottie_spark.json; sourceTree = "<group>"; };
+		BF286F4C25B42D1500E657BC /* lottie_cracker.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottie_cracker.json; sourceTree = "<group>"; };
 		BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTodoViewModelTests.swift; sourceTree = "<group>"; };
 		BF2B3B71257F045600481B05 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BF2B3B75257F045A00481B05 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -636,6 +644,10 @@
 			isa = PBXGroup;
 			children = (
 				BF286F0725B2BB1900E657BC /* lottie_stardust.json */,
+				BF286F4C25B42D1500E657BC /* lottie_cracker.json */,
+				BF286F4A25B42D1500E657BC /* lottie_fireworks.json */,
+				BF286F4925B42D1500E657BC /* lottie_mud_rainbow.json */,
+				BF286F4B25B42D1500E657BC /* lottie_spark.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -1401,14 +1413,18 @@
 				BFD5DE04251B8CFB00E35F18 /* .gitignore in Resources */,
 				BFD5DDEA251B007200E35F18 /* UserDetail.storyboard in Resources */,
 				BFC2A15325786F6500B321C3 /* SubscriptionStatus.storyboard in Resources */,
+				BF286F4D25B42D1600E657BC /* lottie_mud_rainbow.json in Resources */,
 				BFD5DE00251B8CE400E35F18 /* .swiftlint.yml in Resources */,
 				BF286F0825B2BB1900E657BC /* lottie_stardust.json in Resources */,
+				BF286F5025B42D1600E657BC /* lottie_cracker.json in Resources */,
 				BF5CB6B12501CD9100EA1024 /* GroupDetailCollectionReusableView.xib in Resources */,
 				BF97245424CC6BD80033BB50 /* EditProfile.storyboard in Resources */,
 				BFA31F4424FF445200553F06 /* GroupDetail.storyboard in Resources */,
+				BF286F4E25B42D1600E657BC /* lottie_fireworks.json in Resources */,
 				BF6468C22500F36100F1CB75 /* GroupDetailCollectionViewCell.xib in Resources */,
 				BFD4362E24CDAD0000B2E580 /* RegisterUser.storyboard in Resources */,
 				BF88D4EA24CAB76700607D6A /* MainTabBar.storyboard in Resources */,
+				BF286F4F25B42D1600E657BC /* lottie_spark.json in Resources */,
 				BFC2A1AB257C605F00B321C3 /* Account.storyboard in Resources */,
 				BF351E8F258C82B2000D17CF /* Settings.bundle in Resources */,
 				BFD4360524CD450200B2E580 /* CreateNewGroup.storyboard in Resources */,

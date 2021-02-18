@@ -16,6 +16,16 @@
 		BF020FC52510AA7D006DC525 /* UserDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF020FC42510AA7D006DC525 /* UserDataStore.swift */; };
 		BF110025251F22CF0046376F /* IntroductionShareTodoPlus.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF110024251F22CF0046376F /* IntroductionShareTodoPlus.storyboard */; };
 		BF26FB772530618E00FDFC4A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF26FB792530618E00FDFC4A /* Localizable.strings */; };
+		BF286F0825B2BB1900E657BC /* lottie_stardust.json in Resources */ = {isa = PBXBuildFile; fileRef = BF286F0725B2BB1900E657BC /* lottie_stardust.json */; };
+		BF286F2525B2C88D00E657BC /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF286F2325B2C88D00E657BC /* Lottie.framework */; };
+		BF286F2625B2C88D00E657BC /* Lottie.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF286F2325B2C88D00E657BC /* Lottie.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BF286F2725B2C88D00E657BC /* Sica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF286F2425B2C88D00E657BC /* Sica.framework */; };
+		BF286F2825B2C88E00E657BC /* Sica.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF286F2425B2C88D00E657BC /* Sica.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BF286F4625B3F72400E657BC /* ExLottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF286F4525B3F72400E657BC /* ExLottie.swift */; };
+		BF286F4D25B42D1600E657BC /* lottie_mud_rainbow.json in Resources */ = {isa = PBXBuildFile; fileRef = BF286F4925B42D1500E657BC /* lottie_mud_rainbow.json */; };
+		BF286F4E25B42D1600E657BC /* lottie_fireworks.json in Resources */ = {isa = PBXBuildFile; fileRef = BF286F4A25B42D1500E657BC /* lottie_fireworks.json */; };
+		BF286F4F25B42D1600E657BC /* lottie_spark.json in Resources */ = {isa = PBXBuildFile; fileRef = BF286F4B25B42D1500E657BC /* lottie_spark.json */; };
+		BF286F5025B42D1600E657BC /* lottie_cracker.json in Resources */ = {isa = PBXBuildFile; fileRef = BF286F4C25B42D1500E657BC /* lottie_cracker.json */; };
 		BF28E41524FC886600269D82 /* GroupTodoViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */; };
 		BF2B3B70257F045600481B05 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF2B3B72257F045600481B05 /* InfoPlist.strings */; };
 		BF2B3B79257F062900481B05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF2B3B78257F062900481B05 /* LaunchScreen.storyboard */; };
@@ -36,10 +46,8 @@
 		BF38EF57251EEE3D0024CD17 /* UserDetailViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38EF56251EEE3D0024CD17 /* UserDetailViewTests.swift */; };
 		BF3E0A252544179F002D04A0 /* FirebaseRemoteConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3E0A1F2544179F002D04A0 /* FirebaseRemoteConfig.framework */; };
 		BF3E0A272544179F002D04A0 /* UserMessagingPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3E0A202544179F002D04A0 /* UserMessagingPlatform.framework */; };
-		BF3E0A292544179F002D04A0 /* FirebasePerformance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3E0A212544179F002D04A0 /* FirebasePerformance.framework */; };
 		BF3E0A2B254417A0002D04A0 /* FirebaseABTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3E0A222544179F002D04A0 /* FirebaseABTesting.framework */; };
 		BF3E0A2D254417A0002D04A0 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3E0A232544179F002D04A0 /* GoogleMobileAds.framework */; };
-		BF3E0A2F254417A0002D04A0 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3E0A242544179F002D04A0 /* GoogleToolboxForMac.framework */; };
 		BF4D2850255FBF5300A2493D /* Purchases.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF4D284F255FBF5300A2493D /* Purchases.framework */; };
 		BF4D2851255FBF5300A2493D /* Purchases.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF4D284F255FBF5300A2493D /* Purchases.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF4D285B255FC8C500A2493D /* ExStoreKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D285A255FC8C500A2493D /* ExStoreKit.swift */; };
@@ -243,9 +251,11 @@
 			files = (
 				BFD435F824CD425B00B2E580 /* DZNEmptyDataSet.framework in Embed Frameworks */,
 				BFD4366324CDC4B800B2E580 /* Nuke.framework in Embed Frameworks */,
+				BF286F2825B2C88E00E657BC /* Sica.framework in Embed Frameworks */,
 				BFD435D024CD2EBD00B2E580 /* CropViewController.framework in Embed Frameworks */,
 				BFD5DDF5251B0FE800E35F18 /* FSCalendar.framework in Embed Frameworks */,
 				BFD435FA24CD425C00B2E580 /* SCLAlertView.framework in Embed Frameworks */,
+				BF286F2625B2C88D00E657BC /* Lottie.framework in Embed Frameworks */,
 				BF4D2851255FBF5300A2493D /* Purchases.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -268,6 +278,14 @@
 		BF110024251F22CF0046376F /* IntroductionShareTodoPlus.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IntroductionShareTodoPlus.storyboard; sourceTree = "<group>"; };
 		BF26FB782530618E00FDFC4A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BF26FB7C2530619100FDFC4A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BF286F0725B2BB1900E657BC /* lottie_stardust.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottie_stardust.json; sourceTree = "<group>"; };
+		BF286F2325B2C88D00E657BC /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = Carthage/Build/iOS/Lottie.framework; sourceTree = "<group>"; };
+		BF286F2425B2C88D00E657BC /* Sica.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sica.framework; path = Carthage/Build/iOS/Sica.framework; sourceTree = "<group>"; };
+		BF286F4525B3F72400E657BC /* ExLottie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExLottie.swift; sourceTree = "<group>"; };
+		BF286F4925B42D1500E657BC /* lottie_mud_rainbow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottie_mud_rainbow.json; sourceTree = "<group>"; };
+		BF286F4A25B42D1500E657BC /* lottie_fireworks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottie_fireworks.json; sourceTree = "<group>"; };
+		BF286F4B25B42D1500E657BC /* lottie_spark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottie_spark.json; sourceTree = "<group>"; };
+		BF286F4C25B42D1500E657BC /* lottie_cracker.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottie_cracker.json; sourceTree = "<group>"; };
 		BF28E41424FC886600269D82 /* GroupTodoViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTodoViewModelTests.swift; sourceTree = "<group>"; };
 		BF2B3B71257F045600481B05 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BF2B3B75257F045A00481B05 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -289,10 +307,8 @@
 		BF38EF56251EEE3D0024CD17 /* UserDetailViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewTests.swift; sourceTree = "<group>"; };
 		BF3E0A1F2544179F002D04A0 /* FirebaseRemoteConfig.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseRemoteConfig.framework; path = Carthage/Build/iOS/FirebaseRemoteConfig.framework; sourceTree = "<group>"; };
 		BF3E0A202544179F002D04A0 /* UserMessagingPlatform.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserMessagingPlatform.framework; path = Carthage/Build/iOS/UserMessagingPlatform.framework; sourceTree = "<group>"; };
-		BF3E0A212544179F002D04A0 /* FirebasePerformance.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebasePerformance.framework; path = Carthage/Build/iOS/FirebasePerformance.framework; sourceTree = "<group>"; };
 		BF3E0A222544179F002D04A0 /* FirebaseABTesting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseABTesting.framework; path = Carthage/Build/iOS/FirebaseABTesting.framework; sourceTree = "<group>"; };
 		BF3E0A232544179F002D04A0 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = Carthage/Build/iOS/GoogleMobileAds.framework; sourceTree = "<group>"; };
-		BF3E0A242544179F002D04A0 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleToolboxForMac.framework; path = Carthage/Build/iOS/GoogleToolboxForMac.framework; sourceTree = "<group>"; };
 		BF4D284F255FBF5300A2493D /* Purchases.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Purchases.framework; path = Carthage/Build/iOS/Purchases.framework; sourceTree = "<group>"; };
 		BF4D285A255FC8C500A2493D /* ExStoreKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExStoreKit.swift; sourceTree = "<group>"; };
 		BF4D28762560EA6100A2493D /* ExNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExNotificationCenter.swift; sourceTree = "<group>"; };
@@ -533,16 +549,15 @@
 				BF9724A724CD2C930033BB50 /* libc++.tbd in Frameworks */,
 				BFD435F724CD425B00B2E580 /* DZNEmptyDataSet.framework in Frameworks */,
 				BF97247324CD24AD0033BB50 /* FirebaseCore.framework in Frameworks */,
+				BF286F2525B2C88D00E657BC /* Lottie.framework in Frameworks */,
 				BF4D2850255FBF5300A2493D /* Purchases.framework in Frameworks */,
 				BF3E0A2B254417A0002D04A0 /* FirebaseABTesting.framework in Frameworks */,
 				BF97248D24CD24B00033BB50 /* GoogleAppMeasurement.framework in Frameworks */,
-				BF3E0A292544179F002D04A0 /* FirebasePerformance.framework in Frameworks */,
 				BFA792AD25242C03003FE6D0 /* FirebaseInstanceID.framework in Frameworks */,
 				BFA792AB25242C03003FE6D0 /* FirebaseMessaging.framework in Frameworks */,
 				BF97249524CD24B10033BB50 /* gRPC-Core.framework in Frameworks */,
 				BF97248124CD24AE0033BB50 /* gRPC-C++.framework in Frameworks */,
 				BF97248324CD24AE0033BB50 /* PromisesObjC.framework in Frameworks */,
-				BF3E0A2F254417A0002D04A0 /* GoogleToolboxForMac.framework in Frameworks */,
 				BFD5DDF4251B0FE700E35F18 /* FSCalendar.framework in Frameworks */,
 				BFD4366224CDC4B800B2E580 /* Nuke.framework in Frameworks */,
 				BF97246D24CD24AD0033BB50 /* leveldb-library.framework in Frameworks */,
@@ -563,6 +578,7 @@
 				BF97249124CD24B00033BB50 /* GTMSessionFetcher.framework in Frameworks */,
 				BF3E0A252544179F002D04A0 /* FirebaseRemoteConfig.framework in Frameworks */,
 				BF97248524CD24AF0033BB50 /* abseil.framework in Frameworks */,
+				BF286F2725B2C88D00E657BC /* Sica.framework in Frameworks */,
 				BF3E0A2D254417A0002D04A0 /* GoogleMobileAds.framework in Frameworks */,
 				BF97246F24CD24AD0033BB50 /* FirebaseFirestore.framework in Frameworks */,
 				BF97249324CD24B10033BB50 /* GoogleUtilities.framework in Frameworks */,
@@ -622,6 +638,18 @@
 				BF2B3B72257F045600481B05 /* InfoPlist.strings */,
 			);
 			path = String;
+			sourceTree = "<group>";
+		};
+		BF286F0625B2BA8600E657BC /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				BF286F0725B2BB1900E657BC /* lottie_stardust.json */,
+				BF286F4C25B42D1500E657BC /* lottie_cracker.json */,
+				BF286F4A25B42D1500E657BC /* lottie_fireworks.json */,
+				BF286F4925B42D1500E657BC /* lottie_mud_rainbow.json */,
+				BF286F4B25B42D1500E657BC /* lottie_spark.json */,
+			);
+			path = Lottie;
 			sourceTree = "<group>";
 		};
 		BF2B3BA925884E5100481B05 /* OnBoarding */ = {
@@ -802,6 +830,7 @@
 		BF88D4C124CAA8E800607D6A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BF286F0625B2BA8600E657BC /* Lottie */,
 				BF5120EF254412EC003AC823 /* Bundle */,
 				BF26FB702530616600FDFC4A /* String */,
 				BFD4366424CE62B000B2E580 /* Asset */,
@@ -851,6 +880,7 @@
 				BFFA6174250E087000A1D2CE /* ExUIColor.swift */,
 				BF4D2921256A45B500A2493D /* ExSCLAlertView.swift */,
 				BF351E6C258B301E000D17CF /* ExUIImage.swift */,
+				BF286F4525B3F72400E657BC /* ExLottie.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -979,13 +1009,13 @@
 		BF97245724CD24AC0033BB50 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BF286F2325B2C88D00E657BC /* Lottie.framework */,
+				BF286F2425B2C88D00E657BC /* Sica.framework */,
 				BF4D284F255FBF5300A2493D /* Purchases.framework */,
 				BFB24B652544181A00166D88 /* FirebaseCrashlytics.framework */,
 				BF3E0A222544179F002D04A0 /* FirebaseABTesting.framework */,
-				BF3E0A212544179F002D04A0 /* FirebasePerformance.framework */,
 				BF3E0A1F2544179F002D04A0 /* FirebaseRemoteConfig.framework */,
 				BF3E0A232544179F002D04A0 /* GoogleMobileAds.framework */,
-				BF3E0A242544179F002D04A0 /* GoogleToolboxForMac.framework */,
 				BF3E0A202544179F002D04A0 /* UserMessagingPlatform.framework */,
 				BFA792A925242C03003FE6D0 /* FirebaseInstanceID.framework */,
 				BFA792A825242C03003FE6D0 /* FirebaseMessaging.framework */,
@@ -1281,6 +1311,7 @@
 				D22DF730596E192E7D83398A /* [CP] Embed Pods Frameworks */,
 				BF2B3B7C2581A9BC00481B05 /* Crashlytics */,
 				BF5120E4254411AF003AC823 /* LicensePlist */,
+				BFBB6A0C258F3C30008DCBF5 /* DeleteFrameworks */,
 			);
 			buildRules = (
 			);
@@ -1382,13 +1413,18 @@
 				BFD5DE04251B8CFB00E35F18 /* .gitignore in Resources */,
 				BFD5DDEA251B007200E35F18 /* UserDetail.storyboard in Resources */,
 				BFC2A15325786F6500B321C3 /* SubscriptionStatus.storyboard in Resources */,
+				BF286F4D25B42D1600E657BC /* lottie_mud_rainbow.json in Resources */,
 				BFD5DE00251B8CE400E35F18 /* .swiftlint.yml in Resources */,
+				BF286F0825B2BB1900E657BC /* lottie_stardust.json in Resources */,
+				BF286F5025B42D1600E657BC /* lottie_cracker.json in Resources */,
 				BF5CB6B12501CD9100EA1024 /* GroupDetailCollectionReusableView.xib in Resources */,
 				BF97245424CC6BD80033BB50 /* EditProfile.storyboard in Resources */,
 				BFA31F4424FF445200553F06 /* GroupDetail.storyboard in Resources */,
+				BF286F4E25B42D1600E657BC /* lottie_fireworks.json in Resources */,
 				BF6468C22500F36100F1CB75 /* GroupDetailCollectionViewCell.xib in Resources */,
 				BFD4362E24CDAD0000B2E580 /* RegisterUser.storyboard in Resources */,
 				BF88D4EA24CAB76700607D6A /* MainTabBar.storyboard in Resources */,
+				BF286F4F25B42D1600E657BC /* lottie_spark.json in Resources */,
 				BFC2A1AB257C605F00B321C3 /* Account.storyboard in Resources */,
 				BF351E8F258C82B2000D17CF /* Settings.bundle in Resources */,
 				BFD4360524CD450200B2E580 /* CreateNewGroup.storyboard in Resources */,
@@ -1605,6 +1641,24 @@
 			shellPath = /bin/sh;
 			shellScript = "if [ \"${CONFIGURATION}\" == \"Release\" ]; then\n  cp \"${PROJECT_DIR}/${PROJECT_NAME}/Resources/GoogleInfo/GoogleService-Info.plist\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\"\nfi\nif [ \"${CONFIGURATION}\" == \"Debug\" ]; then\n  cp \"${PROJECT_DIR}/${PROJECT_NAME}/Resources/GoogleInfo/GoogleService-Info.plist\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\"\nelse\n  cp \"${PROJECT_DIR}/${PROJECT_NAME}/Resources/GoogleInfo/GoogleService-Info.plist\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\"\nfi\n";
 		};
+		BFBB6A0C258F3C30008DCBF5 /* DeleteFrameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = DeleteFrameworks;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ \"$CONFIGURATION\" == \"Debug\" ]; then\n    echo \"Skip frameworks cleaning in debug version\"\n    exit 0\nfi\n\nAPP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone\n";
+		};
 		BFD435CE24CD2E3800B2E580 /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1613,6 +1667,14 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/FSCalendar.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/DZNEmptyDataSet.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Purchases.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CropViewController.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SCLAlertView.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Nuke.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Lottie.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Sica.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
@@ -1734,6 +1796,7 @@
 				BF88D51B24CACEEC00607D6A /* TodayTodoCollectionViewCell.swift in Sources */,
 				BFD5DDDA251AFFE100E35F18 /* UserDetailViewBuilder.swift in Sources */,
 				BF88D4DC24CAAB5100607D6A /* ExUIView.swift in Sources */,
+				BF286F4625B3F72400E657BC /* ExLottie.swift in Sources */,
 				BFD435F424CD36F900B2E580 /* ExUIImageView.swift in Sources */,
 				BFC2A14B25786F5D00B321C3 /* SubscriptionStatusViewController.swift in Sources */,
 				BFD4362324CD659600B2E580 /* Group.swift in Sources */,
@@ -1953,6 +2016,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ShareTodo/ShareTodo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 9R4W53MKG7;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1965,7 +2029,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.3;
 				OTHER_LDFLAGS = "-ObjC";
 				"OTHER_SWIFT_FLAGS[arch=*]" = "-Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Taped.ShareTodo;
@@ -1982,6 +2046,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ShareTodo/ShareTodo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 9R4W53MKG7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1993,7 +2058,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.3;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Taped.ShareTodo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

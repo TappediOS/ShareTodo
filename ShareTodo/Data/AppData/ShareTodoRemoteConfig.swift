@@ -14,6 +14,9 @@ final class ShareTodoRemoteConfig {
     
     private struct Key {
         static let iosLatestVersionKey = "ios_latest_version_key"
+        
+        static let finishTodoAnimationValueKey = "finishTodo_animation_value"
+        static let loadingAnimationEnableKey = "loading_animation_enable"
     }
     
     #if DEBUG
@@ -41,6 +44,16 @@ final class ShareTodoRemoteConfig {
         #else
         self.config.fetchAndActivate()
         #endif
+    }
+    
+    static var finishTodoAnimationValue: String? {
+        guard let keyString = config.configValue(forKey: Key.finishTodoAnimationValueKey).stringValue else { return nil }
+        return keyString
+        
+    }
+    
+    static var loadingAnimationEnable: Bool? {
+        return config.configValue(forKey: Key.loadingAnimationEnableKey).boolValue
     }
     
     static var iosLatestVersion: String? {

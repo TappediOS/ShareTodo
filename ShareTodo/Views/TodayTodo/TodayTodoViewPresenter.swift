@@ -84,15 +84,14 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
     }
     
     func successUnfinishedTodo() {
-        self.view.reloadTodayTodoCollectionView()
-        self.view.impactFeedbackOccurred_medium()
+        //self.view.reloadTodayTodoCollectionView()
+        
     }
     
     func successFinishedTodo() {
-        self.model.fetchGroups()
+        //self.model.fetchGroups()
         self.view.stopActivityIndicator()
-        self.view.impactFeedbackOccurred_heavy()
-        
+
         self.model.countUpRequestFinishTodo()
         if self.model.shouldRequestStoreReviewFinishTodoCount() { self.view.showSKStoreReviewController() }
     }
@@ -100,10 +99,12 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
     func didTapRadioButton(index: Int) {
         if self.model.isFinishedTodo(index: index) {
             self.model.unfinishedTodo(index: index)
+            self.view.impactFeedbackOccurred_medium()
             return
         }
         
         self.model.finishedTodo(index: index)
+        self.view.impactFeedbackOccurred_heavy()
     }
     
     func didTapWriteMessageButtonAction(index: Int) {

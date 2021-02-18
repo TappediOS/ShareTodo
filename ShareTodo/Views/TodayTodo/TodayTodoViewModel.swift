@@ -248,7 +248,16 @@ final class TodayTodoModel: TodayTodoModelProtocol {
                     self.isFinishedTodo = false
                     return
                 }
+        
+                // 配列に存在するときはそれを変える。存在しなかったらtodoを加える
+                // successFinishedTodo()でfetchすれば配列todosにappendされるが，しないならelse先でappendする
+                if let finishedTodoIndex = self.getFinishedTodoIndex(groupIndex: index) {
+                    self.todos[finishedTodoIndex].isFinished = true
+                } else {
+                    self.todos.append(todo)
+                }
                 
+                self.isFinishedTodo = false
                 self.presenter.successFinishedTodo()
                 Analytics.logEvent(R.string.sharedString.finishedTodo_EventName(), parameters: nil)
             }
@@ -389,7 +398,7 @@ final class TodayTodoModel: TodayTodoModelProtocol {
     
     func shouldRequestStoreReviewOpenAppCount() -> Bool {
         let count = UserDefaults.standard.integer(forKey: R.string.sharedString.openAppCountKey())
-        if count == 4 || count == 7 || count == 12 || count == 18 || count == 25 || count == 35 || count == 50 { return true }
+        if count == 5 || count == 8 || count == 12 || count == 18 || count == 25 || count == 35 || count == 50 { return true }
         return false
     }
     

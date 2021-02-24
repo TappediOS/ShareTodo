@@ -18,12 +18,21 @@ platform :ios do
     	binary_path: "FirebaseCrashlytics/upload-symbols"
    	)
     clean_build_artifacts
+    post_slack(message: "dsymをアップロードしたよ🍏")
   end
 
+  lane :post_slack do |options|
+    slack(
+      message: options[:message],
+      channel: "#sharetodo", 
+      payload: { "Build Date" => Time.new.to_s, }
+    )
+end
 
   after_all do |lane|
   	slack(
   	  message: "Successfully",
+      channel: "#sharetodo",
       payload: { "Build Date" => Time.new.to_s, },
       success: true
    	)

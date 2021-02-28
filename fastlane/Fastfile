@@ -10,7 +10,7 @@ platform :ios do
   	ENV["SLACK_URL"] = CONF["slack"]["webhookurl"]
   end
 
-  dosc "App Sotoreにアップロードする"
+  desc "App Sotoreにアップロードする"
   lane :AppStore do
     gym(
       scheme: 'ShareTodo',

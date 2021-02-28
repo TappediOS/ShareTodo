@@ -11,7 +11,7 @@ platform :ios do
   end
 
   desc "App Sotoreにアップロードする"
-  lane :AppStore do
+  lane :app_store do
     gym(
       scheme: 'ShareTodo',
       clene: true,
@@ -35,7 +35,7 @@ platform :ios do
     	gsp_path: "ShareTodo/Resources/GoogleInfo/GoogleService-Info.plist",
     	binary_path: "FirebaseCrashlytics/upload-symbols"
    	)
-    clean_build_artifacts
+    clean_build_artifacts # dsym.zip ファイルを削除する
     post_slack(message: "dsymをアップロードしたよ🍏")
   end
 

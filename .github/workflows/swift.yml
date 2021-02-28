@@ -9,12 +9,12 @@ on:
 jobs:
   build:
 
-    runs-on: macos-10.15
+    runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Select Xcode
-      run: sudo xcode-select -s '/Applications/Xcode_12.1.app/Contents/Developer'
+      run: sudo xcode-select -s '/Applications/Xcode_12.2.app/Contents/Developer'
 
     - name: show Xcode Version
       run: xcodebuild -version
@@ -42,7 +42,7 @@ jobs:
 
     # Run build
     - name: Build
-      run: xcodebuild
+      run: xcodebuild clean
             -workspace ShareTodo.xcworkspace
             -scheme ShareTodo
             -sdk iphonesimulator

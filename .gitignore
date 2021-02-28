@@ -16,6 +16,8 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
+
+# R.swit
 R.generated.swift
 
 # Carthage
@@ -24,3 +26,9 @@ Carthage/Checkouts/
 Carthage/carthage_workaround_for_xcode12.xcconfig
 
 Pods/
+
+# Ruby Gems
+.bundle/
+vendor/
+
+

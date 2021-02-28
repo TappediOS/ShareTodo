@@ -1,0 +1,67 @@
+require "yaml"
+
+
+default_platform(:ios)
+
+CONF = YAML.load_file('conf.yaml')
+
+platform :ios do
+  before_all do
+  	ENV["SLACK_URL"] = CONF["slack"]["webhookurl"]
+  end
+
+  dosc "App Sotoreにアップロードする"
+  lane :AppStore do
+    gym{
+      scheme: 'ShareTodo',
+      clene: true,
+      configuration: 'Release',
+      exprt_method: 'app-store',
+    }
+
+    deliver(
+      skip_screenshots: true,
+      skip_metadata: true,
+      automatic_release: false,
+      phased_release: true
+    )
+
+  end
+
+  desc "dsymをUploadするlane"
+  lane :dsym do
+    download_dsyms(version: 'latest')
+    upload_symbols_to_crashlytics(
+    	gsp_path: "ShareTodo/Resources/GoogleInfo/GoogleService-Info.plist",
+    	binary_path: "FirebaseCrashlytics/upload-symbols"
+   	)
+    clean_build_artifacts
+    post_slack(message: "dsymをアップロードしたよ🍏")
+  end
+
+  lane :post_slack do |options|
+    slack(
+      message: options[:message],
+      channel: "#sharetodo", 
+      payload: { "Build Date" => Time.new.to_s, }
+    )
+end
+
+  after_all do |lane|
+  	slack(
+  	  message: "Successfully",
+      channel: "#sharetodo",
+      payload: { "Build Date" => Time.new.to_s, },
+      success: true
+   	)
+  end
+
+  error do |lane, exception|
+    slack(
+      message: exception.message,
+      channel: "#sharetodo",
+      payload: { "Build Date" => Time.new.to_s, },
+      success: false
+    )
+  end  
+end

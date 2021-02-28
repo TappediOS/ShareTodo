@@ -1,0 +1,90 @@
+A TODO app to share your ongoing habits with family and friends!
+
+ShareTodo is a TODO app that shares daily TODO with family, couples, and friends.
+You can complete daily TODO with one tap and share it with members.
+
+
+■■■ Features of ShareTodo ■■■
+
+Share your daily habits with family and friends. By continuing daily TODO, you can make a shortcut to achieve your goals and objectives!
+
+
+■ What are your daily habits?
+
+・ Running
+・ Read two or more pages of a book
+・ Write a diary before going to bed
+・ Do muscle training
+
+You can create a group and share this continuous habit with everyone!
+
+When a member completes a TODO, a notification is sent to other group members to see who completed the TODO and when.
+In addition, you can check past records such as yesterday and the day before yesterday, so you can continue to make tasks a habit.
+(Premium function is required to check tasks more than a week ago)
+
+Plus, with the Premium feature, you can send a message of the day to your members after completing the TODO!
+
+
+
+■ When do you use this app?
+
+For example, if you are in club activities
+"Because there will be a tournament next month, let's do XX every day until that day!"
+If you want to go on a diet with your friends
+"Let's exercise for more than XX minutes every day!"
+It can be used in various situations, such as!
+
+
+Conversely, you cannot manage a one-off TODO such as "buying toilet paper" or "repairing your watch."
+
+
+
+■ Can be used by one person
+By creating your own group, you can habituate your tasks every day toward the goals you want to achieve!
+Of course, you can continue alone and invite your friends to the group from the group edit screen if you want to invite them!
+
+
+
+■ Recommended for people like this
+
+・ There is a task you want to become a habit
+・ I want to share my daily habits and continue
+・ I want to be notified that a member has completed a task
+・ I want to make tasks habitual by myself
+・ I want to keep a record of what I have done
+
+
+■■■ About premium features ■■■
+
+The following three functions will be available.
+1. Hide ads
+2. Check tasks before 1 week
+3. Send a small message to members after completing Todo
+
+
+■ Fee
+-- 1 month plan: $2.49  (tax included)
+-- 1 year plan :    $24.99 (tax included)
+
+
+■ Precautions
+・It will be automatically reflected one month after the application date.
+・Automatic renewal billing will be done automatically within 24 hours when the period expires.
+・Auto-renewal billing will renew automatically unless you turn off auto-renewal at least 24 hours before the expiration date.
+
+・You can manage the automatic renewal billing yourself. You can also cancel at any time.
+・You can check and cancel your subscription from [Settings app] → [iTunes Store] → [Apple ID] → [Display Apple ID] → [Register]. If you cancel, the subscription will end and the renewal will not be performed when the contract period you are using ends.
+
+・You cannot cancel the premium function by any method other than the above.
+・Premium features will be charged to your Apple ID.
+
+・ You can use the premium function until the renewal date even after completing the cancellation procedure for automatic renewal billing.
+・ After completing the cancellation procedure for automatic renewal billing, the plan will shift to the free plan after the next renewal date.
+
+・Privacy Policy
+　https://sharetodo-a91ef.firebaseapp.com/privacy.html
+ 
+・Terms of use
+　https://sharetodo-a91ef.firebaseapp.com/term.html
+
+

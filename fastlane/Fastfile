@@ -12,12 +12,12 @@ platform :ios do
 
   dosc "App Sotoreにアップロードする"
   lane :AppStore do
-    gym{
+    gym(
       scheme: 'ShareTodo',
       clene: true,
       configuration: 'Release',
       exprt_method: 'app-store',
-    }
+    )
 
     deliver(
       skip_screenshots: true,

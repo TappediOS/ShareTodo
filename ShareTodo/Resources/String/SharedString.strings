@@ -38,7 +38,8 @@
 "tapApplyMonthSubscriptionButton_EventName" = "tapApplyMonthSubscriptionButton";
 "tapApplyAnnualSubscripotionButton_EventName" = "tapApplyAnnualSubscripotionButton";
 "deleteAccount_EventName" = "deleteAccount";
-
+"AdsTrackingAuthorized_EventName" = "AdsTrackingAuthorized";
+"AdsTrackingDenied_EventName" = "AdsTrackingDenied";
 
 // AnalyticsLogEventParam
 "writeMessage_EventParam" = "writeMessage_EventParam";

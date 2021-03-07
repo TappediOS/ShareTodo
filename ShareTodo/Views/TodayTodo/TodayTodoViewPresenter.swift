@@ -15,6 +15,7 @@ protocol TodayTodoViewPresenterProtocol {
     
     func didViewDidLoad()
     func didViewWillAppear()
+    func didViewDidAppear()
     func didTapRadioButton(index: Int)
     func didTapWriteMessageButtonAction(index: Int)
     func didTapEmptyDataSetButton()
@@ -75,6 +76,10 @@ final class TodayTodoViewPresenter: TodayTodoViewPresenterProtocol, TodayTodoMod
     func didViewWillAppear() {
         // viewWillAppearが呼ばれるときはsubscをcheckする
         self.model.checkingIfAUserSubscribed()
+    }
+
+    func didViewDidAppear() {
+        self.model.requestAdsTrackingIfNeeded()
     }
     
     func successFetchTodayTodo() {

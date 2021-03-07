@@ -35,6 +35,12 @@ final class TodayTodoViewController: UIViewController {
         super.viewWillAppear(animated)
         self.presenter.didViewWillAppear()
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        self.presenter.didViewDidAppear()
+    }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

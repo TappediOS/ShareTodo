@@ -21,6 +21,12 @@ final class OnBoardingViewController: UIViewController {
         self.setupOnBoardingTextLabel()
         self.setupCreateAccountButton()
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        self.presenter.didViewDidAppear()
+    }
     
     private func setupOnBoardingTextLabel() {
         self.onBoardingTextLabel.text = R.string.localizable.onBoardingText()

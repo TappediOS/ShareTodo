@@ -10,3 +10,5 @@ CFBundleDisplayName = "ShareTodo";
 
 NSCameraUsageDescription = "Take a profile photo";
 NSPhotoLibraryUsageDescription = "Select your profile photos";
+
+NSUserTrackingUsageDescription = "If you allow it, you will see a customized ad";

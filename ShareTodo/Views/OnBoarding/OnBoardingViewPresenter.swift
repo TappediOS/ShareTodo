@@ -8,7 +8,8 @@
 
 protocol OnBoardingViewPresenterProtocol {
     var view: OnBoardingViewPresenterOutput! { get set }
-    
+
+    func didViewDidAppear()
     func didTapCreateAccountButton()
 }
 
@@ -27,6 +28,10 @@ final class OnBoardingViewPresenter: OnBoardingViewPresenterProtocol, OnBoarding
     init(model: OnBoardingModelProtocol) {
         self.model = model
         self.model.presenter = self
+    }
+
+    func didViewDidAppear() {
+        self.model.requestAdsTrackingIfNeeded()
     }
     
     func didTapCreateAccountButton() {

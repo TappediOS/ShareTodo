@@ -8,6 +8,8 @@
 
 import Firebase
 import FirebaseMessaging
+import AppTrackingTransparency
+import AdSupport
 import Purchases
 
 protocol TodayTodoModelProtocol {
@@ -36,7 +38,8 @@ protocol TodayTodoModelProtocol {
     func countUpRequestFinishTodo()
     func shouldRequestStoreReviewFinishTodoCount() -> Bool
     func isFirstOpen() -> Bool
-    
+
+    func requestAdsTrackingIfNeeded()
     func checkingIfAUserSubscribed()
 }
 
@@ -407,6 +410,23 @@ final class TodayTodoModel: TodayTodoModelProtocol {
         if count == 3 || count == 6 || count == 10 || count == 15 || count == 26 || count == 36 { return true }
         if count == 48 || count == 61 || count == 75 || count == 90 || count == 118 { return true }
         return false
+    }
+
+    func requestAdsTrackingIfNeeded() {
+        if #available(iOS 14, *) {
+            if ATTrackingManager.trackingAuthorizationStatus == .notDetermined {
+                ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
+                    switch status {
+                    case .authorized: Analytics.logEvent(R.string.sharedString.adsTrackingAuthorized_EventName(), parameters: nil)
+                    case .denied: Analytics.logEvent(R.string.sharedString.adsTrackingDenied_EventName(), parameters: nil)
+                    case .restricted, .notDetermined: return
+                    @unknown default: return
+                    }
+                })
+            }
+        } else {
+            return
+        }
     }
     
     func isFirstOpen() -> Bool {

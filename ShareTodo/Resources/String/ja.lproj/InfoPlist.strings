@@ -10,3 +10,5 @@ CFBundleDisplayName = "シェアTODO";
 
 NSCameraUsageDescription = "プロフィール画像を撮影します";
 NSPhotoLibraryUsageDescription = "プロフィール画像を選択します";
+
+NSUserTrackingUsageDescription = "許可するとカスタマイズされた広告が表示されるよ";

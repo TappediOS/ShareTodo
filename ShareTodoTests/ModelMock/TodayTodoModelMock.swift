@@ -137,4 +137,8 @@ class TodayTodoModelMock: TodayTodoModelProtocol {
     @objc func endSubscribed() {
         self.presenter.userEndSubscribed()
     }
+
+    func requestAdsTrackingIfNeeded() {
+        return
+    }
 }
